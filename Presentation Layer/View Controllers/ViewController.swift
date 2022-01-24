@@ -54,10 +54,10 @@ class ViewController: UIViewController {
     
     private func decorateView() {
         
-        view.backgroundColor = calculatorColors.backgroundColor
+        view.backgroundColor = UIColor(hex: calculatorColors.background)
         calculatorView.backgroundColor = view.backgroundColor
         
-        lcdDisplay.textColor = calculatorColors.displayColor
+        lcdDisplay.textColor = UIColor(hex: calculatorColors.display)
         
         decoratePinPadButton(pinPadButton0)
         decoratePinPadButton(pinPadButton1)
@@ -83,20 +83,20 @@ class ViewController: UIViewController {
     }
     
     private func decoratePinPadButton(_ button: UIButton) {
-        button.backgroundColor = calculatorColors.pinPadColor
-        button.tintColor = calculatorColors.pinPadTitleColor
+        button.backgroundColor = UIColor(hex: calculatorColors.pinPad)
+        button.tintColor = UIColor(hex: calculatorColors.pinPadTitle)
         button.becomeRound()
     }
     
     private func decorateOperandButton(_ button: UIButton, _ selected: Bool = false) {
-        button.backgroundColor = selected ? calculatorColors.operandSelectedColor : calculatorColors.operandColor
-        button.tintColor = selected ? calculatorColors.operatorTitleSelectedColor : calculatorColors.operatorTitleColor
+        button.backgroundColor = selected ? UIColor(hex: calculatorColors.operandSelected) : UIColor(hex: calculatorColors.operand)
+        button.tintColor = selected ? UIColor(hex: calculatorColors.operatorTitleSelected) : UIColor(hex: calculatorColors.operatorTitle)
         button.becomeRound()
     }
     
     private func decorateExtraFunctionsButton(_ button: UIButton) {
-        button.backgroundColor = calculatorColors.extraFunctionsColor
-        button.tintColor = calculatorColors.extraFunctionsTitleColor
+        button.backgroundColor = UIColor(hex: calculatorColors.extraFunctions)
+        button.tintColor = UIColor(hex: calculatorColors.extraFunctionsTitle)
         button.becomeRound()
     }
     

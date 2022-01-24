@@ -1,5 +1,5 @@
 //
-//  CalculatorColors+UIKit.swift
+//  UIColor+HexValue.swift
 //  Calc
 //
 //  Created by Matthew Paul Harding on 24/01/2022.
@@ -7,24 +7,8 @@
 
 import UIKit
 
-extension CalculatorColors {
-    var backgroundColor: UIColor { UIColor(hex: background)! }
-    var displayColor: UIColor { UIColor(hex: display)! }
-    
-    var operandColor: UIColor { UIColor(hex: operand)! }
-    var operandSelectedColor: UIColor { UIColor(hex: operandSelected)! }
-    
-    var operatorTitleColor: UIColor { UIColor(hex: operatorTitle)! }
-    var operatorTitleSelectedColor: UIColor { UIColor(hex: operatorTitleSelected)! }
-    
-    var pinPadColor: UIColor { UIColor(hex: pinPad)! }
-    var pinPadTitleColor: UIColor { UIColor(hex: pinPadTitle)! }
-    
-    var extraFunctionsColor: UIColor { UIColor(hex: extraFunctions)! }
-    var extraFunctionsTitleColor: UIColor { UIColor(hex: extraFunctionsTitle)! }
-}
-
 extension UIColor {
+    
     public convenience init?(hex: String) {
         let r, g, b: CGFloat
 
