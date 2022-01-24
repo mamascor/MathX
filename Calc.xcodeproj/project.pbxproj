@@ -122,7 +122,6 @@
 				0CE4065C279E9CFB00B16A24 /* Presentation Layer */,
 				0CE40654279E9CFB00B16A24 /* Business Logic */,
 				0CE4065A279E9CFB00B16A24 /* Data Layer */,
-				0CE4065D279E9CFB00B16A24 /* UIKit Extensions */,
 				0CE4062D279E9BBA00B16A24 /* Assets.xcassets */,
 				0CE40632279E9BBA00B16A24 /* Info.plist */,
 			);
@@ -186,14 +185,6 @@
 			path = "Presentation Layer";
 			sourceTree = SOURCE_ROOT;
 		};
-		0CE4065D279E9CFB00B16A24 /* UIKit Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				0CE4065E279E9CFB00B16A24 /* UIButton+Decorate.swift */,
-			);
-			path = "UIKit Extensions";
-			sourceTree = "<group>";
-		};
 		0CE4066A279E9D7800B16A24 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +197,7 @@
 		0CE4066F279EBE8000B16A24 /* UIKit Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0CE4065E279E9CFB00B16A24 /* UIButton+Decorate.swift */,
 				0CE4066D279EBE7600B16A24 /* CalculatorColors+UIKit.swift */,
 			);
 			path = "UIKit Extensions";
