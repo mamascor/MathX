@@ -27,6 +27,10 @@
 		0CE40673279EDB4700B16A24 /* UIColor+HexValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40672279EDB4700B16A24 /* UIColor+HexValue.swift */; };
 		0CE40675279EEA5100B16A24 /* ElectroColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40674279EEA5100B16A24 /* ElectroColorPalette.swift */; };
 		0CE40677279EEAE800B16A24 /* LightColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40676279EEAE800B16A24 /* LightColorPalette.swift */; };
+		0CE40679279F596100B16A24 /* LightBlueColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40678279F596100B16A24 /* LightBlueColorPalette.swift */; };
+		0CE4067B279F5C7F00B16A24 /* PinkColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4067A279F5C7F00B16A24 /* PinkColorPalette.swift */; };
+		0CE4067D279F5E1800B16A24 /* DarkBlueColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4067C279F5E1800B16A24 /* DarkBlueColorPalette.swift */; };
+		0CE4067F279F648100B16A24 /* PurpleColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4067E279F648100B16A24 /* PurpleColorPalette.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +75,10 @@
 		0CE40672279EDB4700B16A24 /* UIColor+HexValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexValue.swift"; sourceTree = "<group>"; };
 		0CE40674279EEA5100B16A24 /* ElectroColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectroColorPalette.swift; sourceTree = "<group>"; };
 		0CE40676279EEAE800B16A24 /* LightColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightColorPalette.swift; sourceTree = "<group>"; };
+		0CE40678279F596100B16A24 /* LightBlueColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightBlueColorPalette.swift; sourceTree = "<group>"; };
+		0CE4067A279F5C7F00B16A24 /* PinkColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinkColorPalette.swift; sourceTree = "<group>"; };
+		0CE4067C279F5E1800B16A24 /* DarkBlueColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkBlueColorPalette.swift; sourceTree = "<group>"; };
+		0CE4067E279F648100B16A24 /* PurpleColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleColorPalette.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +185,10 @@
 				0CE40670279EC6D400B16A24 /* DarkColorPalette.swift */,
 				0CE40674279EEA5100B16A24 /* ElectroColorPalette.swift */,
 				0CE40676279EEAE800B16A24 /* LightColorPalette.swift */,
+				0CE40678279F596100B16A24 /* LightBlueColorPalette.swift */,
+				0CE4067A279F5C7F00B16A24 /* PinkColorPalette.swift */,
+				0CE4067C279F5E1800B16A24 /* DarkBlueColorPalette.swift */,
+				0CE4067E279F648100B16A24 /* PurpleColorPalette.swift */,
 			);
 			path = "Data Layer";
 			sourceTree = SOURCE_ROOT;
@@ -341,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CE40677279EEAE800B16A24 /* LightColorPalette.swift in Sources */,
+				0CE4067B279F5C7F00B16A24 /* PinkColorPalette.swift in Sources */,
 				0CE40629279E9BB800B16A24 /* CalcViewController.swift in Sources */,
 				0CE40666279E9CFB00B16A24 /* DataStore.swift in Sources */,
 				0CE40673279EDB4700B16A24 /* UIColor+HexValue.swift in Sources */,
@@ -350,10 +363,13 @@
 				0CE40663279E9CFB00B16A24 /* DisplayFormatter.swift in Sources */,
 				0CE40671279EC6D400B16A24 /* DarkColorPalette.swift in Sources */,
 				0CE40625279E9BB800B16A24 /* AppDelegate.swift in Sources */,
+				0CE4067F279F648100B16A24 /* PurpleColorPalette.swift in Sources */,
 				0CE40627279E9BB800B16A24 /* SceneDelegate.swift in Sources */,
 				0CE40675279EEA5100B16A24 /* ElectroColorPalette.swift in Sources */,
 				0CE40665279E9CFB00B16A24 /* CalculatorViewController.swift in Sources */,
 				0CE40664279E9CFB00B16A24 /* CalculatorEngine.swift in Sources */,
+				0CE4067D279F5E1800B16A24 /* DarkBlueColorPalette.swift in Sources */,
+				0CE40679279F596100B16A24 /* LightBlueColorPalette.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
