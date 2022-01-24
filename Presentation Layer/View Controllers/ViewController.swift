@@ -36,7 +36,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var equalsButton: UIButton!
     
-    var calculatorColors: CalculatorColors = DarkCalculator()
+    // MARK: - Color Palette
+    
+    private var colorPalette: ColorPalette = LightColorPalette()
     
     // MARK: - Life Cycle
     
@@ -54,10 +56,10 @@ class ViewController: UIViewController {
     
     private func decorateView() {
         
-        view.backgroundColor = UIColor(hex: calculatorColors.background)
+        view.backgroundColor = UIColor(hex: colorPalette.background)
         calculatorView.backgroundColor = view.backgroundColor
         
-        lcdDisplay.textColor = UIColor(hex: calculatorColors.display)
+        lcdDisplay.textColor = UIColor(hex: colorPalette.display)
         
         decoratePinPadButton(pinPadButton0)
         decoratePinPadButton(pinPadButton1)
@@ -83,20 +85,20 @@ class ViewController: UIViewController {
     }
     
     private func decoratePinPadButton(_ button: UIButton) {
-        button.backgroundColor = UIColor(hex: calculatorColors.pinPad)
-        button.tintColor = UIColor(hex: calculatorColors.pinPadTitle)
+        button.backgroundColor = UIColor(hex: colorPalette.pinPad)
+        button.tintColor = UIColor(hex: colorPalette.pinPadTitle)
         button.becomeRound()
     }
     
     private func decorateOperandButton(_ button: UIButton, _ selected: Bool = false) {
-        button.backgroundColor = selected ? UIColor(hex: calculatorColors.operandSelected) : UIColor(hex: calculatorColors.operand)
-        button.tintColor = selected ? UIColor(hex: calculatorColors.operatorTitleSelected) : UIColor(hex: calculatorColors.operatorTitle)
+        button.backgroundColor = selected ? UIColor(hex: colorPalette.operandSelected) : UIColor(hex: colorPalette.operand)
+        button.tintColor = selected ? UIColor(hex: colorPalette.operatorTitleSelected) : UIColor(hex: colorPalette.operatorTitle)
         button.becomeRound()
     }
     
     private func decorateExtraFunctionsButton(_ button: UIButton) {
-        button.backgroundColor = UIColor(hex: calculatorColors.extraFunctions)
-        button.tintColor = UIColor(hex: calculatorColors.extraFunctionsTitle)
+        button.backgroundColor = UIColor(hex: colorPalette.extraFunctions)
+        button.tintColor = UIColor(hex: colorPalette.extraFunctionsTitle)
         button.becomeRound()
     }
     

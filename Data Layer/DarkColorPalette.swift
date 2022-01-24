@@ -1,5 +1,5 @@
 //
-//  DarkCalculator.swift
+//  DarkColorPalette.swift
 //  Calc
 //
 //  Created by Matthew Paul Harding on 24/01/2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DarkCalculator: CalculatorColors {
+struct DarkColorPalette: ColorPalette {
     var background: String = "#000000"
     
     var display: String = "#ffffff"

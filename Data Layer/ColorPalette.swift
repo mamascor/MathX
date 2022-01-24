@@ -1,5 +1,5 @@
 //
-//  CalculatorColors.swift
+//  ColorPalette.swift
 //  Calc
 //
 //  Created by Matthew Paul Harding on 24/01/2022.
