@@ -19,4 +19,12 @@ struct DataStore {
     func loadResult() -> Double? {
         return UserDefaults.standard.double(forKey: key)
     }
+    
+    func saveInt(_ number: Int) {
+        return UserDefaults.standard.set(number, forKey: key)
+    }
+    
+    func loadInt() -> Int {
+        return UserDefaults.standard.integer(forKey: key)
+    }
 }
