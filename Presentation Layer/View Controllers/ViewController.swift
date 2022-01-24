@@ -9,6 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var calculatorView: UIView!
+    @IBOutlet weak var lcdDisplay: UILabel!
+    
     @IBOutlet weak var pinPadButton0: UIButton!
     @IBOutlet weak var pinPadButton1: UIButton!
     @IBOutlet weak var pinPadButton2: UIButton!
@@ -43,6 +46,12 @@ class ViewController: UIViewController {
     }
     
     private func decorateView() {
+        
+        view.backgroundColor = calculatorColors.backgroundColor
+        calculatorView.backgroundColor = view.backgroundColor
+        
+        lcdDisplay.textColor = calculatorColors.displayColor
+        
         decoratePinPadButton(pinPadButton0)
         decoratePinPadButton(pinPadButton1)
         decoratePinPadButton(pinPadButton2)
@@ -53,15 +62,33 @@ class ViewController: UIViewController {
         decoratePinPadButton(pinPadButton7)
         decoratePinPadButton(pinPadButton8)
         decoratePinPadButton(pinPadButton9)
+        
+        decorateOperandButton(divideButton)
+        decorateOperandButton(multiplyButton)
+        decorateOperandButton(minusButton)
+        decorateOperandButton(addButton)
+        decorateOperandButton(equalsButton)
+        
+        decorateExtraFunctionsButton(clearButton)
+        decorateExtraFunctionsButton(negateButton)
+        decorateExtraFunctionsButton(percentageButton)
     }
     
-    private func decoratePinPadButton(_ button: UIButton, _ selected: Bool = false) {
+    private func decoratePinPadButton(_ button: UIButton) {
         button.backgroundColor = calculatorColors.pinPadColor
         button.tintColor = calculatorColors.pinPadTitleColor
     }
+    
+    private func decorateOperandButton(_ button: UIButton, _ selected: Bool = false) {
+        button.backgroundColor = selected ? calculatorColors.operandSelectedColor : calculatorColors.operandColor
+        button.tintColor = selected ? calculatorColors.operatorTitleSelectedColor : calculatorColors.operatorTitleColor
+    }
+    
+    private func decorateExtraFunctionsButton(_ button: UIButton) {
+        button.backgroundColor = calculatorColors.extraFunctionsColor
+        button.tintColor = calculatorColors.extraFunctionsTitleColor
+    }
+    
+    
 }
-
-
-
-
 
