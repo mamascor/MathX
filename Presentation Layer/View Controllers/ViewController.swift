@@ -40,6 +40,7 @@ class ViewController: UIViewController {
     
     private var colorPalette: ColorPalette = DarkColorPalette()
     private var currentThemeIndex = 0
+    private let themeDataStore = DataStore(key: "iOSBFree.com.calc.ViewController.themeIndex")
     
     // MARK: - Gesture Properties
     
@@ -51,6 +52,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         addThemeGestureRecogniser()
+        loadThemeIndex()
     }
     
     override func viewDidLayoutSubviews() {
@@ -131,6 +133,13 @@ class ViewController: UIViewController {
         if currentThemeIndex > 2 {
             currentThemeIndex = 0
         }
+        
+        loadThemeFromCurrentThemeIndex()
+        
+        saveCurrentThemeIndex()
+    }
+    
+    private func loadThemeFromCurrentThemeIndex() {
         switch currentThemeIndex {
         case 1: loadTheme(ElectroColorPalette())
         case 2: loadTheme(LightColorPalette())
@@ -141,6 +150,15 @@ class ViewController: UIViewController {
     private func loadTheme(_ theme: ColorPalette) {
         colorPalette = theme
         decorateView()
+    }
+    
+    private func saveCurrentThemeIndex() {
+        themeDataStore.saveInt(currentThemeIndex)
+    }
+    
+    private func loadThemeIndex() {
+        currentThemeIndex = themeDataStore.loadInt()
+        loadThemeFromCurrentThemeIndex()
     }
 }
 

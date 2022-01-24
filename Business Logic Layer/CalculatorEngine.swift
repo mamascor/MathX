@@ -19,7 +19,7 @@ struct CalculatorEngine {
     let decimalSymbol = Locale.current.decimalSeparator!
     
     // MARK: - Managers
-    private let dataStore = DataStore(key: "iOSBFree.com.calc.total")
+    private let dataStore = DataStore(key: "iOSBFree.com.calc.CalculatorEngine.total")
     private let displayFormatter = DisplayFormatter(maximumCharactersForDisplay: 9)
     private let calculator = Calculator()
     
