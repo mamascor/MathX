@@ -38,13 +38,23 @@ class ViewController: UIViewController {
     
     // MARK: - Color Palette
     
-    private var colorPalette: ColorPalette = LightColorPalette()
+    private var colorPalette: ColorPalette = DarkColorPalette()
+    private var currentThemeIndex = 0
+    
+    // MARK: - Gesture Properties
+    
+    private var themeGestureRecogniser: UITapGestureRecognizer?
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        themeGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(self.themeGestureRecogniserDidTap))
+        themeGestureRecogniser?.numberOfTapsRequired = 2
+        if let gesture = themeGestureRecogniser {
+            view.addGestureRecognizer(gesture)
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -102,5 +112,31 @@ class ViewController: UIViewController {
         button.becomeRound()
     }
     
+    // MARK: - Gesture Recognisers
+    
+    @objc private func themeGestureRecogniserDidTap (_ gesture: UITapGestureRecognizer) {
+        decorateViewWithNextTheme()
+    }
+    
+    // MARK: - Themes
+    
+    private func decorateViewWithNextTheme() {
+        
+        // loop to the beginning
+        currentThemeIndex = currentThemeIndex + 1
+        if currentThemeIndex > 2 {
+            currentThemeIndex = 0
+        }
+        switch currentThemeIndex {
+        case 1: loadTheme(ElectroColorPalette())
+        case 2: loadTheme(LightColorPalette())
+        default: loadTheme(DarkColorPalette())
+        }
+    }
+    
+    private func loadTheme(_ theme: ColorPalette) {
+        colorPalette = theme
+        decorateView()
+    }
 }
 
