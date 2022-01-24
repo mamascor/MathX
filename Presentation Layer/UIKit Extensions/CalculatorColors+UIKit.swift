@@ -12,24 +12,16 @@ extension CalculatorColors {
     var displayColor: UIColor { UIColor(hex: display)! }
     
     var operandColor: UIColor { UIColor(hex: operand)! }
-    var operandHighlightedColor: UIColor { UIColor(hex: operandHighlighted)! }
     var operandSelectedColor: UIColor { UIColor(hex: operandSelected)! }
     
     var operatorTitleColor: UIColor { UIColor(hex: operatorTitle)! }
-    var operatorTitleHighlightedColor: UIColor { UIColor(hex: operatorTitleHighlighted)! }
     var operatorTitleSelectedColor: UIColor { UIColor(hex: operatorTitleSelected)! }
     
     var pinPadColor: UIColor { UIColor(hex: pinPad)! }
-    var pinPadHighlightedColor: UIColor { UIColor(hex: pinPadHighlighted)! }
-    
     var pinPadTitleColor: UIColor { UIColor(hex: pinPadTitle)! }
-    var pinPadTitleHighlightedColor: UIColor { UIColor(hex: pinPadTitleHighlighted)! }
     
     var extraFunctionsColor: UIColor { UIColor(hex: extraFunctions)! }
-    var extraFunctionsHighlightedColor: UIColor { UIColor(hex: extraFunctionsHighlighted)! }
-    
     var extraFunctionsTitleColor: UIColor { UIColor(hex: extraFunctionsTitle)! }
-    var extraFunctionsTitleHighlightedColor: UIColor { UIColor(hex: extraFunctionsTitleHighlighted)! }
 }
 
 extension UIColor {
