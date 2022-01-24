@@ -106,7 +106,7 @@ final class CalculatorViewController: UIViewController {
     
     @IBAction func clearButtonPressed(_ sender: UIButton) {
         
-        let numberToDisplay = calculator.clear() // todo update the display with this value!!
+        let numberToDisplay = calculator.clearPressed() // todo update the display with this value!!
         display.text = calculator.formatForDisplay(number: numberToDisplay)
         clearButton.setTitle("AC", for: .normal)
         
@@ -114,21 +114,21 @@ final class CalculatorViewController: UIViewController {
     }
     
     @IBAction func negateButtonPressed(_ sender: UIButton) {
-        let numberToDisplay = calculator.negateNumber()
+        let numberToDisplay = calculator.negatePressed()
         display.text = calculator.formatForDisplay(number: numberToDisplay)
         
         highlightOperationButton()
     }
     
     @IBAction func percentageButtonPressed(_ sender: UIButton) {
-        let numberToDisplay = calculator.applyPercentage()
+        let numberToDisplay = calculator.percentagePressed()
         display.text = calculator.formatForDisplay(number: numberToDisplay)
         
         highlightOperationButton()
     }
     
     @IBAction func pinPadButtonPressed(_ sender: UIButton) {
-        let numberToDisplay = calculator.inputNumber(sender.tag)
+        let numberToDisplay = calculator.numberPressed(sender.tag)
         display.text = calculator.formatForDisplay(number: numberToDisplay)
         
         highlightOperationButton()
@@ -138,7 +138,7 @@ final class CalculatorViewController: UIViewController {
     
     @IBAction func addOperatorPressed(_ sender: UIButton) {
         
-        if let numberToDisplay = calculator.addOperation() {
+        if let numberToDisplay = calculator.addPressed() {
             display.text = calculator.formatForDisplay(number: numberToDisplay)
         }
         
@@ -146,7 +146,7 @@ final class CalculatorViewController: UIViewController {
     }
     
     @IBAction func minusOperatorPressed(_ sender: UIButton) {
-        if let numberToDisplay = calculator.substractOperation() {
+        if let numberToDisplay = calculator.minusPressed() {
             display.text = calculator.formatForDisplay(number: numberToDisplay)
         }
         
@@ -154,7 +154,7 @@ final class CalculatorViewController: UIViewController {
     }
     
     @IBAction func multiplyOperatorPressed(_ sender: UIButton) {
-        if let numberToDisplay = calculator.multiplyOperation() {
+        if let numberToDisplay = calculator.multiplyPressed() {
             display.text = calculator.formatForDisplay(number: numberToDisplay)
         }
         
@@ -162,7 +162,7 @@ final class CalculatorViewController: UIViewController {
     }
     
     @IBAction func divideOperatorPressed(_ sender: UIButton) {
-        if let numberToDisplay = calculator.divideOperation() {
+        if let numberToDisplay = calculator.dividePressed() {
             display.text = calculator.formatForDisplay(number: numberToDisplay)
         }
         
@@ -172,7 +172,7 @@ final class CalculatorViewController: UIViewController {
     // MARK: - Decimal
     
     @IBAction func decimalButtonPressed(_ sender: UIButton) {
-        let numberToDisplay = calculator.applyDecimal()
+        let numberToDisplay = calculator.decimalPressed()
         display.text = calculator.formatForDisplay(number: numberToDisplay)
         if display.text?.contains(calculator.decimalSymbol) == false {
             display.text = display.text?.appending("\(calculator.decimalSymbol)")
@@ -185,7 +185,7 @@ final class CalculatorViewController: UIViewController {
     
     @IBAction func executeEquationPressed(_ sender: UIButton) {
         
-        if let displayValue = calculator.resultOperation() {
+        if let displayValue = calculator.equalsPressed() {
             display.text = calculator.formatForDisplay(number: displayValue)
         }
         highlightOperationButton()

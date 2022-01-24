@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CalcViewController.swift
 //  Calc
 //
 //  Created by Matthew Paul Harding on 24/01/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CalcViewController: UIViewController {
 
     // MARK: - IBOutlets
     
@@ -40,11 +40,15 @@ class ViewController: UIViewController {
     
     private var colorPalette: ColorPalette = DarkColorPalette()
     private var currentThemeIndex = 0
-    private let themeDataStore = DataStore(key: "iOSBFree.com.calc.ViewController.themeIndex")
+    private let themeDataStore = DataStore(key: "iOSBFree.com.calc.CalcViewController.themeIndex")
     
     // MARK: - Gesture Properties
     
     private var themeGestureRecogniser: UITapGestureRecognizer?
+    
+    // MARK: - Calculator Engine
+    
+    private var calculator = CalculatorEngine()
     
     // MARK: - Life Cycle
     
@@ -113,10 +117,11 @@ class ViewController: UIViewController {
     // MARK: - Gesture Recognisers
     
     private func addThemeGestureRecogniser() {
+        
         themeGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(self.themeGestureRecogniserDidTap))
         themeGestureRecogniser?.numberOfTapsRequired = 2
         if let gesture = themeGestureRecogniser {
-            view.addGestureRecognizer(gesture)
+            lcdDisplay.addGestureRecognizer(gesture)
         }
     }
     
@@ -159,6 +164,74 @@ class ViewController: UIViewController {
     private func loadThemeIndex() {
         currentThemeIndex = themeDataStore.loadInt()
         loadThemeFromCurrentThemeIndex()
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction func clearButtonPressed() {
+         
+        let numberToDisplay = calculator.clearPressed()
+        lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
+    }
+    
+    @IBAction func negateButtonPressed() {
+         
+        let numberToDisplay = calculator.negatePressed()
+        lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
+    }
+    
+    @IBAction func percentageButtonPressed() {
+         
+        let numberToDisplay = calculator.percentagePressed()
+        lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
+    }
+    
+    @IBAction func divideButtonPressed() {
+         
+        if let numberToDisplay = calculator.dividePressed() {
+            lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
+        }
+    }
+    
+    @IBAction func multiplyButtonPressed() {
+         
+        if let numberToDisplay = calculator.multiplyPressed() {
+            lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
+        }
+    }
+    
+    @IBAction func minusButtonPressed() {
+         
+        if let numberToDisplay = calculator.minusPressed() {
+            lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
+        }
+    }
+    
+    @IBAction func addButtonPressed() {
+         
+        if let numberToDisplay = calculator.addPressed() {
+            lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
+        }
+    }
+    
+    @IBAction func equalButtonPressed() {
+         
+        if let numberToDisplay = calculator.equalsPressed() {
+            lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
+        }
+    }
+    
+    @IBAction func decimalButtonPressed() {
+         
+        let numberToDisplay = calculator.decimalPressed()
+        lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
+    }
+    
+    @IBAction func numberButtonPressed(_ sender: UIButton) {
+         
+        let number = sender.tag
+        let numberToDisplay = calculator.numberPressed(number)
+            lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
     }
 }
 

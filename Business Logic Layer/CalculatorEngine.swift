@@ -76,25 +76,25 @@ struct CalculatorEngine {
 
     // MARK: - Interaction API
     
-    mutating func clear() -> Double {
+    mutating func clearPressed() -> Double {
         operation = .none
         queuedNumber = 0
         equationResult = 0
         return equationResult
     }
     
-    mutating func negateNumber() -> Double  {
+    mutating func negatePressed() -> Double  {
         queuedNumber =  calculator.negate(queuedNumber)
         return queuedNumber
     }
     
-    mutating func applyPercentage() -> Double  {
+    mutating func percentagePressed() -> Double  {
         
         queuedNumber = calculator.decimalPercentage(queuedNumber)
         return queuedNumber
     }
     
-    mutating func applyDecimal() -> Double {
+    mutating func decimalPressed() -> Double {
         
         decimal = true
         return queuedNumber
@@ -102,7 +102,7 @@ struct CalculatorEngine {
     
     // MARK: - Operations
     
-    mutating func addOperation() -> Double?  {
+    mutating func addPressed() -> Double?  {
         
         guard operation != .addiction else {
             return nil
@@ -115,7 +115,7 @@ struct CalculatorEngine {
         return displayValue
     }
     
-    mutating func substractOperation() -> Double? {
+    mutating func minusPressed() -> Double? {
         guard operation != .substraction else {
             return nil
         }
@@ -126,7 +126,7 @@ struct CalculatorEngine {
         return displayValue
     }
     
-    mutating func multiplyOperation() -> Double?  {
+    mutating func multiplyPressed() -> Double?  {
         guard operation != .multiplication else {
             return nil
         }
@@ -137,7 +137,7 @@ struct CalculatorEngine {
         return displayValue
     }
     
-    mutating func divideOperation() -> Double?  {
+    mutating func dividePressed() -> Double?  {
         guard operation != .division else {
             return nil
         }
@@ -147,7 +147,7 @@ struct CalculatorEngine {
         return displayValue
     }
     
-    mutating func resultOperation() -> Double? {
+    mutating func equalsPressed() -> Double? {
         
         let displayNumber = executeQueuedEquation()
         operation = .none
@@ -158,7 +158,7 @@ struct CalculatorEngine {
     
     // MARK: - Number Entry
     
-    mutating func inputNumber(_ number: Int) -> Double {
+    mutating func numberPressed(_ number: Int) -> Double {
         
         var currentTemp = displayFormatter.auxTotalFormatter.string(from: NSNumber(value: queuedNumber))!
         if !operating && currentTemp.count >= displayFormatter.maximumCharactersForDisplay { // todo. this code is strange
