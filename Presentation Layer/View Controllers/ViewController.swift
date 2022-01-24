@@ -50,13 +50,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        themeGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(self.themeGestureRecogniserDidTap))
-        themeGestureRecogniser?.numberOfTapsRequired = 2
-        if let gesture = themeGestureRecogniser {
-            view.addGestureRecognizer(gesture)
-        }
+        addThemeGestureRecogniser()
     }
-
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         decorateView()
@@ -113,6 +109,14 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Gesture Recognisers
+    
+    private func addThemeGestureRecogniser() {
+        themeGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(self.themeGestureRecogniserDidTap))
+        themeGestureRecogniser?.numberOfTapsRequired = 2
+        if let gesture = themeGestureRecogniser {
+            view.addGestureRecognizer(gesture)
+        }
+    }
     
     @objc private func themeGestureRecogniserDidTap (_ gesture: UITapGestureRecognizer) {
         decorateViewWithNextTheme()
