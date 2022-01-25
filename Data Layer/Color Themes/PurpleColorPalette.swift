@@ -28,5 +28,6 @@ struct PurpleColorPalette: ColorPalette {
     
     var extraFunctionsTitle: String = "#7550FE"
     
+    var statusBarStyle: StatusBarStyle = .dark
 }
 

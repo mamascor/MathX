@@ -28,4 +28,5 @@ struct PinkColorPalette: ColorPalette {
     
     var extraFunctionsTitle: String = "#EBF0EF"
     
+    var statusBarStyle: StatusBarStyle = .light
 }

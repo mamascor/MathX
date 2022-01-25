@@ -30,4 +30,5 @@ struct ElectroColorPalette: ColorPalette {
     
     var extraFunctionsTitle: String = "#4BE6A9"
     
+    var statusBarStyle: StatusBarStyle = .light
 }

@@ -28,4 +28,5 @@ struct DarkColorPalette: ColorPalette {
     
     var extraFunctionsTitle: String = "#000000"
     
+    var statusBarStyle: StatusBarStyle = .light
 }

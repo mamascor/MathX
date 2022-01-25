@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum StatusBarStyle {
+    case light
+    case dark
+}
+
 protocol ColorPalette {
     
     var background: String { get }
@@ -23,4 +28,6 @@ protocol ColorPalette {
     
     var extraFunctions: String { get }
     var extraFunctionsTitle: String { get }
+    
+    var statusBarStyle: StatusBarStyle { get }
 }

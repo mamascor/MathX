@@ -157,9 +157,17 @@ class CalcViewController: UIViewController {
         }
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        switch colorPalette.statusBarStyle {
+        case .light: return .lightContent
+        case .dark: return .darkContent
+        }
+    }
+    
     private func loadTheme(_ theme: ColorPalette) {
         colorPalette = theme
         decorateView()
+        setNeedsStatusBarAppearanceUpdate()
     }
     
     private func saveCurrentThemeIndex() {
