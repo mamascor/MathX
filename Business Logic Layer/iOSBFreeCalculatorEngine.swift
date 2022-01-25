@@ -14,7 +14,7 @@ struct MathEquation {
         case add
         case subtract
         case divide
-        case multiply
+        case multiply   // Todo add .none and remove the optionals associated with properties
     }
     
     // MARK: - Variables
@@ -421,7 +421,25 @@ struct iOSBFreeCalculatorEngine {
         currentMathEntry.execute()
         displayType = .result
         historyLog.append(currentMathEntry.equation)
+        printEquation(currentMathEntry.equation)
         saveSession()
+    }
+    
+    // MARK: - Print To Console
+    
+    private func printEquation(_ equation: MathEquation) {
+        
+        var operatorString = ""
+        switch equation.operation {
+        case .multiply: operatorString = "*"
+        case .divide: operatorString = "/"
+        case .add: operatorString = "+"
+        case .subtract: operatorString = "-"
+        case .none:
+            break
+        }
+        
+        print(equation.lhs.formatted() + " " + operatorString + " " + (equation.rhs?.formatted() ?? "") + " = " + (equation.result?.formatted() ?? ""))
     }
     
     // MARK: - Number Entry

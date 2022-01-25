@@ -19,7 +19,6 @@
 		0CE40648279E9BBA00B16A24 /* CalcUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40647279E9BBA00B16A24 /* CalcUITestsLaunchTests.swift */; };
 		0CE40662279E9CFB00B16A24 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40655279E9CFB00B16A24 /* Calculator.swift */; };
 		0CE40663279E9CFB00B16A24 /* DisplayFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40656279E9CFB00B16A24 /* DisplayFormatter.swift */; };
-		0CE40664279E9CFB00B16A24 /* CalculatorEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40657279E9CFB00B16A24 /* CalculatorEngine.swift */; };
 		0CE40666279E9CFB00B16A24 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4065B279E9CFB00B16A24 /* DataStore.swift */; };
 		0CE40667279E9CFB00B16A24 /* UIButton+Decorate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4065E279E9CFB00B16A24 /* UIButton+Decorate.swift */; };
 		0CE4066C279EBE4B00B16A24 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4066B279EBE4B00B16A24 /* ColorPalette.swift */; };
@@ -70,7 +69,6 @@
 		0CE40647279E9BBA00B16A24 /* CalcUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0CE40655279E9CFB00B16A24 /* Calculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		0CE40656279E9CFB00B16A24 /* DisplayFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayFormatter.swift; sourceTree = "<group>"; };
-		0CE40657279E9CFB00B16A24 /* CalculatorEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorEngine.swift; sourceTree = "<group>"; };
 		0CE4065B279E9CFB00B16A24 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		0CE4065E279E9CFB00B16A24 /* UIButton+Decorate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Decorate.swift"; sourceTree = "<group>"; };
 		0CE4066B279EBE4B00B16A24 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				0CE40656279E9CFB00B16A24 /* DisplayFormatter.swift */,
-				0CE40657279E9CFB00B16A24 /* CalculatorEngine.swift */,
 				0CE4068327A00EF000B16A24 /* iOSBFreeCalculatorEngine.swift */,
 				0CE40655279E9CFB00B16A24 /* Calculator.swift */,
 			);
@@ -384,7 +381,6 @@
 				0CE40627279E9BB800B16A24 /* SceneDelegate.swift in Sources */,
 				0CE4068427A00EF000B16A24 /* iOSBFreeCalculatorEngine.swift in Sources */,
 				0CE40675279EEA5100B16A24 /* ElectroColorPalette.swift in Sources */,
-				0CE40664279E9CFB00B16A24 /* CalculatorEngine.swift in Sources */,
 				0CE4067D279F5E1800B16A24 /* DarkBlueColorPalette.swift in Sources */,
 				0CE40682279F89E000B16A24 /* UIButton+Animation.swift in Sources */,
 				0CE40679279F596100B16A24 /* LightBlueColorPalette.swift in Sources */,
