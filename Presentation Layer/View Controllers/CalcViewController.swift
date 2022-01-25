@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CalcViewController: UIViewController {
+class CalcViewController: UIViewController, UIInputViewAudioFeedback {
 
     // MARK: - IBOutlets
     
@@ -49,6 +49,12 @@ class CalcViewController: UIViewController {
     // MARK: - Calculator Engine
     
     private var calculator = CalculatorEngine()
+    
+    // MARK: - Audio
+    
+    var enableInputClicksWhenVisible: Bool {
+        return true
+    }
     
     // MARK: - Life Cycle
     
@@ -181,70 +187,79 @@ class CalcViewController: UIViewController {
     
     // MARK: - IBActions
     
-    @IBAction func clearButtonPressed() {
+    @IBAction func clearButtonPressed(_ sender: UIButton) {
          
+        sender.bounce()
         let numberToDisplay = calculator.clearPressed()
         lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
     }
     
-    @IBAction func negateButtonPressed() {
+    @IBAction func negateButtonPressed(_ sender: UIButton) {
          
+        sender.bounce()
         let numberToDisplay = calculator.negatePressed()
         lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
     }
     
-    @IBAction func percentageButtonPressed() {
+    @IBAction func percentageButtonPressed(_ sender: UIButton) {
          
+        sender.bounce()
         let numberToDisplay = calculator.percentagePressed()
         lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
     }
     
-    @IBAction func divideButtonPressed() {
+    @IBAction func divideButtonPressed(_ sender: UIButton) {
          
+        sender.bounce()
         if let numberToDisplay = calculator.dividePressed() {
             lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
         }
     }
     
-    @IBAction func multiplyButtonPressed() {
+    @IBAction func multiplyButtonPressed(_ sender: UIButton) {
          
+        sender.bounce()
         if let numberToDisplay = calculator.multiplyPressed() {
             lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
         }
     }
     
-    @IBAction func minusButtonPressed() {
+    @IBAction func minusButtonPressed(_ sender: UIButton) {
          
+        sender.bounce()
         if let numberToDisplay = calculator.minusPressed() {
             lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
         }
     }
     
-    @IBAction func addButtonPressed() {
+    @IBAction func addButtonPressed(_ sender: UIButton) {
          
+        sender.bounce()
         if let numberToDisplay = calculator.addPressed() {
             lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
         }
     }
     
-    @IBAction func equalButtonPressed() {
+    @IBAction func equalButtonPressed(_ sender: UIButton) {
          
+        sender.bounce()
         if let numberToDisplay = calculator.equalsPressed() {
             lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
         }
     }
     
-    @IBAction func decimalButtonPressed() {
+    @IBAction func decimalButtonPressed(_ sender: UIButton) {
          
+        sender.bounce()
         let numberToDisplay = calculator.decimalPressed()
         lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
     }
     
     @IBAction func numberButtonPressed(_ sender: UIButton) {
-         
+        UIDevice.current.playInputClick()
+        sender.bounce()
         let number = sender.tag
         let numberToDisplay = calculator.numberPressed(number)
             lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
     }
 }
-

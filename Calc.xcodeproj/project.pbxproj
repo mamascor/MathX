@@ -30,6 +30,7 @@
 		0CE4067B279F5C7F00B16A24 /* PinkColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4067A279F5C7F00B16A24 /* PinkColorPalette.swift */; };
 		0CE4067D279F5E1800B16A24 /* DarkBlueColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4067C279F5E1800B16A24 /* DarkBlueColorPalette.swift */; };
 		0CE4067F279F648100B16A24 /* PurpleColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4067E279F648100B16A24 /* PurpleColorPalette.swift */; };
+		0CE40682279F89E000B16A24 /* UIButton+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40681279F89E000B16A24 /* UIButton+Animation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		0CE4067A279F5C7F00B16A24 /* PinkColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinkColorPalette.swift; sourceTree = "<group>"; };
 		0CE4067C279F5E1800B16A24 /* DarkBlueColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkBlueColorPalette.swift; sourceTree = "<group>"; };
 		0CE4067E279F648100B16A24 /* PurpleColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleColorPalette.swift; sourceTree = "<group>"; };
+		0CE40681279F89E000B16A24 /* UIButton+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Animation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				0CE4065E279E9CFB00B16A24 /* UIButton+Decorate.swift */,
+				0CE40681279F89E000B16A24 /* UIButton+Animation.swift */,
 				0CE40672279EDB4700B16A24 /* UIColor+HexValue.swift */,
 			);
 			path = "UIKit Extensions";
@@ -373,6 +376,7 @@
 				0CE40675279EEA5100B16A24 /* ElectroColorPalette.swift in Sources */,
 				0CE40664279E9CFB00B16A24 /* CalculatorEngine.swift in Sources */,
 				0CE4067D279F5E1800B16A24 /* DarkBlueColorPalette.swift in Sources */,
+				0CE40682279F89E000B16A24 /* UIButton+Animation.swift in Sources */,
 				0CE40679279F596100B16A24 /* LightBlueColorPalette.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
