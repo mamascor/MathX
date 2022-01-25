@@ -20,6 +20,14 @@ struct DataStore {
         return UserDefaults.standard.double(forKey: key)
     }
     
+    func saveDecimal(_ decimal: Decimal) {
+        UserDefaults.standard.set(decimal, forKey: key)
+    }
+    
+    func loadDecimal() -> Decimal {
+        return UserDefaults.standard.object(forKey: key) as? Decimal ?? 0
+    }
+    
     func saveInt(_ number: Int) {
         return UserDefaults.standard.set(number, forKey: key)
     }

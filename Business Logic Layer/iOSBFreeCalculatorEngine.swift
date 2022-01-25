@@ -81,6 +81,14 @@ struct MathEntry {
         return false
     }
     
+    var decimalRepresentationOfEditingOperand: Decimal {
+        switch editingSide {
+        case .leftHandSide:
+            return equation.lhs
+        case .rightHandSide:
+            return equation.rhs ?? 0
+        }
+    }
     
     // MARK: - Extra Functions
     mutating func negate() {
@@ -286,7 +294,10 @@ struct iOSBFreeCalculatorEngine {
     // MARK: - Variables
     private var historyLog: [MathEquation] = []
     private var currentMathEntry: MathEntry = MathEntry()
-    private var displayType: DisplayType = .operand
+    private var displayType: DisplayType = .operand // TODO do we need this property?
+    
+    // MARK: - Managers
+    private let dataStore = DataStore(key: "iOSBFree.com.calc.CalculatorEngine.total")
     
     // MARK: - Display
     private let lcdDisplayFormatter = DisplayFormatter(maximumCharactersForDisplay: 9)
@@ -303,6 +314,10 @@ struct iOSBFreeCalculatorEngine {
         case .rightHandSide:
             return formatForLCDDisplay(currentMathEntry.equation.rhs)
         }
+    }
+    
+    var decimalRepresentationOfEditingOperand: Decimal {
+        currentMathEntry.decimalRepresentationOfEditingOperand
     }
 
     // MARK: - Interaction API
@@ -371,10 +386,13 @@ struct iOSBFreeCalculatorEngine {
         executeCurrentMathEntry()
     }
     
-    mutating func executeCurrentMathEntry() {
+    // MARK: - Equation Execution
+    
+    private mutating func executeCurrentMathEntry() {
         currentMathEntry.execute()
         displayType = .result
         historyLog.append(currentMathEntry.equation)
+        saveSession()
     }
     
     // MARK: - Number Entry
@@ -388,11 +406,11 @@ struct iOSBFreeCalculatorEngine {
         currentMathEntry.enterNumber(number)
     }
     
-    // MARK: - Behaviour
+    // MARK: - Business Logic & Behaviour
     
     private mutating func commitCurrentEquationIfNeeded() -> Bool {
         if currentMathEntry.isReadyToExecute {
-            equalsPressed()
+            executeCurrentMathEntry()
             return true
         }
         
@@ -425,6 +443,28 @@ struct iOSBFreeCalculatorEngine {
         // secanrio 1: user enters 5 * 5 = %
         if currentMathEntry.isCompleted {
             populateCurrentMathEntryWithPreviousResult()
+        }
+    }
+    
+    // MARK: - Restoring Session
+    
+    mutating func restoreFromLastSession() {
+        let previousSessionResult = dataStore.loadDecimal()
+        
+        // mimic the behaviour as if the user had just executed an equation with the previuosly seen result displayed
+        var newMathEntry = MathEntry()
+        newMathEntry.equation.lhs = 1
+        newMathEntry.equation.operation = .multiply
+        newMathEntry.equation.rhs = previousSessionResult
+        newMathEntry.execute()
+        currentMathEntry = newMathEntry
+        displayType = .result
+    }
+    
+    private func saveSession() {
+        if let result = currentMathEntry.equation.result,
+            currentMathEntry.isCompleted {
+            dataStore.saveDecimal(result)
         }
     }
     

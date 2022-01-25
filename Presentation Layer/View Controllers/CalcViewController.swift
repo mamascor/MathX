@@ -48,7 +48,7 @@ class CalcViewController: UIViewController {
     
     // MARK: - Calculator Engine
     
-    private var calculator = CalculatorEngine()
+    private var calculator = iOSBFreeCalculatorEngine()
     
     // MARK: - Life Cycle
     
@@ -68,9 +68,10 @@ class CalcViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let number = calculator.restoreFromLastSession()
-        lcdDisplay.text = calculator.formatForDisplay(number: number)
-        if number == 0 {
+        calculator.restoreFromLastSession()
+        lcdDisplay.text = calculator.lcdDisplayText
+        
+        if calculator.decimalRepresentationOfEditingOperand == 0 {
             fadeInLCDDisplay()
         } else {
             moveInLCDDisplay()
@@ -208,23 +209,23 @@ class CalcViewController: UIViewController {
         
         lcdDisplay.alpha = 0
         
-        let numberToDisplay = calculator.clearPressed()
-        lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
+        calculator.clearPressed()
+        lcdDisplay.text = calculator.lcdDisplayText
         fadeInLCDDisplay()
     }
     
     @IBAction func negateButtonPressed(_ sender: UIButton) {
          
         sender.bounce()
-        let numberToDisplay = calculator.negatePressed()
-        lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
+        calculator.negatePressed()
+        lcdDisplay.text = calculator.lcdDisplayText
     }
     
     @IBAction func percentageButtonPressed(_ sender: UIButton) {
          
         sender.bounce()
-        let numberToDisplay = calculator.percentagePressed()
-        lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
+        calculator.percentagePressed()
+        lcdDisplay.text = calculator.lcdDisplayText
     }
     
     @IBAction func divideButtonPressed(_ sender: UIButton) {
@@ -233,9 +234,9 @@ class CalcViewController: UIViewController {
         decorateOperatorButton(divideButton, true)
         
         sender.bounce()
-        if let numberToDisplay = calculator.dividePressed() {
-            lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
-        }
+        
+        calculator.dividePressed()
+        lcdDisplay.text = calculator.lcdDisplayText
     }
     
     @IBAction func multiplyButtonPressed(_ sender: UIButton) {
@@ -244,9 +245,9 @@ class CalcViewController: UIViewController {
         decorateOperatorButton(multiplyButton, true)
         
         sender.bounce()
-        if let numberToDisplay = calculator.multiplyPressed() {
-            lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
-        }
+        
+        calculator.multiplyPressed()
+        lcdDisplay.text = calculator.lcdDisplayText
     }
     
     @IBAction func minusButtonPressed(_ sender: UIButton) {
@@ -255,9 +256,9 @@ class CalcViewController: UIViewController {
         decorateOperatorButton(minusButton, true)
         
         sender.bounce()
-        if let numberToDisplay = calculator.minusPressed() {
-            lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
-        }
+        
+        calculator.minusPressed()
+        lcdDisplay.text = calculator.lcdDisplayText
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
@@ -266,30 +267,27 @@ class CalcViewController: UIViewController {
         decorateOperatorButton(addButton, true)
         
         sender.bounce()
-        if let numberToDisplay = calculator.addPressed() {
-            lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
-        }
+        
+        calculator.addPressed()
+        lcdDisplay.text = calculator.lcdDisplayText
     }
     
     @IBAction func equalButtonPressed(_ sender: UIButton) {
         
         deselectOperatorButtons()
         sender.bounce()
-        if let numberToDisplay = calculator.equalsPressed() {
-            lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
-        }
         
-        if let numberToDisplay = calculator.equalsPressed() {
-            lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
-        }
+        calculator.equalsPressed()
+        lcdDisplay.text = calculator.lcdDisplayText
     }
     
     @IBAction func decimalButtonPressed(_ sender: UIButton) {
         
         deselectOperatorButtons()
         sender.bounce()
-        let numberToDisplay = calculator.decimalPressed()
-        lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
+        
+        calculator.decimalPressed()
+        lcdDisplay.text = calculator.lcdDisplayText
     }
     
     @IBAction func numberButtonPressed(_ sender: UIButton) {
@@ -297,8 +295,9 @@ class CalcViewController: UIViewController {
         deselectOperatorButtons()
         sender.bounce()
         let number = sender.tag
-        let numberToDisplay = calculator.numberPressed(number)
-            lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
+        
+        calculator.numberPressed(number)
+        lcdDisplay.text = calculator.lcdDisplayText
     }
     
     // MARK: - Animate
