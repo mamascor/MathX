@@ -27,4 +27,8 @@ struct DataStore {
     func loadInt() -> Int {
         return UserDefaults.standard.integer(forKey: key)
     }
+    
+    func removeValue() {
+        UserDefaults.standard.removeObject(forKey: key)
+    }
 }
