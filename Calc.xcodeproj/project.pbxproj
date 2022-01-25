@@ -14,7 +14,6 @@
 		0CE4062C279E9BB800B16A24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CE4062A279E9BB800B16A24 /* Main.storyboard */; };
 		0CE4062E279E9BBA00B16A24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CE4062D279E9BBA00B16A24 /* Assets.xcassets */; };
 		0CE40631279E9BBA00B16A24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CE4062F279E9BBA00B16A24 /* LaunchScreen.storyboard */; };
-		0CE4063C279E9BBA00B16A24 /* CalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4063B279E9BBA00B16A24 /* CalcTests.swift */; };
 		0CE40646279E9BBA00B16A24 /* CalcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40645279E9BBA00B16A24 /* CalcUITests.swift */; };
 		0CE40648279E9BBA00B16A24 /* CalcUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40647279E9BBA00B16A24 /* CalcUITestsLaunchTests.swift */; };
 		0CE40662279E9CFB00B16A24 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40655279E9CFB00B16A24 /* Calculator.swift */; };
@@ -63,7 +62,6 @@
 		0CE40630279E9BBA00B16A24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CE40632279E9BBA00B16A24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CE40637279E9BBA00B16A24 /* CalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0CE4063B279E9BBA00B16A24 /* CalcTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcTests.swift; sourceTree = "<group>"; };
 		0CE40641279E9BBA00B16A24 /* CalcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalcUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE40645279E9BBA00B16A24 /* CalcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcUITests.swift; sourceTree = "<group>"; };
 		0CE40647279E9BBA00B16A24 /* CalcUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 		0CE4063A279E9BBA00B16A24 /* CalcTests */ = {
 			isa = PBXGroup;
 			children = (
-				0CE4063B279E9BBA00B16A24 /* CalcTests.swift */,
 				0CE4068527A00F3800B16A24 /* iOSBFreeCalculatorEngine_PositiveAdditionTests.swift */,
 				0C8DB36427A0B1E300A96AA0 /* iOSBFreeCalculatorEngine_PositiveSubtractionTests.swift */,
 			);
@@ -393,7 +390,6 @@
 			files = (
 				0CE4068627A00F3800B16A24 /* iOSBFreeCalculatorEngine_PositiveAdditionTests.swift in Sources */,
 				0C8DB36527A0B1E300A96AA0 /* iOSBFreeCalculatorEngine_PositiveSubtractionTests.swift in Sources */,
-				0CE4063C279E9BBA00B16A24 /* CalcTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
