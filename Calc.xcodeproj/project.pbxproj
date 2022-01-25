@@ -31,6 +31,8 @@
 		0CE4067D279F5E1800B16A24 /* DarkBlueColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4067C279F5E1800B16A24 /* DarkBlueColorPalette.swift */; };
 		0CE4067F279F648100B16A24 /* PurpleColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4067E279F648100B16A24 /* PurpleColorPalette.swift */; };
 		0CE40682279F89E000B16A24 /* UIButton+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40681279F89E000B16A24 /* UIButton+Animation.swift */; };
+		0CE4068427A00EF000B16A24 /* iOSBFreeCalculatorEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4068327A00EF000B16A24 /* iOSBFreeCalculatorEngine.swift */; };
+		0CE4068627A00F3800B16A24 /* iOSBFreeCalculatorEngine_PositiveAdditionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4068527A00F3800B16A24 /* iOSBFreeCalculatorEngine_PositiveAdditionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		0CE4067C279F5E1800B16A24 /* DarkBlueColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkBlueColorPalette.swift; sourceTree = "<group>"; };
 		0CE4067E279F648100B16A24 /* PurpleColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleColorPalette.swift; sourceTree = "<group>"; };
 		0CE40681279F89E000B16A24 /* UIButton+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Animation.swift"; sourceTree = "<group>"; };
+		0CE4068327A00EF000B16A24 /* iOSBFreeCalculatorEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSBFreeCalculatorEngine.swift; sourceTree = "<group>"; };
+		0CE4068527A00F3800B16A24 /* iOSBFreeCalculatorEngine_PositiveAdditionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSBFreeCalculatorEngine_PositiveAdditionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				0CE4063B279E9BBA00B16A24 /* CalcTests.swift */,
+				0CE4068527A00F3800B16A24 /* iOSBFreeCalculatorEngine_PositiveAdditionTests.swift */,
 			);
 			path = CalcTests;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 			children = (
 				0CE40656279E9CFB00B16A24 /* DisplayFormatter.swift */,
 				0CE40657279E9CFB00B16A24 /* CalculatorEngine.swift */,
+				0CE4068327A00EF000B16A24 /* iOSBFreeCalculatorEngine.swift */,
 				0CE40655279E9CFB00B16A24 /* Calculator.swift */,
 			);
 			path = "Business Logic Layer";
@@ -373,6 +379,7 @@
 				0CE40625279E9BB800B16A24 /* AppDelegate.swift in Sources */,
 				0CE4067F279F648100B16A24 /* PurpleColorPalette.swift in Sources */,
 				0CE40627279E9BB800B16A24 /* SceneDelegate.swift in Sources */,
+				0CE4068427A00EF000B16A24 /* iOSBFreeCalculatorEngine.swift in Sources */,
 				0CE40675279EEA5100B16A24 /* ElectroColorPalette.swift in Sources */,
 				0CE40664279E9CFB00B16A24 /* CalculatorEngine.swift in Sources */,
 				0CE4067D279F5E1800B16A24 /* DarkBlueColorPalette.swift in Sources */,
@@ -385,6 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CE4068627A00F3800B16A24 /* iOSBFreeCalculatorEngine_PositiveAdditionTests.swift in Sources */,
 				0CE4063C279E9BBA00B16A24 /* CalcTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

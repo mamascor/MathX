@@ -278,6 +278,10 @@ class CalcViewController: UIViewController {
         if let numberToDisplay = calculator.equalsPressed() {
             lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
         }
+        
+        if let numberToDisplay = calculator.equalsPressed() {
+            lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
+        }
     }
     
     @IBAction func decimalButtonPressed(_ sender: UIButton) {

@@ -16,9 +16,22 @@ struct DisplayFormatter {
         if
             let currentTotal = auxTotalFormatter.string(from: NSNumber(value: number)),
                 currentTotal.count > maximumCharactersForDisplay {
-            return printScientificFormatter.string(from: NSNumber(value: number)) ?? ""
+            return lcdDisplayScientificFormatter.string(from: NSNumber(value: number)) ?? ""
         } else {
-            return printFormatter.string(from: NSNumber(value: number)) ?? ""
+            return lcdDisplayFormatter.string(from: NSNumber(value: number)) ?? ""
+        }
+    }
+    
+    func formatForDisplay(_ decimal: Decimal) -> String {
+        
+        let nsnumber = NSNumber(nonretainedObject: decimal)
+        if
+            let currentTotal = auxTotalFormatter.string(from: nsnumber),
+                currentTotal.count > maximumCharactersForDisplay {
+            return lcdDisplayScientificFormatter.string(from: nsnumber) ?? ""
+        }
+        else {
+            return lcdDisplayFormatter.string(from: nsnumber) ?? ""
         }
     }
     
@@ -47,8 +60,8 @@ struct DisplayFormatter {
         return formatter
     }()
     
-    // Formateo de valores por pantalla por defecto
-    let printFormatter: NumberFormatter = {
+    
+    let lcdDisplayFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         let locale = Locale.current
         formatter.groupingSeparator = locale.groupingSeparator
@@ -60,8 +73,8 @@ struct DisplayFormatter {
         return formatter
     }()
     
-    // Formateo de valores por pantalla en formato científico
-    let printScientificFormatter: NumberFormatter = {
+    
+    let lcdDisplayScientificFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .scientific
         formatter.maximumFractionDigits = 3
