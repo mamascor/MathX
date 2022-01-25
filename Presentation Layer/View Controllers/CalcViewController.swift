@@ -115,6 +115,13 @@ class CalcViewController: UIViewController {
         button.becomeRound()
     }
     
+    private func deselectOperandButtons() {
+        decorateOperandButton(divideButton, false)
+        decorateOperandButton(multiplyButton, false)
+        decorateOperandButton(minusButton, false)
+        decorateOperandButton(addButton, false)
+    }
+    
     private func decorateExtraFunctionsButton(_ button: UIButton) {
         button.backgroundColor = UIColor(hex: colorPalette.extraFunctions)
         button.tintColor = UIColor(hex: colorPalette.extraFunctionsTitle)
@@ -189,10 +196,14 @@ class CalcViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func clearButtonPressed(_ sender: UIButton) {
-         
+        
+        deselectOperandButtons()
         sender.bounce()
+        
+        lcdDisplay.alpha = 0
         let numberToDisplay = calculator.clearPressed()
         lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
+        fadeInLCDDisplay()
     }
     
     @IBAction func negateButtonPressed(_ sender: UIButton) {
@@ -210,7 +221,10 @@ class CalcViewController: UIViewController {
     }
     
     @IBAction func divideButtonPressed(_ sender: UIButton) {
-         
+        
+        deselectOperandButtons()
+        decorateOperandButton(divideButton, true)
+        
         sender.bounce()
         if let numberToDisplay = calculator.dividePressed() {
             lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
@@ -219,6 +233,9 @@ class CalcViewController: UIViewController {
     
     @IBAction func multiplyButtonPressed(_ sender: UIButton) {
          
+        deselectOperandButtons()
+        decorateOperandButton(multiplyButton, true)
+        
         sender.bounce()
         if let numberToDisplay = calculator.multiplyPressed() {
             lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
@@ -227,6 +244,9 @@ class CalcViewController: UIViewController {
     
     @IBAction func minusButtonPressed(_ sender: UIButton) {
          
+        deselectOperandButtons()
+        decorateOperandButton(minusButton, true)
+        
         sender.bounce()
         if let numberToDisplay = calculator.minusPressed() {
             lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
@@ -235,6 +255,9 @@ class CalcViewController: UIViewController {
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
          
+        deselectOperandButtons()
+        decorateOperandButton(addButton, true)
+        
         sender.bounce()
         if let numberToDisplay = calculator.addPressed() {
             lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
@@ -242,7 +265,8 @@ class CalcViewController: UIViewController {
     }
     
     @IBAction func equalButtonPressed(_ sender: UIButton) {
-         
+        
+        deselectOperandButtons()
         sender.bounce()
         if let numberToDisplay = calculator.equalsPressed() {
             lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
@@ -250,7 +274,8 @@ class CalcViewController: UIViewController {
     }
     
     @IBAction func decimalButtonPressed(_ sender: UIButton) {
-         
+        
+        deselectOperandButtons()
         sender.bounce()
         let numberToDisplay = calculator.decimalPressed()
         lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
@@ -258,6 +283,7 @@ class CalcViewController: UIViewController {
     
     @IBAction func numberButtonPressed(_ sender: UIButton) {
         
+        deselectOperandButtons()
         sender.bounce()
         let number = sender.tag
         let numberToDisplay = calculator.numberPressed(number)
