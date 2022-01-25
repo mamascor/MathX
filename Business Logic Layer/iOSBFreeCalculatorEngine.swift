@@ -73,6 +73,10 @@ struct MathEntry {
     }
     
     var isReadyToExecute: Bool {
+        guard equation.executed == false else {
+            return false
+        }
+        
         if let _ = equation.operation,
            let _ = equation.rhs {
             return true
@@ -304,6 +308,18 @@ struct iOSBFreeCalculatorEngine {
     
     var lcdDisplayText: String {
         
+        
+        if currentMathEntry.isCompleted {
+            return currentMathEntry.equation.result?.formatted() ?? ""
+        }
+        
+        if let rhs = currentMathEntry.equation.rhs {
+            return rhs.formatted()
+        }
+        
+        return currentMathEntry.equation.lhs.formatted()
+        
+        /*
         guard currentMathEntry.isCompleted == false else {
             return formatForLCDDisplay(currentMathEntry.equation.result)
         }
@@ -314,12 +330,25 @@ struct iOSBFreeCalculatorEngine {
         case .rightHandSide:
             return formatForLCDDisplay(currentMathEntry.equation.rhs)
         }
+         */
     }
     
     var decimalRepresentationOfEditingOperand: Decimal {
         currentMathEntry.decimalRepresentationOfEditingOperand
     }
 
+    var leftHandOperand: Decimal {
+        currentMathEntry.equation.lhs
+    }
+    
+    var rightHandOperand: Decimal? {
+        currentMathEntry.equation.rhs
+    }
+    
+    var resultOfEquation: Decimal? {
+        currentMathEntry.equation.result
+    }
+    
     // MARK: - Interaction API
     
     mutating func clearHistory() {
@@ -409,7 +438,8 @@ struct iOSBFreeCalculatorEngine {
     // MARK: - Business Logic & Behaviour
     
     private mutating func commitCurrentEquationIfNeeded() -> Bool {
-        if currentMathEntry.isReadyToExecute {
+        if currentMathEntry.isCompleted == false,
+           currentMathEntry.isReadyToExecute {
             executeCurrentMathEntry()
             return true
         }
@@ -419,8 +449,10 @@ struct iOSBFreeCalculatorEngine {
     
     private mutating func populateCurrentMathEntryWithPreviousResult() {
         if let previousResult = historyLog.last {
-            currentMathEntry.equation.lhs = previousResult.result ?? 0
-            currentMathEntry.editingSide = .rightHandSide
+            var newMathEntry = MathEntry()
+            newMathEntry.equation.lhs = previousResult.result ?? 0
+            newMathEntry.editingSide = .rightHandSide
+            currentMathEntry = newMathEntry
             displayType = .operand
         }
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C8DB36527A0B1E300A96AA0 /* iOSBFreeCalculatorEngine_PositiveSubtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36427A0B1E300A96AA0 /* iOSBFreeCalculatorEngine_PositiveSubtractionTests.swift */; };
 		0CE40625279E9BB800B16A24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40624279E9BB800B16A24 /* AppDelegate.swift */; };
 		0CE40627279E9BB800B16A24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40626279E9BB800B16A24 /* SceneDelegate.swift */; };
 		0CE40629279E9BB800B16A24 /* CalcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40628279E9BB800B16A24 /* CalcViewController.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C8DB36427A0B1E300A96AA0 /* iOSBFreeCalculatorEngine_PositiveSubtractionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSBFreeCalculatorEngine_PositiveSubtractionTests.swift; sourceTree = "<group>"; };
 		0CE40621279E9BB800B16A24 /* Calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE40624279E9BB800B16A24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CE40626279E9BB800B16A24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			children = (
 				0CE4063B279E9BBA00B16A24 /* CalcTests.swift */,
 				0CE4068527A00F3800B16A24 /* iOSBFreeCalculatorEngine_PositiveAdditionTests.swift */,
+				0C8DB36427A0B1E300A96AA0 /* iOSBFreeCalculatorEngine_PositiveSubtractionTests.swift */,
 			);
 			path = CalcTests;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CE4068627A00F3800B16A24 /* iOSBFreeCalculatorEngine_PositiveAdditionTests.swift in Sources */,
+				0C8DB36527A0B1E300A96AA0 /* iOSBFreeCalculatorEngine_PositiveSubtractionTests.swift in Sources */,
 				0CE4063C279E9BBA00B16A24 /* CalcTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

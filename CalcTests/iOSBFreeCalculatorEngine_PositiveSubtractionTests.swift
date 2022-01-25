@@ -1,5 +1,5 @@
 //
-//  iOSBFreeCalculatorEngine_PositiveAdditionTests.swift
+//  iOSBFreeCalculatorEngine_PositiveSubtractionTests.swift
 //  CalcTests
 //
 //  Created by Matthew Paul Harding on 25/01/2022.
@@ -8,12 +8,12 @@
 import XCTest
 @testable import Calc
 
-class iOSBFreeCalculatorEngine_PositiveAdditionTests: XCTestCase {
+class iOSBFreeCalculatorEngine_PositiveSubtractionTests: XCTestCase {
 
-    func testPositiveAddition() throws {
+    func testPositiveSubtraction() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
@@ -29,19 +29,19 @@ class iOSBFreeCalculatorEngine_PositiveAdditionTests: XCTestCase {
         
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
         XCTAssertTrue(rhd.isEqual(to: Decimal(1)))
-        XCTAssertTrue(result.isEqual(to: Decimal(2)))
+        XCTAssertTrue(result.isEqual(to: Decimal(0)))
         
     }
     
-    func testContinuedPositiveAddition() throws {
+    func testContinuedPositiveSubtraction() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
         // add another value to the result
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
@@ -55,20 +55,20 @@ class iOSBFreeCalculatorEngine_PositiveAdditionTests: XCTestCase {
             return
         }
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(2)))
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(0)))
         XCTAssertTrue(rhd.isEqual(to: Decimal(1)))
-        XCTAssertTrue(result.isEqual(to: Decimal(3)))
+        XCTAssertTrue(result.isEqual(to: Decimal(-1)))
     }
     
-    func testContinuedPositiveAddition_3() throws {
+    func testContinuedPositiveSubtraction_3() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
         // add another value to the result
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
@@ -82,13 +82,13 @@ class iOSBFreeCalculatorEngine_PositiveAdditionTests: XCTestCase {
             return
         }
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(2)))
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(0)))
         XCTAssertTrue(rhd.isEqual(to: Decimal(1)))
-        XCTAssertTrue(result.isEqual(to: Decimal(3)))
+        XCTAssertTrue(result.isEqual(to: Decimal(-1)))
         
         
         // add another value to the result
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
@@ -102,20 +102,20 @@ class iOSBFreeCalculatorEngine_PositiveAdditionTests: XCTestCase {
             return
         }
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(3)))
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(-1)))
         XCTAssertTrue(rhd2.isEqual(to: Decimal(1)))
-        XCTAssertTrue(result2.isEqual(to: Decimal(4)))
+        XCTAssertTrue(result2.isEqual(to: Decimal(-2)))
     }
     
-    func testContinuedPositiveAddition_4() throws {
+    func testContinuedPositiveSubtraction_4() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
         // add another value to the result
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
@@ -129,12 +129,12 @@ class iOSBFreeCalculatorEngine_PositiveAdditionTests: XCTestCase {
             return
         }
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(2)))
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(0)))
         XCTAssertTrue(rhd.isEqual(to: Decimal(1)))
-        XCTAssertTrue(result.isEqual(to: Decimal(3)))
+        XCTAssertTrue(result.isEqual(to: Decimal(-1)))
         
         // add another value to the result
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
@@ -148,12 +148,12 @@ class iOSBFreeCalculatorEngine_PositiveAdditionTests: XCTestCase {
             return
         }
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(3)))
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(-1)))
         XCTAssertTrue(rhd2.isEqual(to: Decimal(1)))
-        XCTAssertTrue(result2.isEqual(to: Decimal(4)))
+        XCTAssertTrue(result2.isEqual(to: Decimal(-2)))
         
         // add another value to the result
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
@@ -167,15 +167,15 @@ class iOSBFreeCalculatorEngine_PositiveAdditionTests: XCTestCase {
             return
         }
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(4)))
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(-2)))
         XCTAssertTrue(rhd3.isEqual(to: Decimal(1)))
-        XCTAssertTrue(result3.isEqual(to: Decimal(5)))
+        XCTAssertTrue(result3.isEqual(to: Decimal(-3)))
     }
     
-    func testContinuedPositiveAddition_2() throws {
+    func testContinuedPositiveSubtraction_2() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
@@ -191,10 +191,10 @@ class iOSBFreeCalculatorEngine_PositiveAdditionTests: XCTestCase {
         
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
         XCTAssertTrue(rhd.isEqual(to: Decimal(1)))
-        XCTAssertTrue(result.isEqual(to: Decimal(2)))
+        XCTAssertTrue(result.isEqual(to: Decimal(0)))
         
         // add another value to the result
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
@@ -208,32 +208,32 @@ class iOSBFreeCalculatorEngine_PositiveAdditionTests: XCTestCase {
             return
         }
 
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(2)))
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(0)))
         XCTAssertTrue(rhd2.isEqual(to: Decimal(1)))
-        XCTAssertTrue(result2.isEqual(to: Decimal(3)))
+        XCTAssertTrue(result2.isEqual(to: Decimal(-1)))
         
         // add another value to the result
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
         // add another value to the result
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
         // add another value to the result
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
         // add another value to the result
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
         // add another value to the result
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
@@ -247,16 +247,16 @@ class iOSBFreeCalculatorEngine_PositiveAdditionTests: XCTestCase {
             return
         }
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(7)))
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(-5)))
         XCTAssertTrue(rhdFinal.isEqual(to: Decimal(1)))
-        XCTAssertTrue(resultFinal.isEqual(to: Decimal(8)))
+        XCTAssertTrue(resultFinal.isEqual(to: Decimal(-6)))
     }
 
-    func testContinuedPositiveAddition_5() throws {
+    func testContinuedPositiveSubtraction_5() throws {
         
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(7)
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(127)
         calculatorEngine.equalsPressed()
         
@@ -272,10 +272,10 @@ class iOSBFreeCalculatorEngine_PositiveAdditionTests: XCTestCase {
         
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(7)))
         XCTAssertTrue(rhd.isEqual(to: Decimal(127)))
-        XCTAssertTrue(result.isEqual(to: Decimal(134)))
+        XCTAssertTrue(result.isEqual(to: Decimal(-120)))
         
         // add another value to the result
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(34)
         calculatorEngine.equalsPressed()
         
@@ -289,32 +289,32 @@ class iOSBFreeCalculatorEngine_PositiveAdditionTests: XCTestCase {
             return
         }
 
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(134)))
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(-120)))
         XCTAssertTrue(rhd2.isEqual(to: Decimal(34)))
-        XCTAssertTrue(result2.isEqual(to: Decimal(168)))
+        XCTAssertTrue(result2.isEqual(to: Decimal(-154)))
         
         // add another value to the result
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(6)
         calculatorEngine.equalsPressed()
         
         // add another value to the result
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(5)
         calculatorEngine.equalsPressed()
         
         // add another value to the result
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(4)
         calculatorEngine.equalsPressed()
         
         // add another value to the result
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(3)
         calculatorEngine.equalsPressed()
         
         // add another value to the result
-        calculatorEngine.addPressed()
+        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(2)
         calculatorEngine.equalsPressed()
         
@@ -328,8 +328,8 @@ class iOSBFreeCalculatorEngine_PositiveAdditionTests: XCTestCase {
             return
         }
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(186)))
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(-171)))
         XCTAssertTrue(rhdFinal.isEqual(to: Decimal(2)))
-        XCTAssertTrue(resultFinal.isEqual(to: Decimal(188)))
+        XCTAssertTrue(resultFinal.isEqual(to: Decimal(-174)))
     }
 }
