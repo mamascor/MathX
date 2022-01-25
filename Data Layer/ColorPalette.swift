@@ -17,8 +17,8 @@ protocol ColorPalette {
     var background: String { get }
     var display: String { get }
     
-    var operand: String { get }
-    var operandSelected: String { get }
+    var operatorNormal: String { get }
+    var operatorSelected: String { get }
     
     var operatorTitle: String { get }
     var operatorTitleSelected: String { get }

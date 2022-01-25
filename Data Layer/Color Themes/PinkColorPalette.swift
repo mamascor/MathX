@@ -12,9 +12,9 @@ struct PinkColorPalette: ColorPalette {
         
     var display: String = "#EBF0EF"
     
-    var operand: String = "#FA569C"
+    var operatorNormal: String = "#FA569C"
     
-    var operandSelected: String = "#0265FF"
+    var operatorSelected: String = "#0265FF"
     
     var operatorTitle: String = "#EBF0EF"
     

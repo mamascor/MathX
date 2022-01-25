@@ -12,9 +12,9 @@ struct LightBlueColorPalette: ColorPalette {
         
     var display: String = "#000000"
     
-    var operand: String = "#00B4FF"
+    var operatorNormal: String = "#00B4FF"
     
-    var operandSelected: String = "#0265FF"
+    var operatorSelected: String = "#0265FF"
     
     var operatorTitle: String = "#ffffff"
     

@@ -12,9 +12,9 @@ struct PurpleColorPalette: ColorPalette {
         
     var display: String = "#1D1D1D"
     
-    var operand: String = "#7550FE"
+    var operatorNormal: String = "#7550FE"
     
-    var operandSelected: String = "#4566B6"
+    var operatorSelected: String = "#4566B6"
     
     var operatorTitle: String = "#ffffff"
     

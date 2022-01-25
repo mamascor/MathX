@@ -288,6 +288,7 @@
                                                             <constraint firstAttribute="width" secondItem="fpe-3N-wPk" secondAttribute="height" multiplier="1:1" id="LWR-W0-TBF"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="."/>
                                                         <connections>
@@ -301,7 +302,7 @@
                                                             <constraint firstAttribute="width" secondItem="F47-qG-kdp" secondAttribute="height" multiplier="1:1" id="cFr-v6-7R4"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
+                                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="4"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="="/>
                                                         <connections>
@@ -361,7 +362,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="150.72463768115944" y="-116.51785714285714"/>
+            <point key="canvasLocation" x="-178" y="-119"/>
         </scene>
     </scenes>
     <resources>
