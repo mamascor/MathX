@@ -12,13 +12,13 @@ struct DisplayFormatter {
     
     let maximumCharactersForDisplay: Int
     
-    func formatForDisplay(number: Double) -> String? {
+    func formatForDisplay(number: Double) -> String {
         if
             let currentTotal = auxTotalFormatter.string(from: NSNumber(value: number)),
                 currentTotal.count > maximumCharactersForDisplay {
-            return printScientificFormatter.string(from: NSNumber(value: number))
+            return printScientificFormatter.string(from: NSNumber(value: number)) ?? ""
         } else {
-            return printFormatter.string(from: NSNumber(value: number))
+            return printFormatter.string(from: NSNumber(value: number)) ?? ""
         }
     }
     

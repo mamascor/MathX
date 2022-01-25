@@ -30,6 +30,13 @@ struct CalculatorEngine {
     private var decimal = false
     var operation: CalculatorEngine.OperationType = .none
     
+    // MARK: - State Variables
+    private var equationHistory: [String] = []
+    private var leftHandValue: String?
+    private var rightHandValue: String?
+    private var calculatedValue: String?
+    
+    
     // MARK: - Restoring Session
     
     mutating func restoreFromLastSession() -> Double {
@@ -50,27 +57,37 @@ struct CalculatorEngine {
     // MARK: - Math
     
     private mutating func executeQueuedEquation() -> Double? {
+        
+        let leftHandValue = equationResult
+        var printedEquation: String
+        
         switch operation {
-
         case .none:
             return nil
             
         case .addiction:
-            equationResult = calculator.execute(equationResult, add: queuedNumber)
+            equationResult = calculator.execute(leftHandValue, add: queuedNumber)
+            printedEquation = formatForDisplay(number: leftHandValue) + " + " + formatForDisplay(number: queuedNumber) + " = " + formatForDisplay(number: equationResult)
             
         case .substraction:
-            equationResult = calculator.execute(equationResult, minus: queuedNumber)
+            equationResult = calculator.execute(leftHandValue, minus: queuedNumber)
+            printedEquation = formatForDisplay(number: leftHandValue) + " - " + formatForDisplay(number: queuedNumber) + " = " + formatForDisplay(number: equationResult)
             
         case .multiplication:
-            equationResult = calculator.execute(equationResult, multiply: queuedNumber)
+            equationResult = calculator.execute(leftHandValue, multiply: queuedNumber)
+            printedEquation = formatForDisplay(number: leftHandValue) + " * " + formatForDisplay(number: queuedNumber) + " = " + formatForDisplay(number: equationResult)
             
         case .division:
-            equationResult = calculator.execute(equationResult, divide: queuedNumber)
+            equationResult = calculator.execute(leftHandValue, divide: queuedNumber)
+            printedEquation = formatForDisplay(number: leftHandValue) + " ÷ " + formatForDisplay(number: queuedNumber) + " = " + formatForDisplay(number: equationResult)
         }
+        
+        equationHistory.append(printedEquation)
+        print(printedEquation)
         
         operation = .none
         saveSession()
-        print("TOTAL: \(equationResult)")
+    
         return equationResult
     }
 
@@ -167,34 +184,18 @@ struct CalculatorEngine {
         
         currentTemp = displayFormatter.auxFormatter.string(from: NSNumber(value: queuedNumber))!
         
-        // Hemos seleccionado una operación
         if operating {
             equationResult = equationResult == 0 ? queuedNumber : equationResult
-            //resultLabel.text = ""
+            
             currentTemp = ""
             operating = false
         }
         
-        // Hemos seleccionado decimales
         if decimal {
             currentTemp = "\(currentTemp)\(decimalSymbol)"
             decimal = false
         }
-        
-        // An idea was started below to mathmatically add the values together and remove the strings
-        /*
-        if decimal {
-            
-            let numberOfDecimalPlaces = 3 // 0.100
-            let numberToAdd = CGFloat(number) / pow(10, (numberOfDecimalPlaces + 1))
-            
-        } else {
-            let newNumber = queuedNumber * 10 + number
-        }
-         
-        */
-        
-        // TODO we dont want to be creating a string and then converting it to a number
+
         queuedNumber = Double(currentTemp + String(number))!    // crashes due to force unwrappin the optional
         return queuedNumber
     }
@@ -206,7 +207,7 @@ struct CalculatorEngine {
 
 extension CalculatorEngine {
     
-    func formatForDisplay(number: Double) -> String? {
+    func formatForDisplay(number: Double) -> String {
         return displayFormatter.formatForDisplay(number: number)
     }
 }
