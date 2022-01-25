@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CalcViewController: UIViewController, UIInputViewAudioFeedback {
+class CalcViewController: UIViewController {
 
     // MARK: - IBOutlets
     
@@ -50,12 +50,6 @@ class CalcViewController: UIViewController, UIInputViewAudioFeedback {
     
     private var calculator = CalculatorEngine()
     
-    // MARK: - Audio
-    
-    var enableInputClicksWhenVisible: Bool {
-        return true
-    }
-    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -63,11 +57,18 @@ class CalcViewController: UIViewController, UIInputViewAudioFeedback {
         
         addThemeGestureRecogniser()
         loadThemeIndex()
+        lcdDisplay.alpha = 0
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         decorateView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        fadeInLCDDisplay()
     }
     
     // MARK: - Decorate
@@ -256,10 +257,18 @@ class CalcViewController: UIViewController, UIInputViewAudioFeedback {
     }
     
     @IBAction func numberButtonPressed(_ sender: UIButton) {
-        UIDevice.current.playInputClick()
+        
         sender.bounce()
         let number = sender.tag
         let numberToDisplay = calculator.numberPressed(number)
             lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
+    }
+    
+    // MARK: - Animate
+    
+    private func fadeInLCDDisplay() {
+        UIView.animate(withDuration: 1.0, animations: { [weak self] in
+            self?.lcdDisplay.alpha = 1
+        })
     }
 }
