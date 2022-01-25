@@ -68,7 +68,13 @@ class CalcViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        fadeInLCDDisplay()
+        let number = calculator.restoreFromLastSession()
+        lcdDisplay.text = calculator.formatForDisplay(number: number)
+        if number == 0 {
+            fadeInLCDDisplay()
+        } else {
+            moveInLCDDisplay()
+        }
     }
     
     // MARK: - Decorate
@@ -201,6 +207,7 @@ class CalcViewController: UIViewController {
         sender.bounce()
         
         lcdDisplay.alpha = 0
+        
         let numberToDisplay = calculator.clearPressed()
         lcdDisplay.text = calculator.formatForDisplay(number: numberToDisplay)
         fadeInLCDDisplay()
@@ -296,5 +303,19 @@ class CalcViewController: UIViewController {
         UIView.animate(withDuration: 1.0, animations: { [weak self] in
             self?.lcdDisplay.alpha = 1
         })
+    }
+    
+    private func moveInLCDDisplay() {
+        lcdDisplay.transform = CGAffineTransform(translationX: 0, y: lcdDisplay.frame.height)
+        UIView.animate(withDuration: 0.5,
+            animations: { [weak self] in
+            self?.lcdDisplay.alpha = 1
+            self?.lcdDisplay.transform = CGAffineTransform(translationX: 0, y: -8)
+            },
+            completion: { [weak self] _ in
+                UIView.animate(withDuration: 0.15) {
+                    self?.lcdDisplay.transform = CGAffineTransform.identity
+                }
+            })
     }
 }

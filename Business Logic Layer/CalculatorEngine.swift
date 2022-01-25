@@ -44,8 +44,8 @@ struct CalculatorEngine {
         guard operation == .none else {
             return 0
         }
-        
-        equationResult = dataStore.loadResult() ?? 0
+
+        equationResult = dataStore.loadResult()
         return equationResult
     }
     
@@ -97,6 +97,8 @@ struct CalculatorEngine {
         operation = .none
         queuedNumber = 0
         equationResult = 0
+        dataStore.removeValue()
+        
         return equationResult
     }
     

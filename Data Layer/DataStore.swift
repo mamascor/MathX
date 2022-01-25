@@ -16,7 +16,7 @@ struct DataStore {
         UserDefaults.standard.set(number, forKey: key)
     }
     
-    func loadResult() -> Double? {
+    func loadResult() -> Double {
         return UserDefaults.standard.double(forKey: key)
     }
     
