@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C8DB36527A0B1E300A96AA0 /* iOSBFreeCalculatorEngine_PositiveSubtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36427A0B1E300A96AA0 /* iOSBFreeCalculatorEngine_PositiveSubtractionTests.swift */; };
+		0C8DB36727A0C54A00A96AA0 /* iOSBFreeCalculatorEngine_PositiveDivisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36627A0C54A00A96AA0 /* iOSBFreeCalculatorEngine_PositiveDivisionTests.swift */; };
 		0CE40625279E9BB800B16A24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40624279E9BB800B16A24 /* AppDelegate.swift */; };
 		0CE40627279E9BB800B16A24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40626279E9BB800B16A24 /* SceneDelegate.swift */; };
 		0CE40629279E9BB800B16A24 /* CalcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40628279E9BB800B16A24 /* CalcViewController.swift */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		0C8DB36427A0B1E300A96AA0 /* iOSBFreeCalculatorEngine_PositiveSubtractionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSBFreeCalculatorEngine_PositiveSubtractionTests.swift; sourceTree = "<group>"; };
+		0C8DB36627A0C54A00A96AA0 /* iOSBFreeCalculatorEngine_PositiveDivisionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSBFreeCalculatorEngine_PositiveDivisionTests.swift; sourceTree = "<group>"; };
 		0CE40621279E9BB800B16A24 /* Calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE40624279E9BB800B16A24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CE40626279E9BB800B16A24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				0CE4068527A00F3800B16A24 /* iOSBFreeCalculatorEngine_PositiveAdditionTests.swift */,
+				0C8DB36627A0C54A00A96AA0 /* iOSBFreeCalculatorEngine_PositiveDivisionTests.swift */,
 				0C8DB36427A0B1E300A96AA0 /* iOSBFreeCalculatorEngine_PositiveSubtractionTests.swift */,
 			);
 			path = CalcTests;
@@ -389,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CE4068627A00F3800B16A24 /* iOSBFreeCalculatorEngine_PositiveAdditionTests.swift in Sources */,
+				0C8DB36727A0C54A00A96AA0 /* iOSBFreeCalculatorEngine_PositiveDivisionTests.swift in Sources */,
 				0C8DB36527A0B1E300A96AA0 /* iOSBFreeCalculatorEngine_PositiveSubtractionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
