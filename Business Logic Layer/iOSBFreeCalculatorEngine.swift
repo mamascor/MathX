@@ -130,6 +130,10 @@ struct iOSBFreeCalculatorEngine {
             currentMathEntry = newMathEntry
         }
         
+        guard currentMathEntry.isReadyToExecute else {
+            return
+        }
+        
         executeCurrentMathEntry()
     }
     
@@ -235,4 +239,20 @@ struct iOSBFreeCalculatorEngine {
         }
     }
     
+    // MARK: - Copy & Paste
+    
+    mutating func pasteIn(_ decimal: Decimal) {
+        
+        // Are we displaying a completed equation?
+        if currentMathEntry.isCompleted {
+            currentMathEntry = MathEntry()
+            displayType = .operand
+        }
+        
+        // save the value
+        switch currentMathEntry.editingSide {
+        case .leftHandSide: currentMathEntry.equation.lhs = decimal
+        case .rightHandSide: currentMathEntry.equation.rhs = decimal
+        }
+    }
 }

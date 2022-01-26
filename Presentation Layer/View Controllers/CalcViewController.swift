@@ -50,6 +50,30 @@ class CalcViewController: UIViewController {
     
     private var calculator = iOSBFreeCalculatorEngine()
     
+    // MARK: - Notifications
+    private func registerForNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceivePasteNotification(notification:)), name: Notification.Name("iOSBFree.com.calc.CopyableLabel.paste"), object: nil)
+        
+            NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveHistoryNotification(notification:)), name: Notification.Name("iOSBFree.com.calc.CopyableLabel.displayHistory"), object: nil)
+        
+    }
+    
+    @objc func didReceiveHistoryNotification(notification: Notification) {
+        
+        print("Reciueved notification!!!!")
+    }
+    
+    @objc func didReceivePasteNotification(notification: Notification) {
+        
+        guard let decimalValue = notification.userInfo?["iOSBFree.com.calc.CopyableLabel.paste"] as? Double else { return }
+        
+        DispatchQueue.main.async {
+            self.calculator.pasteIn(Decimal(decimalValue))
+            self.lcdDisplay.text = self.calculator.lcdDisplayText
+//            self.lcdDisplay.text = "Helloe"
+        }
+    }
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -58,6 +82,7 @@ class CalcViewController: UIViewController {
         addThemeGestureRecogniser()
         loadThemeIndex()
         lcdDisplay.alpha = 0
+        registerForNotifications()
     }
     
     override func viewDidLayoutSubviews() {

@@ -97,24 +97,28 @@ struct MathEntry {
         guard isCompleted == false else { return }
         
         equation.operation = .divide
+        editingSide = .rightHandSide
     }
     
     mutating func add() {
         guard isCompleted == false else { return }
         
         equation.operation = .add
+        editingSide = .rightHandSide
     }
     
     mutating func subtract() {
         guard isCompleted == false else { return }
         
         equation.operation = .subtract
+        editingSide = .rightHandSide
     }
     
     mutating func multiply() {
         guard isCompleted == false else { return }
         
         equation.operation = .multiply
+        editingSide = .rightHandSide
     }
     
     mutating func execute() {
