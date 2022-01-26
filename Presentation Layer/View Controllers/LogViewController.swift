@@ -52,13 +52,13 @@ class LogViewController: UITableViewController {
         }
         
         cell.backgroundColor = UIColor(hex: colorPalette.background)
-        //cell.selectedBackgroundView?.backgroundColor = UIColor(hex: colorPalette.operatorNormal )
+        cell.selectedBackgroundView?.backgroundColor = UIColor(hex: colorPalette.operatorNormal )
         cell.lhsLabel.textColor = UIColor(hex: colorPalette.display)
-        //cell.lhsLabel.highlightedTextColor = UIColor(hex: colorPalette.background)
+        cell.lhsLabel.highlightedTextColor = UIColor(hex: colorPalette.background)
         cell.rhsLabel.textColor = UIColor(hex: colorPalette.display)
-        //cell.rhsLabel.highlightedTextColor = UIColor(hex: colorPalette.background)
+        cell.rhsLabel.highlightedTextColor = UIColor(hex: colorPalette.background)
         cell.resultLabel.textColor = UIColor(hex: colorPalette.display)
-        //cell.resultLabel.highlightedTextColor = UIColor(hex: colorPalette.background)
+        cell.resultLabel.highlightedTextColor = UIColor(hex: colorPalette.background)
         
         let mathEquation = datasource[indexPath.row]
         cell.lhsLabel.text = mathEquation.lhs.formatted()
