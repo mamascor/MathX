@@ -123,13 +123,13 @@ class iOSBFreeCalculatorEngine_PositiveSubtractionTests: XCTestCase {
     }
     
     private func testEnteringNewEquationAfterViewingAResult (using number: Int) {
-        //Input 7: 7 + 1, 7 + 2, 7 + 3, 7 + 4, 7 + 5, 7 + 6, 7 + 7, 7 + 8, 7 + 9
+        //Input 7: 7 - 1, 7 - 2, 7 - 3, 7 - 4, 7 - 5, 7 - 6, 7 - 7, 7 - 8, 7 - 9
         
         // setup
         var calculatorEngine = iOSBFreeCalculatorEngine()
-        calculatorEngine.numberPressed(1)
-        calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(number)
+        calculatorEngine.minusPressed()
+        calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
         guard let firstResult = calculatorEngine.resultOfEquation else {
@@ -142,9 +142,9 @@ class iOSBFreeCalculatorEngine_PositiveSubtractionTests: XCTestCase {
             return
         }
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
-        XCTAssertTrue(firstRightHandValue.isEqual(to: Decimal(number)))
-        XCTAssertTrue(firstResult.isEqual(to: Decimal(number + 1)))
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
+        XCTAssertTrue(firstRightHandValue.isEqual(to: Decimal(1)))
+        XCTAssertTrue(firstResult.isEqual(to: Decimal(number - 1)))
         
         // loop forward
         for iteration in 1...10 {
@@ -246,7 +246,7 @@ class iOSBFreeCalculatorEngine_PositiveSubtractionTests: XCTestCase {
             return
         }
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(-171)))
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(-172)))
         XCTAssertTrue(rhdFinal.isEqual(to: Decimal(2)))
         XCTAssertTrue(resultFinal.isEqual(to: Decimal(-174)))
     }

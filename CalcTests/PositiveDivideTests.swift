@@ -1,8 +1,9 @@
 //
-//  iOSBFreeCalculatorEngine_PositiveMultiplyTests.swift
+//  PositiveDivideTests.swift
 //  CalcTests
 //
 //  Created by Matthew Paul Harding on 26/01/2022.
+//
 //
 //  iOSB Free Ltd                   → All rights reserved
 //  Website                         → https://www.iosbfree.com
@@ -18,12 +19,12 @@
 import XCTest
 @testable import Calc
 
-class iOSBFreeCalculatorEngine_PositiveMultiplyTests: XCTestCase {
-    
+class PositiveDivideTests: XCTestCase {
+
     func testPositiveMultiplication() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
-        calculatorEngine.multiplyPressed()
+        calculatorEngine.dividePressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
@@ -45,26 +46,26 @@ class iOSBFreeCalculatorEngine_PositiveMultiplyTests: XCTestCase {
     func testPositiveGrowingMultiplicationFromPinpad() throws {
         
         // 10 options on the pin pad
-        continuouslyGrowingMultiply(using: 1)
-        continuouslyGrowingMultiply(using: 2)
-        continuouslyGrowingMultiply(using: 3)
-        continuouslyGrowingMultiply(using: 4)
-        continuouslyGrowingMultiply(using: 5)
-        continuouslyGrowingMultiply(using: 6)
-        continuouslyGrowingMultiply(using: 7)
-        continuouslyGrowingMultiply(using: 8)
-        continuouslyGrowingMultiply(using: 9)
-        continuouslyGrowingMultiply(using: 0)
+        continuouslyGrowingDivision(using: 1)
+        continuouslyGrowingDivision(using: 2)
+        continuouslyGrowingDivision(using: 3)
+        continuouslyGrowingDivision(using: 4)
+        continuouslyGrowingDivision(using: 5)
+        continuouslyGrowingDivision(using: 6)
+        continuouslyGrowingDivision(using: 7)
+        continuouslyGrowingDivision(using: 8)
+        continuouslyGrowingDivision(using: 9)
+        continuouslyGrowingDivision(using: 0)
     }
     
-    private func continuouslyGrowingMultiply(using number: Int) {
-        //Input: 7 * 1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9
+    private func continuouslyGrowingDivision(using number: Int) {
+        //Input: 7 / 1 / 2 / 3 / 4 / 5 / 6 / 7 / 8 / 9
         
         // setup
         var calculatorEngine = iOSBFreeCalculatorEngine()
-        calculatorEngine.numberPressed(1)
-        calculatorEngine.multiplyPressed()
         calculatorEngine.numberPressed(number)
+        calculatorEngine.dividePressed()
+        calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
         guard let firstResult = calculatorEngine.resultOfEquation else {
@@ -77,14 +78,14 @@ class iOSBFreeCalculatorEngine_PositiveMultiplyTests: XCTestCase {
             return
         }
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
-        XCTAssertTrue(firstRightHandValue.isEqual(to: Decimal(number)))
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
+        XCTAssertTrue(firstRightHandValue.isEqual(to: Decimal(1)))
         XCTAssertTrue(firstResult.isEqual(to: Decimal(number)))
         
         // loop forward
         var currentResult: Decimal = firstResult
         for iteration in 1...10 {
-            calculatorEngine.multiplyPressed()
+            calculatorEngine.dividePressed()
             calculatorEngine.numberPressed(iteration + 1)
             calculatorEngine.equalsPressed()
             
@@ -100,7 +101,7 @@ class iOSBFreeCalculatorEngine_PositiveMultiplyTests: XCTestCase {
             
             XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: currentResult))
             XCTAssertTrue(rhd.isEqual(to: Decimal(iteration + 1)))
-            XCTAssertTrue(result.isEqual(to: currentResult * Decimal(iteration + 1)))
+            XCTAssertTrue(result.isEqual(to: currentResult / Decimal(iteration + 1)))
             
             currentResult = result
         }
@@ -123,13 +124,13 @@ class iOSBFreeCalculatorEngine_PositiveMultiplyTests: XCTestCase {
     }
     
     private func continuouslyMultiply(using number: Int) {
-        //Input: 7 * 1, 7 * 2, 7 * 3, 7 * 4, 7 * 5, 7 * 6, 7 * 7, 7 * 8, 7 * 9
+        //Input: 7 / 1, 7 / 2, 7 / 3, 7 / 4, 7 / 5, 7 / 6, 7 / 7, 7 / 8, 7 / 9
         
         // setup
         var calculatorEngine = iOSBFreeCalculatorEngine()
-        calculatorEngine.numberPressed(1)
-        calculatorEngine.multiplyPressed()
         calculatorEngine.numberPressed(number)
+        calculatorEngine.dividePressed()
+        calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
         guard let firstResult = calculatorEngine.resultOfEquation else {
@@ -142,14 +143,14 @@ class iOSBFreeCalculatorEngine_PositiveMultiplyTests: XCTestCase {
             return
         }
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
-        XCTAssertTrue(firstRightHandValue.isEqual(to: Decimal(number)))
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
+        XCTAssertTrue(firstRightHandValue.isEqual(to: Decimal(1)))
         XCTAssertTrue(firstResult.isEqual(to: Decimal(number)))
         
         // loop forward
         for iteration in 1...10 {
             calculatorEngine.numberPressed(number)
-            calculatorEngine.multiplyPressed()
+            calculatorEngine.dividePressed()
             calculatorEngine.numberPressed(iteration + 1)
             calculatorEngine.equalsPressed()
             
@@ -163,9 +164,11 @@ class iOSBFreeCalculatorEngine_PositiveMultiplyTests: XCTestCase {
                 return
             }
             
+            let doubleValue: Double = Double(number) / Double(iteration + 1)
             XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
             XCTAssertTrue(rhd.isEqual(to: Decimal(iteration + 1)))
-            XCTAssertTrue(result.isEqual(to: Decimal(number * (iteration + 1))))
+            // Note: comparing floating point numbers causes our tests to fail. They are not accurate enough to compare.
+            XCTAssertTrue(result.formatted() == Decimal(doubleValue).formatted())
         }
         
     }
