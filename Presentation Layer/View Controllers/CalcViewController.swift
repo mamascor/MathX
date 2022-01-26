@@ -50,7 +50,7 @@ class CalcViewController: UIViewController {
     
     // MARK: - Color Palette
     
-    private var colorPalette: ColorPalette = DarkColorPalette()
+    private var colorPalette: ColorPalette = WashedOutColorPalette()
     private var currentThemeIndex = 0
     private let themeDataStore = DataStore(key: "iOSBFree.com.calc.CalcViewController.themeIndex")
     
@@ -75,10 +75,12 @@ class CalcViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        guard needsToSetupView else { return }
-        needsToSetupView = false
         decorateView()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -102,6 +104,7 @@ class CalcViewController: UIViewController {
         calculatorView.backgroundColor = view.backgroundColor
         
         lcdDisplay.prepareForThemeUpdate()
+        lcdDisplay.backgroundColor = .clear
         lcdDisplay.textColor = UIColor(hex: colorPalette.display)
         
         decoratePinPadButton(pinPadButton0)
@@ -172,7 +175,7 @@ class CalcViewController: UIViewController {
     private func decorateViewWithNextTheme() {
         
         // loop to the beginning
-        let numberOfThemes = 7
+        let numberOfThemes = 8
         currentThemeIndex = currentThemeIndex + 1
         if currentThemeIndex >= numberOfThemes {
             currentThemeIndex = 0
@@ -191,6 +194,7 @@ class CalcViewController: UIViewController {
         case 4: loadTheme(LightBlueColorPalette())
         case 5: loadTheme(DarkBlueColorPalette())
         case 6: loadTheme(PurpleColorPalette())
+        case 7: loadTheme(WashedOutColorPalette())
         default: loadTheme(DarkColorPalette())
         }
     }

@@ -111,7 +111,7 @@ class LCDDisplay: UILabel {
         let actionToPerform: (() -> Void) = { [weak self] in
             guard let theme = self?.colorPalette else { return }
             
-            self?.layer.backgroundColor = UIColor(hex:theme.background)?.cgColor
+            self?.layer.backgroundColor = UIColor.clear.cgColor
             self?.textColor = UIColor(hex:theme.display)
         }
         
