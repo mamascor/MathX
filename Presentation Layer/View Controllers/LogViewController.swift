@@ -72,8 +72,14 @@ class LogViewController: UITableViewController {
         let mathEquation = datasource[indexPath.row]
         let userInfo: [AnyHashable: Any] = ["iOSBFree.com.calc.LogViewController.pasteMathEquation": mathEquation]
         NotificationCenter.default.post(name: Notification.Name("iOSBFree.com.calc.LogViewController.pasteMathEquation"), object: nil, userInfo: userInfo)
-        tableView.deselectRow(at: indexPath, animated: true)
-        dismiss(animated: true, completion: nil)
+        //tableView.deselectRow(at: indexPath, animated: true)
+        dismissAfterDelay()
+    }
+    
+    private func dismissAfterDelay() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }
     }
     
     /*
