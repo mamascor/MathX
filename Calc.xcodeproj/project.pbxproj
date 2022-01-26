@@ -41,6 +41,7 @@
 		0CED88B327A1969800261494 /* NegateButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88B227A1969800261494 /* NegateButtonTests.swift */; };
 		0CED88B527A1A0CB00261494 /* PercentageButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88B427A1A0CB00261494 /* PercentageButtonTests.swift */; };
 		0CED88B727A1A70700261494 /* ClearButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88B627A1A70700261494 /* ClearButtonTests.swift */; };
+		0CED88B927A1AA8D00261494 /* EnterNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88B827A1AA8D00261494 /* EnterNumberTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		0CED88B227A1969800261494 /* NegateButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegateButtonTests.swift; sourceTree = "<group>"; };
 		0CED88B427A1A0CB00261494 /* PercentageButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentageButtonTests.swift; sourceTree = "<group>"; };
 		0CED88B627A1A70700261494 /* ClearButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButtonTests.swift; sourceTree = "<group>"; };
+		0CED88B827A1AA8D00261494 /* EnterNumberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNumberTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				0CED88B227A1969800261494 /* NegateButtonTests.swift */,
 				0CED88B427A1A0CB00261494 /* PercentageButtonTests.swift */,
 				0CED88B627A1A70700261494 /* ClearButtonTests.swift */,
+				0CED88B827A1AA8D00261494 /* EnterNumberTests.swift */,
 			);
 			path = CalcTests;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CED88B927A1AA8D00261494 /* EnterNumberTests.swift in Sources */,
 				0CE4068627A00F3800B16A24 /* PositiveAdditionTests.swift in Sources */,
 				0CED88B327A1969800261494 /* NegateButtonTests.swift in Sources */,
 				0CED88B527A1A0CB00261494 /* PercentageButtonTests.swift in Sources */,
