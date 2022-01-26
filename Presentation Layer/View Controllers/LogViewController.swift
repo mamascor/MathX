@@ -77,7 +77,8 @@ class LogViewController: UITableViewController {
         let mathEquation = datasource[indexPath.row]
         let userInfo: [AnyHashable: Any] = ["iOSBFree.com.calc.LogViewController.pasteMathEquation": mathEquation]
         NotificationCenter.default.post(name: Notification.Name("iOSBFree.com.calc.LogViewController.pasteMathEquation"), object: nil, userInfo: userInfo)
-        //tableView.deselectRow(at: indexPath, animated: true)
+        
+        view.isUserInteractionEnabled = false
         cell.displayTick()
         dismissAfterDelay()
     }
