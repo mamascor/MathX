@@ -41,7 +41,7 @@ struct DataStore {
     }
 }
 
-extension Decimal {
+private extension Decimal {
     var doubleValue:Double {
         return NSDecimalNumber(decimal:self).doubleValue
     }
