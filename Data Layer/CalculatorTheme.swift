@@ -1,5 +1,5 @@
 //
-//  LightBlueColorPalette.swift
+//  CalculatorTheme.swift
 //  Calc
 //
 //  Created by Matthew Paul Harding on 24/01/2022.
@@ -17,26 +17,27 @@
 
 import Foundation
 
-struct LightBlueColorPalette: ColorPalette {
-    var background: String = "#F8F8F8"
-        
-    var display: String = "#000000"
+enum StatusBarStyle {
+    case light
+    case dark
+}
+
+protocol CalculatorTheme {
     
-    var operatorNormal: String = "#00B4FF"
+    var background: String { get }
+    var display: String { get }
     
-    var operatorSelected: String = "#0265FF"
+    var operatorNormal: String { get }
+    var operatorSelected: String { get }
     
-    var operatorTitle: String = "#ffffff"
+    var operatorTitle: String { get }
+    var operatorTitleSelected: String { get }
     
-    var operatorTitleSelected: String = "#ffffff"
+    var pinPad: String { get }
+    var pinPadTitle: String { get }
     
-    var pinPad: String = "#EEEEEE"
+    var extraFunctions: String { get }
+    var extraFunctionsTitle: String { get }
     
-    var pinPadTitle: String = "#000000"
-    
-    var extraFunctions: String = "#D6DEE5"
-    
-    var extraFunctionsTitle: String = "#00B4FF"
-    
-    var statusBarStyle: StatusBarStyle = .dark
+    var statusBarStyle: StatusBarStyle { get }
 }

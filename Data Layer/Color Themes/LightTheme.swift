@@ -1,5 +1,5 @@
 //
-//  DarkColorPalette.swift
+//  LightCalculatorTheme.swift
 //  Calc
 //
 //  Created by Matthew Paul Harding on 24/01/2022.
@@ -17,26 +17,26 @@
 
 import Foundation
 
-struct DarkColorPalette: ColorPalette {
-    var background: String = "#000000"
+struct LightTheme: CalculatorTheme {
+    var background: String = "#F6F8F9"
+        
+    var display: String = "#000000"
     
-    var display: String = "#ffffff"
+    var operatorNormal: String = "#4BE6A9"
     
-    var operatorNormal: String = "#ff9f0a"
+    var operatorSelected: String = "#70729D"
     
-    var operatorSelected: String = "#ffffff"
+    var operatorTitle: String = "#14145C"
     
-    var operatorTitle: String = "#ffffff"
+    var operatorTitleSelected: String = "#ffffff"
     
-    var operatorTitleSelected: String = "#ff9f0a"
+    var pinPad: String = "#E9F0F4"
     
-    var pinPad: String = "#333333"
+    var pinPadTitle: String = "#000000"
     
-    var pinPadTitle: String = "#ffffff"
+    var extraFunctions: String = "#E9F0F4"
     
-    var extraFunctions: String = "#a6a6a6"
+    var extraFunctionsTitle: String = "#4BE6A9"
     
-    var extraFunctionsTitle: String = "#000000"
-    
-    var statusBarStyle: StatusBarStyle = .light
+    var statusBarStyle: StatusBarStyle = .dark
 }

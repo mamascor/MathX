@@ -1,8 +1,8 @@
 //
-//  PinkColorPalette.swift
+//  WashedOutCalculatorTheme.swift
 //  Calc
 //
-//  Created by Matthew Paul Harding on 24/01/2022.
+//  Created by Matthew Paul Harding on 26/01/2022.
 //
 //
 //  iOSB Free Ltd                   → All rights reserved
@@ -17,26 +17,27 @@
 
 import Foundation
 
-struct PinkColorPalette: ColorPalette {
-    var background: String = "#253C5B"
+struct WashedOutTheme: CalculatorTheme {
+    var background: String = "#ECF5FF"
         
-    var display: String = "#EBF0EF"
+    var display: String = "#0D2A4B"
     
-    var operatorNormal: String = "#FA569C"
+    var operatorNormal: String = "#A3CFF9"
     
-    var operatorSelected: String = "#0265FF"
+    var operatorSelected: String = "#0D2A4B"
     
-    var operatorTitle: String = "#EBF0EF"
+    var operatorTitle: String = "#5487BA"
     
     var operatorTitleSelected: String = "#ffffff"
     
-    var pinPad: String = "#16253A"
+    var pinPad: String = "#1D1D1D"
     
-    var pinPadTitle: String = "#EBF0EF"
+    var pinPadTitle: String = "#ffffff"
     
-    var extraFunctions: String = "#294666"
+    var extraFunctions: String = "#A3CFF9"
     
-    var extraFunctionsTitle: String = "#EBF0EF"
+    var extraFunctionsTitle: String = "#5487BA"
     
-    var statusBarStyle: StatusBarStyle = .light
+    var statusBarStyle: StatusBarStyle = .dark
 }
+

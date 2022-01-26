@@ -19,7 +19,7 @@ import UIKit
 class LCDDisplay: UILabel {
     
     //MARK: - Properties
-    var colorPalette: ColorPalette = DarkColorPalette()
+    var theme: CalculatorTheme = DarkTheme()
     
     var historyMenuItem: UIMenuItem {
         return UIMenuItem(title: "View Log", action: #selector(self.displayMathEquationHistory(_:)))
@@ -92,7 +92,7 @@ class LCDDisplay: UILabel {
     
     private func highlightScreen() {
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut) { [weak self] in
-            guard let theme = self?.colorPalette else { return }
+            guard let theme = self?.theme else { return }
             
             self?.layer.backgroundColor = UIColor(hex:theme.operatorNormal)?.cgColor
             self?.textColor = UIColor(hex:theme.operatorTitle)
@@ -109,7 +109,7 @@ class LCDDisplay: UILabel {
     private func unhighlightScreen(_ animated: Bool) {
         
         let actionToPerform: (() -> Void) = { [weak self] in
-            guard let theme = self?.colorPalette else { return }
+            guard let theme = self?.theme else { return }
             
             self?.layer.backgroundColor = UIColor.clear.cgColor
             self?.textColor = UIColor(hex:theme.display)

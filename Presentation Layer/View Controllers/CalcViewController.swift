@@ -50,8 +50,8 @@ class CalcViewController: UIViewController {
     
     // MARK: - Color Palette
     
-    private var colorPalette: ColorPalette = WashedOutColorPalette()
-    private let colorThemes: [ColorPalette] = [ElectroColorPalette(), LightColorPalette(), PinkColorPalette(), LightBlueColorPalette(), DarkBlueColorPalette(), PurpleColorPalette(), WashedOutColorPalette(),VibrantColorPalette(), OrangeColorPalette(), DarkColorPalette()]
+    private var selectedTheme: CalculatorTheme = ElectroTheme()
+    private let colorThemes: [CalculatorTheme] = [ElectroTheme(), LightTheme(), PinkTheme(), LightBlueTheme(), DarkBlueTheme(), PurpleTheme(), WashedOutTheme(),VibrantTheme(), OrangeTheme(), DarkTheme()]
     
     private var currentThemeIndex = 0
     private let themeDataStore = DataStore(key: "iOSBFree.com.calc.CalcViewController.themeIndex")
@@ -102,12 +102,12 @@ class CalcViewController: UIViewController {
     
     private func decorateView() {
         
-        view.backgroundColor = UIColor(hex: colorPalette.background)
+        view.backgroundColor = UIColor(hex: selectedTheme.background)
         calculatorView.backgroundColor = view.backgroundColor
         
         lcdDisplay.prepareForThemeUpdate()
         lcdDisplay.backgroundColor = .clear
-        lcdDisplay.textColor = UIColor(hex: colorPalette.display)
+        lcdDisplay.textColor = UIColor(hex: selectedTheme.display)
         
         decoratePinPadButton(pinPadButton0)
         decoratePinPadButton(pinPadButton1)
@@ -133,14 +133,14 @@ class CalcViewController: UIViewController {
     }
     
     private func decoratePinPadButton(_ button: UIButton) {
-        button.backgroundColor = UIColor(hex: colorPalette.pinPad)
-        button.tintColor = UIColor(hex: colorPalette.pinPadTitle)
+        button.backgroundColor = UIColor(hex: selectedTheme.pinPad)
+        button.tintColor = UIColor(hex: selectedTheme.pinPadTitle)
         button.becomeRound()
     }
     
     private func decorateOperatorButton(_ button: UIButton, _ selected: Bool = false) {
-        button.backgroundColor = selected ? UIColor(hex: colorPalette.operatorSelected) : UIColor(hex: colorPalette.operatorNormal)
-        button.tintColor = selected ? UIColor(hex: colorPalette.operatorTitleSelected) : UIColor(hex: colorPalette.operatorTitle)
+        button.backgroundColor = selected ? UIColor(hex: selectedTheme.operatorSelected) : UIColor(hex: selectedTheme.operatorNormal)
+        button.tintColor = selected ? UIColor(hex: selectedTheme.operatorTitleSelected) : UIColor(hex: selectedTheme.operatorTitle)
         button.becomeRound()
     }
     
@@ -152,8 +152,8 @@ class CalcViewController: UIViewController {
     }
     
     private func decorateExtraFunctionsButton(_ button: UIButton) {
-        button.backgroundColor = UIColor(hex: colorPalette.extraFunctions)
-        button.tintColor = UIColor(hex: colorPalette.extraFunctionsTitle)
+        button.backgroundColor = UIColor(hex: selectedTheme.extraFunctions)
+        button.tintColor = UIColor(hex: selectedTheme.extraFunctionsTitle)
         button.becomeRound()
     }
     
@@ -189,20 +189,20 @@ class CalcViewController: UIViewController {
     }
     
     private func loadThemeFromCurrentThemeIndex() {
-        colorPalette = colorThemes[currentThemeIndex]
+        selectedTheme = colorThemes[currentThemeIndex]
         decorateView()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        switch colorPalette.statusBarStyle {
+        switch selectedTheme.statusBarStyle {
         case .light: return .lightContent
         case .dark: return .darkContent
         }
     }
     
-    private func loadTheme(_ theme: ColorPalette) {
-        colorPalette = theme
-        lcdDisplay.colorPalette = theme
+    private func loadTheme(_ theme: CalculatorTheme) {
+        selectedTheme = theme
+        lcdDisplay.theme = theme
         decorateView()
         setNeedsStatusBarAppearanceUpdate()
     }
@@ -343,7 +343,7 @@ class CalcViewController: UIViewController {
         guard let logViewController: LogViewController = storyboard.instantiateViewController(withIdentifier: "LogViewController") as? LogViewController else { return }
         
         logViewController.setDataSource(calculator.copyOfEquationLog)
-        logViewController.setTheme(colorPalette)
+        logViewController.setTheme(selectedTheme)
         let navigationController = UINavigationController(rootViewController: logViewController)
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         present(navigationController, animated: true, completion: nil)

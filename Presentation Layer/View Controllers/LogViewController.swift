@@ -20,7 +20,7 @@ import UIKit
 class LogViewController: UITableViewController {
 
     private var datasource: [MathEquation] = []
-    private var colorPalette: ColorPalette = DarkColorPalette()
+    private var theme: CalculatorTheme = DarkTheme()
     
     
     //MARK: - Set Datasource
@@ -29,11 +29,11 @@ class LogViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    func setTheme(_ theme: ColorPalette) {
-        colorPalette = theme
-        tableView.backgroundColor = UIColor(hex: colorPalette.background)
-        tableView.separatorColor = UIColor(hex: colorPalette.operatorNormal)
-        navigationItem.rightBarButtonItem?.tintColor = UIColor(hex: colorPalette.operatorNormal)
+    func setTheme(_ newTheme: CalculatorTheme) {
+        theme = newTheme
+        tableView.backgroundColor = UIColor(hex: theme.background)
+        tableView.separatorColor = UIColor(hex: theme.operatorNormal)
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(hex: theme.operatorNormal)
     }
     
     //MARK: - Lifecycle
@@ -61,16 +61,16 @@ class LogViewController: UITableViewController {
             return UITableViewCell()
         }
         
-        cell.backgroundColor = UIColor(hex: colorPalette.background)
-        cell.selectedBackgroundView?.backgroundColor = UIColor(hex: colorPalette.operatorNormal )
-        cell.lhsLabel.textColor = UIColor(hex: colorPalette.display)
-        cell.lhsLabel.highlightedTextColor = UIColor(hex: colorPalette.background)
-        cell.rhsLabel.textColor = UIColor(hex: colorPalette.display)
-        cell.rhsLabel.highlightedTextColor = UIColor(hex: colorPalette.background)
-        cell.resultLabel.textColor = UIColor(hex: colorPalette.display)
-        cell.resultLabel.highlightedTextColor = UIColor(hex: colorPalette.background)
+        cell.backgroundColor = UIColor(hex: theme.background)
+        cell.selectedBackgroundView?.backgroundColor = UIColor(hex: theme.operatorNormal )
+        cell.lhsLabel.textColor = UIColor(hex: theme.display)
+        cell.lhsLabel.highlightedTextColor = UIColor(hex: theme.background)
+        cell.rhsLabel.textColor = UIColor(hex: theme.display)
+        cell.rhsLabel.highlightedTextColor = UIColor(hex: theme.background)
+        cell.resultLabel.textColor = UIColor(hex: theme.display)
+        cell.resultLabel.highlightedTextColor = UIColor(hex: theme.background)
         
-        cell.tick.tintColor = UIColor(hex: colorPalette.operatorTitle)
+        cell.tick.tintColor = UIColor(hex: theme.operatorTitle)
         
         let mathEquation = datasource[indexPath.row]
         cell.lhsLabel.text = mathEquation.lhs.formatted()

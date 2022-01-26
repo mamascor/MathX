@@ -1,5 +1,5 @@
 //
-//  DarkBlueColorPalette.swift
+//  PurpleCalculatorTheme.swift
 //  Calc
 //
 //  Created by Matthew Paul Harding on 24/01/2022.
@@ -17,12 +17,12 @@
 
 import Foundation
 
-struct DarkBlueColorPalette: ColorPalette {
-    var background: String = "#1D1D1D"
+struct PurpleTheme: CalculatorTheme {
+    var background: String = "#F4F5FA"
         
-    var display: String = "#727272"
+    var display: String = "#1D1D1D"
     
-    var operatorNormal: String = "#4566B6"
+    var operatorNormal: String = "#7550FE"
     
     var operatorSelected: String = "#4566B6"
     
@@ -32,11 +32,12 @@ struct DarkBlueColorPalette: ColorPalette {
     
     var pinPad: String = "#1D1D1D"
     
-    var pinPadTitle: String = "#767676"
+    var pinPadTitle: String = "#ffffff"
     
-    var extraFunctions: String = "#323232"
+    var extraFunctions: String = "#F4F5FA"
     
-    var extraFunctionsTitle: String = "#FFFFFF"
+    var extraFunctionsTitle: String = "#7550FE"
     
-    var statusBarStyle: StatusBarStyle = .light
+    var statusBarStyle: StatusBarStyle = .dark
 }
+

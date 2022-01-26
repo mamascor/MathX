@@ -1,5 +1,5 @@
 //
-//  PurpleColorPalette.swift
+//  PinkCalculatorTheme.swift
 //  Calc
 //
 //  Created by Matthew Paul Harding on 24/01/2022.
@@ -17,27 +17,26 @@
 
 import Foundation
 
-struct PurpleColorPalette: ColorPalette {
-    var background: String = "#F4F5FA"
+struct PinkTheme: CalculatorTheme {
+    var background: String = "#253C5B"
         
-    var display: String = "#1D1D1D"
+    var display: String = "#EBF0EF"
     
-    var operatorNormal: String = "#7550FE"
+    var operatorNormal: String = "#FA569C"
     
-    var operatorSelected: String = "#4566B6"
+    var operatorSelected: String = "#0265FF"
     
-    var operatorTitle: String = "#ffffff"
+    var operatorTitle: String = "#EBF0EF"
     
     var operatorTitleSelected: String = "#ffffff"
     
-    var pinPad: String = "#1D1D1D"
+    var pinPad: String = "#16253A"
     
-    var pinPadTitle: String = "#ffffff"
+    var pinPadTitle: String = "#EBF0EF"
     
-    var extraFunctions: String = "#F4F5FA"
+    var extraFunctions: String = "#294666"
     
-    var extraFunctionsTitle: String = "#7550FE"
+    var extraFunctionsTitle: String = "#EBF0EF"
     
-    var statusBarStyle: StatusBarStyle = .dark
+    var statusBarStyle: StatusBarStyle = .light
 }
-

@@ -1,5 +1,5 @@
 //
-//  OrangeColorPalette.swift
+//  OrangeCalculatorTheme.swift
 //  Calc
 //
 //  Created by Matthew Paul Harding on 26/01/2022.
@@ -17,7 +17,7 @@
 
 import Foundation
 
-struct OrangeColorPalette: ColorPalette {
+struct OrangeTheme: CalculatorTheme {
     
     var background: String = "#DC6969"
         

@@ -1,5 +1,5 @@
 //
-//  ColorPalette.swift
+//  DarkBlueCalculatorTheme.swift
 //  Calc
 //
 //  Created by Matthew Paul Harding on 24/01/2022.
@@ -17,27 +17,26 @@
 
 import Foundation
 
-enum StatusBarStyle {
-    case light
-    case dark
-}
-
-protocol ColorPalette {
+struct DarkBlueTheme: CalculatorTheme {
+    var background: String = "#1D1D1D"
+        
+    var display: String = "#727272"
     
-    var background: String { get }
-    var display: String { get }
+    var operatorNormal: String = "#4566B6"
     
-    var operatorNormal: String { get }
-    var operatorSelected: String { get }
+    var operatorSelected: String = "#4566B6"
     
-    var operatorTitle: String { get }
-    var operatorTitleSelected: String { get }
+    var operatorTitle: String = "#ffffff"
     
-    var pinPad: String { get }
-    var pinPadTitle: String { get }
+    var operatorTitleSelected: String = "#ffffff"
     
-    var extraFunctions: String { get }
-    var extraFunctionsTitle: String { get }
+    var pinPad: String = "#1D1D1D"
     
-    var statusBarStyle: StatusBarStyle { get }
+    var pinPadTitle: String = "#767676"
+    
+    var extraFunctions: String = "#323232"
+    
+    var extraFunctionsTitle: String = "#FFFFFF"
+    
+    var statusBarStyle: StatusBarStyle = .light
 }

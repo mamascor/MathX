@@ -1,5 +1,5 @@
 //
-//  ElectroColorPalette.swift
+//  ElectroCalculatorTheme.swift
 //  Calc
 //
 //  Created by Matthew Paul Harding on 24/01/2022.
@@ -19,7 +19,7 @@ import Foundation
 
 
 
-struct ElectroColorPalette: ColorPalette {
+struct ElectroTheme: CalculatorTheme {
     var background: String = "#0E0E41"
     
     var display: String = "#ffffff"

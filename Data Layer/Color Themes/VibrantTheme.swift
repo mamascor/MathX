@@ -1,5 +1,5 @@
 //
-//  VibrantColorPalette.swift
+//  VibrantCalculatorTheme.swift
 //  Calc
 //
 //  Created by Matthew Paul Harding on 26/01/2022.
@@ -17,7 +17,7 @@
 
 import Foundation
 
-struct VibrantColorPalette: ColorPalette {
+struct VibrantTheme: CalculatorTheme {
     
     var background: String = "#4A1D41"
         
