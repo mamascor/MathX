@@ -12,7 +12,7 @@ class CalcViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak var calculatorView: UIView!
-    @IBOutlet weak var lcdDisplay: UILabel!
+    @IBOutlet weak var lcdDisplay: LCDDisplay!
     
     @IBOutlet weak var pinPadButton0: UIButton!
     @IBOutlet weak var pinPadButton1: UIButton!
@@ -188,6 +188,7 @@ class CalcViewController: UIViewController {
     
     private func loadTheme(_ theme: ColorPalette) {
         colorPalette = theme
+        lcdDisplay.colorPalette = theme
         decorateView()
         setNeedsStatusBarAppearanceUpdate()
     }
