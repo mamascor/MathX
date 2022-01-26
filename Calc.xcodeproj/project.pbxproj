@@ -40,6 +40,7 @@
 		0CED88B127A192E700261494 /* EqualsButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88B027A192E700261494 /* EqualsButtonTests.swift */; };
 		0CED88B327A1969800261494 /* NegateButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88B227A1969800261494 /* NegateButtonTests.swift */; };
 		0CED88B527A1A0CB00261494 /* PercentageButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88B427A1A0CB00261494 /* PercentageButtonTests.swift */; };
+		0CED88B727A1A70700261494 /* ClearButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88B627A1A70700261494 /* ClearButtonTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		0CED88B027A192E700261494 /* EqualsButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualsButtonTests.swift; sourceTree = "<group>"; };
 		0CED88B227A1969800261494 /* NegateButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegateButtonTests.swift; sourceTree = "<group>"; };
 		0CED88B427A1A0CB00261494 /* PercentageButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentageButtonTests.swift; sourceTree = "<group>"; };
+		0CED88B627A1A70700261494 /* ClearButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButtonTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				0CED88B027A192E700261494 /* EqualsButtonTests.swift */,
 				0CED88B227A1969800261494 /* NegateButtonTests.swift */,
 				0CED88B427A1A0CB00261494 /* PercentageButtonTests.swift */,
+				0CED88B627A1A70700261494 /* ClearButtonTests.swift */,
 			);
 			path = CalcTests;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				0C8DB36527A0B1E300A96AA0 /* PositiveSubtractionTests.swift in Sources */,
 				0CED88AF27A1879F00261494 /* PositiveDivideTests.swift in Sources */,
 				0CED88B127A192E700261494 /* EqualsButtonTests.swift in Sources */,
+				0CED88B727A1A70700261494 /* ClearButtonTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
