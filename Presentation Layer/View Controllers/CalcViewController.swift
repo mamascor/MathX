@@ -175,7 +175,7 @@ class CalcViewController: UIViewController {
     private func decorateViewWithNextTheme() {
         
         // loop to the beginning
-        let numberOfThemes = 8
+        let numberOfThemes = 9
         currentThemeIndex = currentThemeIndex + 1
         if currentThemeIndex >= numberOfThemes {
             currentThemeIndex = 0
@@ -195,6 +195,8 @@ class CalcViewController: UIViewController {
         case 5: loadTheme(DarkBlueColorPalette())
         case 6: loadTheme(PurpleColorPalette())
         case 7: loadTheme(WashedOutColorPalette())
+        case 8: loadTheme(VibrantColorPalette())
+            
         default: loadTheme(DarkColorPalette())
         }
     }

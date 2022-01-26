@@ -43,6 +43,7 @@
 		0CED88B727A1A70700261494 /* ClearButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88B627A1A70700261494 /* ClearButtonTests.swift */; };
 		0CED88B927A1AA8D00261494 /* EnterNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88B827A1AA8D00261494 /* EnterNumberTests.swift */; };
 		0CED88BD27A1BA2000261494 /* WashedOutColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88BC27A1BA2000261494 /* WashedOutColorPalette.swift */; };
+		0CED88BF27A1BC7400261494 /* VibrantColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88BE27A1BC7400261494 /* VibrantColorPalette.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		0CED88B627A1A70700261494 /* ClearButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButtonTests.swift; sourceTree = "<group>"; };
 		0CED88B827A1AA8D00261494 /* EnterNumberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNumberTests.swift; sourceTree = "<group>"; };
 		0CED88BC27A1BA2000261494 /* WashedOutColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WashedOutColorPalette.swift; sourceTree = "<group>"; };
+		0CED88BE27A1BC7400261494 /* VibrantColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrantColorPalette.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +271,7 @@
 				0CE4067C279F5E1800B16A24 /* DarkBlueColorPalette.swift */,
 				0CE4067E279F648100B16A24 /* PurpleColorPalette.swift */,
 				0CED88BC27A1BA2000261494 /* WashedOutColorPalette.swift */,
+				0CED88BE27A1BC7400261494 /* VibrantColorPalette.swift */,
 			);
 			path = "Color Themes";
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				0CE4067F279F648100B16A24 /* PurpleColorPalette.swift in Sources */,
 				0C8DB37227A0E4F400A96AA0 /* LogViewController.swift in Sources */,
 				0CE40627279E9BB800B16A24 /* SceneDelegate.swift in Sources */,
+				0CED88BF27A1BC7400261494 /* VibrantColorPalette.swift in Sources */,
 				0C8DB36927A0C77900A96AA0 /* MathEquation.swift in Sources */,
 				0CE4068427A00EF000B16A24 /* iOSBFreeCalculatorEngine.swift in Sources */,
 				0CE40675279EEA5100B16A24 /* ElectroColorPalette.swift in Sources */,
