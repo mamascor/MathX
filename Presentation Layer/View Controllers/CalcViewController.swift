@@ -61,17 +61,19 @@ class CalcViewController: UIViewController {
     @objc func didReceiveHistoryNotification(notification: Notification) {
         
         print("Reciueved notification!!!!")
+        
+        // TODO display a screen of valiues.
+        
     }
     
     @objc func didReceivePasteNotification(notification: Notification) {
         
         guard let decimalValue = notification.userInfo?["iOSBFree.com.calc.CopyableLabel.paste"] as? Double else { return }
         
-        DispatchQueue.main.async {
+        //DispatchQueue.main.async {
             self.calculator.pasteIn(Decimal(decimalValue))
             self.lcdDisplay.text = self.calculator.lcdDisplayText
-//            self.lcdDisplay.text = "Helloe"
-        }
+        //}
     }
     
     // MARK: - Life Cycle

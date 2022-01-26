@@ -1,9 +1,7 @@
-// Original Source:
-// https://stackoverflow.com/questions/1246198/show-iphone-cut-copy-paste-menu-on-uilabel
 
 import UIKit
 
-class CopyableLabel: UILabel {
+class LCDDisplay: UILabel {
     
     var historyMenuItem: UIMenuItem {
         return UIMenuItem(title: "History", action: #selector(self.displayMathEquationHistory(_:)))
