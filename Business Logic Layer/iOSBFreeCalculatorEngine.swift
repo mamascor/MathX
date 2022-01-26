@@ -98,7 +98,7 @@ struct iOSBFreeCalculatorEngine {
     }
     
     mutating func percentagePressed() {
-        populatePreviousResultIfNeeded()
+        populatePreviousResultIfNeeded(true)
         currentMathEntry.applyPercentage()
     }
     
