@@ -86,8 +86,8 @@ class CalcViewController: UIViewController {
         view.backgroundColor = UIColor(hex: colorPalette.background)
         calculatorView.backgroundColor = view.backgroundColor
         
+        lcdDisplay.prepareForThemeUpdate()
         lcdDisplay.textColor = UIColor(hex: colorPalette.display)
-        //lcdDisplay.backgroundColor = UIColor(hex: colorPalette.background)
         
         decoratePinPadButton(pinPadButton0)
         decoratePinPadButton(pinPadButton1)

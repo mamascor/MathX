@@ -60,6 +60,8 @@ class LogViewController: UITableViewController {
         cell.resultLabel.textColor = UIColor(hex: colorPalette.display)
         cell.resultLabel.highlightedTextColor = UIColor(hex: colorPalette.background)
         
+        cell.tick.tintColor = UIColor(hex: colorPalette.operatorTitle)
+        
         let mathEquation = datasource[indexPath.row]
         cell.lhsLabel.text = mathEquation.lhs.formatted()
         cell.rhsLabel.text = mathEquation.stringRepresentationOfOperator + " " + (mathEquation.rhs?.formatted() ?? "")
@@ -69,10 +71,14 @@ class LogViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let cell = tableView.cellForRow(at: indexPath) as? MathEquationTableViewCell else { return }
+        
         let mathEquation = datasource[indexPath.row]
         let userInfo: [AnyHashable: Any] = ["iOSBFree.com.calc.LogViewController.pasteMathEquation": mathEquation]
         NotificationCenter.default.post(name: Notification.Name("iOSBFree.com.calc.LogViewController.pasteMathEquation"), object: nil, userInfo: userInfo)
         //tableView.deselectRow(at: indexPath, animated: true)
+        cell.displayTick()
         dismissAfterDelay()
     }
     

@@ -86,12 +86,27 @@ class LCDDisplay: UILabel {
         }
     }
     
-    private func unhighlightScreen() {
-        UIView.animate(withDuration: 0.15, delay: 0, options: .curveEaseInOut) { [weak self] in
+    func prepareForThemeUpdate() {
+        unhighlightScreen(false)
+        hideMenu()
+    }
+    
+    private func unhighlightScreen(_ animated: Bool) {
+        
+        let actionToPerform: (() -> Void) = { [weak self] in
             guard let theme = self?.colorPalette else { return }
             
             self?.layer.backgroundColor = UIColor(hex:theme.background)?.cgColor
             self?.textColor = UIColor(hex:theme.display)
+        }
+        
+        guard animated else {
+            actionToPerform()
+            return
+        }
+        
+        UIView.animate(withDuration: 0.15, delay: 0, options: .curveEaseInOut) {
+            actionToPerform()
         } completion: { _ in
             
         }
@@ -137,6 +152,6 @@ class LCDDisplay: UILabel {
     }
     
     @objc private func willHideEditMenu(_ notification: Notification) {
-        unhighlightScreen()
+        unhighlightScreen(true)
     }
 }
