@@ -333,7 +333,7 @@ class CalcViewController: UIViewController {
         logViewController.setDataSource(calculator.copyOfEquationLog)
         logViewController.setTheme(colorPalette)
         let navigationController = UINavigationController(rootViewController: logViewController)
-        
+        navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         present(navigationController, animated: true, completion: nil)
     }
     
