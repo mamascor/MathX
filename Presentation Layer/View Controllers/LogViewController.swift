@@ -10,12 +10,19 @@ import UIKit
 class LogViewController: UITableViewController {
 
     private var datasource: [MathEquation] = []
+    private var colorPalette: ColorPalette = DarkColorPalette()
     
     
     //MARK: - Set Datasource
     func setDataSource(_ newDatasource: [MathEquation]) {
         datasource = newDatasource
         tableView.reloadData()
+    }
+    
+    func setTheme(_ theme: ColorPalette) {
+        colorPalette = theme
+        tableView.backgroundColor = UIColor(hex: colorPalette.background)
+        tableView.separatorColor = UIColor(hex: colorPalette.operatorNormal)
     }
     
     //MARK: - Lifecycle
@@ -43,6 +50,12 @@ class LogViewController: UITableViewController {
             return UITableViewCell()
         }
 
+        cell.backgroundColor = UIColor(hex: colorPalette.background)
+        cell.lhsLabel.textColor = UIColor(hex: colorPalette.display)
+        cell.rhsLabel.textColor = UIColor(hex: colorPalette.display)
+        cell.resultLabel.textColor = UIColor(hex: colorPalette.display)
+        
+        
         let mathEquation = datasource[indexPath.row]
         cell.lhsLabel.text = mathEquation.lhs.formatted()
         cell.rhsLabel.text = mathEquation.stringRepresentationOfOperator + " " + (mathEquation.rhs?.formatted() ?? "")

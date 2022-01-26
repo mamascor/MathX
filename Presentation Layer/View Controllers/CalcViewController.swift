@@ -329,8 +329,11 @@ class CalcViewController: UIViewController {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let logViewController: LogViewController = storyboard.instantiateViewController(withIdentifier: "LogViewController") as? LogViewController else { return }
+        
         logViewController.setDataSource(calculator.copyOfEquationLog)
+        logViewController.setTheme(colorPalette)
         let navigationController = UINavigationController(rootViewController: logViewController)
+        
         present(navigationController, animated: true, completion: nil)
     }
     
