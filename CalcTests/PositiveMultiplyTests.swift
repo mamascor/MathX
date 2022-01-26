@@ -1,5 +1,5 @@
 //
-//  iOSBFreeCalculatorEngine_PositiveMultiplyTests.swift
+//  PositiveMultiplyTests.swift
 //  CalcTests
 //
 //  Created by Matthew Paul Harding on 26/01/2022.
@@ -18,9 +18,9 @@
 import XCTest
 @testable import Calc
 
-class iOSBFreeCalculatorEngine_PositiveMultiplyTests: XCTestCase {
+class PositiveMultiplyTests: XCTestCase {
     
-    func testPositiveMultiplication() throws {
+    func testMultiplication() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.multiplyPressed()
@@ -42,7 +42,7 @@ class iOSBFreeCalculatorEngine_PositiveMultiplyTests: XCTestCase {
         XCTAssertTrue(result.isEqual(to: Decimal(1)))
     }
 
-    func testPositiveGrowingMultiplicationFromPinpad() throws {
+    func testGrowingMultiplicationUsingPinpad() throws {
         
         // 10 options on the pin pad
         continuouslyGrowingMultiply(using: 1)
@@ -107,7 +107,7 @@ class iOSBFreeCalculatorEngine_PositiveMultiplyTests: XCTestCase {
         
     }
     
-    func testPositiveMultiplicationFromPinpad() throws {
+    func testMultiplicationFromPinpad() throws {
         
         // 10 options on the pin pad
         continuouslyMultiply(using: 1)

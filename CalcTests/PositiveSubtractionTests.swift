@@ -1,5 +1,5 @@
 //
-//  iOSBFreeCalculatorEngine_PositiveSubtractionTests.swift
+//  PositiveSubtractionTests.swift
 //  CalcTests
 //
 //  Created by Matthew Paul Harding on 25/01/2022.
@@ -18,9 +18,9 @@
 import XCTest
 @testable import Calc
 
-class iOSBFreeCalculatorEngine_PositiveSubtractionTests: XCTestCase {
+class PositiveSubtractionTests: XCTestCase {
 
-    func testPositiveSubtraction() throws {
+    func testSubtraction() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.minusPressed()
@@ -43,7 +43,7 @@ class iOSBFreeCalculatorEngine_PositiveSubtractionTests: XCTestCase {
         
     }
     
-    func testPositiveSubtractionFromPinpad() throws {
+    func testSubtractionUsingPinpad() throws {
         
         // 10 options on the pin pad
         continuouslySubtract(using: 1)
@@ -107,7 +107,7 @@ class iOSBFreeCalculatorEngine_PositiveSubtractionTests: XCTestCase {
         
     }
 
-    func testPositiveMultiplicationFromPinpad() throws {
+    func testMultiplicationFromPinpad() throws {
         
         // 10 options on the pin pad
         testEnteringNewEquationAfterViewingAResult(using: 1)
@@ -170,7 +170,7 @@ class iOSBFreeCalculatorEngine_PositiveSubtractionTests: XCTestCase {
         
     }
     
-    func testContinuedPositiveSubtraction_RandomNumbers() throws {
+    func testContinuedSubtraction_RandomNumbers() throws {
         
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(7)

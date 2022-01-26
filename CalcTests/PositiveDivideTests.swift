@@ -21,7 +21,7 @@ import XCTest
 
 class PositiveDivideTests: XCTestCase {
 
-    func testPositiveMultiplication() throws {
+    func testMultiplication() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.dividePressed()
@@ -43,7 +43,7 @@ class PositiveDivideTests: XCTestCase {
         XCTAssertTrue(result.isEqual(to: Decimal(1)))
     }
 
-    func testPositiveGrowingMultiplicationFromPinpad() throws {
+    func testGrowingMultiplicationFromPinpad() throws {
         
         // 10 options on the pin pad
         continuouslyGrowingDivision(using: 1)
@@ -108,7 +108,7 @@ class PositiveDivideTests: XCTestCase {
         
     }
     
-    func testPositiveMultiplicationFromPinpad() throws {
+    func testMultiplicationFromPinpad() throws {
         
         // 10 options on the pin pad
         continuouslyMultiply(using: 1)
