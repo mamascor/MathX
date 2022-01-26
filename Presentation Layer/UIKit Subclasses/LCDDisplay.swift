@@ -4,7 +4,7 @@ import UIKit
 class LCDDisplay: UILabel {
     
     var historyMenuItem: UIMenuItem {
-        return UIMenuItem(title: "History", action: #selector(self.displayMathEquationHistory(_:)))
+        return UIMenuItem(title: "View Log", action: #selector(self.displayMathEquationHistory(_:)))
     }
     
     // MARK: - Initialisers

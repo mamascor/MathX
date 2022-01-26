@@ -60,9 +60,11 @@ class CalcViewController: UIViewController {
     
     @objc func didReceiveHistoryNotification(notification: Notification) {
         
-        print("Reciueved notification!!!!")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let logViewController: LogViewController = storyboard.instantiateViewController(withIdentifier: "LogViewController") as? LogViewController else { return }
         
-        // TODO display a screen of valiues.
+        let navigationController = UINavigationController(rootViewController: logViewController)
+        present(navigationController, animated: true, completion: nil)
         
     }
     
