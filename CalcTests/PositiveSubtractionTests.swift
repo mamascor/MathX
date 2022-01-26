@@ -107,6 +107,69 @@ class iOSBFreeCalculatorEngine_PositiveSubtractionTests: XCTestCase {
         
     }
 
+    func testPositiveMultiplicationFromPinpad() throws {
+        
+        // 10 options on the pin pad
+        testEnteringNewEquationAfterViewingAResult(using: 1)
+        testEnteringNewEquationAfterViewingAResult(using: 2)
+        testEnteringNewEquationAfterViewingAResult(using: 3)
+        testEnteringNewEquationAfterViewingAResult(using: 4)
+        testEnteringNewEquationAfterViewingAResult(using: 5)
+        testEnteringNewEquationAfterViewingAResult(using: 6)
+        testEnteringNewEquationAfterViewingAResult(using: 7)
+        testEnteringNewEquationAfterViewingAResult(using: 8)
+        testEnteringNewEquationAfterViewingAResult(using: 9)
+        testEnteringNewEquationAfterViewingAResult(using: 0)
+    }
+    
+    private func testEnteringNewEquationAfterViewingAResult (using number: Int) {
+        //Input 7: 7 + 1, 7 + 2, 7 + 3, 7 + 4, 7 + 5, 7 + 6, 7 + 7, 7 + 8, 7 + 9
+        
+        // setup
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.minusPressed()
+        calculatorEngine.numberPressed(number)
+        calculatorEngine.equalsPressed()
+        
+        guard let firstResult = calculatorEngine.resultOfEquation else {
+            XCTAssert(true, "Did not have result after equation was expected to have completed")
+            return
+        }
+        
+        guard let firstRightHandValue = calculatorEngine.rightHandOperand else {
+            XCTAssert(true, "Did not have right hand value")
+            return
+        }
+        
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
+        XCTAssertTrue(firstRightHandValue.isEqual(to: Decimal(number)))
+        XCTAssertTrue(firstResult.isEqual(to: Decimal(number + 1)))
+        
+        // loop forward
+        for iteration in 1...10 {
+            calculatorEngine.numberPressed(number)
+            calculatorEngine.minusPressed()
+            calculatorEngine.numberPressed(iteration + 1)
+            calculatorEngine.equalsPressed()
+            
+            guard let result = calculatorEngine.resultOfEquation else {
+                XCTAssert(true, "Did not have result after equation was expected to have completed")
+                return
+            }
+            
+            guard let rhd = calculatorEngine.rightHandOperand else {
+                XCTAssert(true, "Did not have right hand value")
+                return
+            }
+            
+            XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
+            XCTAssertTrue(rhd.isEqual(to: Decimal(iteration + 1)))
+            XCTAssertTrue(result.isEqual(to: Decimal(number - (iteration + 1))))
+        }
+        
+    }
+    
     func testContinuedPositiveSubtraction_RandomNumbers() throws {
         
         var calculatorEngine = iOSBFreeCalculatorEngine()

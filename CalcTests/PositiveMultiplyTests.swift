@@ -22,10 +22,10 @@ class iOSBFreeCalculatorEngine_PositiveMultiplyTests: XCTestCase {
 
  // TODO test one multiplication.. then do more.. one by one!
     
-    func testPositiveAddition() throws {
+    func testPositiveMultiplication() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
-        calculatorEngine.addPressed()
+        calculatorEngine.multiplyPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
@@ -41,7 +41,134 @@ class iOSBFreeCalculatorEngine_PositiveMultiplyTests: XCTestCase {
         
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
         XCTAssertTrue(rhd.isEqual(to: Decimal(1)))
-        XCTAssertTrue(result.isEqual(to: Decimal(2)))
+        XCTAssertTrue(result.isEqual(to: Decimal(1)))
     }
 
+    func testPositiveGrowingMultiplicationFromPinpad() throws {
+        
+        // 10 options on the pin pad
+        continuouslyGrowingMultiply(using: 1)
+        continuouslyGrowingMultiply(using: 2)
+        continuouslyGrowingMultiply(using: 3)
+        continuouslyGrowingMultiply(using: 4)
+        continuouslyGrowingMultiply(using: 5)
+        continuouslyGrowingMultiply(using: 6)
+        continuouslyGrowingMultiply(using: 7)
+        continuouslyGrowingMultiply(using: 8)
+        continuouslyGrowingMultiply(using: 9)
+        continuouslyGrowingMultiply(using: 0)
+    }
+    
+    private func continuouslyGrowingMultiply(using number: Int) {
+        //Input: 7 * 1 * 2 * 3 * 4 * 5 * 6 * 7 * 8 * 9
+        
+        // setup
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.multiplyPressed()
+        calculatorEngine.numberPressed(number)
+        calculatorEngine.equalsPressed()
+        
+        guard let firstResult = calculatorEngine.resultOfEquation else {
+            XCTAssert(true, "Did not have result after equation was expected to have completed")
+            return
+        }
+        
+        guard let firstRightHandValue = calculatorEngine.rightHandOperand else {
+            XCTAssert(true, "Did not have right hand value")
+            return
+        }
+        
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
+        XCTAssertTrue(firstRightHandValue.isEqual(to: Decimal(number)))
+        XCTAssertTrue(firstResult.isEqual(to: Decimal(number)))
+        
+        // loop forward
+        var currentResult: Decimal = firstResult
+        for iteration in 1...10 {
+            calculatorEngine.multiplyPressed()
+            calculatorEngine.numberPressed(iteration + 1)
+            calculatorEngine.equalsPressed()
+            
+            guard let result = calculatorEngine.resultOfEquation else {
+                XCTAssert(true, "Did not have result after equation was expected to have completed")
+                return
+            }
+            
+            guard let rhd = calculatorEngine.rightHandOperand else {
+                XCTAssert(true, "Did not have right hand value")
+                return
+            }
+            
+            XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: currentResult))
+            XCTAssertTrue(rhd.isEqual(to: Decimal(iteration + 1)))
+            XCTAssertTrue(result.isEqual(to: currentResult * Decimal(iteration + 1)))
+            
+            currentResult = result
+        }
+        
+    }
+    
+    func testPositiveMultiplicationFromPinpad() throws {
+        
+        // 10 options on the pin pad
+        continuouslyMultiply(using: 1)
+        continuouslyMultiply(using: 2)
+        continuouslyMultiply(using: 3)
+        continuouslyMultiply(using: 4)
+        continuouslyMultiply(using: 5)
+        continuouslyMultiply(using: 6)
+        continuouslyMultiply(using: 7)
+        continuouslyMultiply(using: 8)
+        continuouslyMultiply(using: 9)
+        continuouslyMultiply(using: 0)
+    }
+    
+    private func continuouslyMultiply(using number: Int) {
+        //Input: 7 * 1, 7 * 2, 7 * 3, 7 * 4, 7 * 5, 7 * 6, 7 * 7, 7 * 8, 7 * 9
+        
+        // setup
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.multiplyPressed()
+        calculatorEngine.numberPressed(number)
+        calculatorEngine.equalsPressed()
+        
+        guard let firstResult = calculatorEngine.resultOfEquation else {
+            XCTAssert(true, "Did not have result after equation was expected to have completed")
+            return
+        }
+        
+        guard let firstRightHandValue = calculatorEngine.rightHandOperand else {
+            XCTAssert(true, "Did not have right hand value")
+            return
+        }
+        
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
+        XCTAssertTrue(firstRightHandValue.isEqual(to: Decimal(number)))
+        XCTAssertTrue(firstResult.isEqual(to: Decimal(number)))
+        
+        // loop forward
+        for iteration in 1...10 {
+            calculatorEngine.numberPressed(number)
+            calculatorEngine.multiplyPressed()
+            calculatorEngine.numberPressed(iteration + 1)
+            calculatorEngine.equalsPressed()
+            
+            guard let result = calculatorEngine.resultOfEquation else {
+                XCTAssert(true, "Did not have result after equation was expected to have completed")
+                return
+            }
+            
+            guard let rhd = calculatorEngine.rightHandOperand else {
+                XCTAssert(true, "Did not have right hand value")
+                return
+            }
+            
+            XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
+            XCTAssertTrue(rhd.isEqual(to: Decimal(iteration + 1)))
+            XCTAssertTrue(result.isEqual(to: Decimal(number * (iteration + 1))))
+        }
+        
+    }
 }
