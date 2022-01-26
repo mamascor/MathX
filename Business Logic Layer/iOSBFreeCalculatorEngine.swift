@@ -69,6 +69,10 @@ struct iOSBFreeCalculatorEngine {
     
     // MARK: - Interaction API
     
+    var copyOfEquationLog: [MathEquation] {
+        return historyLog
+    }
+    
     mutating func clearHistory() {
             historyLog = []
     }

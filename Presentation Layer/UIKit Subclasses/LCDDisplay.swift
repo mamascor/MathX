@@ -75,8 +75,6 @@ class LCDDisplay: UILabel {
     
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         return action == #selector(UIResponderStandardEditActions.copy(_:)) || action == #selector(UIResponderStandardEditActions.paste(_:)) ||  action == #selector(self.displayMathEquationHistory(_:))
-        
-        
     }
 
 }

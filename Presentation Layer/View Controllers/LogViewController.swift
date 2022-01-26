@@ -30,23 +30,27 @@ class LogViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return datasource.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MathEquationTableViewCell", for: indexPath) as? MathEquationTableViewCell else {
+            return UITableViewCell()
+        }
 
-        // Configure the cell...
-
+        let mathEquation = datasource[indexPath.row]
+        cell.lhsLabel.text = mathEquation.lhs.formatted()
+        cell.rhsLabel.text = mathEquation.stringRepresentationOfOperator + " " + (mathEquation.rhs?.formatted() ?? "")
+        cell.resultLabel.text = "= " + (mathEquation.result?.formatted() ?? "")
+        
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

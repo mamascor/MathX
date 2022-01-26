@@ -43,4 +43,22 @@ struct MathEquation {
             break
         }
     }
+    
+    var printout: String {
+        
+        let operatorString = stringRepresentationOfOperator
+        return lhs.formatted() + " " + operatorString + " " + (rhs?.formatted() ?? "") + " = " + (result?.formatted() ?? "")
+    }
+    
+    var stringRepresentationOfOperator: String {
+        
+        switch operation {
+        case .multiply: return "*"
+        case .divide: return "/"
+        case .add: return "+"
+        case .subtract: return "-"
+        case .none:
+            return ""
+        }
+    }
 }
