@@ -323,16 +323,24 @@ class CalcViewController: UIViewController {
     
     private func moveInLCDDisplay() {
         lcdDisplay.transform = CGAffineTransform(translationX: 0, y: lcdDisplay.frame.height)
-        UIView.animate(withDuration: 0.5,
-            animations: { [weak self] in
+        
+        UIView.animate(withDuration: 0.3, delay: 0.2, options: .curveEaseOut) { [weak self] in
+            
             self?.lcdDisplay.alpha = 1
-            self?.lcdDisplay.transform = CGAffineTransform(translationX: 0, y: -8)
-            },
-            completion: { [weak self] _ in
-                UIView.animate(withDuration: 0.15) {
-                    self?.lcdDisplay.transform = CGAffineTransform.identity
+            self?.lcdDisplay.transform = CGAffineTransform(translationX: 0, y: -6)
+        } completion: { _ in
+            UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut) { [weak self] in
+                
+                self?.lcdDisplay.transform = CGAffineTransform(translationX: 0, y: 2)
+            } completion: { _ in
+                UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseIn) { [weak self] in
+                    
+                    self?.lcdDisplay.transform = CGAffineTransform(translationX: 0, y: 0)
+                } completion: { _ in
+                    
                 }
-            })
+            }
+        }
     }
     
     // MARK: - Navigation
