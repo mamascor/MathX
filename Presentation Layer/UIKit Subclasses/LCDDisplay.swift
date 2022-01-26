@@ -22,11 +22,26 @@ class LCDDisplay: UILabel {
     }
     
     private func sharedInit() {
-        self.isUserInteractionEnabled = true
-        self.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self.showMenu)))
+        isUserInteractionEnabled = true
+        addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self.longPressGestureEventFired)))
         
         layer.cornerRadius = 20
         layer.masksToBounds = true
+        
+        setupBackgroundColorInOrderToAnimate()
+    }
+    
+    
+    @objc private func longPressGestureEventFired(_ recognizer: UILongPressGestureRecognizer) {
+        guard UIMenuController.shared.isMenuVisible == false else {
+            return
+        }
+        
+        showMenu(from: recognizer)
+    }
+    
+    private func setupBackgroundColorInOrderToAnimate() {
+        backgroundColor = .clear
     }
     
     private func registerNotifications() {
@@ -38,7 +53,7 @@ class LCDDisplay: UILabel {
     }
     
     // MARK: - UIMenuController
-    @objc private func showMenu(_ recognizer: UILongPressGestureRecognizer) {
+    @objc private func showMenu(from recognizer: UILongPressGestureRecognizer) {
         
         registerNotifications()
         
@@ -61,10 +76,10 @@ class LCDDisplay: UILabel {
     }
     
     private func highlightScreen() {
-        UIView.animate(withDuration: 0.35, delay: 0, options: .curveEaseInOut) { [weak self] in
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut) { [weak self] in
             guard let theme = self?.colorPalette else { return }
             
-            self?.backgroundColor = UIColor(hex:theme.operatorNormal)
+            self?.layer.backgroundColor = UIColor(hex:theme.operatorNormal)?.cgColor
             self?.textColor = UIColor(hex:theme.operatorTitle)
         } completion: { _ in
             
@@ -72,10 +87,10 @@ class LCDDisplay: UILabel {
     }
     
     private func unhighlightScreen() {
-        UIView.animate(withDuration: 0.35, delay: 0, options: .curveEaseInOut) { [weak self] in
+        UIView.animate(withDuration: 0.15, delay: 0, options: .curveEaseInOut) { [weak self] in
             guard let theme = self?.colorPalette else { return }
             
-            self?.backgroundColor = UIColor(hex:theme.background)
+            self?.layer.backgroundColor = UIColor(hex:theme.background)?.cgColor
             self?.textColor = UIColor(hex:theme.display)
         } completion: { _ in
             
