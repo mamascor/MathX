@@ -44,6 +44,7 @@
 		0CED88B927A1AA8D00261494 /* EnterNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88B827A1AA8D00261494 /* EnterNumberTests.swift */; };
 		0CED88BD27A1BA2000261494 /* WashedOutColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88BC27A1BA2000261494 /* WashedOutColorPalette.swift */; };
 		0CED88BF27A1BC7400261494 /* VibrantColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88BE27A1BC7400261494 /* VibrantColorPalette.swift */; };
+		0CED88C127A1BF3500261494 /* OrangeColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88C027A1BF3500261494 /* OrangeColorPalette.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		0CED88B827A1AA8D00261494 /* EnterNumberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNumberTests.swift; sourceTree = "<group>"; };
 		0CED88BC27A1BA2000261494 /* WashedOutColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WashedOutColorPalette.swift; sourceTree = "<group>"; };
 		0CED88BE27A1BC7400261494 /* VibrantColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrantColorPalette.swift; sourceTree = "<group>"; };
+		0CED88C027A1BF3500261494 /* OrangeColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeColorPalette.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +274,7 @@
 				0CE4067E279F648100B16A24 /* PurpleColorPalette.swift */,
 				0CED88BC27A1BA2000261494 /* WashedOutColorPalette.swift */,
 				0CED88BE27A1BC7400261494 /* VibrantColorPalette.swift */,
+				0CED88C027A1BF3500261494 /* OrangeColorPalette.swift */,
 			);
 			path = "Color Themes";
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				0CE40675279EEA5100B16A24 /* ElectroColorPalette.swift in Sources */,
 				0CE4067D279F5E1800B16A24 /* DarkBlueColorPalette.swift in Sources */,
 				0C8DB36B27A0C7A900A96AA0 /* MathEntry.swift in Sources */,
+				0CED88C127A1BF3500261494 /* OrangeColorPalette.swift in Sources */,
 				0CE40682279F89E000B16A24 /* UIButton+Animation.swift in Sources */,
 				0CE40679279F596100B16A24 /* LightBlueColorPalette.swift in Sources */,
 			);
