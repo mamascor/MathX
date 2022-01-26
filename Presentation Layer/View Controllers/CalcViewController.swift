@@ -342,21 +342,36 @@ class CalcViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.didReceivePasteNotification(notification:)), name: Notification.Name("iOSBFree.com.calc.CopyableLabel.paste"), object: nil)
         
             NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveHistoryNotification(notification:)), name: Notification.Name("iOSBFree.com.calc.CopyableLabel.displayHistory"), object: nil)
+        
+        
+            NotificationCenter.default.addObserver(self, selector: #selector(self.didReceivePasteMathEquationNotification(notification:)), name: Notification.Name("iOSBFree.com.calc.LogViewController.pasteMathEquation"), object: nil)
     }
     
-    @objc func didReceiveHistoryNotification(notification: Notification) {
+    @objc private func didReceiveHistoryNotification(notification: Notification) {
         presentLogScreen()
     }
     
-    @objc func didReceivePasteNotification(notification: Notification) {
+    @objc private func didReceivePasteNotification(notification: Notification) {
         
         guard let decimalValue = notification.userInfo?["iOSBFree.com.calc.CopyableLabel.paste"] as? Double else { return }
         pasteNewValueIntoCalculator(Decimal(decimalValue))
     }
     
+    @objc private func didReceivePasteMathEquationNotification(notification: Notification) {
+        
+        guard let mathEquation = notification.userInfo?["iOSBFree.com.calc.LogViewController.pasteMathEquation"] as? MathEquation else { return }
+        pasteNewValueIntoCalculator(mathEquation)
+    }
+    
     private func pasteNewValueIntoCalculator(_ decimal: Decimal) {
         
         calculator.pasteIn(decimal)
+        lcdDisplay.text = calculator.lcdDisplayText
+    }
+    
+    private func pasteNewValueIntoCalculator(_ mathEquation: MathEquation) {
+        
+        calculator.pasteIn(mathEquation)
         lcdDisplay.text = calculator.lcdDisplayText
     }
 }

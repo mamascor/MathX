@@ -259,4 +259,15 @@ struct iOSBFreeCalculatorEngine {
         case .rightHandSide: currentMathEntry.equation.rhs = decimal
         }
     }
+    
+    mutating func pasteIn(_ mathEquation: MathEquation) {
+        
+        // Are we displaying a completed equation?
+        if currentMathEntry.isCompleted {
+            currentMathEntry = MathEntry()
+            displayType = .operand
+        }
+        
+        currentMathEntry.equation = mathEquation
+    }
 }
