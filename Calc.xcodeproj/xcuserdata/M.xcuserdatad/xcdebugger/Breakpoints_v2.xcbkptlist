@@ -46,9 +46,9 @@
             filePath = "Presentation Layer/View Controllers/CalcViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "364"
-            endingLineNumber = "364"
-            landmarkName = "didReceivePasteMathEquationNotification(notification:)"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
+            landmarkName = "pasteNewValueIntoCalculator(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -62,9 +62,9 @@
             filePath = "Presentation Layer/View Controllers/LogViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "dismissAfterDelay()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -78,10 +78,10 @@
             filePath = "Presentation Layer/View Controllers/CalcViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "376"
-            endingLineNumber = "376"
-            landmarkName = "pasteNewValueIntoCalculator(_:)"
-            landmarkType = "7">
+            startingLineNumber = "386"
+            endingLineNumber = "386"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
