@@ -50,34 +50,6 @@ class CalcViewController: UIViewController {
     
     private var calculator = iOSBFreeCalculatorEngine()
     
-    // MARK: - Notifications
-    private func registerForNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceivePasteNotification(notification:)), name: Notification.Name("iOSBFree.com.calc.CopyableLabel.paste"), object: nil)
-        
-            NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveHistoryNotification(notification:)), name: Notification.Name("iOSBFree.com.calc.CopyableLabel.displayHistory"), object: nil)
-        
-    }
-    
-    @objc func didReceiveHistoryNotification(notification: Notification) {
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let logViewController: LogViewController = storyboard.instantiateViewController(withIdentifier: "LogViewController") as? LogViewController else { return }
-        
-        let navigationController = UINavigationController(rootViewController: logViewController)
-        present(navigationController, animated: true, completion: nil)
-        
-    }
-    
-    @objc func didReceivePasteNotification(notification: Notification) {
-        
-        guard let decimalValue = notification.userInfo?["iOSBFree.com.calc.CopyableLabel.paste"] as? Double else { return }
-        
-        //DispatchQueue.main.async {
-            self.calculator.pasteIn(Decimal(decimalValue))
-            self.lcdDisplay.text = self.calculator.lcdDisplayText
-        //}
-    }
-    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -349,5 +321,35 @@ class CalcViewController: UIViewController {
                     self?.lcdDisplay.transform = CGAffineTransform.identity
                 }
             })
+    }
+    
+    // MARK: - Navigation
+    
+    private func presentLogScreen() {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let logViewController: LogViewController = storyboard.instantiateViewController(withIdentifier: "LogViewController") as? LogViewController else { return }
+        
+        let navigationController = UINavigationController(rootViewController: logViewController)
+        present(navigationController, animated: true, completion: nil)
+    }
+    
+    // MARK: - Notifications
+    private func registerForNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceivePasteNotification(notification:)), name: Notification.Name("iOSBFree.com.calc.CopyableLabel.paste"), object: nil)
+        
+            NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveHistoryNotification(notification:)), name: Notification.Name("iOSBFree.com.calc.CopyableLabel.displayHistory"), object: nil)
+    }
+    
+    @objc func didReceiveHistoryNotification(notification: Notification) {
+        presentLogScreen()
+    }
+    
+    @objc func didReceivePasteNotification(notification: Notification) {
+        
+        guard let decimalValue = notification.userInfo?["iOSBFree.com.calc.CopyableLabel.paste"] as? Double else { return }
+        
+        calculator.pasteIn(Decimal(decimalValue))
+        lcdDisplay.text = calculator.lcdDisplayText
     }
 }
