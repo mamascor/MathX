@@ -46,8 +46,8 @@
             filePath = "Presentation Layer/View Controllers/CalcViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "371"
-            endingLineNumber = "371"
+            startingLineNumber = "376"
+            endingLineNumber = "376"
             landmarkName = "didReceivePasteMathEquationNotification(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "Presentation Layer/View Controllers/CalcViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "383"
-            endingLineNumber = "383"
+            startingLineNumber = "388"
+            endingLineNumber = "388"
             landmarkName = "pasteNewValueIntoCalculator(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -97,6 +97,22 @@
             startingLineNumber = "163"
             endingLineNumber = "163"
             landmarkName = "testNegatingAResultTwice()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F7FDE766-8B6B-416F-A736-8E13F88A8BF8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Presentation Layer/View Controllers/CalcViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "decorateOperatorButton(_:_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -46,6 +46,8 @@ class CalcViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var equalsButton: UIButton!
     
+    private var needsToSetupView = true
+    
     // MARK: - Color Palette
     
     private var colorPalette: ColorPalette = DarkColorPalette()
@@ -73,6 +75,9 @@ class CalcViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+        guard needsToSetupView else { return }
+        needsToSetupView = false
         decorateView()
     }
     
