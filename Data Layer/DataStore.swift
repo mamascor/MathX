@@ -21,11 +21,11 @@ struct DataStore {
     }
     
     func saveDecimal(_ decimal: Decimal) {
-        UserDefaults.standard.set(decimal, forKey: key)
+        UserDefaults.standard.set(decimal.doubleValue, forKey: key)
     }
     
     func loadDecimal() -> Decimal {
-        return UserDefaults.standard.object(forKey: key) as? Decimal ?? 0
+        return Decimal(UserDefaults.standard.double(forKey: key))
     }
     
     func saveInt(_ number: Int) {
@@ -38,5 +38,11 @@ struct DataStore {
     
     func removeValue() {
         UserDefaults.standard.removeObject(forKey: key)
+    }
+}
+
+extension Decimal {
+    var doubleValue:Double {
+        return NSDecimalNumber(decimal:self).doubleValue
     }
 }
