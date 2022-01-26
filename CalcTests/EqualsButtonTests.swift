@@ -20,6 +20,7 @@ import XCTest
 
 class EqualsButtonTests: XCTestCase {
 
+    // MARK: - Basic Equals
     func testBasicEquals() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
@@ -41,6 +42,8 @@ class EqualsButtonTests: XCTestCase {
         XCTAssertTrue(rhd.isEqual(to: Decimal(1)))
         XCTAssertTrue(result.isEqual(to: Decimal(0)))
     }
+    
+    // MARK: - Pressing Equals Again and Again
     
     func testRepeatativeEquals_UsingAddition() throws {
         // Input 4 + 4 = = =

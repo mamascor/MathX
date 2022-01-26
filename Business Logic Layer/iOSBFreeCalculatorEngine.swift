@@ -93,7 +93,7 @@ struct iOSBFreeCalculatorEngine {
     }
     
     mutating func negatePressed() {
-        populatePreviousResultIfNeeded()
+        populatePreviousResultIfNeeded(true)
         currentMathEntry.negate()
     }
     
@@ -201,20 +201,22 @@ struct iOSBFreeCalculatorEngine {
         return false
     }
     
-    private mutating func populateCurrentMathEntryWithPreviousResult() {
+    private mutating func populateCurrentMathEntryWithPreviousResult(_ continueEditingResult: Bool = false) {
         
         var newMathEntry = MathEntry()
         newMathEntry.equation.lhs = currentMathEntry.equation.result ?? 0
-        newMathEntry.editingSide = .rightHandSide
+        if continueEditingResult == false {
+            newMathEntry.editingSide = .rightHandSide
+        }
         currentMathEntry = newMathEntry
         displayType = .operand
     }
     
-    private mutating func commitAndPopulatePreviousResultIfNeeded() {
+    private mutating func commitAndPopulatePreviousResultIfNeeded(_ continueEditingResult: Bool = false) {
         
         // Scenario 1: user enters 5 * 5 *
         if commitCurrentEquationIfNeeded() {
-            populateCurrentMathEntryWithPreviousResult()
+            populateCurrentMathEntryWithPreviousResult(continueEditingResult)
         }
         
         // secanrio 2: user enters 5 * 5 = *
@@ -223,11 +225,11 @@ struct iOSBFreeCalculatorEngine {
         }
     }
     
-    private mutating func populatePreviousResultIfNeeded() {
+    private mutating func populatePreviousResultIfNeeded(_ continueEditingResult: Bool = false) {
         
         // secanrio 1: user enters 5 * 5 = %
         if currentMathEntry.isCompleted {
-            populateCurrentMathEntryWithPreviousResult()
+            populateCurrentMathEntryWithPreviousResult(continueEditingResult)
         }
     }
     
