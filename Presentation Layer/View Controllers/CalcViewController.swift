@@ -51,6 +51,8 @@ class CalcViewController: UIViewController {
     // MARK: - Color Palette
     
     private var colorPalette: ColorPalette = WashedOutColorPalette()
+    private let colorThemes: [ColorPalette] = [ElectroColorPalette(), LightColorPalette(), PinkColorPalette(), LightBlueColorPalette(), DarkBlueColorPalette(), PurpleColorPalette(), WashedOutColorPalette(),VibrantColorPalette(), OrangeColorPalette(), DarkColorPalette()]
+    
     private var currentThemeIndex = 0
     private let themeDataStore = DataStore(key: "iOSBFree.com.calc.CalcViewController.themeIndex")
     
@@ -175,7 +177,7 @@ class CalcViewController: UIViewController {
     private func decorateViewWithNextTheme() {
         
         // loop to the beginning
-        let numberOfThemes = 10
+        let numberOfThemes = colorThemes.count
         currentThemeIndex = currentThemeIndex + 1
         if currentThemeIndex >= numberOfThemes {
             currentThemeIndex = 0
@@ -187,18 +189,8 @@ class CalcViewController: UIViewController {
     }
     
     private func loadThemeFromCurrentThemeIndex() {
-        switch currentThemeIndex {
-        case 1: loadTheme(ElectroColorPalette())
-        case 2: loadTheme(LightColorPalette())
-        case 3: loadTheme(PinkColorPalette())
-        case 4: loadTheme(LightBlueColorPalette())
-        case 5: loadTheme(DarkBlueColorPalette())
-        case 6: loadTheme(PurpleColorPalette())
-        case 7: loadTheme(WashedOutColorPalette())
-        case 8: loadTheme(VibrantColorPalette())
-        case 9: loadTheme(OrangeColorPalette()) 
-        default: loadTheme(DarkColorPalette())
-        }
+        colorPalette = colorThemes[currentThemeIndex]
+        decorateView()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
