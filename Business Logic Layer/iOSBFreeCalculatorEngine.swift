@@ -184,13 +184,12 @@ struct iOSBFreeCalculatorEngine {
     }
     
     private mutating func populateCurrentMathEntryWithPreviousResult() {
-        if let previousResult = historyLog.last {
-            var newMathEntry = MathEntry()
-            newMathEntry.equation.lhs = previousResult.result ?? 0
-            newMathEntry.editingSide = .rightHandSide
-            currentMathEntry = newMathEntry
-            displayType = .operand
-        }
+        
+        var newMathEntry = MathEntry()
+        newMathEntry.equation.lhs = currentMathEntry.equation.result ?? 0
+        newMathEntry.editingSide = .rightHandSide
+        currentMathEntry = newMathEntry
+        displayType = .operand
     }
     
     private mutating func commitAndPopulatePreviousResultIfNeeded() {
