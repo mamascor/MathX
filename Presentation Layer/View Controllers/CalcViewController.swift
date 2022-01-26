@@ -348,6 +348,10 @@ class CalcViewController: UIViewController {
     @objc func didReceivePasteNotification(notification: Notification) {
         
         guard let decimalValue = notification.userInfo?["iOSBFree.com.calc.CopyableLabel.paste"] as? Double else { return }
+        pasteNewValueIntoCalculator(decimalValue)
+    }
+    
+    private func pasteNewValueIntoCalculator(_ decimal: Decimal) {
         
         calculator.pasteIn(Decimal(decimalValue))
         lcdDisplay.text = calculator.lcdDisplayText
