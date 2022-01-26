@@ -23,6 +23,7 @@ class LogViewController: UITableViewController {
         colorPalette = theme
         tableView.backgroundColor = UIColor(hex: colorPalette.background)
         tableView.separatorColor = UIColor(hex: colorPalette.operatorNormal)
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(hex: colorPalette.operatorNormal)
     }
     
     //MARK: - Lifecycle
