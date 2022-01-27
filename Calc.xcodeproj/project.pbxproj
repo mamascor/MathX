@@ -34,7 +34,7 @@
 		0CE4067B279F5C7F00B16A24 /* PinkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4067A279F5C7F00B16A24 /* PinkTheme.swift */; };
 		0CE4067D279F5E1800B16A24 /* DarkBlueTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4067C279F5E1800B16A24 /* DarkBlueTheme.swift */; };
 		0CE4067F279F648100B16A24 /* PurpleTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4067E279F648100B16A24 /* PurpleTheme.swift */; };
-		0CE40682279F89E000B16A24 /* UIButton+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40681279F89E000B16A24 /* UIButton+Animation.swift */; };
+		0CE40682279F89E000B16A24 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40681279F89E000B16A24 /* UIView+Animation.swift */; };
 		0CE4068427A00EF000B16A24 /* iOSBFreeCalculatorEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4068327A00EF000B16A24 /* iOSBFreeCalculatorEngine.swift */; };
 		0CE4068627A00F3800B16A24 /* PositiveAdditionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4068527A00F3800B16A24 /* PositiveAdditionTests.swift */; };
 		0CED88AD27A16E5800261494 /* PositiveMultiplyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88AC27A16E5800261494 /* PositiveMultiplyTests.swift */; };
@@ -98,7 +98,7 @@
 		0CE4067A279F5C7F00B16A24 /* PinkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinkTheme.swift; sourceTree = "<group>"; };
 		0CE4067C279F5E1800B16A24 /* DarkBlueTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkBlueTheme.swift; sourceTree = "<group>"; };
 		0CE4067E279F648100B16A24 /* PurpleTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleTheme.swift; sourceTree = "<group>"; };
-		0CE40681279F89E000B16A24 /* UIButton+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Animation.swift"; sourceTree = "<group>"; };
+		0CE40681279F89E000B16A24 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		0CE4068327A00EF000B16A24 /* iOSBFreeCalculatorEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSBFreeCalculatorEngine.swift; sourceTree = "<group>"; };
 		0CE4068527A00F3800B16A24 /* PositiveAdditionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositiveAdditionTests.swift; sourceTree = "<group>"; };
 		0CED88AC27A16E5800261494 /* PositiveMultiplyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositiveMultiplyTests.swift; sourceTree = "<group>"; };
@@ -294,7 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				0CE4065E279E9CFB00B16A24 /* UIButton+Decorate.swift */,
-				0CE40681279F89E000B16A24 /* UIButton+Animation.swift */,
+				0CE40681279F89E000B16A24 /* UIView+Animation.swift */,
 				0CE40672279EDB4700B16A24 /* UIColor+HexValue.swift */,
 			);
 			path = "UIKit Extensions";
@@ -471,7 +471,7 @@
 				0CE4067D279F5E1800B16A24 /* DarkBlueTheme.swift in Sources */,
 				0C8DB36B27A0C7A900A96AA0 /* MathEntry.swift in Sources */,
 				0CED88C127A1BF3500261494 /* OrangeTheme.swift in Sources */,
-				0CE40682279F89E000B16A24 /* UIButton+Animation.swift in Sources */,
+				0CE40682279F89E000B16A24 /* UIView+Animation.swift in Sources */,
 				0CE40679279F596100B16A24 /* LightBlueTheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  UIButton+Animation.swift
+//  UIView+Animation.swift
 //  Calc
 //
 //  Created by iOSB Free on 25/01/2022.

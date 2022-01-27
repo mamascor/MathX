@@ -94,7 +94,7 @@ class CalcViewController: UIViewController {
         super.viewDidAppear(animated)
         
         calculator.restoreFromLastSession()
-        lcdDisplay.text = calculator.lcdDisplayText
+        lcdDisplay.label.text = calculator.lcdDisplayText
         
         if calculator.decimalRepresentationOfEditingOperand == 0 {
             fadeInLCDDisplay()
@@ -112,7 +112,7 @@ class CalcViewController: UIViewController {
         
         lcdDisplay.prepareForThemeUpdate()
         lcdDisplay.backgroundColor = .clear
-        lcdDisplay.textColor = UIColor(hex: theme.display)
+        lcdDisplay.label.textColor = UIColor(hex: theme.display)
         
         decoratePinPadButton(pinPadButton0)
         decoratePinPadButton(pinPadButton1)
@@ -225,7 +225,7 @@ class CalcViewController: UIViewController {
         lcdDisplay.alpha = 0
         
         calculator.clearPressed()
-        lcdDisplay.text = calculator.lcdDisplayText
+        lcdDisplay.label.text = calculator.lcdDisplayText
         fadeInLCDDisplay()
     }
     
@@ -233,14 +233,14 @@ class CalcViewController: UIViewController {
          
         sender.bounce()
         calculator.negatePressed()
-        lcdDisplay.text = calculator.lcdDisplayText
+        lcdDisplay.label.text = calculator.lcdDisplayText
     }
     
     @IBAction func percentageButtonPressed(_ sender: UIButton) {
          
         sender.bounce()
         calculator.percentagePressed()
-        lcdDisplay.text = calculator.lcdDisplayText
+        lcdDisplay.label.text = calculator.lcdDisplayText
     }
     
     @IBAction func divideButtonPressed(_ sender: UIButton) {
@@ -251,7 +251,7 @@ class CalcViewController: UIViewController {
         sender.bounce()
         
         calculator.dividePressed()
-        lcdDisplay.text = calculator.lcdDisplayText
+        lcdDisplay.label.text = calculator.lcdDisplayText
     }
     
     @IBAction func multiplyButtonPressed(_ sender: UIButton) {
@@ -262,7 +262,7 @@ class CalcViewController: UIViewController {
         sender.bounce()
         
         calculator.multiplyPressed()
-        lcdDisplay.text = calculator.lcdDisplayText
+        lcdDisplay.label.text = calculator.lcdDisplayText
     }
     
     @IBAction func minusButtonPressed(_ sender: UIButton) {
@@ -273,7 +273,7 @@ class CalcViewController: UIViewController {
         sender.bounce()
         
         calculator.minusPressed()
-        lcdDisplay.text = calculator.lcdDisplayText
+        lcdDisplay.label.text = calculator.lcdDisplayText
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
@@ -284,7 +284,7 @@ class CalcViewController: UIViewController {
         sender.bounce()
         
         calculator.addPressed()
-        lcdDisplay.text = calculator.lcdDisplayText
+        lcdDisplay.label.text = calculator.lcdDisplayText
     }
     
     @IBAction func equalButtonPressed(_ sender: UIButton) {
@@ -293,7 +293,7 @@ class CalcViewController: UIViewController {
         sender.bounce()
         
         calculator.equalsPressed()
-        lcdDisplay.text = calculator.lcdDisplayText
+        lcdDisplay.label.text = calculator.lcdDisplayText
     }
     
     @IBAction func decimalButtonPressed(_ sender: UIButton) {
@@ -302,7 +302,7 @@ class CalcViewController: UIViewController {
         sender.bounce()
         
         calculator.decimalPressed()
-        lcdDisplay.text = calculator.lcdDisplayText
+        lcdDisplay.label.text = calculator.lcdDisplayText
     }
     
     @IBAction func numberButtonPressed(_ sender: UIButton) {
@@ -312,7 +312,7 @@ class CalcViewController: UIViewController {
         let number = sender.tag
         
         calculator.numberPressed(number)
-        lcdDisplay.text = calculator.lcdDisplayText
+        lcdDisplay.label.text = calculator.lcdDisplayText
     }
     
     // MARK: - Animate
@@ -377,12 +377,12 @@ class CalcViewController: UIViewController {
     private func pasteNewValueIntoCalculator(_ decimal: Decimal) {
         
         calculator.pasteIn(decimal)
-        lcdDisplay.text = calculator.lcdDisplayText
+        lcdDisplay.label.text = calculator.lcdDisplayText
     }
     
     private func pasteNewValueIntoCalculator(_ mathEquation: MathEquation) {
         
         calculator.pasteIn(mathEquation)
-        lcdDisplay.text = calculator.lcdDisplayText
+        lcdDisplay.label.text = calculator.lcdDisplayText
     }
 }

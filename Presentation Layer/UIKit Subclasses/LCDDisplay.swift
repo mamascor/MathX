@@ -27,7 +27,10 @@
 
 import UIKit
 
-class LCDDisplay: UILabel {
+class LCDDisplay: UIView {
+    
+    
+    @IBOutlet var label: UILabel!
     
     //MARK: - Properties
     var historyMenuItem: UIMenuItem {
@@ -46,27 +49,19 @@ class LCDDisplay: UILabel {
     }
     
     private func sharedInit() {
-        isUserInteractionEnabled = true
-        addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self.longPressGestureEventFired)))
         
         layer.cornerRadius = 20
         layer.masksToBounds = true
-        
         setupBackgroundColorInOrderToAnimate()
+        addMenuGestureRecogniser()
     }
     
-    
-    @objc private func longPressGestureEventFired(_ recognizer: UILongPressGestureRecognizer) {
-        guard UIMenuController.shared.isMenuVisible == false else {
-            return
-        }
-        
-        showMenu(from: recognizer)
-    }
     
     private func setupBackgroundColorInOrderToAnimate() {
         backgroundColor = .clear
     }
+    
+    // MARK: - Notifications
     
     private func registerNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.willHideEditMenu(_:)), name: UIMenuController.willHideMenuNotification, object: nil)
@@ -76,12 +71,26 @@ class LCDDisplay: UILabel {
         NotificationCenter.default.removeObserver(self, name: UIMenuController.willHideMenuNotification, object: nil)
     }
     
+    // MARK: - Gesture Recogniser
+    
+    private func addMenuGestureRecogniser() {
+        addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self.longPressGestureEventFired)))
+    }
+    
+    @objc private func longPressGestureEventFired(_ recognizer: UILongPressGestureRecognizer) {
+        guard UIMenuController.shared.isMenuVisible == false else {
+            return
+        }
+        
+        showMenu(from: recognizer)
+    }
+    
     // MARK: - UIMenuController
     @objc private func showMenu(from recognizer: UILongPressGestureRecognizer) {
         
         registerNotifications()
         
-        self.becomeFirstResponder()
+        becomeFirstResponder()
         
         let menu = UIMenuController.shared
         menu.menuItems = [historyMenuItem]
@@ -104,7 +113,7 @@ class LCDDisplay: UILabel {
         
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut) { [weak self] in
             self?.layer.backgroundColor = UIColor(hex:theme.operatorNormal)?.cgColor
-            self?.textColor = UIColor(hex:theme.operatorTitle)
+            self?.label.textColor = UIColor(hex:theme.operatorTitle)
         } completion: { _ in
             
         }
@@ -120,7 +129,7 @@ class LCDDisplay: UILabel {
         
         let actionToPerform: (() -> Void) = { [weak self] in
             self?.layer.backgroundColor = UIColor.clear.cgColor
-            self?.textColor = UIColor(hex:theme.display)
+            self?.label.textColor = UIColor(hex:theme.display)
         }
         
         guard animated else {
@@ -143,7 +152,7 @@ class LCDDisplay: UILabel {
     }
     
     @objc override func copy(_ sender: Any?) {
-        UIPasteboard.general.string = text
+        UIPasteboard.general.string = label.text
         hideMenu()
     }
     
