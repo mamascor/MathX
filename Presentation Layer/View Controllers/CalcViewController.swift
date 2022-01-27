@@ -17,6 +17,7 @@
 
 import UIKit
 
+
 class CalcViewController: UIViewController {
 
     // MARK: - IBOutlets
@@ -47,15 +48,7 @@ class CalcViewController: UIViewController {
     @IBOutlet weak var equalsButton: UIButton!
     
     private var needsToSetupView = true
-    
-    // MARK: - Color Palette
-    
-    private var selectedTheme: CalculatorTheme = ElectroTheme()
-    private let colorThemes: [CalculatorTheme] = [ElectroTheme(), LightTheme(), PinkTheme(), LightBlueTheme(), DarkBlueTheme(), PurpleTheme(), WashedOutTheme(),VibrantTheme(), OrangeTheme(), DarkTheme()]
-    
-    private var currentThemeIndex = 0
-    private let themeDataStore = DataStore(key: "iOSBFree.com.calc.CalcViewController.themeIndex")
-    
+     
     // MARK: - Gesture Properties
     
     private var themeGestureRecogniser: UITapGestureRecognizer?
@@ -70,14 +63,13 @@ class CalcViewController: UIViewController {
         super.viewDidLoad()
         
         addThemeGestureRecogniser()
-        loadThemeIndex()
         lcdDisplay.alpha = 0
         registerForNotifications()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        decorateView()
+        decorateView(withTheme: ThemeManager.shared.currentTheme)
     }
     
     
@@ -100,14 +92,14 @@ class CalcViewController: UIViewController {
     
     // MARK: - Decorate
     
-    private func decorateView() {
+    private func decorateView(withTheme theme: CalculatorTheme) {
         
-        view.backgroundColor = UIColor(hex: selectedTheme.background)
+        view.backgroundColor = UIColor(hex: theme.background)
         calculatorView.backgroundColor = view.backgroundColor
         
         lcdDisplay.prepareForThemeUpdate()
         lcdDisplay.backgroundColor = .clear
-        lcdDisplay.textColor = UIColor(hex: selectedTheme.display)
+        lcdDisplay.textColor = UIColor(hex: theme.display)
         
         decoratePinPadButton(pinPadButton0)
         decoratePinPadButton(pinPadButton1)
@@ -121,11 +113,11 @@ class CalcViewController: UIViewController {
         decoratePinPadButton(pinPadButton9)
         decoratePinPadButton(decimalButton)
         
-        decorateOperatorButton(divideButton)
-        decorateOperatorButton(multiplyButton)
-        decorateOperatorButton(minusButton)
-        decorateOperatorButton(addButton)
-        decorateOperatorButton(equalsButton)
+        decorateOperatorButton(divideButton, theme: theme)
+        decorateOperatorButton(multiplyButton, theme: theme)
+        decorateOperatorButton(minusButton, theme: theme)
+        decorateOperatorButton(addButton, theme: theme)
+        decorateOperatorButton(equalsButton, theme: theme)
         
         decorateExtraFunctionsButton(clearButton)
         decorateExtraFunctionsButton(negateButton)
@@ -133,27 +125,45 @@ class CalcViewController: UIViewController {
     }
     
     private func decoratePinPadButton(_ button: UIButton) {
+        let selectedTheme = ThemeManager.shared.currentTheme
         button.backgroundColor = UIColor(hex: selectedTheme.pinPad)
         button.tintColor = UIColor(hex: selectedTheme.pinPadTitle)
         button.becomeRound()
     }
     
-    private func decorateOperatorButton(_ button: UIButton, _ selected: Bool = false) {
-        button.backgroundColor = selected ? UIColor(hex: selectedTheme.operatorSelected) : UIColor(hex: selectedTheme.operatorNormal)
-        button.tintColor = selected ? UIColor(hex: selectedTheme.operatorTitleSelected) : UIColor(hex: selectedTheme.operatorTitle)
+    private func decorateOperatorButton(_ button: UIButton, theme: CalculatorTheme) {
+        button.backgroundColor = UIColor(hex: theme.operatorNormal)
+        button.tintColor = UIColor(hex: theme.operatorTitle)
         button.becomeRound()
     }
     
-    private func deselectOperatorButtons() {
-        decorateOperatorButton(divideButton, false)
-        decorateOperatorButton(multiplyButton, false)
-        decorateOperatorButton(minusButton, false)
-        decorateOperatorButton(addButton, false)
+    private func decorateOperatorButtonsWithTheme(_ theme: CalculatorTheme) {
+        decorateOperatorButton(divideButton, theme: theme)
+        decorateOperatorButton(multiplyButton, theme: theme)
+        decorateOperatorButton(minusButton, theme: theme)
+        decorateOperatorButton(addButton, theme: theme)
     }
     
     private func decorateExtraFunctionsButton(_ button: UIButton) {
+        let selectedTheme = ThemeManager.shared.currentTheme
         button.backgroundColor = UIColor(hex: selectedTheme.extraFunctions)
         button.tintColor = UIColor(hex: selectedTheme.extraFunctionsTitle)
+        button.becomeRound()
+    }
+    
+    // MARK: - Select Operator Buttons
+    private func deselectOperatorButtons() {
+        selectOperatorButton(divideButton, false)
+        selectOperatorButton(multiplyButton, false)
+        selectOperatorButton(minusButton, false)
+        selectOperatorButton(addButton, false)
+    }
+    
+    private func selectOperatorButton(_ button: UIButton, _ selected: Bool = false) {
+        let selectedTheme = ThemeManager.shared.currentTheme
+        
+        button.backgroundColor = selected ? UIColor(hex: selectedTheme.operatorSelected) : UIColor(hex: selectedTheme.operatorNormal)
+        button.tintColor = selected ? UIColor(hex: selectedTheme.operatorTitleSelected) : UIColor(hex: selectedTheme.operatorTitle)
         button.becomeRound()
     }
     
@@ -175,45 +185,21 @@ class CalcViewController: UIViewController {
     // MARK: - Themes
     
     private func decorateViewWithNextTheme() {
-        
-        // loop to the beginning
-        let numberOfThemes = colorThemes.count
-        currentThemeIndex = currentThemeIndex + 1
-        if currentThemeIndex >= numberOfThemes {
-            currentThemeIndex = 0
-        }
-        
-        loadThemeFromCurrentThemeIndex()
-        
-        saveCurrentThemeIndex()
-    }
-    
-    private func loadThemeFromCurrentThemeIndex() {
-        selectedTheme = colorThemes[currentThemeIndex]
-        decorateView()
+        ThemeManager.shared.moveToNextTheme()
+        refreshViewWithTheme(ThemeManager.shared.currentTheme)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        switch selectedTheme.statusBarStyle {
+        switch ThemeManager.shared.currentTheme.statusBarStyle {
         case .light: return .lightContent
         case .dark: return .darkContent
         }
     }
     
-    private func loadTheme(_ theme: CalculatorTheme) {
-        selectedTheme = theme
-        lcdDisplay.theme = theme
-        decorateView()
+    private func refreshViewWithTheme(_ theme: CalculatorTheme) {
+        let theme = ThemeManager.shared.currentTheme
+        decorateView(withTheme: theme)
         setNeedsStatusBarAppearanceUpdate()
-    }
-    
-    private func saveCurrentThemeIndex() {
-        themeDataStore.saveInt(currentThemeIndex)
-    }
-    
-    private func loadThemeIndex() {
-        currentThemeIndex = themeDataStore.loadInt()
-        loadThemeFromCurrentThemeIndex()
     }
     
     // MARK: - IBActions
@@ -247,7 +233,7 @@ class CalcViewController: UIViewController {
     @IBAction func divideButtonPressed(_ sender: UIButton) {
         
         deselectOperatorButtons()
-        decorateOperatorButton(divideButton, true)
+        selectOperatorButton(divideButton, true)
         
         sender.bounce()
         
@@ -258,7 +244,7 @@ class CalcViewController: UIViewController {
     @IBAction func multiplyButtonPressed(_ sender: UIButton) {
          
         deselectOperatorButtons()
-        decorateOperatorButton(multiplyButton, true)
+        selectOperatorButton(multiplyButton, true)
         
         sender.bounce()
         
@@ -269,7 +255,7 @@ class CalcViewController: UIViewController {
     @IBAction func minusButtonPressed(_ sender: UIButton) {
          
         deselectOperatorButtons()
-        decorateOperatorButton(minusButton, true)
+        selectOperatorButton(minusButton, true)
         
         sender.bounce()
         
@@ -280,7 +266,7 @@ class CalcViewController: UIViewController {
     @IBAction func addButtonPressed(_ sender: UIButton) {
          
         deselectOperatorButtons()
-        decorateOperatorButton(addButton, true)
+        selectOperatorButton(addButton, true)
         
         sender.bounce()
         
@@ -343,7 +329,7 @@ class CalcViewController: UIViewController {
         guard let logViewController: LogViewController = storyboard.instantiateViewController(withIdentifier: "LogViewController") as? LogViewController else { return }
         
         logViewController.setDataSource(calculator.copyOfEquationLog)
-        logViewController.setTheme(selectedTheme)
+        
         let navigationController = UINavigationController(rootViewController: logViewController)
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         present(navigationController, animated: true, completion: nil)

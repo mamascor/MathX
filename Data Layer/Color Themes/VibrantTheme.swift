@@ -17,28 +17,15 @@
 
 import Foundation
 
-struct VibrantTheme: CalculatorTheme {
-    
-    var background: String = "#4A1D41"
-        
-    var display: String = "#ffffff"
-    
-    var operatorNormal: String = "#8D3362"
-    
-    var operatorSelected: String = "#AA0E67"
-    
-    var operatorTitle: String = "#ffffff"
-    
-    var operatorTitleSelected: String = "#ffffff"
-    
-    var pinPad: String = "#C64661"
-    
-    var pinPadTitle: String = "#ffffff"
-    
-    var extraFunctions: String = "#9C3766"
-    
-    var extraFunctionsTitle: String = "#ffffff"
-    
-    var statusBarStyle: StatusBarStyle = .light
-}
-
+let vibrantTheme = CalculatorTheme(id:"9",
+                                        background:             "#4A1D41",
+                                        display:                "#ffffff",
+                                        operatorNormal:         "#8D3362",
+                                        operatorSelected:       "#AA0E67",
+                                        operatorTitle:          "#ffffff",
+                                        operatorTitleSelected:  "#ffffff",
+                                        pinPad:                 "#C64661",
+                                        pinPadTitle:            "#ffffff",
+                                        extraFunctions:         "#9C3766",
+                                        extraFunctionsTitle:    "#ffffff",
+                                        statusBarStyle: .light)

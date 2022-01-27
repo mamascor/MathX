@@ -17,27 +17,28 @@
 
 import Foundation
 
-enum StatusBarStyle {
-    case light
-    case dark
+enum StatusBarStyle: String, Codable {
+    case light = "light"
+    case dark = "dark"
 }
 
-protocol CalculatorTheme {
+struct CalculatorTheme: Decodable, Encodable {
     
-    var background: String { get }
-    var display: String { get }
+    var id: String
+    var background: String
+    var display: String
     
-    var operatorNormal: String { get }
-    var operatorSelected: String { get }
+    var operatorNormal: String
+    var operatorSelected: String
     
-    var operatorTitle: String { get }
-    var operatorTitleSelected: String { get }
+    var operatorTitle: String
+    var operatorTitleSelected: String
     
-    var pinPad: String { get }
-    var pinPadTitle: String { get }
+    var pinPad: String
+    var pinPadTitle: String
     
-    var extraFunctions: String { get }
-    var extraFunctionsTitle: String { get }
+    var extraFunctions: String
+    var extraFunctionsTitle: String
     
-    var statusBarStyle: StatusBarStyle { get }
+    var statusBarStyle: StatusBarStyle
 }

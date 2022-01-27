@@ -20,8 +20,6 @@ import UIKit
 class LogViewController: UITableViewController {
 
     private var datasource: [MathEquation] = []
-    private var theme: CalculatorTheme = DarkTheme()
-    
     
     //MARK: - Set Datasource
     func setDataSource(_ newDatasource: [MathEquation]) {
@@ -29,8 +27,8 @@ class LogViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    func setTheme(_ newTheme: CalculatorTheme) {
-        theme = newTheme
+    private func decorateViewWithTheme(_ theme: CalculatorTheme) {
+        
         tableView.backgroundColor = UIColor(hex: theme.background)
         tableView.separatorColor = UIColor(hex: theme.operatorNormal)
         navigationItem.rightBarButtonItem?.tintColor = UIColor(hex: theme.operatorNormal)
@@ -61,6 +59,25 @@ class LogViewController: UITableViewController {
             return UITableViewCell()
         }
         
+        let theme = ThemeManager.shared.currentTheme
+        decorateTableViewCell(cell, withTheme: theme, from: indexPath)
+        
+        let mathEquation = datasource[indexPath.row]
+        populateTableViewCellFromEquation(mathEquation, cell: cell)
+        
+        return cell
+    }
+    
+    private func populateTableViewCellFromEquation(_ mathEquation: MathEquation, cell: MathEquationTableViewCell) {
+        cell.lhsLabel.text = mathEquation.lhs.formatted()
+        cell.rhsLabel.text = mathEquation.stringRepresentationOfOperator + " " + (mathEquation.rhs?.formatted() ?? "")
+        cell.resultLabel.text = "= " + (mathEquation.result?.formatted() ?? "")
+    }
+    
+    
+    
+    private func decorateTableViewCell(_ cell: MathEquationTableViewCell, withTheme theme: CalculatorTheme, from indexPath: IndexPath) {
+        
         cell.backgroundColor = UIColor(hex: theme.background)
         cell.selectedBackgroundView?.backgroundColor = UIColor(hex: theme.operatorNormal )
         cell.lhsLabel.textColor = UIColor(hex: theme.display)
@@ -76,8 +93,6 @@ class LogViewController: UITableViewController {
         cell.lhsLabel.text = mathEquation.lhs.formatted()
         cell.rhsLabel.text = mathEquation.stringRepresentationOfOperator + " " + (mathEquation.rhs?.formatted() ?? "")
         cell.resultLabel.text = "= " + (mathEquation.result?.formatted() ?? "")
-        
-        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

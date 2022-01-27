@@ -17,27 +17,15 @@
 
 import Foundation
 
-struct WashedOutTheme: CalculatorTheme {
-    var background: String = "#ECF5FF"
-        
-    var display: String = "#0D2A4B"
-    
-    var operatorNormal: String = "#A3CFF9"
-    
-    var operatorSelected: String = "#0D2A4B"
-    
-    var operatorTitle: String = "#5487BA"
-    
-    var operatorTitleSelected: String = "#ffffff"
-    
-    var pinPad: String = "#1D1D1D"
-    
-    var pinPadTitle: String = "#ffffff"
-    
-    var extraFunctions: String = "#A3CFF9"
-    
-    var extraFunctionsTitle: String = "#5487BA"
-    
-    var statusBarStyle: StatusBarStyle = .dark
-}
-
+let washedOutTheme = CalculatorTheme(id:"8",
+                                        background:             "#ECF5FF",
+                                        display:                "#0D2A4B",
+                                        operatorNormal:         "#A3CFF9",
+                                        operatorSelected:       "#0D2A4B",
+                                        operatorTitle:          "#5487BA",
+                                        operatorTitleSelected:  "#ffffff",
+                                        pinPad:                 "#1D1D1D",
+                                        pinPadTitle:            "#ffffff",
+                                        extraFunctions:         "#A3CFF9",
+                                        extraFunctionsTitle:    "#5487BA",
+                                        statusBarStyle: .dark)

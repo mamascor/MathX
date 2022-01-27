@@ -17,28 +17,15 @@
 
 import Foundation
 
-struct OrangeTheme: CalculatorTheme {
-    
-    var background: String = "#DC6969"
-        
-    var display: String = "#ffffff"
-    
-    var operatorNormal: String = "#CC4D4D"
-    
-    var operatorSelected: String = "#AB2F2F"
-    
-    var operatorTitle: String = "#ffffff"
-    
-    var operatorTitleSelected: String = "#ffffff"
-    
-    var pinPad: String = "#C94848"
-    
-    var pinPadTitle: String = "#ffffff"
-    
-    var extraFunctions: String = "#D05353"
-    
-    var extraFunctionsTitle: String = "#ffffff"
-    
-    var statusBarStyle: StatusBarStyle = .light
-}
-
+let orangeTheme = CalculatorTheme(id:"10",
+                                        background:             "#DC6969",
+                                        display:                "#ffffff",
+                                        operatorNormal:         "#CC4D4D",
+                                        operatorSelected:       "#AB2F2F",
+                                        operatorTitle:          "#ffffff",
+                                        operatorTitleSelected:  "#ffffff",
+                                        pinPad:                 "#C94848",
+                                        pinPadTitle:            "#ffffff",
+                                        extraFunctions:         "#D05353",
+                                        extraFunctionsTitle:    "#ffffff",
+                                        statusBarStyle: .light)

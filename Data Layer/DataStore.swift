@@ -18,6 +18,7 @@
 
 import Foundation
 
+// TODO tidy this struct
 struct DataStore {
     
     let key: String
@@ -48,6 +49,14 @@ struct DataStore {
     
     func removeValue() {
         UserDefaults.standard.removeObject(forKey: key)
+    }
+    
+    func set(_ value: Any) {
+        UserDefaults.standard.set(value, forKey: key)
+    }
+    
+    func getValue() -> Any? {
+        UserDefaults.standard.object(forKey: key)
     }
 }
 

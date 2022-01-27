@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C4DA5FD27A2B35B0081EC12 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4DA5FC27A2B35B0081EC12 /* ThemeManager.swift */; };
 		0C8DB36527A0B1E300A96AA0 /* PositiveSubtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36427A0B1E300A96AA0 /* PositiveSubtractionTests.swift */; };
 		0C8DB36927A0C77900A96AA0 /* MathEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36827A0C77900A96AA0 /* MathEquation.swift */; };
 		0C8DB36B27A0C7A900A96AA0 /* MathEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36A27A0C7A900A96AA0 /* MathEntry.swift */; };
@@ -65,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C4DA5FC27A2B35B0081EC12 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		0C8DB36427A0B1E300A96AA0 /* PositiveSubtractionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositiveSubtractionTests.swift; sourceTree = "<group>"; };
 		0C8DB36827A0C77900A96AA0 /* MathEquation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathEquation.swift; sourceTree = "<group>"; };
 		0C8DB36A27A0C7A900A96AA0 /* MathEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathEntry.swift; sourceTree = "<group>"; };
@@ -134,6 +136,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C4DA5FE27A2B3F20081EC12 /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				0CE4068327A00EF000B16A24 /* iOSBFreeCalculatorEngine.swift */,
+				0C8DB36827A0C77900A96AA0 /* MathEquation.swift */,
+				0C8DB36A27A0C7A900A96AA0 /* MathEntry.swift */,
+			);
+			path = Calculator;
+			sourceTree = "<group>";
+		};
 		0C8DB36E27A0CE3A00A96AA0 /* UIKit Subclasses */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,9 +217,8 @@
 		0CE40654279E9CFB00B16A24 /* Business Logic Layer */ = {
 			isa = PBXGroup;
 			children = (
-				0CE4068327A00EF000B16A24 /* iOSBFreeCalculatorEngine.swift */,
-				0C8DB36827A0C77900A96AA0 /* MathEquation.swift */,
-				0C8DB36A27A0C7A900A96AA0 /* MathEntry.swift */,
+				0C4DA5FE27A2B3F20081EC12 /* Calculator */,
+				0C4DA5FC27A2B35B0081EC12 /* ThemeManager.swift */,
 			);
 			path = "Business Logic Layer";
 			sourceTree = SOURCE_ROOT;
@@ -417,6 +428,7 @@
 				0CE40673279EDB4700B16A24 /* UIColor+HexValue.swift in Sources */,
 				0C8DB36D27A0CE3400A96AA0 /* LCDDisplay.swift in Sources */,
 				0CED88BD27A1BA2000261494 /* WashedOutTheme.swift in Sources */,
+				0C4DA5FD27A2B35B0081EC12 /* ThemeManager.swift in Sources */,
 				0CE40667279E9CFB00B16A24 /* UIButton+Decorate.swift in Sources */,
 				0CE4066C279EBE4B00B16A24 /* CalculatorTheme.swift in Sources */,
 				0CE40671279EC6D400B16A24 /* DarkTheme.swift in Sources */,
