@@ -146,8 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				0CE4068327A00EF000B16A24 /* iOSBFreeCalculatorEngine.swift */,
-				0C8DB36827A0C77900A96AA0 /* MathEquation.swift */,
 				0C8DB36A27A0C7A900A96AA0 /* MathEntry.swift */,
+				0C8DB36827A0C77900A96AA0 /* MathEquation.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -182,6 +182,14 @@
 				0C4DA60427A2EFFF0081EC12 /* EnteringZeroTests.swift */,
 			);
 			path = "Pin Pad Tests";
+			sourceTree = "<group>";
+		};
+		0C4DA60827A305900081EC12 /* LCD Display */ = {
+			isa = PBXGroup;
+			children = (
+				0C4DA60627A2FECE0081EC12 /* DisplayTests.swift */,
+			);
+			path = "LCD Display";
 			sourceTree = "<group>";
 		};
 		0C8DB36E27A0CE3A00A96AA0 /* UIKit Subclasses */ = {
@@ -230,7 +238,7 @@
 		0CE4063A279E9BBA00B16A24 /* CalcTests */ = {
 			isa = PBXGroup;
 			children = (
-				0C4DA60627A2FECE0081EC12 /* DisplayTests.swift */,
+				0C4DA60827A305900081EC12 /* LCD Display */,
 				0C4DA5FF27A2C7B60081EC12 /* Operator Tests */,
 				0C4DA60027A2C7C30081EC12 /* Extra Features Tests */,
 				0C4DA60127A2C7D20081EC12 /* Pin Pad Tests */,

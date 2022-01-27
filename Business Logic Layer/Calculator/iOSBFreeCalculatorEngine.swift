@@ -33,18 +33,52 @@ struct iOSBFreeCalculatorEngine {
     // MARK: - Managers
     private let dataStore = DataStore(key: "iOSBFree.com.calc.CalculatorEngine.total")
     
+    // MARK: - Scientific Calc Formatter
+    private let scientificCalcFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .scientific
+        formatter.maximumFractionDigits = 3
+        formatter.exponentSymbol = "e"
+        return formatter
+    }()
+    
     // MARK: - Display
     var lcdDisplayText: String {
         
+        // → For A Completed equation
         if currentMathEntry.isCompleted {
             guard currentMathEntry.equation.result?.isNaN == false else {
                 return "Error"
             }
             
-            return currentMathEntry.equation.result?.formatted() ?? ""
+            guard let result = currentMathEntry.equation.result else {
+                return "Error"
+            }
+            
+            let formattedResult = result.formatted()
+            if formattedResult.count > 12 {
+                return scientificCalcFormatter.string(from: result as NSDecimalNumber) ?? "Error"
+            }
+            return formattedResult
         }
         
-        return currentMathEntry.lcdDisplayString ?? ""
+
+        //  → For A Left Or Right Values i.e the operands
+        var operand = Decimal.nan
+        switch currentMathEntry.editingSide {
+        case .leftHandSide:
+            operand = currentMathEntry.equation.lhs
+            
+        case .rightHandSide:
+            // If we dont have a rhs value then the user hasnt pressed any keys yet
+            operand = currentMathEntry.equation.rhs ?? currentMathEntry.equation.lhs
+        }
+        
+        let formattedResult = operand.formatted()
+        if formattedResult.count > 12 {
+            return scientificCalcFormatter.string(from: operand as NSDecimalNumber) ?? "Error"
+        }
+        return formattedResult
     }
     
     var decimalRepresentationOfEditingOperand: Decimal {
