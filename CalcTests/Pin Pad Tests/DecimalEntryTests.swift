@@ -134,4 +134,23 @@ class DecimalEntryTests: XCTestCase {
         calculatorEngine.numberPressed(9)
         XCTAssertTrue(calculatorEngine.rightHandOperand?.formatted() ?? "" == Decimal(0.123456789).formatted())
     }
+    
+    
+    // MARK: - Immediate Press Without Previous Value
+    
+    func testImmediatePress_LeftHandEntry() throws {
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(1)
+        XCTAssertTrue(calculatorEngine.leftHandOperand.formatted() == Decimal(0.1).formatted())
+    }
+    
+    func testImmediatePress_RightHandEntry() throws {
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.addPressed()
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(1)
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.formatted() ?? "" == Decimal(0.1).formatted())
+    }
 }

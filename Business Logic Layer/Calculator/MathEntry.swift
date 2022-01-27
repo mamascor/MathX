@@ -165,29 +165,41 @@ struct MathEntry {
         if
             equation.rhs == nil,
             editingSide == .rightHandSide {
-            equation.rhs = decimalInput
-            lcdDisplayString = stringInput
-            return
+            
+            guard isEnteringDecimal else {
+                equation.rhs = decimalInput
+                lcdDisplayString = stringInput
+                return
+            }
+            
+            let initialValue = Decimal(0)
+            equation.rhs = initialValue
+            lcdDisplayString = initialValue.formatted()
+            
+            let tuple = appendNewNumber(number, toPreviousEntry: initialValue, withStringRepresentation: lcdDisplayString ?? "", amendAterDecimalPoint: isEnteringDecimal)
+            equation.rhs = tuple.decimal
+            lcdDisplayString = tuple.stringRepresentation
+            return 
         }
         
         // Always have lhs or rhs value - append new value.
         switch editingSide {
         case .leftHandSide:
             
-            let tuple = appendNewNumber(number, toPreviousEntry: equation.lhs, withStringRepresentation: lcdDisplayString ?? "", amendAterDecimalPaoint: isEnteringDecimal)
+            let tuple = appendNewNumber(number, toPreviousEntry: equation.lhs, withStringRepresentation: lcdDisplayString ?? "", amendAterDecimalPoint: isEnteringDecimal)
             equation.lhs = tuple.decimal
             lcdDisplayString = tuple.stringRepresentation
             
         case .rightHandSide:
             guard let currentDecimal = equation.rhs else { return }
             
-            let tuple = appendNewNumber(number, toPreviousEntry: currentDecimal, withStringRepresentation: lcdDisplayString ?? "", amendAterDecimalPaoint: isEnteringDecimal)
+            let tuple = appendNewNumber(number, toPreviousEntry: currentDecimal, withStringRepresentation: lcdDisplayString ?? "", amendAterDecimalPoint: isEnteringDecimal)
             equation.rhs = tuple.decimal
             lcdDisplayString = tuple.stringRepresentation
         }
     }
     
-    private func appendNewNumber(_ number: Int, toPreviousEntry previousEntry: Decimal, withStringRepresentation stringRepresentation: String, amendAterDecimalPaoint: Bool) -> (decimal: Decimal, stringRepresentation: String) {
+    private func appendNewNumber(_ number: Int, toPreviousEntry previousEntry: Decimal, withStringRepresentation stringRepresentation: String, amendAterDecimalPoint: Bool) -> (decimal: Decimal, stringRepresentation: String) {
         
         let decimalInput = Decimal(number)
         let stringInput = String(number)
@@ -195,7 +207,7 @@ struct MathEntry {
         if previousEntry.isZero {
             
             // replace if we only have a zero value (0 not 0.)
-            if amendAterDecimalPaoint {
+            if amendAterDecimalPoint {
                 
                 // Append a decimal?
                 let newStringRepresentation: String = {
@@ -224,7 +236,7 @@ struct MathEntry {
             }
         } else {
             
-            if amendAterDecimalPaoint {
+            if amendAterDecimalPoint {
                 
                 // Append a decimal?
                 let newStringRepresentation: String = {
