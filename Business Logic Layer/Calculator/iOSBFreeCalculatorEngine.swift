@@ -36,30 +36,15 @@ struct iOSBFreeCalculatorEngine {
     // MARK: - Display
     var lcdDisplayText: String {
         
-        
         if currentMathEntry.isCompleted {
+            guard currentMathEntry.equation.result?.isNaN == false else {
+                return "Error"
+            }
+            
             return currentMathEntry.equation.result?.formatted() ?? ""
         }
         
-//        if let rhs = currentMathEntry.equation.rhs {
-//            return rhs.formatted()
-//        }
-        
         return currentMathEntry.lcdDisplayString ?? ""
-        //return currentMathEntry.equation.lhs.formatted()
-        
-        /*
-        guard currentMathEntry.isCompleted == false else {
-            return formatForLCDDisplay(currentMathEntry.equation.result)
-        }
-        
-        switch currentMathEntry.editingSide {
-        case .leftHandSide:
-            return formatForLCDDisplay(currentMathEntry.equation.lhs)
-        case .rightHandSide:
-            return formatForLCDDisplay(currentMathEntry.equation.rhs)
-        }
-         */
     }
     
     var decimalRepresentationOfEditingOperand: Decimal {
