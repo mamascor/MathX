@@ -153,4 +153,12 @@ class DecimalEntryTests: XCTestCase {
         calculatorEngine.numberPressed(1)
         XCTAssertTrue(calculatorEngine.rightHandOperand?.formatted() ?? "" == Decimal(0.1).formatted())
     }
+    
+    // MARK: - Immediate Press Without Previous Value
+    
+    func testDecimalDisplay_LeftHandEntry() throws {
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.decimalPressed()
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "0.")
+    }
 }

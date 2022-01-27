@@ -46,9 +46,9 @@
             filePath = "Presentation Layer/View Controllers/LogViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "decorateTableViewCell(_:withTheme:from:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -78,25 +78,9 @@
             filePath = "Business Logic Layer/Calculator/iOSBFreeCalculatorEngine.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "numberPressed(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2FDF67BB-C944-41CD-90C2-E3DD33BE7882"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Business Logic Layer/Calculator/MathEntry.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
-            landmarkName = "appendNewNumber(_:toPreviousEntry:withStringRepresentation:amendAterDecimalPoint:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -110,9 +94,9 @@
             filePath = "Business Logic Layer/Calculator/MathEntry.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
-            landmarkName = "appendNewNumber(_:toPreviousEntry:withStringRepresentation:amendAterDecimalPoint:)"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
+            landmarkName = "appendNewNumber(_:toPreviousEntry:previousLCDDisplay:amendAterDecimalPoint:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

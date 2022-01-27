@@ -41,11 +41,12 @@ struct iOSBFreeCalculatorEngine {
             return currentMathEntry.equation.result?.formatted() ?? ""
         }
         
-        if let rhs = currentMathEntry.equation.rhs {
-            return rhs.formatted()
-        }
+//        if let rhs = currentMathEntry.equation.rhs {
+//            return rhs.formatted()
+//        }
         
-        return currentMathEntry.equation.lhs.formatted()
+        return currentMathEntry.lcdDisplayString ?? ""
+        //return currentMathEntry.equation.lhs.formatted()
         
         /*
         guard currentMathEntry.isCompleted == false else {

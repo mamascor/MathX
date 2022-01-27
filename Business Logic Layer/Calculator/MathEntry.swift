@@ -100,6 +100,30 @@ struct MathEntry {
         guard isCompleted == false else { return }
         
         isEnteringDecimal = true
+        
+        applyDecimalToDisplayString()
+    }
+    
+    private mutating func applyDecimalToDisplayString() {
+        
+        // first entry
+        switch editingSide {
+        case .leftHandSide:
+            if lcdDisplayString == nil {
+               lcdDisplayString = equation.lhs.formatted()
+            }
+            
+        case .rightHandSide:
+            if equation.rhs == nil {
+                equation.rhs = Decimal(0)
+                lcdDisplayString = equation.rhs?.formatted() ?? ""
+            }
+        }
+        
+        // update display
+        if lcdDisplayString?.contains(decimalSymbol) == false {
+            lcdDisplayString?.append(decimalSymbol)
+        }
     }
     
     // MARK: - Math Operations
@@ -176,7 +200,7 @@ struct MathEntry {
             equation.rhs = initialValue
             lcdDisplayString = initialValue.formatted()
             
-            let tuple = appendNewNumber(number, toPreviousEntry: initialValue, withStringRepresentation: lcdDisplayString ?? "", amendAterDecimalPoint: isEnteringDecimal)
+            let tuple = appendNewNumber(number, toPreviousEntry: initialValue, previousLCDDisplay: lcdDisplayString ?? "", amendAterDecimalPoint: isEnteringDecimal)
             equation.rhs = tuple.decimal
             lcdDisplayString = tuple.stringRepresentation
             return 
@@ -186,91 +210,71 @@ struct MathEntry {
         switch editingSide {
         case .leftHandSide:
             
-            let tuple = appendNewNumber(number, toPreviousEntry: equation.lhs, withStringRepresentation: lcdDisplayString ?? "", amendAterDecimalPoint: isEnteringDecimal)
+            let tuple = appendNewNumber(number, toPreviousEntry: equation.lhs, previousLCDDisplay: lcdDisplayString ?? "", amendAterDecimalPoint: isEnteringDecimal)
             equation.lhs = tuple.decimal
             lcdDisplayString = tuple.stringRepresentation
             
         case .rightHandSide:
             guard let currentDecimal = equation.rhs else { return }
             
-            let tuple = appendNewNumber(number, toPreviousEntry: currentDecimal, withStringRepresentation: lcdDisplayString ?? "", amendAterDecimalPoint: isEnteringDecimal)
+            let tuple = appendNewNumber(number, toPreviousEntry: currentDecimal, previousLCDDisplay: lcdDisplayString ?? "", amendAterDecimalPoint: isEnteringDecimal)
             equation.rhs = tuple.decimal
             lcdDisplayString = tuple.stringRepresentation
         }
     }
     
-    private func appendNewNumber(_ number: Int, toPreviousEntry previousEntry: Decimal, withStringRepresentation stringRepresentation: String, amendAterDecimalPoint: Bool) -> (decimal: Decimal, stringRepresentation: String) {
+    private func appendNewNumber(_ number: Int, toPreviousEntry previousEntry: Decimal, previousLCDDisplay: String?, amendAterDecimalPoint: Bool) -> (decimal: Decimal, stringRepresentation: String) {
         
         let decimalInput = Decimal(number)
         let stringInput = String(number)
         
-        if previousEntry.isZero {
-            
-            // replace if we only have a zero value (0 not 0.)
-            if amendAterDecimalPoint {
-                
-                // Append a decimal?
-                let newStringRepresentation: String = {
-                    
-                    var string: String = ""
-                    if stringRepresentation.contains(decimalSymbol) == false {
-                        string = stringRepresentation.appending(decimalSymbol)
-                    }
-                    string.append(stringInput)
-                    return string
-                }()
-                
-                // convert to a decimal value
-                if let newDecimal = Decimal(string: newStringRepresentation) {
-                    return (newDecimal, newStringRepresentation)
-                }
-                
-                // we cannot convert the string into a decimal! NAN
-                let nan = Decimal.nan
-                return (nan, nan.formatted())
-                
-            } else {
-                
-                // we have 0. Replace with the new number
-                return (decimalInput, stringInput)
-            }
-        } else {
-            
-            if amendAterDecimalPoint {
-                
-                // Append a decimal?
-                let newStringRepresentation: String = {
-                    
-                    var string: String = stringRepresentation
-                    if stringRepresentation.contains(decimalSymbol) == false {
-                        string = stringRepresentation.appending(decimalSymbol)
-                    }
-                    string.append(stringInput)
-                    return string
-                }()
-                
-                // convert to a decimal value
-                if let newDecimal = Decimal(string: newStringRepresentation) {
-                    return (newDecimal, newStringRepresentation)
-                }
-                
-                // we cannot convert the string into a decimal! NAN
-                let nan = Decimal.nan
-                return (nan, nan.formatted())
-                
-            } else {
-                let newStringRepresentation = stringRepresentation.appending(stringInput)
-                
-                // convert to a decimal value
-                if let newDecimal = Decimal(string: newStringRepresentation) {
-                    return (newDecimal, newStringRepresentation)
-                }
-                
-                // we cannot convert the string into a decimal! NAN
-                let nan = Decimal.nan
-                return (nan, nan.formatted())
-            }
+        // first entry
+        if
+            previousEntry.isZero,
+            previousLCDDisplay == nil {
+            return (decimalInput, stringInput)
         }
+        
+        guard let localPreviousLCDDisplay = previousLCDDisplay else {
+            return (Decimal.nan, "NaN")
+        }
+        
+        // entering decimal
+        if amendAterDecimalPoint {
+            
+            // Append a decimal?
+            let newStringRepresentation: String = {
+                
+                var string: String = localPreviousLCDDisplay
+                if localPreviousLCDDisplay.contains(decimalSymbol) == false {
+                    string = localPreviousLCDDisplay.appending(decimalSymbol)
+                }
+                string.append(stringInput)
+                return string
+            }()
+            
+            // convert to a decimal value
+            if let newDecimal = Decimal(string: newStringRepresentation) {
+                return (newDecimal, newStringRepresentation)
+            }
+            
+            // we cannot convert the string into a decimal! NAN
+            let nan = Decimal.nan
+            return (nan, nan.formatted())
+            
+        }
+        
+        // non decimal input
+        let newStringRepresentation = localPreviousLCDDisplay.appending(stringInput)
+        
+        // convert to a Decimal type
+        if let newDecimal = Decimal(string: newStringRepresentation) {
+            return (newDecimal, newStringRepresentation)
+        }
+        
+        // we cannot convert the string into a decimal! NAN
+        let nan = Decimal.nan
+        return (nan, nan.formatted())
     }
     
 }
