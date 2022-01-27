@@ -229,7 +229,7 @@ struct MathEntry {
                 // Append a decimal?
                 let newStringRepresentation: String = {
                     
-                    var string: String = ""
+                    var string: String = stringRepresentation
                     if stringRepresentation.contains(decimalSymbol) == false {
                         string = stringRepresentation.appending(decimalSymbol)
                     }

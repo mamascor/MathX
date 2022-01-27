@@ -53,6 +53,8 @@ class EnterNumberTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(123456789)))
     }
     
+    
+    
     // MARK: - Operands - Right
     
     func testSmall_RightHandEntry() throws {

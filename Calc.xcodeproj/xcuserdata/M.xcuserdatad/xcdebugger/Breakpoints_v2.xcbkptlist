@@ -68,5 +68,117 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3E6108CD-A0D6-42D9-82B9-A1186F9AA3FA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CalcTests/Pin Pad Tests/DecimalEntryTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "testMedium_RightHandEntry()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3E6108CD-A0D6-42D9-82B9-A1186F9AA3FA - 3a4ef14bc7511b6e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalcTests.DecimalEntryTests.testMedium_RightHandEntry() throws -&gt; ()"
+                  moduleName = "CalcTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/M/Programming/Repos/UIKit%20Calc/CalcTests/Pin%20Pad%20Tests/DecimalEntryTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "112"
+                  endingLineNumber = "112"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  uuid = "3E6108CD-A0D6-42D9-82B9-A1186F9AA3FA - 3a4ef14bc7511b4f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalcTests.DecimalEntryTests.testMedium_RightHandEntry() throws -&gt; ()"
+                  moduleName = "CalcTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/M/Programming/Repos/UIKit%20Calc/CalcTests/Pin%20Pad%20Tests/DecimalEntryTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "144">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E5C9EDB0-A7A3-441F-9DF2-EBCBFBFDDE7C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Business Logic Layer/Calculator/iOSBFreeCalculatorEngine.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "numberPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2FDF67BB-C944-41CD-90C2-E3DD33BE7882"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Business Logic Layer/Calculator/MathEntry.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "appendNewNumber(_:toPreviousEntry:withStringRepresentation:amendAterDecimalPaoint:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E74F1AA6-AA61-4DD4-8470-6A5BF799217B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Business Logic Layer/Calculator/MathEntry.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "appendNewNumber(_:toPreviousEntry:withStringRepresentation:amendAterDecimalPaoint:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FE5FBFBD-5D91-486A-8572-C63A5E6C43B3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CalcTests/Pin Pad Tests/DecimalEntryTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "testLarge_LeftHandEntry()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

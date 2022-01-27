@@ -223,4 +223,43 @@ class NegateButtonTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.resultOfEquation  == nil)
     }
     
+    //MARK: - Negate Decimals - Left
+    
+    func testDecimals_LeftHandEntry() throws {
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.numberPressed(2)
+        calculatorEngine.numberPressed(3)
+        calculatorEngine.numberPressed(4)
+        calculatorEngine.numberPressed(5)
+        calculatorEngine.numberPressed(6)
+        calculatorEngine.numberPressed(7)
+        calculatorEngine.numberPressed(8)
+        calculatorEngine.numberPressed(9)
+        calculatorEngine.negatePressed()
+        XCTAssertTrue(calculatorEngine.leftHandOperand.formatted() == Decimal(-0.123456789).formatted())
+    }
+    
+    //MARK: - Negate Decimals - Right
+    
+    func testDecimals_RightHandEntry() throws {
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.addPressed()
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.numberPressed(2)
+        calculatorEngine.numberPressed(3)
+        calculatorEngine.numberPressed(4)
+        calculatorEngine.numberPressed(5)
+        calculatorEngine.numberPressed(6)
+        calculatorEngine.numberPressed(7)
+        calculatorEngine.numberPressed(8)
+        calculatorEngine.numberPressed(9)
+        calculatorEngine.negatePressed()
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.formatted() ?? "" == Decimal(-0.123456789).formatted())
+    }
 }
