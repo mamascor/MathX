@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  Calc
 //
-//  Created by Matthew Paul Harding on 24/01/2022.
+//  Created by iOSB Free on 24/01/2022.
 //
 //
 //  iOSB Free Ltd                   → All rights reserved
@@ -25,6 +25,7 @@
 //   It's a class created to recieve delegate methods. It manages each scene for the app.
 //   💡 Architecture Tip 👉🏻 Good architecure provides easy maintainence when building software.
 // *******************************************************************************************
+
 
 import UIKit
 

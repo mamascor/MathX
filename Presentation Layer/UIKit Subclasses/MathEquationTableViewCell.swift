@@ -2,7 +2,7 @@
 //  MathEquationTableViewCell.swift
 //  Calc
 //
-//  Created by Matthew Paul Harding on 26/01/2022.
+//  Created by iOSB Free on 26/01/2022.
 //
 //
 //  iOSB Free Ltd                   → All rights reserved
@@ -24,6 +24,7 @@
 // → What's This File?
 //   It's a subclass. This is the cell for each equation displayed in the history log.
 // *******************************************************************************************
+
 
 import UIKit
 

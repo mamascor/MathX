@@ -2,7 +2,7 @@
 //  EnteringZeroTests.swift
 //  CalcTests
 //
-//  Created by Matthew Paul Harding on 27/01/2022.
+//  Created by iOSB Free on 27/01/2022.
 //
 //
 //  iOSB Free Ltd                   → All rights reserved

@@ -2,7 +2,7 @@
 //  DataStore.swift
 //  Calc
 //
-//  Created by Matthew Paul Harding on 01/01/22.
+//  Created by iOSB Free on 01/01/22.
 //  Copyright © 2022 iOSB Free Ltd. All rights reserved.
 //
 //
@@ -26,6 +26,7 @@
 //   It's a data access manager, a simple wrapper for User Defaults.
 //   💡 Architecture Tip 👉🏻 We disconnect where the data is stored by creating this wrapper.
 // *******************************************************************************************
+
 
 import Foundation
 

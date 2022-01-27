@@ -2,7 +2,7 @@
 //  UIColor+HexValue.swift
 //  Calc
 //
-//  Created by Matthew Paul Harding on 24/01/2022.
+//  Created by iOSB Free on 24/01/2022.
 //
 //
 //  iOSB Free Ltd                   → All rights reserved
@@ -25,6 +25,7 @@
 //   It's an extension. It adds more features to UIColor, such as loading from a hex value.
 //   💡 Tip 👉🏻 Extensions allow us to add features to someone elses files.
 // *******************************************************************************************
+
 
 import UIKit
 

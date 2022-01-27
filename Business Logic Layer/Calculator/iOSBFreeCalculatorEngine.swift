@@ -2,7 +2,7 @@
 //  iOSBFreeCalculatorEngine.swift
 //  Calc
 //
-//  Created by Matthew Paul Harding on 25/01/2022.
+//  Created by iOSB Free on 25/01/2022.
 //
 //
 //  iOSB Free Ltd                   → All rights reserved

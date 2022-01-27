@@ -2,7 +2,7 @@
 //  PinkCalculatorTheme.swift
 //  Calc
 //
-//  Created by Matthew Paul Harding on 24/01/2022.
+//  Created by iOSB Free on 24/01/2022.
 //
 //
 //  iOSB Free Ltd                   → All rights reserved
@@ -25,6 +25,7 @@
 //   It's a color theme, used to display a different color theme
 //   💡 Team Tip 👉🏻 You could provide these files to a designer, if you wanted to.
 // *******************************************************************************************
+
 
 import Foundation
 

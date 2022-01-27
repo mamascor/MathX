@@ -2,7 +2,7 @@
 //  CalcViewController.swift
 //  Calc
 //
-//  Created by Matthew Paul Harding on 24/01/2022.
+//  Created by iOSB Free on 24/01/2022.
 //
 //
 //  iOSB Free Ltd                   → All rights reserved
@@ -26,6 +26,7 @@
 //   💡 Architecture Tip 👉🏻 The UI layer should ideally only contain UI. Place all other code
 //   into other files creating types such as managers and data storage.
 // *******************************************************************************************
+
 
 import UIKit
 

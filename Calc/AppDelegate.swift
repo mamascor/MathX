@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Calc
 //
-//  Created by Matthew Paul Harding on 24/01/2022.
+//  Created by iOSB Free on 24/01/2022.
 //
 //
 //  iOSB Free Ltd                   → All rights reserved
@@ -25,6 +25,7 @@
 //   It's a class created to recieve delegate methods. It manages the app itself.
 //   💡 Architecture Tip 👉🏻 Why not Google "KISS engineering principle"?
 // *******************************************************************************************
+
 
 import UIKit
 

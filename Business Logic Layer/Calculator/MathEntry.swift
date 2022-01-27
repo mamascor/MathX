@@ -2,7 +2,7 @@
 //  MathEntry.swift
 //  Calc
 //
-//  Created by Matthew Paul Harding on 26/01/2022.
+//  Created by iOSB Free on 26/01/2022.
 //
 //
 //  iOSB Free Ltd                   → All rights reserved
