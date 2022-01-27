@@ -22,21 +22,40 @@ class NegateButtonTests: XCTestCase {
 
     // MARK: - operands - Left
     
-    func testSmallLeftHandEntry() throws {
+    func testSmall_LeftHandEntry() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.negatePressed()
-
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(-1)))
     }
     
-    func testLargeLeftHandEntry() throws {
+    func testMedium_LeftHandEntry() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
-        calculatorEngine.numberPressed(100)
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.numberPressed(2)
+        calculatorEngine.numberPressed(3)
         calculatorEngine.negatePressed()
 
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(-100)))
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(-123)))
     }
+    
+    func testLarge_LeftHandEntry() throws {
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.numberPressed(2)
+        calculatorEngine.numberPressed(3)
+        calculatorEngine.numberPressed(4)
+        calculatorEngine.numberPressed(5)
+        calculatorEngine.numberPressed(6)
+        calculatorEngine.numberPressed(7)
+        calculatorEngine.numberPressed(8)
+        calculatorEngine.numberPressed(9)
+        calculatorEngine.negatePressed()
+
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(-123456789)))
+    }
+
+    // MARK: - Pressing Button Multiple Times - Left
     
     func testLeftHandEntryTwice() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
@@ -68,25 +87,46 @@ class NegateButtonTests: XCTestCase {
     
     // MARK: - operands - Right
     
-    func testSmallRightHandEntry() throws {
+    func testSmall_RightHandEntry() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.negatePressed()
-
         XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(-1)) ?? false)
     }
     
-    func testLargeRightHandEntry() throws {
+    func testMedium_RightHandEntry() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
-        calculatorEngine.addPressed()
-        calculatorEngine.numberPressed(100)
+        calculatorEngine.minusPressed()
+        calculatorEngine.numberPressed(3)
+        calculatorEngine.numberPressed(2)
+        calculatorEngine.numberPressed(1)
         calculatorEngine.negatePressed()
 
-        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(-100)) ?? false)
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(-321)) ?? false)
     }
+    
+    func testLarge_RightHandEntry() throws {
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.dividePressed()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.numberPressed(2)
+        calculatorEngine.numberPressed(3)
+        calculatorEngine.numberPressed(4)
+        calculatorEngine.numberPressed(5)
+        calculatorEngine.numberPressed(6)
+        calculatorEngine.numberPressed(7)
+        calculatorEngine.numberPressed(8)
+        calculatorEngine.numberPressed(9)
+        calculatorEngine.negatePressed()
+
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(-123456789)) ?? false)
+    }
+    
+    // MARK: - Pressing Button Multiple Times - Right
     
     func testRightHandEntryTwice() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
