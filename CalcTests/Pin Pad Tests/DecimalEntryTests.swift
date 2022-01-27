@@ -161,4 +161,178 @@ class DecimalEntryTests: XCTestCase {
         calculatorEngine.decimalPressed()
         XCTAssertTrue(calculatorEngine.lcdDisplayText == "0.")
     }
+    
+    func testResults_LeftHandEntry() throws {
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.addPressed()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.equalsPressed()
+        
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(1)
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(0.1)))
+    }
+    
+    func testResults2_LeftHandEntry() throws {
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.addPressed()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.equalsPressed()
+        
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.addPressed()
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.equalsPressed()
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(0.1)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(0.1)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(0.2)) ?? false)
+    }
+    
+    func testResults3_LeftHandEntry() throws {
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(6)
+        calculatorEngine.numberPressed(4)
+        calculatorEngine.addPressed()
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(4)
+        calculatorEngine.equalsPressed() //0.64 + 0.4 = 1.04
+        
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.addPressed()
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.equalsPressed()
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(0.1)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(0.1)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(0.2)) ?? false)
+    }
+    
+    func testResults4_LeftHandEntry() throws {
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(6)
+        calculatorEngine.numberPressed(4)
+        calculatorEngine.addPressed()
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(4)
+        calculatorEngine.equalsPressed() //0.64 + 0.4 = 1.04
+        
+        calculatorEngine.addPressed()
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(4)
+        calculatorEngine.equalsPressed()
+        
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1.04)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(0.4)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(1.44)) ?? false)
+    }
+    
+    //MARK: - Decimal Math
+    
+    func testTwoDecimals() throws {
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(6)
+        
+        calculatorEngine.addPressed()
+        
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(4)
+        calculatorEngine.equalsPressed()
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(0.6)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(0.4)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(1)) ?? false)
+    }
+    
+    func testTwoDecimals2() throws {
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(6)
+        calculatorEngine.numberPressed(6)
+        calculatorEngine.numberPressed(6)
+        
+        calculatorEngine.addPressed()
+        
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(4)
+        calculatorEngine.numberPressed(6)
+        calculatorEngine.numberPressed(6)
+        calculatorEngine.equalsPressed()
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(0.666)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(0.466)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(1.132)) ?? false)
+    }
+    
+    func testTZeros() throws {
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(6)
+        
+        calculatorEngine.addPressed()
+        
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(6)
+        calculatorEngine.equalsPressed()
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(0.06)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(0.06)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(0.12)) ?? false)
+    }
+    
+    func testTZeros2() throws {
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(6)
+        
+        calculatorEngine.addPressed()
+        
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(6)
+        calculatorEngine.equalsPressed()
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(0.006)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(0.006)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(0.012)) ?? false)
+    }
+    
+    func testTZeros3() throws {
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(6)
+        
+        calculatorEngine.addPressed()
+        
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.decimalPressed()
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(6)
+        calculatorEngine.equalsPressed()
+        XCTAssertTrue(calculatorEngine.leftHandOperand.formatted() == Decimal(0.0006).formatted())
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.formatted() == Decimal(0.0006).formatted())
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.formatted() == Decimal(0.0012).formatted())
+    }
 }

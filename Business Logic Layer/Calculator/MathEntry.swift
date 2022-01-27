@@ -132,6 +132,7 @@ struct MathEntry {
         
         equation.operation = .divide
         editingSide = .rightHandSide
+        isEnteringDecimal = false
     }
     
     mutating func add() {
@@ -139,6 +140,7 @@ struct MathEntry {
         
         equation.operation = .add
         editingSide = .rightHandSide
+        isEnteringDecimal = false
     }
     
     mutating func subtract() {
@@ -146,6 +148,7 @@ struct MathEntry {
         
         equation.operation = .subtract
         editingSide = .rightHandSide
+        isEnteringDecimal = false
     }
     
     mutating func multiply() {
@@ -153,6 +156,7 @@ struct MathEntry {
         
         equation.operation = .multiply
         editingSide = .rightHandSide
+        isEnteringDecimal = false
     }
     
     mutating func execute() {
@@ -265,9 +269,13 @@ struct MathEntry {
         }
         
         // non decimal input
-        let newStringRepresentation = localPreviousLCDDisplay.appending(stringInput)
-        
-        // convert to a Decimal type
+        var newStringRepresentation = ""
+        if previousEntry.isZero == false {
+            newStringRepresentation = localPreviousLCDDisplay
+        }
+            
+            
+        newStringRepresentation.append(stringInput)
         if let newDecimal = Decimal(string: newStringRepresentation) {
             return (newDecimal, newStringRepresentation)
         }
