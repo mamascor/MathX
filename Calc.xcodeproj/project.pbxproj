@@ -146,6 +146,36 @@
 			path = Calculator;
 			sourceTree = "<group>";
 		};
+		0C4DA5FF27A2C7B60081EC12 /* Operator Tests */ = {
+			isa = PBXGroup;
+			children = (
+				0CE4068527A00F3800B16A24 /* PositiveAdditionTests.swift */,
+				0CED88AE27A1879F00261494 /* PositiveDivideTests.swift */,
+				0CED88AC27A16E5800261494 /* PositiveMultiplyTests.swift */,
+				0C8DB36427A0B1E300A96AA0 /* PositiveSubtractionTests.swift */,
+				0CED88B027A192E700261494 /* EqualsButtonTests.swift */,
+			);
+			path = "Operator Tests";
+			sourceTree = "<group>";
+		};
+		0C4DA60027A2C7C30081EC12 /* Extra Features Tests */ = {
+			isa = PBXGroup;
+			children = (
+				0CED88B227A1969800261494 /* NegateButtonTests.swift */,
+				0CED88B427A1A0CB00261494 /* PercentageButtonTests.swift */,
+				0CED88B627A1A70700261494 /* ClearButtonTests.swift */,
+			);
+			path = "Extra Features Tests";
+			sourceTree = "<group>";
+		};
+		0C4DA60127A2C7D20081EC12 /* Pin Pad Tests */ = {
+			isa = PBXGroup;
+			children = (
+				0CED88B827A1AA8D00261494 /* EnterNumberTests.swift */,
+			);
+			path = "Pin Pad Tests";
+			sourceTree = "<group>";
+		};
 		0C8DB36E27A0CE3A00A96AA0 /* UIKit Subclasses */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,15 +222,9 @@
 		0CE4063A279E9BBA00B16A24 /* CalcTests */ = {
 			isa = PBXGroup;
 			children = (
-				0CE4068527A00F3800B16A24 /* PositiveAdditionTests.swift */,
-				0CED88AE27A1879F00261494 /* PositiveDivideTests.swift */,
-				0CED88AC27A16E5800261494 /* PositiveMultiplyTests.swift */,
-				0C8DB36427A0B1E300A96AA0 /* PositiveSubtractionTests.swift */,
-				0CED88B027A192E700261494 /* EqualsButtonTests.swift */,
-				0CED88B227A1969800261494 /* NegateButtonTests.swift */,
-				0CED88B427A1A0CB00261494 /* PercentageButtonTests.swift */,
-				0CED88B627A1A70700261494 /* ClearButtonTests.swift */,
-				0CED88B827A1AA8D00261494 /* EnterNumberTests.swift */,
+				0C4DA5FF27A2C7B60081EC12 /* Operator Tests */,
+				0C4DA60027A2C7C30081EC12 /* Extra Features Tests */,
+				0C4DA60127A2C7D20081EC12 /* Pin Pad Tests */,
 			);
 			path = CalcTests;
 			sourceTree = "<group>";
