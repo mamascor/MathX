@@ -12,8 +12,20 @@
 //
 //  YouTube                         → https://www.youtube.com/channel/UCWBUOVRbtKNml4jN_4bRkCQ
 //  Linked In                       → http://www.linkedin.com/in/mattharding-iosbfree
-//  Tell us what you want to learn  → community@iosbfree.com
+//
+//  Tell us what
+//  you want to learn
+//
+//  💜 iOSB Free
+//  community@iosbfree.com
+//  🧕🏻👨🏿‍💼👩🏼‍💼👩🏻‍💻👨🏼‍💼🧛🏻‍♀️👩🏼‍💻💁🏽‍♂️🕵🏻‍♂️🧝🏼‍♀️🦹🏼‍♀🧕🏾🧟‍♂️
 // *******************************************************************************************
+//
+// → What's This File?
+//   It's a Data Access Manager, a simple wrapper for User Defaults.
+//   💡 Architecture Tip 👉🏻 Used to disconnect how we store the data from anywhere else.
+// *******************************************************************************************
+
 
 import Foundation
 
@@ -62,22 +74,23 @@ struct iOSBFreeCalculatorEngine {
             return formattedResult
         }
         
-
-        //  → For A Left Or Right Values i.e the operands
-        var operand = Decimal.nan
-        switch currentMathEntry.editingSide {
-        case .leftHandSide:
-            operand = currentMathEntry.equation.lhs
-            
-        case .rightHandSide:
-            // If we dont have a rhs value then the user hasnt pressed any keys yet
-            operand = currentMathEntry.equation.rhs ?? currentMathEntry.equation.lhs
-        }
+        let formattedResult = currentMathEntry.lcdDisplayString ?? "Error"
         
-        let formattedResult = operand.formatted()
+        //  → For A Left Or Right Values i.e the operands
         if formattedResult.count > 12 {
+            var operand = Decimal.nan
+            switch currentMathEntry.editingSide {
+            case .leftHandSide:
+                operand = currentMathEntry.equation.lhs
+                
+            case .rightHandSide:
+                // If we dont have a rhs value then the user hasnt pressed any keys yet
+                operand = currentMathEntry.equation.rhs ?? currentMathEntry.equation.lhs
+            }
             return scientificCalcFormatter.string(from: operand as NSDecimalNumber) ?? "Error"
         }
+        
+        //  → Value from MathEntry
         return formattedResult
     }
     

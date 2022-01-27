@@ -8,12 +8,24 @@
 //  iOSB Free Ltd                   → All rights reserved
 //  Website                         → https://www.iosbfree.com
 //
-//  👉 Free Courses                 → https://www.udemy.com/user/iosbfree
+//  👉🏿 Free Courses                 → https://www.udemy.com/user/iosbfree
 //
 //  YouTube                         → https://www.youtube.com/channel/UCWBUOVRbtKNml4jN_4bRkCQ
 //  Linked In                       → http://www.linkedin.com/in/mattharding-iosbfree
-//  Tell us what you want to learn  → community@iosbfree.com
+//
+//  Tell us what
+//  you want to learn
+//
+//  💚 iOSB Free
+//  community@iosbfree.com
+//  🧕🏻👨🏿‍💼👩🏼‍💼👩🏻‍💻👨🏼‍💼🧛🏻‍♀️👩🏼‍💻💁🏽‍♂️🕵🏻‍♂️🧝🏼‍♀️🦹🏼‍♀🧕🏾🧟‍♂️
 // *******************************************************************************************
+//
+// → What's This File?
+//   It's data, to store color hex values in order to change the colors of the app.
+//   💡 Architecture Tip 👉🏻 Storing colors as data files enabled us to create a theme feature.
+// *******************************************************************************************
+
 
 import Foundation
 
