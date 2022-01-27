@@ -22,8 +22,9 @@
 // *******************************************************************************************
 //
 // → What's This File?
-//   It's a Data Access Manager, a simple wrapper for User Defaults.
-//   💡 Architecture Tip 👉🏻 Used to disconnect how we store the data from anywhere else.
+//   It's the core of the calculator. The brain. It generates all of our behaviour.
+//   💡 Testing Tip 👉🏻 By testing the API of iOSBFreeCalculatorEngine we save countless
+//   hours worried about a live issue, which could have been prevented by writing unit tests.
 // *******************************************************************************************
 
 

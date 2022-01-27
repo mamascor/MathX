@@ -22,8 +22,8 @@
 // *******************************************************************************************
 //
 // → What's This File?
-//   It's a Data Access Manager, a simple wrapper for User Defaults.
-//   💡 Architecture Tip 👉🏻 Used to disconnect how we store the data from anywhere else.
+//   It's a class created to recieve delegate methods. It manages each scene for the app.
+//   💡 Architecture Tip 👉🏻 Good architecure provides easy maintainence when building software.
 // *******************************************************************************************
 
 import UIKit

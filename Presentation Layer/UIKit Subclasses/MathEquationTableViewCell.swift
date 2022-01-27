@@ -22,8 +22,7 @@
 // *******************************************************************************************
 //
 // → What's This File?
-//   It's a Data Access Manager, a simple wrapper for User Defaults.
-//   💡 Architecture Tip 👉🏻 Used to disconnect how we store the data from anywhere else.
+//   It's a subclass. This is the cell for each equation displayed in the history log.
 // *******************************************************************************************
 
 import UIKit

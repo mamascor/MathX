@@ -22,8 +22,8 @@
 // *******************************************************************************************
 //
 // → What's This File?
-//   It's a Data Access Manager, a simple wrapper for User Defaults.
-//   💡 Architecture Tip 👉🏻 Used to disconnect how we store the data from anywhere else.
+//   It's an extension. It adds more features to UIColor, such as loading from a hex value.
+//   💡 Tip 👉🏻 Extensions allow us to add features to someone elses files.
 // *******************************************************************************************
 
 import UIKit

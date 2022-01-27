@@ -22,7 +22,7 @@
 // *******************************************************************************************
 //
 // → What's This File?
-//   It's a Calculator Theme, used to display a different color theme
+//   It's a color theme, used to display a different color theme
 //   💡 Team Tip 👉🏻 You could provide these files to a designer, if you wanted to.
 // *******************************************************************************************
 

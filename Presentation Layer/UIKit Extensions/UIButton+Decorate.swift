@@ -23,8 +23,8 @@
 // *******************************************************************************************
 //
 // → What's This File?
-//   It's a Data Access Manager, a simple wrapper for User Defaults.
-//   💡 Architecture Tip 👉🏻 Used to disconnect how we store the data from anywhere else.
+//   It's an extension. It adds more features to UIButton, such as making a button circular.
+//   💡 Tip 👉🏻 We can simplify our work by using extensions and making life a little easier.
 // *******************************************************************************************
 
 import UIKit

@@ -23,8 +23,8 @@
 // *******************************************************************************************
 //
 // → What's This File?
-//   It's a Data Access Manager, a simple wrapper for User Defaults.
-//   💡 Architecture Tip 👉🏻 Used to disconnect how we store the data from anywhere else.
+//   It's a data access manager, a simple wrapper for User Defaults.
+//   💡 Architecture Tip 👉🏻 We disconnect where the data is stored by creating this wrapper.
 // *******************************************************************************************
 
 import Foundation

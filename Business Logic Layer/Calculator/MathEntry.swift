@@ -22,8 +22,9 @@
 // *******************************************************************************************
 //
 // → What's This File?
-//   It's a Data Access Manager, a simple wrapper for User Defaults.
-//   💡 Architecture Tip 👉🏻 Used to disconnect how we store the data from anywhere else.
+//   It's a manager for the entered equation. In charge of input and storing data too.
+//   💡 Architecture Tip 👉🏻 Try to restrict each file to one single purpose, which is known
+//   as having a single responsibility. Why not google "single responsibility software"
 // *******************************************************************************************
 
 

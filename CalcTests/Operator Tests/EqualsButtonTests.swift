@@ -22,8 +22,9 @@
 // *******************************************************************************************
 //
 // → What's This File?
-//   It's a Calculator Theme, used to display a different color theme
-//   💡 Team Tip 👉🏻 You could provide these files to a designer, if you wanted to.
+//   It's our testing team! They are testing pressing the equals button.
+//   💡 Career Tip 👉🏻 Writing unit tests prevents your work being rejected by the testing
+//   department, which means you can become a reliable and dependable member of the team.
 // *******************************************************************************************
 
 import XCTest

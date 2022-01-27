@@ -30,7 +30,7 @@
 import Foundation
 
 enum StatusBarStyle: String, Codable {
-    case light = "light"
+    case light = "light"   
     case dark = "dark"
 }
 
