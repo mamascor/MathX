@@ -98,6 +98,38 @@
             endingLineNumber = "174"
             landmarkName = "testDecimalDisplay_LeftHandEntry()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "69EB49CD-F87C-43B5-AD0B-2E05A033FB40 - c5285e2cfc6500c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalcTests.DecimalEntryTests.testDecimalDisplay_LeftHandEntry() throws -&gt; ()"
+                  moduleName = "CalcTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/M/Programming/Repos/UIKit%20Calc/CalcTests/Pin%20Pad%20Tests/DecimalEntryTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "161"
+                  endingLineNumber = "161"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "69EB49CD-F87C-43B5-AD0B-2E05A033FB40 - c5285e2cfc650218"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalcTests.DecimalEntryTests.testDecimalDisplay_LeftHandEntry() throws -&gt; ()"
+                  moduleName = "CalcTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/M/Programming/Repos/UIKit%20Calc/CalcTests/Pin%20Pad%20Tests/DecimalEntryTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "174"
+                  endingLineNumber = "174"
+                  offsetFromSymbolStart = "108">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

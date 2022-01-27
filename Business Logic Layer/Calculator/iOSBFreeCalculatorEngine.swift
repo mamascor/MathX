@@ -78,7 +78,7 @@ struct iOSBFreeCalculatorEngine {
         let formattedResult = currentMathEntry.lcdDisplayString ?? "Error"
         
         //  → For A Left Or Right Values i.e the operands
-        if formattedResult.count > 12 {
+        if formattedResult.count > 9 {
             var operand = Decimal.nan
             switch currentMathEntry.editingSide {
             case .leftHandSide:
