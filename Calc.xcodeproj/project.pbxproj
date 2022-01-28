@@ -20,7 +20,7 @@
 		0C8DB36B27A0C7A900A96AA0 /* MathEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36A27A0C7A900A96AA0 /* MathEntryController.swift */; };
 		0C8DB36D27A0CE3400A96AA0 /* LCDDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36C27A0CE3400A96AA0 /* LCDDisplay.swift */; };
 		0C8DB37227A0E4F400A96AA0 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB37127A0E4F400A96AA0 /* LogViewController.swift */; };
-		0C8DB37427A0EBB100A96AA0 /* MathEquationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB37327A0EBB100A96AA0 /* MathEquationTableViewCell.swift */; };
+		0C8DB37427A0EBB100A96AA0 /* EquationLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB37327A0EBB100A96AA0 /* EquationLogCell.swift */; };
 		0CE40625279E9BB800B16A24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40624279E9BB800B16A24 /* AppDelegate.swift */; };
 		0CE40627279E9BB800B16A24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40626279E9BB800B16A24 /* SceneDelegate.swift */; };
 		0CE40629279E9BB800B16A24 /* CalcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40628279E9BB800B16A24 /* CalcViewController.swift */; };
@@ -84,7 +84,7 @@
 		0C8DB36A27A0C7A900A96AA0 /* MathEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathEntryController.swift; sourceTree = "<group>"; };
 		0C8DB36C27A0CE3400A96AA0 /* LCDDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCDDisplay.swift; sourceTree = "<group>"; };
 		0C8DB37127A0E4F400A96AA0 /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
-		0C8DB37327A0EBB100A96AA0 /* MathEquationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathEquationTableViewCell.swift; sourceTree = "<group>"; };
+		0C8DB37327A0EBB100A96AA0 /* EquationLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationLogCell.swift; sourceTree = "<group>"; };
 		0CE40621279E9BB800B16A24 /* Calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE40624279E9BB800B16A24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CE40626279E9BB800B16A24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -215,7 +215,7 @@
 		0C8DB36E27A0CE3A00A96AA0 /* UIKit Subclasses */ = {
 			isa = PBXGroup;
 			children = (
-				0C8DB37327A0EBB100A96AA0 /* MathEquationTableViewCell.swift */,
+				0C8DB37327A0EBB100A96AA0 /* EquationLogCell.swift */,
 				0C8DB36C27A0CE3400A96AA0 /* LCDDisplay.swift */,
 			);
 			path = "UIKit Subclasses";
@@ -491,7 +491,7 @@
 				0CE40667279E9CFB00B16A24 /* UIButton+Decorate.swift in Sources */,
 				0CE4066C279EBE4B00B16A24 /* CalculatorTheme.swift in Sources */,
 				0CE40671279EC6D400B16A24 /* DarkTheme.swift in Sources */,
-				0C8DB37427A0EBB100A96AA0 /* MathEquationTableViewCell.swift in Sources */,
+				0C8DB37427A0EBB100A96AA0 /* EquationLogCell.swift in Sources */,
 				0CE40625279E9BB800B16A24 /* AppDelegate.swift in Sources */,
 				0CE4067F279F648100B16A24 /* PurpleTheme.swift in Sources */,
 				0C8DB37227A0E4F400A96AA0 /* LogViewController.swift in Sources */,

@@ -77,7 +77,7 @@ class LogViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MathEquationTableViewCell", for: indexPath) as? MathEquationTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MathEquationTableViewCell", for: indexPath) as? EquationLogCell else {
             return UITableViewCell()
         }
         
@@ -90,7 +90,7 @@ class LogViewController: UITableViewController {
         return cell
     }
     
-    private func populateTableViewCellFromEquation(_ mathEquation: MathEquation, cell: MathEquationTableViewCell) {
+    private func populateTableViewCellFromEquation(_ mathEquation: MathEquation, cell: EquationLogCell) {
         cell.lhsLabel.text = mathEquation.lhs.formatted()
         cell.rhsLabel.text = mathEquation.generateStringRepresentationOfOperator() + " " + (mathEquation.rhs?.formatted() ?? "")
         cell.resultLabel.text = "= " + (mathEquation.result?.formatted() ?? "")
@@ -98,7 +98,7 @@ class LogViewController: UITableViewController {
     
     
     
-    private func decorateTableViewCell(_ cell: MathEquationTableViewCell, withTheme theme: CalculatorTheme, from indexPath: IndexPath) {
+    private func decorateTableViewCell(_ cell: EquationLogCell, withTheme theme: CalculatorTheme, from indexPath: IndexPath) {
         cell.backgroundColor = UIColor(hex: theme.background)
         cell.selectedBackgroundView?.backgroundColor = UIColor(hex: theme.operatorNormal )
         cell.lhsLabel.textColor = UIColor(hex: theme.display)
@@ -117,7 +117,7 @@ class LogViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? MathEquationTableViewCell else { return }
+        guard let cell = tableView.cellForRow(at: indexPath) as? EquationLogCell else { return }
         let mathEquation = datasource[indexPath.row]
         let userInfo: [AnyHashable: Any] = ["iOSBFree.com.calc.LogViewController.pasteMathEquation": mathEquation]
         NotificationCenter.default.post(name: Notification.Name("iOSBFree.com.calc.LogViewController.pasteMathEquation"), object: nil, userInfo: userInfo)

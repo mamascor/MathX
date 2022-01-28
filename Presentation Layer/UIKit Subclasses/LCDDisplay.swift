@@ -31,6 +31,8 @@ import UIKit
 
 class LCDDisplay: UIView {
     
+    //MARK: - IBOutlets
+    
     @IBOutlet var label: UILabel!
     
     //MARK: - Properties

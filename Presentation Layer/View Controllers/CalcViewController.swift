@@ -302,6 +302,9 @@ class CalcViewController: UIViewController {
     
     // MARK: - Animate
     
+    // → 💡 Just a thought: The beginning sequence is important because it creates the initial first impressions to the user.
+    //      Why not use animations to generate a bit of personality?
+    
     private func fadeInLCDDisplay() {
         UIView.animate(withDuration: 1.0, animations: { [weak self] in
             self?.lcdDisplay.alpha = 1
