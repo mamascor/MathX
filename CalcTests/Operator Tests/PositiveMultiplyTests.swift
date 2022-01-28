@@ -23,7 +23,7 @@
 // → What's This File?
 //   It's our testing team! They are testing pressing the multiply button.
 //   💡 Career Tip 👉🏻 Writing unit tests prevents your work being rejected by the testing
-//   department, which means you can become a reliable and dependable member of the team.
+//   department, which means we can become a dependable member of our team.
 // *******************************************************************************************
 
 

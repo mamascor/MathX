@@ -25,7 +25,7 @@
 // → What's This File?
 //   It's our testing team! They are testing pressesing all 9 numbers on the pin pad.
 //   💡 Career Tip 👉🏻 Writing unit tests prevents your work being rejected by the testing
-//   department, which means you can become a reliable and dependable member of the team.
+//   department, which means we can become a dependable member of our team.
 // *******************************************************************************************
 
 
