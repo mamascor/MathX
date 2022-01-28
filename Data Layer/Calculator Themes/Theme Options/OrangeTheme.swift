@@ -25,7 +25,7 @@
 //   It's a color theme, used to display a different color theme.
 //   Architecural Layer: Data Layer
 //
-//   💡 Team Tip 👉🏻 You could provide these files to a designer, if you wanted to.
+//   💡 Team Tip 👉🏻 We can provide these files to a designer, if we wanted to.
 // *******************************************************************************************
 
 
