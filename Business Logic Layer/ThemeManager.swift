@@ -24,7 +24,7 @@
 //   It's a color theme manager, it stores all of our color themes.
 //   Architecural Layer: Business Logic Layer
 //
-//   💡 Architecture Tip 👉🏻 Storing the colors in code allowed us to create a set of themes.
+//   💡 Architecture Tip 👉🏻 We only want 1 instance of this class so we used a singleton.
 // *******************************************************************************************
 
 
@@ -35,6 +35,10 @@ class ThemeManager {
     // MARK: - Properties
     
     private let dataStore = DataStoreManager(key: "iOSBFree.com.calc.ThemeManager.theme")
+    
+    
+    // MARK: - 👇🏽 The Singleton Design Pattern
+    
     static let shared = ThemeManager()
     
     // MARK: - Theme Options

@@ -25,7 +25,8 @@
 //   It's a color theme, used to display a different color theme.
 //   Architecural Layer: Data Layer
 //
-//   💡 Team Tip 👉🏻 You could provide these files to a designer, if you wanted to.
+//   💡 Convenience Tip 👉🏻 We used extensions to seperate color data into files providing
+//   designers with editable documents. Also allowing us to conveniently load the theme array.
 // *******************************************************************************************
 
 
