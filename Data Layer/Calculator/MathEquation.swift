@@ -25,7 +25,7 @@
 //   It's data that represents one equation. It also performs a little math too.
 //   Architecural Layer: Data Layer
 //
-//   💡 Architecture Tip 👉🏻  "S.O.L.I.D" is an acronym for some solid engineering principles
+//   💡 Architecture Tip 👉🏿  "S.O.L.I.D" is an acronym for some solid engineering principles
 //   that every developer should memorise and commit to memory. 👍🏼 
 // *******************************************************************************************
 
