@@ -38,16 +38,6 @@
                ReferencedContainer = "container:Calc.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0CE40640279E9BBA00B16A24"
-               BuildableName = "CalcUITests.xctest"
-               BlueprintName = "CalcUITests"
-               ReferencedContainer = "container:Calc.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -12,6 +12,9 @@
 		0C4DA60527A2EFFF0081EC12 /* EnteringZeroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4DA60427A2EFFF0081EC12 /* EnteringZeroTests.swift */; };
 		0C4DA60727A2FECE0081EC12 /* DisplayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4DA60627A2FECE0081EC12 /* DisplayTests.swift */; };
 		0C4DA60E27A374F30081EC12 /* Hello Everyone.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA60D27A374F30081EC12 /* Hello Everyone.txt */; };
+		0C4DA61027A378D00081EC12 /* Our Free Courses in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA60F27A378D00081EC12 /* Our Free Courses */; };
+		0C4DA61227A37B410081EC12 /* Thank You in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA61127A37B410081EC12 /* Thank You */; };
+		0C4DA61427A37E500081EC12 /* Why Create Unit Tests in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA61327A37E500081EC12 /* Why Create Unit Tests */; };
 		0C8DB36527A0B1E300A96AA0 /* PositiveSubtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36427A0B1E300A96AA0 /* PositiveSubtractionTests.swift */; };
 		0C8DB36927A0C77900A96AA0 /* MathEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36827A0C77900A96AA0 /* MathEquation.swift */; };
 		0C8DB36B27A0C7A900A96AA0 /* MathEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36A27A0C7A900A96AA0 /* MathEntry.swift */; };
@@ -73,6 +76,9 @@
 		0C4DA60427A2EFFF0081EC12 /* EnteringZeroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnteringZeroTests.swift; sourceTree = "<group>"; };
 		0C4DA60627A2FECE0081EC12 /* DisplayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTests.swift; sourceTree = "<group>"; };
 		0C4DA60D27A374F30081EC12 /* Hello Everyone.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Hello Everyone.txt"; sourceTree = "<group>"; };
+		0C4DA60F27A378D00081EC12 /* Our Free Courses */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Our Free Courses"; sourceTree = "<group>"; };
+		0C4DA61127A37B410081EC12 /* Thank You */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Thank You"; sourceTree = "<group>"; };
+		0C4DA61327A37E500081EC12 /* Why Create Unit Tests */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Why Create Unit Tests"; sourceTree = "<group>"; };
 		0C8DB36427A0B1E300A96AA0 /* PositiveSubtractionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositiveSubtractionTests.swift; sourceTree = "<group>"; };
 		0C8DB36827A0C77900A96AA0 /* MathEquation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathEquation.swift; sourceTree = "<group>"; };
 		0C8DB36A27A0C7A900A96AA0 /* MathEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathEntry.swift; sourceTree = "<group>"; };
@@ -203,6 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				0C4DA60D27A374F30081EC12 /* Hello Everyone.txt */,
+				0C4DA60F27A378D00081EC12 /* Our Free Courses */,
+				0C4DA61127A37B410081EC12 /* Thank You */,
 				0CE40623279E9BB800B16A24 /* Calc */,
 				0CE4063A279E9BBA00B16A24 /* CalcTests */,
 				0CE40622279E9BB800B16A24 /* Products */,
@@ -236,6 +244,7 @@
 		0CE4063A279E9BBA00B16A24 /* CalcTests */ = {
 			isa = PBXGroup;
 			children = (
+				0C4DA61327A37E500081EC12 /* Why Create Unit Tests */,
 				0C4DA60827A305900081EC12 /* LCD Display */,
 				0C4DA5FF27A2C7B60081EC12 /* Operator Tests */,
 				0C4DA60027A2C7C30081EC12 /* Extra Features Tests */,
@@ -424,8 +433,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C4DA61227A37B410081EC12 /* Thank You in Resources */,
 				0CE40631279E9BBA00B16A24 /* LaunchScreen.storyboard in Resources */,
 				0CE4062E279E9BBA00B16A24 /* Assets.xcassets in Resources */,
+				0C4DA61027A378D00081EC12 /* Our Free Courses in Resources */,
 				0CE4062C279E9BB800B16A24 /* Main.storyboard in Resources */,
 				0C4DA60E27A374F30081EC12 /* Hello Everyone.txt in Resources */,
 			);
@@ -435,6 +446,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C4DA61427A37E500081EC12 /* Why Create Unit Tests in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
