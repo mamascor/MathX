@@ -92,7 +92,6 @@ class ThemeManager {
         return try? decoder.decode(CalculatorTheme.self, from: savedTheme)
     }
     
-    
     // MARK: - Theme Options
     
     func moveToNextTheme() {
@@ -101,21 +100,19 @@ class ThemeManager {
             calculatorTheme.id == themeID
         }
         
+        // → The user is using a theme which has been removed. Reset to the first theme.
         guard let indexOfExistingTheme = index else {
-            // Nice use of recursion here to re-use our logic and not write any more
-            if themes.count > 0 {
-                savedTheme = themes.first
-                moveToNextTheme()
+            if let firstTheme = themes.first {
+                updateSystemWithTheme(firstTheme)
             }
-            
             return
         }
         
+        // → Move to the next theme
         var nextThemeIndex = indexOfExistingTheme + 1
         if nextThemeIndex > themes.count - 1 {
             nextThemeIndex = 0
         }
-        
         let nextTheme = themes[nextThemeIndex]
         updateSystemWithTheme(nextTheme)
     }

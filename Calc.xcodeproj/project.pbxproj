@@ -17,7 +17,7 @@
 		0C4DA61427A37E500081EC12 /* Why Create Unit Tests in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA61327A37E500081EC12 /* Why Create Unit Tests */; };
 		0C8DB36527A0B1E300A96AA0 /* PositiveSubtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36427A0B1E300A96AA0 /* PositiveSubtractionTests.swift */; };
 		0C8DB36927A0C77900A96AA0 /* MathEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36827A0C77900A96AA0 /* MathEquation.swift */; };
-		0C8DB36B27A0C7A900A96AA0 /* MathEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36A27A0C7A900A96AA0 /* MathEntry.swift */; };
+		0C8DB36B27A0C7A900A96AA0 /* MathEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36A27A0C7A900A96AA0 /* MathEntryController.swift */; };
 		0C8DB36D27A0CE3400A96AA0 /* LCDDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36C27A0CE3400A96AA0 /* LCDDisplay.swift */; };
 		0C8DB37227A0E4F400A96AA0 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB37127A0E4F400A96AA0 /* LogViewController.swift */; };
 		0C8DB37427A0EBB100A96AA0 /* MathEquationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB37327A0EBB100A96AA0 /* MathEquationTableViewCell.swift */; };
@@ -81,7 +81,7 @@
 		0C4DA61327A37E500081EC12 /* Why Create Unit Tests */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Why Create Unit Tests"; sourceTree = "<group>"; };
 		0C8DB36427A0B1E300A96AA0 /* PositiveSubtractionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositiveSubtractionTests.swift; sourceTree = "<group>"; };
 		0C8DB36827A0C77900A96AA0 /* MathEquation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathEquation.swift; sourceTree = "<group>"; };
-		0C8DB36A27A0C7A900A96AA0 /* MathEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathEntry.swift; sourceTree = "<group>"; };
+		0C8DB36A27A0C7A900A96AA0 /* MathEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathEntryController.swift; sourceTree = "<group>"; };
 		0C8DB36C27A0CE3400A96AA0 /* LCDDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCDDisplay.swift; sourceTree = "<group>"; };
 		0C8DB37127A0E4F400A96AA0 /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		0C8DB37327A0EBB100A96AA0 /* MathEquationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathEquationTableViewCell.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				0CE4068327A00EF000B16A24 /* iOSBFreeCalculatorEngine.swift */,
-				0C8DB36A27A0C7A900A96AA0 /* MathEntry.swift */,
+				0C8DB36A27A0C7A900A96AA0 /* MathEntryController.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -501,7 +501,7 @@
 				0CE4068427A00EF000B16A24 /* iOSBFreeCalculatorEngine.swift in Sources */,
 				0CE40675279EEA5100B16A24 /* ElectroTheme.swift in Sources */,
 				0CE4067D279F5E1800B16A24 /* DarkBlueTheme.swift in Sources */,
-				0C8DB36B27A0C7A900A96AA0 /* MathEntry.swift in Sources */,
+				0C8DB36B27A0C7A900A96AA0 /* MathEntryController.swift in Sources */,
 				0CED88C127A1BF3500261494 /* OrangeTheme.swift in Sources */,
 				0CE40682279F89E000B16A24 /* UIView+Animation.swift in Sources */,
 				0CE40679279F596100B16A24 /* LightBlueTheme.swift in Sources */,

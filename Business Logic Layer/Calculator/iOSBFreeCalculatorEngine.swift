@@ -38,7 +38,7 @@ struct iOSBFreeCalculatorEngine {
     
     private let errorMessage = "Error"
     private var historyLog: [MathEquation] = []
-    private var currentMathEntry: MathEntry = MathEntry()
+    private var currentMathEntry: MathEntryController = MathEntryController()
     
     // MARK: - Managers
     
@@ -118,7 +118,7 @@ struct iOSBFreeCalculatorEngine {
     }
     
     mutating func clearPressed() {
-        currentMathEntry = MathEntry()
+        currentMathEntry = MathEntryController()
     }
     
     mutating func negatePressed() {
@@ -133,7 +133,7 @@ struct iOSBFreeCalculatorEngine {
     
     mutating func decimalPressed() {
         if currentMathEntry.isCompleted {
-            currentMathEntry = MathEntry()
+            currentMathEntry = MathEntryController()
         }
         currentMathEntry.applyDecimalPoint()
     }
@@ -162,7 +162,7 @@ struct iOSBFreeCalculatorEngine {
     
     mutating func equalsPressed() {
         if currentMathEntry.isCompleted {
-            var newMathEntry = MathEntry()
+            var newMathEntry = MathEntryController()
             newMathEntry.equation.lhs = currentMathEntry.equation.result ?? 0
             newMathEntry.equation.operation = currentMathEntry.equation.operation
             newMathEntry.equation.rhs = currentMathEntry.equation.rhs
@@ -206,7 +206,7 @@ struct iOSBFreeCalculatorEngine {
     
     mutating func numberPressed(_ number: Int) {
         if currentMathEntry.isCompleted {
-            currentMathEntry = MathEntry()
+            currentMathEntry = MathEntryController()
         }
         currentMathEntry.enterNumber(number)
     }
@@ -224,7 +224,7 @@ struct iOSBFreeCalculatorEngine {
     }
     
     private mutating func populateCurrentMathEntryWithPreviousResult(_ continueEditingResult: Bool = false) {
-        var newMathEntry = MathEntry()
+        var newMathEntry = MathEntryController()
         newMathEntry.equation.lhs = currentMathEntry.equation.result ?? 0
         if continueEditingResult == false {
             newMathEntry.editingSide = .rightHandSide
@@ -261,7 +261,7 @@ struct iOSBFreeCalculatorEngine {
             return false
         }
         
-        var newMathEntry = MathEntry()
+        var newMathEntry = MathEntryController()
         newMathEntry.equation.lhs = 1
         newMathEntry.equation.operation = .multiply
         newMathEntry.equation.rhs = lastExecutedResult
@@ -281,7 +281,7 @@ struct iOSBFreeCalculatorEngine {
         }
     }
     
-    private func isMathEntrySafeToBeSaved(_ mathEntry: MathEntry) -> Bool {
+    private func isMathEntrySafeToBeSaved(_ mathEntry: MathEntryController) -> Bool {
         guard mathEntry.containsNans == false,  // crashes when encoding nans
               let _ = mathEntry.equation.result,
               mathEntry.isCompleted
@@ -304,7 +304,7 @@ struct iOSBFreeCalculatorEngine {
     
     mutating func pasteIn(_ decimal: Decimal) {
         if currentMathEntry.isCompleted {
-            currentMathEntry = MathEntry()
+            currentMathEntry = MathEntryController()
         }
         
         switch currentMathEntry.editingSide {
@@ -315,7 +315,7 @@ struct iOSBFreeCalculatorEngine {
     
     mutating func pasteIn(_ mathEquation: MathEquation) {
         if currentMathEntry.isCompleted {
-            currentMathEntry = MathEntry()
+            currentMathEntry = MathEntryController()
         }
         currentMathEntry.equation = mathEquation
     }

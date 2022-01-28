@@ -1,5 +1,5 @@
 //
-//  MathEntry.swift
+//  MathEntryController.swift
 //  Calc
 //
 //  Created by iOSB Free on 26/01/2022.
@@ -32,7 +32,7 @@
 
 import Foundation
 
-struct MathEntry {
+struct MathEntryController {
     
     // MARK: - Operation Side Enum
     
@@ -50,7 +50,7 @@ struct MathEntry {
     var equation: MathEquation = MathEquation()
     var editingSide: OperationSide = .leftHandSide
     var isEnteringDecimal: Bool = false
-    var lcdDisplayString: String? // Tracking the string input from user
+    var lcdDisplayString: String? // → Tracking the string input from the user
     
     // MARK: - Initialiser
     
@@ -181,9 +181,9 @@ struct MathEntry {
          
          we cannot represent this data in a numeric value
          i.e. the user needs to first type 0.00
-         This will be stored as 0.0 using a Decimal type
+         which will be stored as 0.0 using a Decimal type.
          
-         Therefore, we must also record the string value entered
+         Therefore, we must also record the string value entered.
          */
         
         // → Values entered by the user
@@ -235,7 +235,6 @@ struct MathEntry {
     }
     
     private func appendNewNumber(_ number: Int, toPreviousEntry previousEntry: Decimal, previousLCDDisplay: String?, amendAterDecimalPoint: Bool) -> (decimal: Decimal, stringRepresentation: String) {
-        
         let stringInput = String(number)
         guard let localPreviousLCDDisplay = previousLCDDisplay else {
             return (Decimal.nan, "NaN")
