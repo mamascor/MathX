@@ -169,7 +169,6 @@ class LCDDisplay: UIView {
         NotificationCenter.default.post(name: Notification.Name(LCDDisplay.pasteNumberNotificationKey), object: nil, userInfo: userInfo)
     }
     
-    
     @objc private func displayMathEquationHistory(_ sender: Any?) {
         hideMenu()
         NotificationCenter.default.post(name: Notification.Name(LCDDisplay.historyLogNotificationKey), object: nil)

@@ -36,6 +36,7 @@ import XCTest
 class PositiveDivideTests: XCTestCase {
 
     func testMultiplication() throws {
+        //Input 1 / 1 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.dividePressed()
@@ -73,7 +74,7 @@ class PositiveDivideTests: XCTestCase {
     }
     
     private func continuouslyGrowingDivision(using number: Int) {
-        //Input: 7 / 1 / 2 / 3 / 4 / 5 / 6 / 7 / 8 / 9
+        //Input: number / 1 = / 2 = / 3 = / 4 = / 5 = / 6 = / 7 = / 8 = / 9 =  / 10 =
         
         // setup
         var calculatorEngine = iOSBFreeCalculatorEngine()
@@ -98,7 +99,7 @@ class PositiveDivideTests: XCTestCase {
         
         // → Loop through more tests
         var currentResult: Decimal = firstResult
-        for iteration in 1...10 {
+        for iteration in 0...9 {
             calculatorEngine.dividePressed()
             calculatorEngine.numberPressed(iteration + 1)
             calculatorEngine.equalsPressed()
@@ -137,7 +138,7 @@ class PositiveDivideTests: XCTestCase {
     }
     
     private func continuouslyMultiply(using number: Int) {
-        //Input: 7 / 1, 7 / 2, 7 / 3, 7 / 4, 7 / 5, 7 / 6, 7 / 7, 7 / 8, 7 / 9
+        //Input: number / 1 = number / 2 = number / 3 = number / 4 = number / 5 = number / 6 = number / 7 = number / 8 = number / 9 =  number / 10 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(number)
         calculatorEngine.dividePressed()
@@ -159,7 +160,7 @@ class PositiveDivideTests: XCTestCase {
         XCTAssertTrue(firstResult.isEqual(to: Decimal(number)))
         
         // → Loop through more tests
-        for iteration in 1...10 {
+        for iteration in 0...9 {
             calculatorEngine.numberPressed(number)
             calculatorEngine.dividePressed()
             calculatorEngine.numberPressed(iteration + 1)

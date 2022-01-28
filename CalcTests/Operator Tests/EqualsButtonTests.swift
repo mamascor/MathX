@@ -37,6 +37,7 @@ class EqualsButtonTests: XCTestCase {
 
     // MARK: - Basic Equals
     func testBasicEquals() throws {
+        //Input 1 - 1 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.minusPressed()

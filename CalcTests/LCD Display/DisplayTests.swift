@@ -38,6 +38,7 @@ class DisplayTests: XCTestCase {
     // MARK: - NaN
     
     func testNan() throws {
+        //Input 0 7 0 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.dividePressed()
@@ -53,6 +54,7 @@ class DisplayTests: XCTestCase {
     // MARK: - Decimal
     
     func testDecimal() throws {
+        //Input .
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.decimalPressed()
         
@@ -60,6 +62,7 @@ class DisplayTests: XCTestCase {
     }
 
     func testDecimal2() throws {
+        //Input 0 .
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.decimalPressed()
@@ -70,6 +73,7 @@ class DisplayTests: XCTestCase {
     // MARK: - Numbers - Left
     
     func testZero() throws {
+        //Input 0
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         
@@ -77,6 +81,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testOne() throws {
+        //Input 1
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         
@@ -84,6 +89,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testTwo() throws {
+        //Input 2
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(2)
         
@@ -91,6 +97,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testThree() throws {
+        //Input 3
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(3)
         
@@ -98,6 +105,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testFour() throws {
+        //Input 4
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(4)
         
@@ -105,6 +113,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testFive() throws {
+        //Input 5
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(5)
         
@@ -112,6 +121,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testSix() throws {
+        //Input 6
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(6)
         
@@ -119,6 +129,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testSeven() throws {
+        //Input 7
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(7)
         
@@ -126,6 +137,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testEiight() throws {
+        //Input 8
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(8)
         
@@ -133,6 +145,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testNine() throws {
+        //Input 9
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(9)
         
@@ -142,6 +155,7 @@ class DisplayTests: XCTestCase {
     // MARK: - Numbers - Right
     
     func testZero_RightHandSide() throws {
+        //Input 1 + 0
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
@@ -151,6 +165,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testOne_RightHandSide() throws {
+        //Input 0 + 1
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -160,6 +175,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testTwo_RightHandSide() throws {
+        //Input 0 + 2
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -169,6 +185,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testThree_RightHandSide() throws {
+        //Input 0 + 3
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -178,6 +195,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testFour_RightHandSide() throws {
+        //Input 0 + 4
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -187,6 +205,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testFive_RightHandSide() throws {
+        //Input 0 + 5
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -196,6 +215,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testSix_RightHandSide() throws {
+        //Input 0 + 6
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -205,6 +225,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testSeven_RightHandSide() throws {
+        //Input 0 + 7
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -214,6 +235,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testEiight_RightHandSide() throws {
+        //Input 0 + 8
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -223,6 +245,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testNine_RightHandSide() throws {
+        //Input 0 + 9
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -234,6 +257,7 @@ class DisplayTests: XCTestCase {
     // MARK: - Consecutive Numbers - Left
     
     func testConsecutiveZero_LeftHandSide() throws {
+        //Input 0 0 0
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.numberPressed(0)
@@ -243,6 +267,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testConsecutiveOne_LeftHandSide() throws {
+        //Input 1 1 1
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.numberPressed(1)
@@ -252,6 +277,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testConsecutiveTwo_LeftHandSide() throws {
+        //Input 2 2 2
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(2)
         calculatorEngine.numberPressed(2)
@@ -261,6 +287,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testConsecutiveThree_LeftHandSide() throws {
+        //Input 3 3 3
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(3)
         calculatorEngine.numberPressed(3)
@@ -270,6 +297,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testConsecutiveFour_LeftHandSide() throws {
+        //Input 4 4 4
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(4)
         calculatorEngine.numberPressed(4)
@@ -279,6 +307,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testConsecutiveFive_LeftHandSide() throws {
+        //Input 5 5 5
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(5)
         calculatorEngine.numberPressed(5)
@@ -288,6 +317,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testConsecutiveSix_LeftHandSide() throws {
+        //Input 6 6 6
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(6)
         calculatorEngine.numberPressed(6)
@@ -297,6 +327,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testConsecutiveSeven_LeftHandSide() throws {
+        //Input 7 7 7
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(7)
         calculatorEngine.numberPressed(7)
@@ -306,6 +337,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testConsecutiveEiight_LeftHandSide() throws {
+        //Input 8 8 8
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(8)
         calculatorEngine.numberPressed(8)
@@ -315,6 +347,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testConsecutiveNine_LeftHandSide() throws {
+        //Input 9 9 9
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(9)
         calculatorEngine.numberPressed(9)
@@ -326,6 +359,7 @@ class DisplayTests: XCTestCase {
     // MARK: - Consecutive Numbers - Right
     
     func testConsecutiveZero_RightHandSide() throws {
+        //Input 1 + 0 0 0
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
@@ -337,6 +371,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testConsecutiveOne_RightHandSide() throws {
+        //Input 0 + 1 1 1
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -348,6 +383,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testConsecutiveTwo_RightHandSide() throws {
+        //Input 0 + 2 2 2
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -359,6 +395,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testConsecutiveThree_RightHandSide() throws {
+        //Input 0 + 3 3 3
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -370,6 +407,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testConsecutiveFour_RightHandSide() throws {
+        //Input 0 + 4 4 4
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -381,6 +419,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testConsecutiveFive_RightHandSide() throws {
+        //Input 0 + 5 5 5
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -392,6 +431,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testConsecutiveSix_RightHandSide() throws {
+        //Input 0 + 6 6 6
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -403,6 +443,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testConsecutiveSeven_RightHandSide() throws {
+        //Input 0 + 7 7 7
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -414,6 +455,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testConsecutiveEiight_RightHandSide() throws {
+        //Input 0 + 8 8 8
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -425,6 +467,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testConsecutiveNine_RightHandSide() throws {
+        //Input 0 + 9 9 9
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -438,6 +481,7 @@ class DisplayTests: XCTestCase {
     // MARK: - Result
     
     func testThousandResult() throws {
+        //Input 5 5 5 + 5 5 5 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(5)
         calculatorEngine.numberPressed(5)
@@ -453,6 +497,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testMillionResult() throws {
+        //Input 5 5 5 5 5 5 + 5 5 5 5 5 5 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(5)
         calculatorEngine.numberPressed(5)
@@ -476,6 +521,7 @@ class DisplayTests: XCTestCase {
     // MARK: - Scientific Calculator
     
     func testScientificCalculator() throws {
+        //Input 1 0 0 0 0 0 0 0 0 0 0 0 0 + 1 0 0 0 0 0 0 0 0 0 0 0 0 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.numberPressed(0)
@@ -511,6 +557,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testLowerLimits_ScientificCalculator() throws {
+        //Input 1 0 0 0 0 0 0 0 0 + 1 0 0 0 0 0 0 0 0 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.numberPressed(0)
@@ -538,6 +585,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testUpperLimits_ScientificCalculator() throws {
+        //Input 9 9 9 9 9 9 9 9 8 + 1 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(9)
         calculatorEngine.numberPressed(9)
@@ -557,6 +605,7 @@ class DisplayTests: XCTestCase {
     }
     
     func testThreshold_ScientificCalculator() throws {
+        //Input 5 0 0 0 0 0 0 0 0 + 5 0 0 0 0 0 0 0 0 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(5)
         calculatorEngine.numberPressed(0)

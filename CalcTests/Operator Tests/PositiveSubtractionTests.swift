@@ -36,6 +36,7 @@ import XCTest
 class PositiveSubtractionTests: XCTestCase {
 
     func testSubtraction() throws {
+        //Input 1 - 1 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.minusPressed()
@@ -74,6 +75,7 @@ class PositiveSubtractionTests: XCTestCase {
     }
     
     private func continuouslySubtract(using number: Int) {
+        //Input number - number = _ 1..10 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(number)
         calculatorEngine.minusPressed()
@@ -96,7 +98,7 @@ class PositiveSubtractionTests: XCTestCase {
         
         // loop forward
         var currentResult: Decimal = firstResult
-        for iteration in 1...10 {
+        for iteration in 0...9 {
             calculatorEngine.minusPressed()
             calculatorEngine.numberPressed(number)
             calculatorEngine.equalsPressed()
@@ -134,7 +136,7 @@ class PositiveSubtractionTests: XCTestCase {
     }
     
     private func testEnteringNewEquationAfterViewingAResult (using number: Int) {
-        //Input 7: 7 - 1, 7 - 2, 7 - 3, 7 - 4, 7 - 5, 7 - 6, 7 - 7, 7 - 8, 7 - 9
+        //Input number - 1 = number - 1..10 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(number)
         calculatorEngine.minusPressed()
@@ -179,6 +181,7 @@ class PositiveSubtractionTests: XCTestCase {
     }
     
     func testContinuedSubtraction_RandomNumbers() throws {
+        //Input 7 - 127 = - 34 = - 6 = - 5 = - 4 = - 3 = - 2 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(7)
         calculatorEngine.minusPressed()

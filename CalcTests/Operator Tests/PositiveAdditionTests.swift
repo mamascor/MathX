@@ -36,6 +36,7 @@ import XCTest
 class PositiveAdditionTests: XCTestCase {
 
     func testAddition() throws {
+        //Input 1 + 1 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
@@ -72,6 +73,7 @@ class PositiveAdditionTests: XCTestCase {
     }
     
     private func continuouslyAdd(using number: Int) {
+        //Input number + number = + 1..10 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(number)
         calculatorEngine.addPressed()
@@ -132,7 +134,7 @@ class PositiveAdditionTests: XCTestCase {
     }
     
     private func testEnteringNewEquationAfterViewingAResult (using number: Int) {
-        //Input 7: 7 + 1, 7 + 2, 7 + 3, 7 + 4, 7 + 5, 7 + 6, 7 + 7, 7 + 8, 7 + 9
+        //Input 1 + number = number + number(2..11) =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
