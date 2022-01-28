@@ -75,7 +75,7 @@ class PositiveSubtractionTests: XCTestCase {
     }
     
     private func continuouslySubtract(using number: Int) {
-        //Input number - number = _ 1..10 =
+        //Input number - number = - 1..10 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(number)
         calculatorEngine.minusPressed()
@@ -98,7 +98,7 @@ class PositiveSubtractionTests: XCTestCase {
         
         // loop forward
         var currentResult: Decimal = firstResult
-        for iteration in 0...9 {
+        for iteration in 1...10 {
             calculatorEngine.minusPressed()
             calculatorEngine.numberPressed(number)
             calculatorEngine.equalsPressed()
