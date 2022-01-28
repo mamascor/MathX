@@ -39,6 +39,7 @@ class DecimalEntryTests: XCTestCase {
     // MARK: - Operands - Left
     
     func testSmall_LeftHandEntry() throws {
+        //Input 0 .
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.decimalPressed()
@@ -47,6 +48,7 @@ class DecimalEntryTests: XCTestCase {
     }
     
     func testSmallWithZero_LeftHandEntry() throws {
+        //Input 0 . 0
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.decimalPressed()
@@ -56,6 +58,7 @@ class DecimalEntryTests: XCTestCase {
     }
     
     func testSmallWith1_LeftHandEntry() throws {
+        //Input 0 . 1
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.decimalPressed()
@@ -65,6 +68,7 @@ class DecimalEntryTests: XCTestCase {
     }
     
     func testMedium_LeftHandEntry() throws {
+        //Input 0 . 1 2 3 4
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.decimalPressed()
@@ -77,6 +81,7 @@ class DecimalEntryTests: XCTestCase {
     }
     
     func testLarge_LeftHandEntry() throws {
+        //Input 0 . 1 2 3 4 5 6 7 8 9
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.decimalPressed()
@@ -96,6 +101,7 @@ class DecimalEntryTests: XCTestCase {
     // MARK: - Operands - Right
     
     func testSmall_RightHandEntry() throws {
+        //Input 0 + 0 .
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -106,6 +112,7 @@ class DecimalEntryTests: XCTestCase {
     }
     
     func testSmallWithZero_RightHandEntry() throws {
+        //Input 0 + 0 . 0
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -117,6 +124,7 @@ class DecimalEntryTests: XCTestCase {
     }
     
     func testSmallWith1_RightHandEntry() throws {
+        //Input 0 + 0 . 1
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -128,6 +136,7 @@ class DecimalEntryTests: XCTestCase {
     }
     
     func testMedium_RightHandEntry() throws {
+        //Input 0 + 0 . 1 2 3 4
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -142,6 +151,7 @@ class DecimalEntryTests: XCTestCase {
     }
     
     func testLarge_RightHandEntry() throws {
+        //Input 0 + 0 . 1 2 3 4 5 6 7 8 9
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -164,6 +174,7 @@ class DecimalEntryTests: XCTestCase {
     // MARK: - Immediate Press Without Previous Value
     
     func testImmediatePress_LeftHandEntry() throws {
+        //Input . 1
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.decimalPressed()
         calculatorEngine.numberPressed(1)
@@ -172,6 +183,7 @@ class DecimalEntryTests: XCTestCase {
     }
     
     func testImmediatePress_RightHandEntry() throws {
+        //Input 0 + . 1
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -184,6 +196,7 @@ class DecimalEntryTests: XCTestCase {
     // MARK: - Immediate Press Without Previous Value
     
     func testDecimalDisplay_LeftHandEntry() throws {
+        //Input .
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.decimalPressed()
         
@@ -191,6 +204,7 @@ class DecimalEntryTests: XCTestCase {
     }
     
     func testResults_LeftHandEntry() throws {
+        //Input 1 + 1 = . 1
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
@@ -204,6 +218,7 @@ class DecimalEntryTests: XCTestCase {
     }
     
     func testResults2_LeftHandEntry() throws {
+        //Input 1 + 1 = . 1 + . 1 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
@@ -212,7 +227,9 @@ class DecimalEntryTests: XCTestCase {
         
         calculatorEngine.decimalPressed()
         calculatorEngine.numberPressed(1)
+        
         calculatorEngine.addPressed()
+        
         calculatorEngine.decimalPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
@@ -223,18 +240,23 @@ class DecimalEntryTests: XCTestCase {
     }
     
     func testResults3_LeftHandEntry() throws {
+        //Input . 6 4 + . 4 = . 1 + . 1 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.decimalPressed()
         calculatorEngine.numberPressed(6)
         calculatorEngine.numberPressed(4)
+        
         calculatorEngine.addPressed()
+        
         calculatorEngine.decimalPressed()
         calculatorEngine.numberPressed(4)
         calculatorEngine.equalsPressed()
         
         calculatorEngine.decimalPressed()
         calculatorEngine.numberPressed(1)
+        
         calculatorEngine.addPressed()
+        
         calculatorEngine.decimalPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
@@ -245,16 +267,20 @@ class DecimalEntryTests: XCTestCase {
     }
     
     func testResults4_LeftHandEntry() throws {
+        //Input . 6 4 * . 4 = + . 4 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.decimalPressed()
         calculatorEngine.numberPressed(6)
         calculatorEngine.numberPressed(4)
+        
         calculatorEngine.addPressed()
+        
         calculatorEngine.decimalPressed()
         calculatorEngine.numberPressed(4)
         calculatorEngine.equalsPressed()
         
         calculatorEngine.addPressed()
+        
         calculatorEngine.decimalPressed()
         calculatorEngine.numberPressed(4)
         calculatorEngine.equalsPressed()
@@ -267,6 +293,7 @@ class DecimalEntryTests: XCTestCase {
     //MARK: - Decimal Math
     
     func testTwoDecimals() throws {
+        //Input 0 . 6 + 0 . 4 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.decimalPressed()
@@ -285,6 +312,7 @@ class DecimalEntryTests: XCTestCase {
     }
     
     func testTwoDecimals2() throws {
+        //Input 0 . 6 6 6 + 0 . 4 6 6 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.decimalPressed()
@@ -307,6 +335,7 @@ class DecimalEntryTests: XCTestCase {
     }
     
     func testTZeros() throws {
+        //Input 0 . 0 6 + 0 . 0 6 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.decimalPressed()
@@ -327,6 +356,7 @@ class DecimalEntryTests: XCTestCase {
     }
     
     func testTZeros2() throws {
+        //Input 0 . 0 0 6 + 0 . 0 0 6 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.decimalPressed()
@@ -349,6 +379,7 @@ class DecimalEntryTests: XCTestCase {
     }
     
     func testTZeros3() throws {
+        //Input 0 . 0 0 0 6 + 0 . 0 0 0 6 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.decimalPressed()
