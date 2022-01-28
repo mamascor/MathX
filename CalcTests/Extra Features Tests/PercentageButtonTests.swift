@@ -38,6 +38,7 @@ class PercentageButtonTests: XCTestCase {
     // MARK: - operands - Left
     
     func testSmallLeftHandEntry() throws {
+        //Input 1 %
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         
@@ -47,8 +48,11 @@ class PercentageButtonTests: XCTestCase {
     }
     
     func testLargeLeftHandEntry() throws {
+        //Input 1 0 0 %
         var calculatorEngine = iOSBFreeCalculatorEngine()
-        calculatorEngine.numberPressed(100)
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(0)
         
         calculatorEngine.percentagePressed()
 
@@ -56,8 +60,11 @@ class PercentageButtonTests: XCTestCase {
     }
     
     func testLargeLeftHandEntry2() throws {
+        //Input 2 0 0 %
         var calculatorEngine = iOSBFreeCalculatorEngine()
-        calculatorEngine.numberPressed(200)
+        calculatorEngine.numberPressed(2)
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(0)
         
         calculatorEngine.percentagePressed()
 
@@ -65,6 +72,7 @@ class PercentageButtonTests: XCTestCase {
     }
 
     func testLeftHandEntryTwice() throws {
+        //Input 1 % %
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         
@@ -75,6 +83,7 @@ class PercentageButtonTests: XCTestCase {
     }
     
     func testLeftHandEntryThrice() throws {
+        //Input 1 % % %
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         
@@ -88,6 +97,7 @@ class PercentageButtonTests: XCTestCase {
     // MARK: - operands - Right
     
     func testSmallRightHandEntry() throws {
+        //Input 1 + 1 %
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
@@ -99,10 +109,13 @@ class PercentageButtonTests: XCTestCase {
     }
     
     func testLargeRightHandEntry() throws {
+        //Input 1 + 1 0 0 %
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
-        calculatorEngine.numberPressed(100)
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(0)
         
         calculatorEngine.percentagePressed()
 
@@ -110,10 +123,13 @@ class PercentageButtonTests: XCTestCase {
     }
     
     func testLargeRightHandEntry2() throws {
+        //Input 1 + 2 0 0 %
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
-        calculatorEngine.numberPressed(200)
+        calculatorEngine.numberPressed(2)
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(0)
         
         calculatorEngine.percentagePressed()
 
@@ -121,6 +137,7 @@ class PercentageButtonTests: XCTestCase {
     }
 
     func testRightHandEntryTwice() throws {
+        //Input 1 + 1 % %
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
@@ -133,6 +150,7 @@ class PercentageButtonTests: XCTestCase {
     }
     
     func testRightHandEntryThrice() throws {
+        //Input 1 + 1 % % %
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
@@ -148,10 +166,15 @@ class PercentageButtonTests: XCTestCase {
     // MARK: - Result
     
     func testNegatingAResult() throws {
+        //Input 3 0 0 + 3 0 0 = %
         var calculatorEngine = iOSBFreeCalculatorEngine()
-        calculatorEngine.numberPressed(300)
+        calculatorEngine.numberPressed(3)
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
-        calculatorEngine.numberPressed(300)
+        calculatorEngine.numberPressed(3)
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(0)
         calculatorEngine.equalsPressed()
         
         guard let result1 = calculatorEngine.resultOfEquation else {
@@ -176,10 +199,15 @@ class PercentageButtonTests: XCTestCase {
     }
     
     func testNegatingAResultTwice() throws {
+        //Input 3 0 0 + 3 0 0 = % %
         var calculatorEngine = iOSBFreeCalculatorEngine()
-        calculatorEngine.numberPressed(300)
+        calculatorEngine.numberPressed(3)
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
-        calculatorEngine.numberPressed(300)
+        calculatorEngine.numberPressed(3)
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(0)
         calculatorEngine.equalsPressed()
    
         calculatorEngine.percentagePressed()
@@ -191,10 +219,15 @@ class PercentageButtonTests: XCTestCase {
     }
     
     func testNegatingAResultThrice() throws {
+        //Input 3 0 0 + 3 0 0 = % % %
         var calculatorEngine = iOSBFreeCalculatorEngine()
-        calculatorEngine.numberPressed(300)
+        calculatorEngine.numberPressed(3)
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
-        calculatorEngine.numberPressed(300)
+        calculatorEngine.numberPressed(3)
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(0)
         calculatorEngine.equalsPressed()
    
         calculatorEngine.percentagePressed()
