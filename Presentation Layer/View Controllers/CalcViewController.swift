@@ -61,7 +61,7 @@ class CalcViewController: UIViewController {
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var equalsButton: UIButton!
-     
+    
     // MARK: - Gesture Properties
     
     private var themeGestureRecogniser: UITapGestureRecognizer?
@@ -84,9 +84,9 @@ class CalcViewController: UIViewController {
         decorateView(withTheme: ThemeManager.shared.currentTheme)
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -337,12 +337,11 @@ class CalcViewController: UIViewController {
     // MARK: - Notifications
     
     private func registerForNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceivePasteNotification(notification:)), name: Notification.Name("iOSBFree.com.calc.CopyableLabel.paste"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceivePasteNotification(notification:)), name: Notification.Name(LCDDisplay.pasteNumberNotificationKey), object: nil)
         
-            NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveHistoryNotification(notification:)), name: Notification.Name("iOSBFree.com.calc.CopyableLabel.displayHistory"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveHistoryNotification(notification:)), name: Notification.Name(LCDDisplay.historyLogNotificationKey), object: nil)
         
-        
-            NotificationCenter.default.addObserver(self, selector: #selector(self.didReceivePasteMathEquationNotification(notification:)), name: Notification.Name("iOSBFree.com.calc.LogViewController.pasteMathEquation"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceivePasteMathEquationNotification(notification:)), name: Notification.Name(LCDDisplay.pasteEquationNotificationKey), object: nil)
     }
     
     @objc private func didReceiveHistoryNotification(notification: Notification) {
@@ -350,12 +349,12 @@ class CalcViewController: UIViewController {
     }
     
     @objc private func didReceivePasteNotification(notification: Notification) {
-        guard let decimalValue = notification.userInfo?["iOSBFree.com.calc.CopyableLabel.paste"] as? Double else { return }
+        guard let decimalValue = notification.userInfo?[LCDDisplay.pasteDictionaryKey] as? Double else { return }
         pasteNewValueIntoCalculator(Decimal(decimalValue))
     }
     
     @objc private func didReceivePasteMathEquationNotification(notification: Notification) {
-        guard let mathEquation = notification.userInfo?["iOSBFree.com.calc.LogViewController.pasteMathEquation"] as? MathEquation else { return }
+        guard let mathEquation = notification.userInfo?[LCDDisplay.pasteDictionaryKey] as? MathEquation else { return }
         pasteNewValueIntoCalculator(mathEquation)
     }
     

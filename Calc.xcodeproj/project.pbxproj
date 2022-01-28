@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C219D2727A42F8000A55AE8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C219D2627A42F8000A55AE8 /* Constants.swift */; };
 		0C4DA5FD27A2B35B0081EC12 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4DA5FC27A2B35B0081EC12 /* ThemeManager.swift */; };
 		0C4DA60327A2CF040081EC12 /* DecimalEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4DA60227A2CF040081EC12 /* DecimalEntryTests.swift */; };
 		0C4DA60527A2EFFF0081EC12 /* EnteringZeroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4DA60427A2EFFF0081EC12 /* EnteringZeroTests.swift */; };
@@ -71,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C219D2627A42F8000A55AE8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0C4DA5FC27A2B35B0081EC12 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		0C4DA60227A2CF040081EC12 /* DecimalEntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalEntryTests.swift; sourceTree = "<group>"; };
 		0C4DA60427A2EFFF0081EC12 /* EnteringZeroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnteringZeroTests.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 		0CE40623279E9BB800B16A24 /* Calc */ = {
 			isa = PBXGroup;
 			children = (
+				0C219D2627A42F8000A55AE8 /* Constants.swift */,
 				0CE4065C279E9CFB00B16A24 /* Presentation Layer */,
 				0CE40654279E9CFB00B16A24 /* Business Logic Layer */,
 				0CE4065A279E9CFB00B16A24 /* Data Layer */,
@@ -487,6 +490,7 @@
 				0CE40673279EDB4700B16A24 /* UIColor+HexValue.swift in Sources */,
 				0C8DB36D27A0CE3400A96AA0 /* LCDDisplay.swift in Sources */,
 				0CED88BD27A1BA2000261494 /* WashedOutTheme.swift in Sources */,
+				0C219D2727A42F8000A55AE8 /* Constants.swift in Sources */,
 				0C4DA5FD27A2B35B0081EC12 /* ThemeManager.swift in Sources */,
 				0CE40667279E9CFB00B16A24 /* UIButton+Decorate.swift in Sources */,
 				0CE4066C279EBE4B00B16A24 /* CalculatorTheme.swift in Sources */,
