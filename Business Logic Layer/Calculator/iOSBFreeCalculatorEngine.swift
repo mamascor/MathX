@@ -23,6 +23,8 @@
 //
 // → What's This File?
 //   It's the core of the calculator. The brain. It generates all of our behaviour.
+//   Architecural Layer: Business Logic Layer
+//
 //   💡 Testing Tip 👉🏻 By testing the API of iOSBFreeCalculatorEngine we save countless
 //   hours worried about a live issue, which could have been prevented by writing unit tests.
 // *******************************************************************************************
@@ -32,19 +34,12 @@ import Foundation
 
 struct iOSBFreeCalculatorEngine {
     
-    // MARK: - Enum Display Type
-    enum DisplayType {
-        case result
-        case operand
-    }
-    
     // MARK: - Variables
     private var historyLog: [MathEquation] = []
     private var currentMathEntry: MathEntry = MathEntry()
-    private var displayType: DisplayType = .operand // TODO do we need this property?
     
     // MARK: - Managers
-    private let dataStore = DataStore(key: "iOSBFree.com.calc.CalculatorEngine.total")
+    private let dataStore = DataStoreManager(key: "iOSBFree.com.calc.CalculatorEngine.total")
     
     // MARK: - Scientific Calc Formatter
     private let scientificCalcFormatter: NumberFormatter = {
@@ -123,7 +118,6 @@ struct iOSBFreeCalculatorEngine {
     
     mutating func clearPressed() {
         currentMathEntry = MathEntry()
-        displayType = .operand
     }
     
     mutating func negatePressed() {
@@ -189,7 +183,6 @@ struct iOSBFreeCalculatorEngine {
     
     private mutating func executeCurrentMathEntry() {
         currentMathEntry.execute()
-        displayType = .result
         historyLog.append(currentMathEntry.equation)
         printEquation(currentMathEntry.equation)
         saveSession()
@@ -243,7 +236,6 @@ struct iOSBFreeCalculatorEngine {
             newMathEntry.editingSide = .rightHandSide
         }
         currentMathEntry = newMathEntry
-        displayType = .operand
     }
     
     private mutating func commitAndPopulatePreviousResultIfNeeded(_ continueEditingResult: Bool = false) {
@@ -260,8 +252,6 @@ struct iOSBFreeCalculatorEngine {
     }
     
     private mutating func populatePreviousResultIfNeeded(_ continueEditingResult: Bool = false) {
-        
-        // secanrio 1: user enters 5 * 5 = %
         if currentMathEntry.isCompleted {
             populateCurrentMathEntryWithPreviousResult(continueEditingResult)
         }
@@ -270,23 +260,50 @@ struct iOSBFreeCalculatorEngine {
     // MARK: - Restoring Session
     
     mutating func restoreFromLastSession() {
-        let previousSessionResult = dataStore.loadDecimal()
         
-        // mimic the behaviour as if the user had just executed an equation with the previuosly seen result displayed
+        guard
+            let lastExecutedEquation = readSavedEquationFromDisk(),
+            let lastExecutedResult = lastExecutedEquation.result
+            else {
+            return
+        }
+        
         var newMathEntry = MathEntry()
         newMathEntry.equation.lhs = 1
         newMathEntry.equation.operation = .multiply
-        newMathEntry.equation.rhs = previousSessionResult
+        newMathEntry.equation.rhs = lastExecutedResult
         newMathEntry.execute()
         currentMathEntry = newMathEntry
-        displayType = .result
     }
     
     private func saveSession() {
-        if let result = currentMathEntry.equation.result,
-            currentMathEntry.isCompleted {
-            dataStore.saveDecimal(result)
+        guard isMathEntrySafeToBeSaved(currentMathEntry) == true else {
+            return
         }
+         
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(currentMathEntry.equation) {
+            dataStore.set(encoded)
+        }
+    }
+    
+    private func isMathEntrySafeToBeSaved(_ mathEntry: MathEntry) -> Bool {
+        guard mathEntry.containsNans == false,  // crashes when encoding nans
+              let _ = mathEntry.equation.result,
+              mathEntry.isCompleted
+        else {
+            return false
+        }
+        return true
+    }
+    
+    private func readSavedEquationFromDisk() -> MathEquation? {
+        guard let savedEquation = dataStore.getValue() as? Data else {
+            return nil
+        }
+        
+        let decoder = JSONDecoder()
+        return try? decoder.decode(MathEquation.self, from: savedEquation)
     }
     
     // MARK: - Copy & Paste
@@ -296,7 +313,6 @@ struct iOSBFreeCalculatorEngine {
         // Are we displaying a completed equation?
         if currentMathEntry.isCompleted {
             currentMathEntry = MathEntry()
-            displayType = .operand
         }
         
         // save the value
@@ -311,7 +327,6 @@ struct iOSBFreeCalculatorEngine {
         // Are we displaying a completed equation?
         if currentMathEntry.isCompleted {
             currentMathEntry = MathEntry()
-            displayType = .operand
         }
         
         currentMathEntry.equation = mathEquation

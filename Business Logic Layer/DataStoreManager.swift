@@ -1,5 +1,5 @@
 //
-//  DataStore.swift
+//  DataStoreManager.swift
 //  Calc
 //
 //  Created by iOSB Free on 01/01/22.
@@ -24,44 +24,17 @@
 //
 // → What's This File?
 //   It's a data access manager, a simple wrapper for User Defaults.
+//   Architecural Layer: Business Logic Layer
+//
 //   💡 Architecture Tip 👉🏻 We disconnect where the data is stored by creating this wrapper.
 // *******************************************************************************************
 
 
 import Foundation
 
-// TODO tidy this struct
-struct DataStore {
+struct DataStoreManager {
     
     let key: String
-    
-    func saveResult(_ number: Double) {
-        UserDefaults.standard.set(number, forKey: key)
-    }
-    
-    func loadResult() -> Double {
-        return UserDefaults.standard.double(forKey: key)
-    }
-    
-    func saveDecimal(_ decimal: Decimal) {
-        UserDefaults.standard.set(decimal.doubleValue, forKey: key)
-    }
-    
-    func loadDecimal() -> Decimal {
-        return Decimal(UserDefaults.standard.double(forKey: key))
-    }
-    
-    func saveInt(_ number: Int) {
-        return UserDefaults.standard.set(number, forKey: key)
-    }
-    
-    func loadInt() -> Int {
-        return UserDefaults.standard.integer(forKey: key)
-    }
-    
-    func removeValue() {
-        UserDefaults.standard.removeObject(forKey: key)
-    }
     
     func set(_ value: Any) {
         UserDefaults.standard.set(value, forKey: key)
@@ -69,11 +42,5 @@ struct DataStore {
     
     func getValue() -> Any? {
         UserDefaults.standard.object(forKey: key)
-    }
-}
-
-private extension Decimal {
-    var doubleValue:Double {
-        return NSDecimalNumber(decimal:self).doubleValue
     }
 }

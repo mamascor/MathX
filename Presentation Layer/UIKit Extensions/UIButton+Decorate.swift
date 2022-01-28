@@ -24,6 +24,8 @@
 //
 // → What's This File?
 //   It's an extension. It adds more features to UIButton, such as making a button circular.
+//   Architecural Layer: Presentation Layer
+//
 //   💡 Tip 👉🏻 We can simplify our work by using extensions and making life a little easier.
 // *******************************************************************************************
 

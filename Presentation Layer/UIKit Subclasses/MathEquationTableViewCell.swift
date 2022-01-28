@@ -23,6 +23,8 @@
 //
 // → What's This File?
 //   It's a subclass. This is the cell for each equation displayed in the history log.
+//   Architecural Layer: Presentation Layer
+//
 // *******************************************************************************************
 
 

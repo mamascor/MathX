@@ -23,6 +23,8 @@
 //
 // → What's This File?
 //   It's an extension. It adds more features to UIColor, such as loading from a hex value.
+//   Architecural Layer: Presentation Layer
+//
 //   💡 Tip 👉🏻 Extensions allow us to add features to someone elses files.
 // *******************************************************************************************
 

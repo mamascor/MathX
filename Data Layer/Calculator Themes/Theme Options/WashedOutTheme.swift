@@ -22,22 +22,29 @@
 // *******************************************************************************************
 //
 // → What's This File?
-//   It's a color theme, used to display a different color theme
+//   It's a color theme, used to display a different color theme.
+//   Architecural Layer: Data Layer
+//
 //   💡 Team Tip 👉🏻 You could provide these files to a designer, if you wanted to.
 // *******************************************************************************************
 
 
 import Foundation
 
-let washedOutTheme = CalculatorTheme(id:"8",
-                                        background:             "#ECF5FF",
-                                        display:                "#0D2A4B",
-                                        operatorNormal:         "#A3CFF9",
-                                        operatorSelected:       "#0D2A4B",
-                                        operatorTitle:          "#5487BA",
-                                        operatorTitleSelected:  "#ffffff",
-                                        pinPad:                 "#1D1D1D",
-                                        pinPadTitle:            "#ffffff",
-                                        extraFunctions:         "#A3CFF9",
-                                        extraFunctionsTitle:    "#5487BA",
-                                        statusBarStyle: .dark)
+extension ThemeManager {
+    
+    var washedOutTheme: CalculatorTheme {
+        CalculatorTheme(id:"8",
+        background:             "#ECF5FF",
+        display:                "#0D2A4B",
+        operatorNormal:         "#A3CFF9",
+        operatorSelected:       "#0D2A4B",
+        operatorTitle:          "#5487BA",
+        operatorTitleSelected:  "#ffffff",
+        pinPad:                 "#1D1D1D",
+        pinPadTitle:            "#ffffff",
+        extraFunctions:         "#A3CFF9",
+        extraFunctionsTitle:    "#5487BA",
+        statusBarStyle: .dark)
+    }
+}

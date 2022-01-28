@@ -23,6 +23,8 @@
 //
 // → What's This File?
 //   It's a screen. It displays a list of all of the executed equations
+//   Architecural Layer: Presentation Layer
+//
 //   💡 Architecture Tip 👉🏻 The UI layer should ideally only contain UI. Put all other code
 //   into other files creating types such as managers and data storage.
 // *******************************************************************************************
@@ -83,7 +85,7 @@ class LogViewController: UITableViewController {
     
     private func populateTableViewCellFromEquation(_ mathEquation: MathEquation, cell: MathEquationTableViewCell) {
         cell.lhsLabel.text = mathEquation.lhs.formatted()
-        cell.rhsLabel.text = mathEquation.stringRepresentationOfOperator + " " + (mathEquation.rhs?.formatted() ?? "")
+        cell.rhsLabel.text = mathEquation.generateStringRepresentationOfOperator() + " " + (mathEquation.rhs?.formatted() ?? "")
         cell.resultLabel.text = "= " + (mathEquation.result?.formatted() ?? "")
     }
     
@@ -104,7 +106,7 @@ class LogViewController: UITableViewController {
         
         let mathEquation = datasource[indexPath.row]
         cell.lhsLabel.text = mathEquation.lhs.formatted()
-        cell.rhsLabel.text = mathEquation.stringRepresentationOfOperator + " " + (mathEquation.rhs?.formatted() ?? "")
+        cell.rhsLabel.text = mathEquation.generateStringRepresentationOfOperator() + " " + (mathEquation.rhs?.formatted() ?? "")
         cell.resultLabel.text = "= " + (mathEquation.result?.formatted() ?? "")
     }
     

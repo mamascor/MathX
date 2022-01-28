@@ -23,6 +23,8 @@
 //
 // → What's This File?
 //   It's a class created to recieve delegate methods. It manages each scene for the app.
+//   Architecural Layer: Presentation Layer
+//
 //   💡 Architecture Tip 👉🏻 Good architecure provides easy maintainence when building software.
 // *******************************************************************************************
 

@@ -23,6 +23,8 @@
 //
 // → What's This File?
 //   It's a manager for the entered equation. In charge of input and storing data too.
+//   Architecural Layer: Business Logic Layer
+//
 //   💡 Architecture Tip 👉🏻 Try to restrict each file to one single purpose, which is known
 //   as having a single responsibility. Why not google "single responsibility software"
 // *******************************************************************************************
@@ -47,9 +49,9 @@ struct MathEntry {
     var isEnteringDecimal: Bool = false
     var lcdDisplayString: String? // Tracking the string input from user
     
+    // MARK: - Initialiser
+    
     init() {
-        // Note: We create the equation with a value of 0, however the user did not enter this value
-        // Therefore, we should reflect the value stored with our string representation
         lcdDisplayString = equation.lhs.formatted()
     }
     
@@ -70,6 +72,11 @@ struct MathEntry {
         return false
     }
     
+    var containsNans: Bool {
+        equation.lhs.isNaN || (equation.rhs?.isNaN ?? false) || (equation.result?.isNaN ?? false)
+    }
+    
+    // TODO can we delete this?
     var decimalRepresentationOfEditingOperand: Decimal {
         switch editingSide {
         case .leftHandSide:
@@ -80,6 +87,7 @@ struct MathEntry {
     }
     
     // MARK: - Extra Functions
+    
     mutating func negate() {
         guard isCompleted == false else { return }
         

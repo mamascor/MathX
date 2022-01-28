@@ -22,22 +22,29 @@
 // *******************************************************************************************
 //
 // → What's This File?
-//   It's a color theme, used to display a different color theme
+//   It's a color theme, used to display a different color theme.
+//   Architecural Layer: Data Layer
+//
 //   💡 Team Tip 👉🏻 You could provide these files to a designer, if you wanted to.
 // *******************************************************************************************
 
 
 import Foundation
 
-let pinkTheme = CalculatorTheme(id:"5",
-                                        background:             "#253C5B",
-                                        display:                "#EBF0EF",
-                                        operatorNormal:         "#FA569C",
-                                        operatorSelected:       "#0265FF",
-                                        operatorTitle:          "#EBF0EF",
-                                        operatorTitleSelected:  "#ffffff",
-                                        pinPad:                 "#16253A",
-                                        pinPadTitle:            "#EBF0EF",
-                                        extraFunctions:         "#294666",
-                                        extraFunctionsTitle:    "#EBF0EF",
-                                        statusBarStyle: .light)
+extension ThemeManager {
+    
+    var pinkTheme: CalculatorTheme {
+        CalculatorTheme(id:"5",
+        background:             "#253C5B",
+        display:                "#EBF0EF",
+        operatorNormal:         "#FA569C",
+        operatorSelected:       "#0265FF",
+        operatorTitle:          "#EBF0EF",
+        operatorTitleSelected:  "#ffffff",
+        pinPad:                 "#16253A",
+        pinPadTitle:            "#EBF0EF",
+        extraFunctions:         "#294666",
+        extraFunctionsTitle:    "#EBF0EF",
+        statusBarStyle: .light)
+    }
+}

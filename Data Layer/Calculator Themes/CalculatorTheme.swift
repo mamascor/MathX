@@ -23,6 +23,8 @@
 //
 // → What's This File?
 //   It's data, to store color hex values in order to change the colors of the app.
+//   Architecural Layer: Data Layer
+//
 //   💡 Architecture Tip 👉🏻 Storing colors as data files enabled us to create a theme feature.
 // *******************************************************************************************
 

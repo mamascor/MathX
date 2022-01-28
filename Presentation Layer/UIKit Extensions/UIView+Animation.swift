@@ -23,6 +23,8 @@
 //
 // → What's This File?
 //   It's an extension. It adds more features to UIView, such as animation.
+//   Architecural Layer: Presentation Layer
+//
 //   💡 Tip 👉🏻 Animations provide personality. They emotionally connect the product to the
 //   audience and give the app a certain feel. Adding animations is a great idea.
 // *******************************************************************************************

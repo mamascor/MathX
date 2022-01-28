@@ -22,6 +22,8 @@
 //
 // → What's This File?
 //   It's a color theme manager, it stores all of our color themes.
+//   Architecural Layer: Business Logic Layer
+//
 //   💡 Architecture Tip 👉🏻 Storing the colors in code allowed us to create a set of themes.
 // *******************************************************************************************
 
@@ -31,23 +33,16 @@ import Foundation
 class ThemeManager {
     
     // MARK: - Properties
-    private let dataStore = DataStore(key: "iOSBFree.com.calc.ThemeManager.theme")
+    
+    private let dataStore = DataStoreManager(key: "iOSBFree.com.calc.ThemeManager.theme")
     static let shared = ThemeManager()
     
     // MARK: - Theme Options
-    private let themes: [CalculatorTheme] = [
-    darkTheme,
-    electroTheme,
-    lightTheme,
-    lightBlueTheme,
-    pinkTheme,
-    darkBlueTheme,
-    purpleTheme,
-    washedOutTheme,
-    vibrantTheme,
-    orangeTheme]
+    
+    private(set) var themes: [CalculatorTheme] = []
     
     // MARK: - Accessing The Current Theme
+    
     private var savedTheme: CalculatorTheme?
     var currentTheme: CalculatorTheme {
         guard let theme = savedTheme else {
@@ -61,12 +56,20 @@ class ThemeManager {
     }
     
     // MARK: - Initialiser
+    
     init() {
         restoreSavedTheme()
+        populateSelectionOfThemes()
     }
     
+    // MARK: - Populate Theme Selection
+    
+    private func populateSelectionOfThemes() {
+        themes = [darkTheme, electroTheme, lightTheme, lightBlueTheme, pinkTheme, darkBlueTheme, purpleTheme, washedOutTheme, vibrantTheme, orangeTheme]
+    }
     
     // MARK: - Save & Restore From Disk
+    
     private func saveThemeToDisk(_ theme: CalculatorTheme) {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(theme) {
@@ -75,15 +78,12 @@ class ThemeManager {
     }
     
     private func restoreSavedTheme() {
-        
         if let previousTheme = readSavedThemeFromDisk() {
             savedTheme = previousTheme
         }
     }
     
     private func readSavedThemeFromDisk() -> CalculatorTheme? {
-        
-        
         guard let savedTheme = dataStore.getValue() as? Data else {
             return nil
         }
@@ -96,7 +96,6 @@ class ThemeManager {
     // MARK: - Theme Options
     
     func moveToNextTheme() {
-        
         let themeID = currentTheme.id
         let index = themes.firstIndex { calculatorTheme in
             calculatorTheme.id == themeID
@@ -122,9 +121,9 @@ class ThemeManager {
     }
     
     // MARK: - Set A New Theme
+    
     private func updateSystemWithTheme(_ theme: CalculatorTheme) {
         savedTheme = theme
         saveThemeToDisk(theme)
     }
-    
 }

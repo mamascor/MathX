@@ -23,6 +23,8 @@
 //
 // → What's This File?
 //   It's a screen. It displays the calculator itself.
+//   Architecural Layer: Presentation Layer
+//
 //   💡 Architecture Tip 👉🏻 The UI layer should ideally only contain UI. Place all other code
 //   into other files creating types such as managers and data storage.
 // *******************************************************************************************

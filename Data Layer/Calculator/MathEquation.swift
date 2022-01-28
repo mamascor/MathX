@@ -23,6 +23,8 @@
 //
 // → What's This File?
 //   It's data that represents one equation. It also performs a little math too.
+//   Architecural Layer: Data Layer
+//
 //   💡 Architecture Tip 👉🏻  "S.O.L.I.D" is an acronym for some solid engineering principles
 //   that every developer should memorise and commit to memory. 👍🏼 
 // *******************************************************************************************
@@ -30,17 +32,19 @@
 
 import Foundation
 
-struct MathEquation {
+struct MathEquation: Codable {
     
     // MARK: - Operation Enum
-    enum OperationType {
-        case add
-        case subtract
-        case divide
-        case multiply   // Todo add .none and remove the optionals associated with properties
+    
+    enum OperationType: String, Codable {
+        case add = "add"
+        case subtract = "subtract"
+        case divide = "divide"
+        case multiply  = "multiply"
     }
     
     // MARK: - Variables
+    
     var lhs: Decimal = 0
     var rhs: Decimal?
     var operation: OperationType?
@@ -49,6 +53,8 @@ struct MathEquation {
     var executed: Bool {
         return result != nil
     }
+    
+    // MARK: - Equation Math
     
     mutating func execute() {
         guard let rightHandSide = rhs else { return }
@@ -67,13 +73,15 @@ struct MathEquation {
         }
     }
     
-    var printout: String {
+    // MARK: - Visual Representations
+    
+    func generatePrintout() -> String {
         
-        let operatorString = stringRepresentationOfOperator
+        let operatorString = generateStringRepresentationOfOperator()
         return lhs.formatted() + " " + operatorString + " " + (rhs?.formatted() ?? "") + " = " + (result?.formatted() ?? "")
     }
     
-    var stringRepresentationOfOperator: String {
+    func generateStringRepresentationOfOperator() -> String {
         
         switch operation {
         case .multiply: return "*"

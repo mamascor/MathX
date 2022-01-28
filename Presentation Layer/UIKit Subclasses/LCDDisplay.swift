@@ -22,6 +22,8 @@
 //
 // → What's This File?
 //   It's a subclass. This is our label to display input and the results of equations.
+//   Architecural Layer: Presentation Layer
+//
 // *******************************************************************************************
 
 
