@@ -39,6 +39,7 @@ class EnterNumberTests: XCTestCase {
     // MARK: - Operands - Left
     
     func testSmall_LeftHandEntry() throws {
+        //Input 1
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         
@@ -46,6 +47,7 @@ class EnterNumberTests: XCTestCase {
     }
     
     func testMedium_LeftHandEntry() throws {
+        //Input 1 2 3
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.numberPressed(2)
@@ -55,6 +57,7 @@ class EnterNumberTests: XCTestCase {
     }
     
     func testLarge_LeftHandEntry() throws {
+        //Input 1 2 3 4 5 6 7 8 9
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.numberPressed(2)
@@ -74,6 +77,7 @@ class EnterNumberTests: XCTestCase {
     // MARK: - Operands - Right
     
     func testSmall_RightHandEntry() throws {
+        //Input 1 + 1
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
@@ -83,6 +87,7 @@ class EnterNumberTests: XCTestCase {
     }
     
     func testMedium_RightHandEntry() throws {
+        //Input 1 - 3 2 1
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.minusPressed()
@@ -94,6 +99,7 @@ class EnterNumberTests: XCTestCase {
     }
     
     func testLarge_RightHandEntry() throws {
+        //Input 1 / 1 2 3 4 5 6 7 8 9
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.dividePressed()
