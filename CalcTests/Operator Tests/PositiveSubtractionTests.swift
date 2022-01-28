@@ -60,7 +60,7 @@ class PositiveSubtractionTests: XCTestCase {
     
     func testSubtractionUsingPinpad() throws {
         
-        // 10 options on the pin pad
+        // → 10 options on the pin pad
         continuouslySubtract(using: 1)
         continuouslySubtract(using: 2)
         continuouslySubtract(using: 3)
@@ -74,8 +74,6 @@ class PositiveSubtractionTests: XCTestCase {
     }
     
     private func continuouslySubtract(using number: Int) {
-        
-        // setup
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(number)
         calculatorEngine.minusPressed()
@@ -119,12 +117,10 @@ class PositiveSubtractionTests: XCTestCase {
             
             currentResult = result
         }
-        
     }
 
     func testMultiplicationFromPinpad() throws {
-        
-        // 10 options on the pin pad
+        // → 10 options on the pin pad
         testEnteringNewEquationAfterViewingAResult(using: 1)
         testEnteringNewEquationAfterViewingAResult(using: 2)
         testEnteringNewEquationAfterViewingAResult(using: 3)
@@ -139,8 +135,6 @@ class PositiveSubtractionTests: XCTestCase {
     
     private func testEnteringNewEquationAfterViewingAResult (using number: Int) {
         //Input 7: 7 - 1, 7 - 2, 7 - 3, 7 - 4, 7 - 5, 7 - 6, 7 - 7, 7 - 8, 7 - 9
-        
-        // setup
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(number)
         calculatorEngine.minusPressed()
@@ -161,7 +155,7 @@ class PositiveSubtractionTests: XCTestCase {
         XCTAssertTrue(firstRightHandValue.isEqual(to: Decimal(1)))
         XCTAssertTrue(firstResult.isEqual(to: Decimal(number - 1)))
         
-        // loop forward
+        // → Loop through more tests
         for iteration in 1...10 {
             calculatorEngine.numberPressed(number)
             calculatorEngine.minusPressed()
@@ -182,11 +176,9 @@ class PositiveSubtractionTests: XCTestCase {
             XCTAssertTrue(rhd.isEqual(to: Decimal(iteration + 1)))
             XCTAssertTrue(result.isEqual(to: Decimal(number - (iteration + 1))))
         }
-        
     }
     
     func testContinuedSubtraction_RandomNumbers() throws {
-        
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(7)
         calculatorEngine.minusPressed()

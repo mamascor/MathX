@@ -76,13 +76,11 @@ struct MathEquation: Codable {
     // MARK: - Visual Representations
     
     func generatePrintout() -> String {
-        
         let operatorString = generateStringRepresentationOfOperator()
         return lhs.formatted() + " " + operatorString + " " + (rhs?.formatted() ?? "") + " = " + (result?.formatted() ?? "")
     }
     
     func generateStringRepresentationOfOperator() -> String {
-        
         switch operation {
         case .multiply: return "*"
         case .divide: return "/"

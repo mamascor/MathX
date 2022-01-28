@@ -58,7 +58,7 @@ class PositiveMultiplyTests: XCTestCase {
 
     func testGrowingMultiplicationUsingPinpad() throws {
         
-        // 10 options on the pin pad
+        // → 10 options on the pin pad
         continuouslyGrowingMultiply(using: 1)
         continuouslyGrowingMultiply(using: 2)
         continuouslyGrowingMultiply(using: 3)
@@ -95,7 +95,7 @@ class PositiveMultiplyTests: XCTestCase {
         XCTAssertTrue(firstRightHandValue.isEqual(to: Decimal(number)))
         XCTAssertTrue(firstResult.isEqual(to: Decimal(number)))
         
-        // loop forward
+        // → Loop through more tests
         var currentResult: Decimal = firstResult
         for iteration in 1...10 {
             calculatorEngine.multiplyPressed()
@@ -122,8 +122,7 @@ class PositiveMultiplyTests: XCTestCase {
     }
     
     func testMultiplicationFromPinpad() throws {
-        
-        // 10 options on the pin pad
+        // → 10 options on the pin pad
         continuouslyMultiply(using: 1)
         continuouslyMultiply(using: 2)
         continuouslyMultiply(using: 3)
@@ -160,7 +159,7 @@ class PositiveMultiplyTests: XCTestCase {
         XCTAssertTrue(firstRightHandValue.isEqual(to: Decimal(number)))
         XCTAssertTrue(firstResult.isEqual(to: Decimal(number)))
         
-        // loop forward
+        // → Loop through more tests
         for iteration in 1...10 {
             calculatorEngine.numberPressed(number)
             calculatorEngine.multiplyPressed()
@@ -181,6 +180,5 @@ class PositiveMultiplyTests: XCTestCase {
             XCTAssertTrue(rhd.isEqual(to: Decimal(iteration + 1)))
             XCTAssertTrue(result.isEqual(to: Decimal(number * (iteration + 1))))
         }
-        
     }
 }

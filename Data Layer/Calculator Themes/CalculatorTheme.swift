@@ -37,7 +37,6 @@ enum StatusBarStyle: String, Codable {
 }
 
 struct CalculatorTheme: Decodable, Encodable {
-    
     var id: String
     var background: String
     var display: String

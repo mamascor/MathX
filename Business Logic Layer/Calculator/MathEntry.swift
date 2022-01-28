@@ -58,6 +58,8 @@ struct MathEntry {
         lcdDisplayString = equation.lhs.formatted()
     }
     
+    // MARK: - Completed Equation
+    
     var isCompleted: Bool {
         return equation.executed
     }
@@ -77,16 +79,6 @@ struct MathEntry {
     
     var containsNans: Bool {
         equation.lhs.isNaN || (equation.rhs?.isNaN ?? false) || (equation.result?.isNaN ?? false)
-    }
-    
-    // TODO can we delete this?
-    var decimalRepresentationOfEditingOperand: Decimal {
-        switch editingSide {
-        case .leftHandSide:
-            return equation.lhs
-        case .rightHandSide:
-            return equation.rhs ?? 0
-        }
     }
     
     // MARK: - Extra Functions
@@ -110,8 +102,8 @@ struct MathEntry {
         switch editingSide {
         case .leftHandSide:
             equation.lhs = calculatePercentageValue(equation.lhs)
-        case .rightHandSide:
             
+        case .rightHandSide:
             guard let decimal = equation.rhs else {
                 return
             }
@@ -122,15 +114,11 @@ struct MathEntry {
     
     mutating func applyDecimalPoint() {
         guard isCompleted == false else { return }
-        
         isEnteringDecimal = true
-        
         applyDecimalToDisplayString()
     }
     
     private mutating func applyDecimalToDisplayString() {
-        
-        // first entry
         switch editingSide {
         case .leftHandSide:
             if lcdDisplayString == nil {
@@ -144,7 +132,6 @@ struct MathEntry {
             }
         }
         
-        // update display
         if lcdDisplayString?.contains(decimalSymbol) == false {
             lcdDisplayString?.append(decimalSymbol)
         }
@@ -154,7 +141,6 @@ struct MathEntry {
     
     mutating func divide() {
         guard isCompleted == false else { return }
-        
         equation.operation = .divide
         editingSide = .rightHandSide
         isEnteringDecimal = false
@@ -162,7 +148,6 @@ struct MathEntry {
     
     mutating func add() {
         guard isCompleted == false else { return }
-        
         equation.operation = .add
         editingSide = .rightHandSide
         isEnteringDecimal = false
@@ -170,7 +155,6 @@ struct MathEntry {
     
     mutating func subtract() {
         guard isCompleted == false else { return }
-        
         equation.operation = .subtract
         editingSide = .rightHandSide
         isEnteringDecimal = false
@@ -178,7 +162,6 @@ struct MathEntry {
     
     mutating func multiply() {
         guard isCompleted == false else { return }
-        
         equation.operation = .multiply
         editingSide = .rightHandSide
         isEnteringDecimal = false
@@ -186,35 +169,34 @@ struct MathEntry {
     
     mutating func execute() {
         guard isCompleted == false else { return }
-        
         equation.execute()
     }
     
     mutating func enterNumber(_ number: Int) {
         guard isCompleted == false else { return }
         
-        /* READ ME:
-         We MUST record the entered string in order to compute the values
+        /* Hello 🤵🏽🧑🏼‍🔧👷‍♂️:
+         We must record the entered string in order to compute the values
          i.e. what if the user wanted to enter 0.001
          
          we cannot represent this data in a numeric value
          i.e. the user needs to first type 0.00
          This will be stored as 0.0 using a Decimal type
          
-         Therefore, we must record the string value entered
+         Therefore, we must also record the string value entered
          */
         
-        // entering a value
+        // → Values entered by the user
         let decimalInput = Decimal(number)
         let stringInput = String(number)
         
-        // switch sides
+        // → Switch sides if needed
         if let _ = equation.operation,
             editingSide == .leftHandSide {
             editingSide = .rightHandSide
         }
         
-        // Replace right hand side?
+        // → No right hand value yet
         if
             equation.rhs == nil,
             editingSide == .rightHandSide {
@@ -235,7 +217,7 @@ struct MathEntry {
             return 
         }
         
-        // Always have lhs or rhs value - append new value.
+        // → We have an existing value - append new value.
         switch editingSide {
         case .leftHandSide:
             
@@ -254,21 +236,12 @@ struct MathEntry {
     
     private func appendNewNumber(_ number: Int, toPreviousEntry previousEntry: Decimal, previousLCDDisplay: String?, amendAterDecimalPoint: Bool) -> (decimal: Decimal, stringRepresentation: String) {
         
-        let decimalInput = Decimal(number)
         let stringInput = String(number)
-        
-        // first entry
-        if
-            previousEntry.isZero,
-            previousLCDDisplay == nil {
-            return (decimalInput, stringInput)
-        }
-        
         guard let localPreviousLCDDisplay = previousLCDDisplay else {
             return (Decimal.nan, "NaN")
         }
         
-        // entering decimal
+        // → User is entering a decimal value
         if amendAterDecimalPoint {
             
             // Append a decimal?
@@ -293,19 +266,17 @@ struct MathEntry {
             
         }
         
-        // non decimal input
+        // → Not a decimal - An integer value
         var newStringRepresentation = ""
         if previousEntry.isZero == false {
             newStringRepresentation = localPreviousLCDDisplay
-        }
-            
-            
+        }  
         newStringRepresentation.append(stringInput)
         if let newDecimal = Decimal(string: newStringRepresentation) {
             return (newDecimal, newStringRepresentation)
         }
         
-        // we cannot convert the string into a decimal! NAN
+        // → Error scenario: We cannot convert the string into a decimal
         let nan = Decimal.nan
         return (nan, nan.formatted())
     }

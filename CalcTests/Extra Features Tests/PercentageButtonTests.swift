@@ -40,6 +40,7 @@ class PercentageButtonTests: XCTestCase {
     func testSmallLeftHandEntry() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
+        
         calculatorEngine.percentagePressed()
 
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(0.01)))
@@ -48,6 +49,7 @@ class PercentageButtonTests: XCTestCase {
     func testLargeLeftHandEntry() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(100)
+        
         calculatorEngine.percentagePressed()
 
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
@@ -56,6 +58,7 @@ class PercentageButtonTests: XCTestCase {
     func testLargeLeftHandEntry2() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(200)
+        
         calculatorEngine.percentagePressed()
 
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(2)))
@@ -64,6 +67,7 @@ class PercentageButtonTests: XCTestCase {
     func testLeftHandEntryTwice() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
+        
         calculatorEngine.percentagePressed()
         calculatorEngine.percentagePressed()
 
@@ -73,6 +77,7 @@ class PercentageButtonTests: XCTestCase {
     func testLeftHandEntryThrice() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
+        
         calculatorEngine.percentagePressed()
         calculatorEngine.percentagePressed()
         calculatorEngine.percentagePressed()
@@ -87,6 +92,7 @@ class PercentageButtonTests: XCTestCase {
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(1)
+        
         calculatorEngine.percentagePressed()
 
         XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(0.01)) ?? false)
@@ -97,6 +103,7 @@ class PercentageButtonTests: XCTestCase {
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(100)
+        
         calculatorEngine.percentagePressed()
 
         XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(1)) ?? false)
@@ -107,6 +114,7 @@ class PercentageButtonTests: XCTestCase {
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(200)
+        
         calculatorEngine.percentagePressed()
 
         XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(2)) ?? false)
@@ -117,6 +125,7 @@ class PercentageButtonTests: XCTestCase {
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(1)
+        
         calculatorEngine.percentagePressed()
         calculatorEngine.percentagePressed()
 
@@ -128,6 +137,7 @@ class PercentageButtonTests: XCTestCase {
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(1)
+        
         calculatorEngine.percentagePressed()
         calculatorEngine.percentagePressed()
         calculatorEngine.percentagePressed()

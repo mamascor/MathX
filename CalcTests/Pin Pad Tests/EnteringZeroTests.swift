@@ -72,6 +72,7 @@ class EnteringZeroTests: XCTestCase {
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(0)
+        
         XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(0.0)) ?? false)
         XCTAssertTrue(calculatorEngine.lcdDisplayText == "0")
     }
@@ -163,5 +164,4 @@ class EnteringZeroTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(0.0)) ?? false)
         XCTAssertTrue(calculatorEngine.lcdDisplayText == "0")
     }
-
 }

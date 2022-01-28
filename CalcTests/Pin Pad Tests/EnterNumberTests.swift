@@ -41,6 +41,7 @@ class EnterNumberTests: XCTestCase {
     func testSmall_LeftHandEntry() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
+        
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
     }
     
@@ -77,6 +78,7 @@ class EnterNumberTests: XCTestCase {
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(1)
+        
         XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(1)) ?? false)
     }
     
@@ -107,5 +109,4 @@ class EnterNumberTests: XCTestCase {
 
         XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(123456789)) ?? false)
     }
-
 }

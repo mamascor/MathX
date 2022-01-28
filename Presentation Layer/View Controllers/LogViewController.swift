@@ -44,7 +44,6 @@ class LogViewController: UITableViewController {
     }
     
     private func decorateViewWithTheme(_ theme: CalculatorTheme) {
-        
         tableView.backgroundColor = UIColor(hex: theme.background)
         tableView.separatorColor = UIColor(hex: theme.operatorNormal)
         navigationItem.rightBarButtonItem?.tintColor = UIColor(hex: theme.operatorNormal)
@@ -54,19 +53,26 @@ class LogViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupNavigationBar()
+    }
+    
+    //MARK: - Navigation Bar
+    
+    private func setupNavigationBar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneButtoonPressed))
     }
 
+    @objc private func doneButtoonPressed() {
+        dismiss(animated: true, completion: nil)
+    }
+    
     // MARK: - TableView Data Source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return datasource.count
     }
 
@@ -93,7 +99,6 @@ class LogViewController: UITableViewController {
     
     
     private func decorateTableViewCell(_ cell: MathEquationTableViewCell, withTheme theme: CalculatorTheme, from indexPath: IndexPath) {
-        
         cell.backgroundColor = UIColor(hex: theme.background)
         cell.selectedBackgroundView?.backgroundColor = UIColor(hex: theme.operatorNormal )
         cell.lhsLabel.textColor = UIColor(hex: theme.display)
@@ -112,9 +117,7 @@ class LogViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         guard let cell = tableView.cellForRow(at: indexPath) as? MathEquationTableViewCell else { return }
-        
         let mathEquation = datasource[indexPath.row]
         let userInfo: [AnyHashable: Any] = ["iOSBFree.com.calc.LogViewController.pasteMathEquation": mathEquation]
         NotificationCenter.default.post(name: Notification.Name("iOSBFree.com.calc.LogViewController.pasteMathEquation"), object: nil, userInfo: userInfo)
@@ -128,11 +131,5 @@ class LogViewController: UITableViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
             self?.dismiss(animated: true, completion: nil)
         }
-    }
-    
-    // MARK: - Navigation
-
-    @objc private func doneButtoonPressed() {
-        dismiss(animated: true, completion: nil)
     }
 }

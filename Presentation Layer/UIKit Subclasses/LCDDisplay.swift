@@ -31,7 +31,6 @@ import UIKit
 
 class LCDDisplay: UIView {
     
-    
     @IBOutlet var label: UILabel!
     
     //MARK: - Properties
@@ -53,7 +52,6 @@ class LCDDisplay: UIView {
     }
     
     private func sharedInit() {
-        
         layer.cornerRadius = 20
         layer.masksToBounds = true
         setupBackgroundColorInOrderToAnimate()
@@ -92,9 +90,7 @@ class LCDDisplay: UIView {
     // MARK: - UIMenuController
     
     @objc private func showMenu(from recognizer: UILongPressGestureRecognizer) {
-        
         registerNotifications()
-        
         becomeFirstResponder()
         
         let menu = UIMenuController.shared
@@ -150,7 +146,6 @@ class LCDDisplay: UIView {
     }
     
     private func hideMenu() {
-        
         UIMenuController.shared.hideMenu()
         resignFirstResponder()
         unregisterNotifications()
@@ -162,7 +157,6 @@ class LCDDisplay: UIView {
     }
     
     @objc override func paste(_ sender: Any?) {
-        
         guard
             let proposedNumericValue = UIPasteboard.general.string,
             let decimal = Double(proposedNumericValue) else { return }
@@ -175,7 +169,6 @@ class LCDDisplay: UIView {
     
     
     @objc private func displayMathEquationHistory(_ sender: Any?) {
-        
         hideMenu()
         NotificationCenter.default.post(name: Notification.Name("iOSBFree.com.calc.CopyableLabel.displayHistory"), object: nil)
     }

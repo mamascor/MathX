@@ -61,8 +61,6 @@ class CalcViewController: UIViewController {
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var equalsButton: UIButton!
-    
-    private var needsToSetupView = true
      
     // MARK: - Gesture Properties
     
@@ -76,7 +74,6 @@ class CalcViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         addThemeGestureRecogniser()
         lcdDisplay.alpha = 0
         registerForNotifications()
@@ -94,21 +91,18 @@ class CalcViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        calculator.restoreFromLastSession()
-        lcdDisplay.label.text = calculator.lcdDisplayText
-        
-        if calculator.decimalRepresentationOfEditingOperand == 0 {
-            fadeInLCDDisplay()
-        } else {
+        if calculator.restoreFromLastSession() {
             moveInLCDDisplay()
+        } else {
+            fadeInLCDDisplay()
         }
+        
+        lcdDisplay.label.text = calculator.lcdDisplayText
     }
     
     // MARK: - Decorate
     
     private func decorateView(withTheme theme: CalculatorTheme) {
-        
         view.backgroundColor = UIColor(hex: theme.background)
         calculatorView.backgroundColor = view.backgroundColor
         
@@ -177,7 +171,6 @@ class CalcViewController: UIViewController {
     
     private func selectOperatorButton(_ button: UIButton, _ selected: Bool = false) {
         let selectedTheme = ThemeManager.shared.currentTheme
-        
         button.backgroundColor = selected ? UIColor(hex: selectedTheme.operatorSelected) : UIColor(hex: selectedTheme.operatorNormal)
         button.tintColor = selected ? UIColor(hex: selectedTheme.operatorTitleSelected) : UIColor(hex: selectedTheme.operatorTitle)
         button.becomeRound()
@@ -186,7 +179,6 @@ class CalcViewController: UIViewController {
     // MARK: - Gesture Recognisers
     
     private func addThemeGestureRecogniser() {
-        
         themeGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(self.themeGestureRecogniserDidTap))
         themeGestureRecogniser?.numberOfTapsRequired = 2
         if let gesture = themeGestureRecogniser {
@@ -221,7 +213,6 @@ class CalcViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func clearButtonPressed(_ sender: UIButton) {
-        
         deselectOperatorButtons()
         sender.bounce()
         
@@ -233,21 +224,18 @@ class CalcViewController: UIViewController {
     }
     
     @IBAction func negateButtonPressed(_ sender: UIButton) {
-         
         sender.bounce()
         calculator.negatePressed()
         lcdDisplay.label.text = calculator.lcdDisplayText
     }
     
     @IBAction func percentageButtonPressed(_ sender: UIButton) {
-         
         sender.bounce()
         calculator.percentagePressed()
         lcdDisplay.label.text = calculator.lcdDisplayText
     }
     
     @IBAction func divideButtonPressed(_ sender: UIButton) {
-        
         deselectOperatorButtons()
         selectOperatorButton(divideButton, true)
         
@@ -258,7 +246,6 @@ class CalcViewController: UIViewController {
     }
     
     @IBAction func multiplyButtonPressed(_ sender: UIButton) {
-         
         deselectOperatorButtons()
         selectOperatorButton(multiplyButton, true)
         
@@ -269,7 +256,6 @@ class CalcViewController: UIViewController {
     }
     
     @IBAction func minusButtonPressed(_ sender: UIButton) {
-         
         deselectOperatorButtons()
         selectOperatorButton(minusButton, true)
         
@@ -280,7 +266,6 @@ class CalcViewController: UIViewController {
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
-         
         deselectOperatorButtons()
         selectOperatorButton(addButton, true)
         
@@ -291,7 +276,6 @@ class CalcViewController: UIViewController {
     }
     
     @IBAction func equalButtonPressed(_ sender: UIButton) {
-        
         deselectOperatorButtons()
         sender.bounce()
         
@@ -300,7 +284,6 @@ class CalcViewController: UIViewController {
     }
     
     @IBAction func decimalButtonPressed(_ sender: UIButton) {
-        
         deselectOperatorButtons()
         sender.bounce()
         
@@ -309,7 +292,6 @@ class CalcViewController: UIViewController {
     }
     
     @IBAction func numberButtonPressed(_ sender: UIButton) {
-        
         deselectOperatorButtons()
         sender.bounce()
         let number = sender.tag
@@ -328,7 +310,6 @@ class CalcViewController: UIViewController {
     
     private func moveInLCDDisplay() {
         lcdDisplay.transform = CGAffineTransform(translationX: 0, y: lcdDisplay.frame.height * 0.5)
-        
         UIView.animate(withDuration: 0.35, delay: 0.2, options: .curveEaseOut) { [weak self] in
             
             self?.lcdDisplay.alpha = 1
@@ -340,7 +321,6 @@ class CalcViewController: UIViewController {
     // MARK: - Navigation
     
     private func presentLogScreen() {
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let logViewController: LogViewController = storyboard.instantiateViewController(withIdentifier: "LogViewController") as? LogViewController else { return }
         
@@ -367,25 +347,21 @@ class CalcViewController: UIViewController {
     }
     
     @objc private func didReceivePasteNotification(notification: Notification) {
-        
         guard let decimalValue = notification.userInfo?["iOSBFree.com.calc.CopyableLabel.paste"] as? Double else { return }
         pasteNewValueIntoCalculator(Decimal(decimalValue))
     }
     
     @objc private func didReceivePasteMathEquationNotification(notification: Notification) {
-        
         guard let mathEquation = notification.userInfo?["iOSBFree.com.calc.LogViewController.pasteMathEquation"] as? MathEquation else { return }
         pasteNewValueIntoCalculator(mathEquation)
     }
     
     private func pasteNewValueIntoCalculator(_ decimal: Decimal) {
-        
         calculator.pasteIn(decimal)
         lcdDisplay.label.text = calculator.lcdDisplayText
     }
     
     private func pasteNewValueIntoCalculator(_ mathEquation: MathEquation) {
-        
         calculator.pasteIn(mathEquation)
         lcdDisplay.label.text = calculator.lcdDisplayText
     }

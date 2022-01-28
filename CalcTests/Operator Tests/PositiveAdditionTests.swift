@@ -58,8 +58,7 @@ class PositiveAdditionTests: XCTestCase {
     }
     
     func testAdditionUsingPinpad() throws {
-        
-        // 10 options on the pin pad
+        // → 10 options on the pin pad
         continuouslyAdd(using: 1)
         continuouslyAdd(using: 2)
         continuouslyAdd(using: 3)
@@ -73,8 +72,6 @@ class PositiveAdditionTests: XCTestCase {
     }
     
     private func continuouslyAdd(using number: Int) {
-        
-        // setup
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(number)
         calculatorEngine.addPressed()
@@ -95,7 +92,7 @@ class PositiveAdditionTests: XCTestCase {
         XCTAssertTrue(firstRightHandValue.isEqual(to: Decimal(number)))
         XCTAssertTrue(firstResult.isEqual(to: Decimal(number * 2)))
         
-        // loop forward
+        // → Loop through more tests
         var currentResult: Decimal = firstResult
         for iteration in 1...10 {
             calculatorEngine.addPressed()
@@ -118,12 +115,10 @@ class PositiveAdditionTests: XCTestCase {
             
             currentResult = result
         }
-        
     }
   
     func testMultiplicationFromPinpad() throws {
-        
-        // 10 options on the pin pad
+        // → 10 options on the pin pad
         testEnteringNewEquationAfterViewingAResult(using: 1)
         testEnteringNewEquationAfterViewingAResult(using: 2)
         testEnteringNewEquationAfterViewingAResult(using: 3)
@@ -138,8 +133,6 @@ class PositiveAdditionTests: XCTestCase {
     
     private func testEnteringNewEquationAfterViewingAResult (using number: Int) {
         //Input 7: 7 + 1, 7 + 2, 7 + 3, 7 + 4, 7 + 5, 7 + 6, 7 + 7, 7 + 8, 7 + 9
-        
-        // setup
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
@@ -160,7 +153,7 @@ class PositiveAdditionTests: XCTestCase {
         XCTAssertTrue(firstRightHandValue.isEqual(to: Decimal(number)))
         XCTAssertTrue(firstResult.isEqual(to: Decimal(number + 1)))
         
-        // loop forward
+        // → Loop through more tests
         for iteration in 1...10 {
             calculatorEngine.numberPressed(number)
             calculatorEngine.addPressed()

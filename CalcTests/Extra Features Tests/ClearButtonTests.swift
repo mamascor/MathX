@@ -36,7 +36,6 @@ import XCTest
 
 class ClearButtonTests: XCTestCase {
 
-
     // MARK: - Result
     
     func testClear() throws {
@@ -47,6 +46,7 @@ class ClearButtonTests: XCTestCase {
         calculatorEngine.equalsPressed()
         
         calculatorEngine.clearPressed()
+        
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(0)))
         XCTAssertTrue(calculatorEngine.rightHandOperand == nil)
         XCTAssertTrue(calculatorEngine.resultOfEquation == nil)
@@ -62,6 +62,7 @@ class ClearButtonTests: XCTestCase {
         calculatorEngine.percentagePressed()
         
         calculatorEngine.clearPressed()
+        
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(0)))
         XCTAssertTrue(calculatorEngine.rightHandOperand == nil)
         XCTAssertTrue(calculatorEngine.resultOfEquation == nil)
@@ -75,8 +76,9 @@ class ClearButtonTests: XCTestCase {
         calculatorEngine.equalsPressed()
         
         calculatorEngine.negatePressed()
-        
+
         calculatorEngine.clearPressed()
+        
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(0)))
         XCTAssertTrue(calculatorEngine.rightHandOperand == nil)
         XCTAssertTrue(calculatorEngine.resultOfEquation == nil)

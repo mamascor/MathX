@@ -43,7 +43,6 @@ class MathEquationTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         selectedBackgroundView = UIView()
         tick.alpha = 0
     }

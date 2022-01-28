@@ -46,8 +46,8 @@
             filePath = "Presentation Layer/View Controllers/LogViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "Business Logic Layer/Calculator/MathEntry.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
             landmarkName = "appendNewNumber(_:toPreviousEntry:previousLCDDisplay:amendAterDecimalPoint:)"
             landmarkType = "7">
          </BreakpointContent>

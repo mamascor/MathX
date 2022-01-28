@@ -36,6 +36,7 @@ struct iOSBFreeCalculatorEngine {
     
     // MARK: - Variables
     
+    private let errorMessage = "Error"
     private var historyLog: [MathEquation] = []
     private var currentMathEntry: MathEntry = MathEntry()
     
@@ -60,21 +61,21 @@ struct iOSBFreeCalculatorEngine {
         // → For A Completed equation
         if currentMathEntry.isCompleted {
             guard currentMathEntry.equation.result?.isNaN == false else {
-                return "Error"
+                return errorMessage
             }
             
             guard let result = currentMathEntry.equation.result else {
-                return "Error"
+                return errorMessage
             }
             
             let formattedResult = result.formatted()
             if formattedResult.count > 12 {
-                return scientificCalcFormatter.string(from: result as NSDecimalNumber) ?? "Error"
+                return scientificCalcFormatter.string(from: result as NSDecimalNumber) ?? errorMessage
             }
             return formattedResult
         }
         
-        let formattedResult = currentMathEntry.lcdDisplayString ?? "Error"
+        let formattedResult = currentMathEntry.lcdDisplayString ?? errorMessage
         
         //  → For A Left Or Right Values i.e the operands
         if formattedResult.count > 9 {
@@ -87,15 +88,11 @@ struct iOSBFreeCalculatorEngine {
                 // If we dont have a rhs value then the user hasnt pressed any keys yet
                 operand = currentMathEntry.equation.rhs ?? currentMathEntry.equation.lhs
             }
-            return scientificCalcFormatter.string(from: operand as NSDecimalNumber) ?? "Error"
+            return scientificCalcFormatter.string(from: operand as NSDecimalNumber) ?? errorMessage
         }
         
-        //  → Value from MathEntry
+        //  → Display value from MathEntry
         return formattedResult
-    }
-    
-    var decimalRepresentationOfEditingOperand: Decimal {
-        currentMathEntry.decimalRepresentationOfEditingOperand
     }
 
     var leftHandOperand: Decimal {
@@ -117,7 +114,7 @@ struct iOSBFreeCalculatorEngine {
     }
     
     mutating func clearHistory() {
-            historyLog = []
+        historyLog = []
     }
     
     mutating func clearPressed() {
@@ -138,7 +135,6 @@ struct iOSBFreeCalculatorEngine {
         if currentMathEntry.isCompleted {
             currentMathEntry = MathEntry()
         }
-        
         currentMathEntry.applyDecimalPoint()
     }
     
@@ -165,8 +161,6 @@ struct iOSBFreeCalculatorEngine {
     }
     
     mutating func equalsPressed() {
-        
-        // Apply the same addition/ multiplation/ subtraction etc to the displayed result
         if currentMathEntry.isCompleted {
             var newMathEntry = MathEntry()
             newMathEntry.equation.lhs = currentMathEntry.equation.result ?? 0
@@ -187,14 +181,13 @@ struct iOSBFreeCalculatorEngine {
     private mutating func executeCurrentMathEntry() {
         currentMathEntry.execute()
         historyLog.append(currentMathEntry.equation)
-        printEquation(currentMathEntry.equation)
+        printEquationToDebugConsole(currentMathEntry.equation)
         saveSession()
     }
     
     // MARK: - Print To Console
     
-    private func printEquation(_ equation: MathEquation) {
-        
+    private func printEquationToDebugConsole(_ equation: MathEquation) {
         var operatorString = ""
         switch equation.operation {
         case .multiply: operatorString = "*"
@@ -205,17 +198,16 @@ struct iOSBFreeCalculatorEngine {
             break
         }
         
+        // → Using the print command only works in debug mode
         print(equation.lhs.formatted() + " " + operatorString + " " + (equation.rhs?.formatted() ?? "") + " = " + (equation.result?.formatted() ?? ""))
     }
     
     // MARK: - Number Entry
     
     mutating func numberPressed(_ number: Int) {
-        
         if currentMathEntry.isCompleted {
             currentMathEntry = MathEntry()
         }
-        
         currentMathEntry.enterNumber(number)
     }
     
@@ -232,7 +224,6 @@ struct iOSBFreeCalculatorEngine {
     }
     
     private mutating func populateCurrentMathEntryWithPreviousResult(_ continueEditingResult: Bool = false) {
-        
         var newMathEntry = MathEntry()
         newMathEntry.equation.lhs = currentMathEntry.equation.result ?? 0
         if continueEditingResult == false {
@@ -243,12 +234,12 @@ struct iOSBFreeCalculatorEngine {
     
     private mutating func commitAndPopulatePreviousResultIfNeeded(_ continueEditingResult: Bool = false) {
         
-        // Scenario 1: user enters 5 * 5 *
+        // → Scenario 1: user enters 5 * 5 *
         if commitCurrentEquationIfNeeded() {
             populateCurrentMathEntryWithPreviousResult(continueEditingResult)
         }
         
-        // secanrio 2: user enters 5 * 5 = *
+        // → secanrio 2: user enters 5 * 5 = *
         if currentMathEntry.isCompleted {
             populateCurrentMathEntryWithPreviousResult()
         }
@@ -262,13 +253,12 @@ struct iOSBFreeCalculatorEngine {
     
     // MARK: - Restoring Session
     
-    mutating func restoreFromLastSession() {
-        
+    mutating func restoreFromLastSession() -> Bool {
         guard
             let lastExecutedEquation = readSavedEquationFromDisk(),
             let lastExecutedResult = lastExecutedEquation.result
             else {
-            return
+            return false
         }
         
         var newMathEntry = MathEntry()
@@ -277,6 +267,7 @@ struct iOSBFreeCalculatorEngine {
         newMathEntry.equation.rhs = lastExecutedResult
         newMathEntry.execute()
         currentMathEntry = newMathEntry
+        return true
     }
     
     private func saveSession() {
@@ -312,26 +303,20 @@ struct iOSBFreeCalculatorEngine {
     // MARK: - Copy & Paste
     
     mutating func pasteIn(_ decimal: Decimal) {
-        
-        // Are we displaying a completed equation?
         if currentMathEntry.isCompleted {
             currentMathEntry = MathEntry()
         }
         
-        // save the value
         switch currentMathEntry.editingSide {
-        case .leftHandSide: currentMathEntry.equation.lhs = decimal
-        case .rightHandSide: currentMathEntry.equation.rhs = decimal
+            case .leftHandSide: currentMathEntry.equation.lhs = decimal
+            case .rightHandSide: currentMathEntry.equation.rhs = decimal
         }
     }
     
     mutating func pasteIn(_ mathEquation: MathEquation) {
-        
-        // Are we displaying a completed equation?
         if currentMathEntry.isCompleted {
             currentMathEntry = MathEntry()
         }
-        
         currentMathEntry.equation = mathEquation
     }
 }

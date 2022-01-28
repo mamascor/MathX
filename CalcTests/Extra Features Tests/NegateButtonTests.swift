@@ -40,7 +40,9 @@ class NegateButtonTests: XCTestCase {
     func testSmall_LeftHandEntry() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
+        
         calculatorEngine.negatePressed()
+        
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(-1)))
     }
     
@@ -49,6 +51,7 @@ class NegateButtonTests: XCTestCase {
         calculatorEngine.numberPressed(1)
         calculatorEngine.numberPressed(2)
         calculatorEngine.numberPressed(3)
+        
         calculatorEngine.negatePressed()
 
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(-123)))
@@ -65,6 +68,7 @@ class NegateButtonTests: XCTestCase {
         calculatorEngine.numberPressed(7)
         calculatorEngine.numberPressed(8)
         calculatorEngine.numberPressed(9)
+        
         calculatorEngine.negatePressed()
 
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(-123456789)))
@@ -75,6 +79,7 @@ class NegateButtonTests: XCTestCase {
     func testLeftHandEntryTwice() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
+        
         calculatorEngine.negatePressed()
         calculatorEngine.negatePressed()
 
@@ -84,6 +89,7 @@ class NegateButtonTests: XCTestCase {
     func testLargeLeftHandEntryTwice() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(100)
+        
         calculatorEngine.negatePressed()
         calculatorEngine.negatePressed()
 
@@ -93,6 +99,7 @@ class NegateButtonTests: XCTestCase {
     func testLeftHandEntryThrice() throws {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
+        
         calculatorEngine.negatePressed()
         calculatorEngine.negatePressed()
         calculatorEngine.negatePressed()
@@ -107,7 +114,9 @@ class NegateButtonTests: XCTestCase {
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(1)
+        
         calculatorEngine.negatePressed()
+        
         XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(-1)) ?? false)
     }
     
@@ -118,6 +127,7 @@ class NegateButtonTests: XCTestCase {
         calculatorEngine.numberPressed(3)
         calculatorEngine.numberPressed(2)
         calculatorEngine.numberPressed(1)
+        
         calculatorEngine.negatePressed()
 
         XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(-321)) ?? false)
@@ -136,6 +146,7 @@ class NegateButtonTests: XCTestCase {
         calculatorEngine.numberPressed(7)
         calculatorEngine.numberPressed(8)
         calculatorEngine.numberPressed(9)
+        
         calculatorEngine.negatePressed()
 
         XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(-123456789)) ?? false)
@@ -149,6 +160,7 @@ class NegateButtonTests: XCTestCase {
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.negatePressed()
+        
         calculatorEngine.negatePressed()
 
         XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(1)) ?? false)
@@ -160,6 +172,7 @@ class NegateButtonTests: XCTestCase {
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(100)
         calculatorEngine.negatePressed()
+        
         calculatorEngine.negatePressed()
 
         XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(100)) ?? false)
@@ -170,6 +183,7 @@ class NegateButtonTests: XCTestCase {
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(1)
+        
         calculatorEngine.negatePressed()
         calculatorEngine.negatePressed()
         calculatorEngine.negatePressed()
@@ -200,7 +214,6 @@ class NegateButtonTests: XCTestCase {
         XCTAssertTrue(rhd1.isEqual(to: Decimal(1)))
         XCTAssertTrue(result1.isEqual(to: Decimal(2)))
         
-        
         calculatorEngine.negatePressed()
         
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: result1 * -1))
@@ -229,7 +242,6 @@ class NegateButtonTests: XCTestCase {
         XCTAssertTrue(rhd1.isEqual(to: Decimal(1)))
         XCTAssertTrue(result1.isEqual(to: Decimal(2)))
         
-        
         calculatorEngine.negatePressed()
         calculatorEngine.negatePressed()
         
@@ -253,7 +265,9 @@ class NegateButtonTests: XCTestCase {
         calculatorEngine.numberPressed(7)
         calculatorEngine.numberPressed(8)
         calculatorEngine.numberPressed(9)
+        
         calculatorEngine.negatePressed()
+        
         XCTAssertTrue(calculatorEngine.leftHandOperand.formatted() == Decimal(-0.123456789).formatted())
     }
     
@@ -274,7 +288,9 @@ class NegateButtonTests: XCTestCase {
         calculatorEngine.numberPressed(7)
         calculatorEngine.numberPressed(8)
         calculatorEngine.numberPressed(9)
+        
         calculatorEngine.negatePressed()
+        
         XCTAssertTrue(calculatorEngine.rightHandOperand?.formatted() ?? "" == Decimal(-0.123456789).formatted())
     }
 }
