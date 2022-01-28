@@ -35,13 +35,16 @@ import Foundation
 struct iOSBFreeCalculatorEngine {
     
     // MARK: - Variables
+    
     private var historyLog: [MathEquation] = []
     private var currentMathEntry: MathEntry = MathEntry()
     
     // MARK: - Managers
+    
     private let dataStore = DataStoreManager(key: "iOSBFree.com.calc.CalculatorEngine.total")
     
     // MARK: - Scientific Calc Formatter
+    
     private let scientificCalcFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .scientific
@@ -51,6 +54,7 @@ struct iOSBFreeCalculatorEngine {
     }()
     
     // MARK: - Display
+    
     var lcdDisplayText: String {
         
         // → For A Completed equation
@@ -131,7 +135,6 @@ struct iOSBFreeCalculatorEngine {
     }
     
     mutating func decimalPressed() {
-        
         if currentMathEntry.isCompleted {
             currentMathEntry = MathEntry()
         }

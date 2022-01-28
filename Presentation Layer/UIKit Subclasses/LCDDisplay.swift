@@ -35,11 +35,13 @@ class LCDDisplay: UIView {
     @IBOutlet var label: UILabel!
     
     //MARK: - Properties
+    
     var historyMenuItem: UIMenuItem {
         return UIMenuItem(title: "View Log", action: #selector(self.displayMathEquationHistory(_:)))
     }
     
     // MARK: - Initialisers
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.sharedInit()
@@ -88,6 +90,7 @@ class LCDDisplay: UIView {
     }
     
     // MARK: - UIMenuController
+    
     @objc private func showMenu(from recognizer: UILongPressGestureRecognizer) {
         
         registerNotifications()

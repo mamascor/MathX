@@ -35,15 +35,18 @@ import Foundation
 struct MathEntry {
     
     // MARK: - Operation Side Enum
+    
     enum OperationSide {
         case leftHandSide
         case rightHandSide
     }
     
     // MARK: - Constants
+    
     let decimalSymbol = Locale.current.decimalSeparator ?? "."
     
     // MARK: - variables
+    
     var equation: MathEquation = MathEquation()
     var editingSide: OperationSide = .leftHandSide
     var isEnteringDecimal: Bool = false
@@ -148,6 +151,7 @@ struct MathEntry {
     }
     
     // MARK: - Math Operations
+    
     mutating func divide() {
         guard isCompleted == false else { return }
         
@@ -305,5 +309,4 @@ struct MathEntry {
         let nan = Decimal.nan
         return (nan, nan.formatted())
     }
-    
 }

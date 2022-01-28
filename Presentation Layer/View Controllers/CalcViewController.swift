@@ -167,6 +167,7 @@ class CalcViewController: UIViewController {
     }
     
     // MARK: - Select Operator Buttons
+    
     private func deselectOperatorButtons() {
         selectOperatorButton(divideButton, false)
         selectOperatorButton(multiplyButton, false)
@@ -351,6 +352,7 @@ class CalcViewController: UIViewController {
     }
     
     // MARK: - Notifications
+    
     private func registerForNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.didReceivePasteNotification(notification:)), name: Notification.Name("iOSBFree.com.calc.CopyableLabel.paste"), object: nil)
         

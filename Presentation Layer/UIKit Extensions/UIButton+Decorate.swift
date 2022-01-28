@@ -38,5 +38,4 @@ extension UIButton {
         clipsToBounds = true
         layer.cornerRadius = bounds.height / 2
     }
-
 }
