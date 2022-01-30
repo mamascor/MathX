@@ -38,7 +38,7 @@ struct iOSBFreeCalculatorEngine {
     
     private let errorMessage = "Error"
     private var historyLog: [MathEquation] = []
-    private var currentMathEntry: MathEntryController = MathEntryController()
+    private var currentMathEntry: MathInputController = MathInputController()
     
     // MARK: - Managers
     
@@ -57,42 +57,26 @@ struct iOSBFreeCalculatorEngine {
     // MARK: - Display
     
     var lcdDisplayText: String {
-        
-        // → For A Completed equation
-        if currentMathEntry.isCompleted {
-            guard currentMathEntry.equation.result?.isNaN == false else {
-                return errorMessage
-            }
-            
-            guard let result = currentMathEntry.equation.result else {
-                return errorMessage
-            }
-            
-            let formattedResult = result.formatted()
-            if formattedResult.count > 12 {
-                return scientificCalcFormatter.string(from: result as NSDecimalNumber) ?? errorMessage
-            }
+        //  → Display errors first
+        guard currentMathEntry.containsNans == false else {
+            return errorMessage
+        }
+
+        //  → Use standard format - for less than 10 characters
+        let formattedResult = currentMathEntry.displayStringForTheUserToSee ?? errorMessage
+        guard formattedResult.count > 9 else {
             return formattedResult
         }
         
-        let formattedResult = currentMathEntry.lcdDisplayString ?? errorMessage
-        
-        //  → For A Left Or Right Values i.e the operands
-        if formattedResult.count > 9 {
-            var operand = Decimal.nan
-            switch currentMathEntry.editingSide {
-            case .leftHandSide:
-                operand = currentMathEntry.equation.lhs
-                
-            case .rightHandSide:
-                // If we dont have a rhs value then the user hasnt pressed any keys yet
-                operand = currentMathEntry.equation.rhs ?? currentMathEntry.equation.lhs
-            }
-            return scientificCalcFormatter.string(from: operand as NSDecimalNumber) ?? errorMessage
+        //  → Use Scientific Calculator format
+        var operand = Decimal.nan
+        switch currentMathEntry.editingSide {
+        case .leftHandSide:
+            operand = currentMathEntry.equation.lhs
+        case .rightHandSide:
+            operand = currentMathEntry.equation.rhs ?? currentMathEntry.equation.lhs
         }
-        
-        //  → Display value from MathEntry
-        return formattedResult
+        return scientificCalcFormatter.string(from: operand as NSDecimalNumber) ?? errorMessage
     }
 
     var leftHandOperand: Decimal {
@@ -118,7 +102,7 @@ struct iOSBFreeCalculatorEngine {
     }
     
     mutating func clearPressed() {
-        currentMathEntry = MathEntryController()
+        currentMathEntry = MathInputController()
     }
     
     mutating func negatePressed() {
@@ -133,7 +117,7 @@ struct iOSBFreeCalculatorEngine {
     
     mutating func decimalPressed() {
         if currentMathEntry.isCompleted {
-            currentMathEntry = MathEntryController()
+            currentMathEntry = MathInputController()
         }
         currentMathEntry.applyDecimalPoint()
     }
@@ -162,7 +146,7 @@ struct iOSBFreeCalculatorEngine {
     
     mutating func equalsPressed() {
         if currentMathEntry.isCompleted {
-            var newMathEntry = MathEntryController()
+            var newMathEntry = MathInputController()
             newMathEntry.equation.lhs = currentMathEntry.equation.result ?? 0
             newMathEntry.equation.operation = currentMathEntry.equation.operation
             newMathEntry.equation.rhs = currentMathEntry.equation.rhs
@@ -206,7 +190,7 @@ struct iOSBFreeCalculatorEngine {
     
     mutating func numberPressed(_ number: Int) {
         if currentMathEntry.isCompleted {
-            currentMathEntry = MathEntryController()
+            currentMathEntry = MathInputController()
         }
         currentMathEntry.enterNumber(number)
     }
@@ -224,9 +208,9 @@ struct iOSBFreeCalculatorEngine {
     }
     
     private mutating func populateCurrentMathEntryWithPreviousResult(_ continueEditingResult: Bool = false) {
-        var newMathEntry = MathEntryController()
+        var newMathEntry = MathInputController()
         newMathEntry.equation.lhs = currentMathEntry.equation.result ?? 0
-        newMathEntry.lcdDisplayString = newMathEntry.equation.lhs.formatted()
+        newMathEntry.displayStringForTheUserToSee = newMathEntry.equation.lhs.formatted()
         
         if continueEditingResult == false {
             newMathEntry.editingSide = .rightHandSide
@@ -263,7 +247,7 @@ struct iOSBFreeCalculatorEngine {
             return false
         }
         
-        var newMathEntry = MathEntryController()
+        var newMathEntry = MathInputController()
         newMathEntry.equation.lhs = 1
         newMathEntry.equation.operation = .multiply
         newMathEntry.equation.rhs = lastExecutedResult
@@ -283,7 +267,7 @@ struct iOSBFreeCalculatorEngine {
         }
     }
     
-    private func isMathEntrySafeToBeSaved(_ mathEntry: MathEntryController) -> Bool {
+    private func isMathEntrySafeToBeSaved(_ mathEntry: MathInputController) -> Bool {
         guard mathEntry.containsNans == false,  // crashes when encoding nans
               let _ = mathEntry.equation.result,
               mathEntry.isCompleted
@@ -308,19 +292,16 @@ struct iOSBFreeCalculatorEngine {
     
     mutating func pasteIn(_ decimal: Decimal) {
         if currentMathEntry.isCompleted {
-            currentMathEntry = MathEntryController()
+            currentMathEntry = MathInputController()
         }
         
-        switch currentMathEntry.editingSide {
-            case .leftHandSide: currentMathEntry.equation.lhs = decimal
-            case .rightHandSide: currentMathEntry.equation.rhs = decimal
-        }
+        currentMathEntry.pasteIn(decimal)
     }
     
-    mutating func pasteIn(_ mathEquation: MathEquation) {
-        if currentMathEntry.isCompleted {
-            currentMathEntry = MathEntryController()
+    mutating func pasteInResult(from mathEquation: MathEquation) {
+        guard let result = mathEquation.result else {
+            return
         }
-        currentMathEntry.equation = mathEquation
+        pasteIn(result)
     }
 }

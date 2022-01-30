@@ -355,7 +355,7 @@ class CalcViewController: UIViewController {
     
     @objc private func didReceivePasteMathEquationNotification(notification: Notification) {
         guard let mathEquation = notification.userInfo?[LCDDisplay.pasteDictionaryKey] as? MathEquation else { return }
-        pasteNewValueIntoCalculator(mathEquation)
+        pasteResultIntoCalculator(from: mathEquation)
     }
     
     private func pasteNewValueIntoCalculator(_ decimal: Decimal) {
@@ -363,8 +363,8 @@ class CalcViewController: UIViewController {
         lcdDisplay.label.text = calculator.lcdDisplayText
     }
     
-    private func pasteNewValueIntoCalculator(_ mathEquation: MathEquation) {
-        calculator.pasteIn(mathEquation)
+    private func pasteResultIntoCalculator(from mathEquation: MathEquation) {
+        calculator.pasteInResult(from: mathEquation)
         lcdDisplay.label.text = calculator.lcdDisplayText
     }
 }
