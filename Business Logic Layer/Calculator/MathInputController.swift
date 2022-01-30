@@ -44,6 +44,7 @@ struct MathInputController {
     // MARK: - Constants
     
     let decimalSymbol = Locale.current.decimalSeparator ?? "."
+    private let errorMessage = "Error"
     
     // MARK: - variables
     
@@ -51,6 +52,41 @@ struct MathInputController {
     var editingSide: OperationSide = .leftHandSide
     var isEnteringDecimal: Bool = false
     var displayStringForTheUserToSee: String?
+    
+    // MARK: - Scientific Calc Formatter
+    
+    private let scientificCalcFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .scientific
+        formatter.maximumFractionDigits = 3
+        formatter.exponentSymbol = "e"
+        return formatter
+    }()
+    
+    // MARK: - Display
+    
+    var lcdDisplayText: String {
+        //  → Display errors first
+        guard containsNans == false else {
+            return errorMessage
+        }
+
+        //  → Use standard format - for less than 10 characters
+        let formattedResult = displayStringForTheUserToSee ?? errorMessage
+        guard formattedResult.count > 9 else {
+            return formattedResult
+        }
+        
+        //  → Use Scientific Calculator format
+        var operand = Decimal.nan
+        switch editingSide {
+        case .leftHandSide:
+            operand = equation.lhs
+        case .rightHandSide:
+            operand = equation.rhs ?? equation.lhs
+        }
+        return scientificCalcFormatter.string(from: operand as NSDecimalNumber) ?? errorMessage
+    }
     
     // MARK: - Initialiser
     

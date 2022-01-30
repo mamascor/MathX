@@ -44,41 +44,14 @@ struct iOSBFreeCalculatorEngine {
     
     private let dataStore = DataStoreManager(key: "iOSBFree.com.calc.CalculatorEngine.total")
     
-    // MARK: - Scientific Calc Formatter
-    
-    private let scientificCalcFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .scientific
-        formatter.maximumFractionDigits = 3
-        formatter.exponentSymbol = "e"
-        return formatter
-    }()
-    
     // MARK: - Display
     
     var lcdDisplayText: String {
-        //  → Display errors first
-        guard currentMathEntry.containsNans == false else {
-            return errorMessage
-        }
-
-        //  → Use standard format - for less than 10 characters
-        let formattedResult = currentMathEntry.displayStringForTheUserToSee ?? errorMessage
-        guard formattedResult.count > 9 else {
-            return formattedResult
-        }
-        
-        //  → Use Scientific Calculator format
-        var operand = Decimal.nan
-        switch currentMathEntry.editingSide {
-        case .leftHandSide:
-            operand = currentMathEntry.equation.lhs
-        case .rightHandSide:
-            operand = currentMathEntry.equation.rhs ?? currentMathEntry.equation.lhs
-        }
-        return scientificCalcFormatter.string(from: operand as NSDecimalNumber) ?? errorMessage
+        currentMathEntry.lcdDisplayText
     }
-
+    
+    // MARK: - Properties For Testing
+    
     var leftHandOperand: Decimal {
         currentMathEntry.equation.lhs
     }
