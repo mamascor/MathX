@@ -226,6 +226,8 @@ struct iOSBFreeCalculatorEngine {
     private mutating func populateCurrentMathEntryWithPreviousResult(_ continueEditingResult: Bool = false) {
         var newMathEntry = MathEntryController()
         newMathEntry.equation.lhs = currentMathEntry.equation.result ?? 0
+        newMathEntry.lcdDisplayString = newMathEntry.equation.lhs.formatted()
+        
         if continueEditingResult == false {
             newMathEntry.editingSide = .rightHandSide
         }

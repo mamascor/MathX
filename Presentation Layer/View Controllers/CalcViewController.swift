@@ -302,7 +302,7 @@ class CalcViewController: UIViewController {
     
     // MARK: - Animate
     
-    // → 💡 Just a thought: The beginning sequence is important because it creates the initial first impressions to the user.
+    // → 💡 Just a thought: The app-opening experience is important because it creates the initial first impressions to the user.
     //      Why not use animations to generate a bit of personality?
     
     private func fadeInLCDDisplay() {

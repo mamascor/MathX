@@ -116,7 +116,10 @@ class ThemeManager {
         if nextThemeIndex > themes.count - 1 {
             nextThemeIndex = 0
         }
-        let nextTheme = themes[nextThemeIndex]
+        guard let nextTheme = themes[safe: nextThemeIndex] else {
+            return
+        }
+        
         updateSystemWithTheme(nextTheme)
     }
     

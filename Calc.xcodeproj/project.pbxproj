@@ -16,6 +16,7 @@
 		0C4DA61027A378D00081EC12 /* Our Free Courses in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA60F27A378D00081EC12 /* Our Free Courses */; };
 		0C4DA61227A37B410081EC12 /* Thank You in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA61127A37B410081EC12 /* Thank You */; };
 		0C4DA61427A37E500081EC12 /* Why Create Unit Tests in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA61327A37E500081EC12 /* Why Create Unit Tests */; };
+		0C874BD627A69C9B008905C6 /* Array+SafeAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C874BD527A69C9B008905C6 /* Array+SafeAccess.swift */; };
 		0C8DB36527A0B1E300A96AA0 /* PositiveSubtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36427A0B1E300A96AA0 /* PositiveSubtractionTests.swift */; };
 		0C8DB36927A0C77900A96AA0 /* MathEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36827A0C77900A96AA0 /* MathEquation.swift */; };
 		0C8DB36B27A0C7A900A96AA0 /* MathEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36A27A0C7A900A96AA0 /* MathEntryController.swift */; };
@@ -81,6 +82,7 @@
 		0C4DA60F27A378D00081EC12 /* Our Free Courses */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Our Free Courses"; sourceTree = "<group>"; };
 		0C4DA61127A37B410081EC12 /* Thank You */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Thank You"; sourceTree = "<group>"; };
 		0C4DA61327A37E500081EC12 /* Why Create Unit Tests */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Why Create Unit Tests"; sourceTree = "<group>"; };
+		0C874BD527A69C9B008905C6 /* Array+SafeAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SafeAccess.swift"; sourceTree = "<group>"; };
 		0C8DB36427A0B1E300A96AA0 /* PositiveSubtractionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositiveSubtractionTests.swift; sourceTree = "<group>"; };
 		0C8DB36827A0C77900A96AA0 /* MathEquation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathEquation.swift; sourceTree = "<group>"; };
 		0C8DB36A27A0C7A900A96AA0 /* MathEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathEntryController.swift; sourceTree = "<group>"; };
@@ -214,6 +216,14 @@
 			path = "Calculator Themes";
 			sourceTree = "<group>";
 		};
+		0C874BD727A69EE3008905C6 /* Swift Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0C874BD527A69C9B008905C6 /* Array+SafeAccess.swift */,
+			);
+			path = "Swift Extensions";
+			sourceTree = "<group>";
+		};
 		0C8DB36E27A0CE3A00A96AA0 /* UIKit Subclasses */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				0C219D2627A42F8000A55AE8 /* Constants.swift */,
+				0C874BD727A69EE3008905C6 /* Swift Extensions */,
 				0CE4065C279E9CFB00B16A24 /* Presentation Layer */,
 				0CE40654279E9CFB00B16A24 /* Business Logic Layer */,
 				0CE4065A279E9CFB00B16A24 /* Data Layer */,
@@ -488,6 +499,7 @@
 				0CE40629279E9BB800B16A24 /* CalcViewController.swift in Sources */,
 				0CE40666279E9CFB00B16A24 /* DataStoreManager.swift in Sources */,
 				0CE40673279EDB4700B16A24 /* UIColor+HexValue.swift in Sources */,
+				0C874BD627A69C9B008905C6 /* Array+SafeAccess.swift in Sources */,
 				0C8DB36D27A0CE3400A96AA0 /* LCDDisplay.swift in Sources */,
 				0CED88BD27A1BA2000261494 /* WashedOutTheme.swift in Sources */,
 				0C219D2727A42F8000A55AE8 /* Constants.swift in Sources */,

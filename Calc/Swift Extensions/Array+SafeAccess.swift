@@ -1,5 +1,5 @@
 //
-//  Constants.swift
+//  Array+SafeAccess.swift
 //  Calc
 //
 //  Created by iOSB Free on 24/01/2022.
@@ -22,18 +22,17 @@
 // *******************************************************************************************
 //
 // → What's This File?
-//   It's a centralised area to store values. Here we can store a list of constant values
-//   that we don't want to repeat or duplicate throughout our codebase.
-//   Architecural Layer: None.
+//   It's an extension for Swift Arrays. We added a nice safety feature for accessing values.
+//   This method of accessing values within an array is regularly used in the iOS industry!
+//   We would highly recommend that you start using it too.
+//   Architecural Layer: Programming Language Tools.
 //
 // *******************************************************************************************
 
 import Foundation
 
-extension LCDDisplay {
-    static let pasteNumberNotificationKey = "iOSBFree.com.calc.CopyableLabel.pasteNumber"
-    static let pasteEquationNotificationKey = "iOSBFree.com.calc.CopyableLabel.pasteMathEquation"
-    static let pasteDictionaryKey = "PasteKey"
-    static let historyLogNotificationKey = "iOSBFree.com.calc.CopyableLabel.displayHistory"
-    
+extension Array {
+    subscript (safe index: Int) -> Element? {
+        return self.indices ~= index ? self[index] : nil
+    }
 }

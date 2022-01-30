@@ -84,9 +84,11 @@ class LogViewController: UITableViewController {
         let theme = ThemeManager.shared.currentTheme
         decorateTableViewCell(cell, withTheme: theme, from: indexPath)
         
-        let mathEquation = datasource[indexPath.row]
-        populateTableViewCellFromEquation(mathEquation, cell: cell)
+        guard let mathEquation = datasource[safe: indexPath.row] else {
+            return UITableViewCell()
+        }
         
+        populateTableViewCellFromEquation(mathEquation, cell: cell)
         return cell
     }
     
@@ -95,8 +97,6 @@ class LogViewController: UITableViewController {
         cell.rhsLabel.text = mathEquation.generateStringRepresentationOfOperator() + " " + (mathEquation.rhs?.formatted() ?? "")
         cell.resultLabel.text = "= " + (mathEquation.result?.formatted() ?? "")
     }
-    
-    
     
     private func decorateTableViewCell(_ cell: EquationLogCell, withTheme theme: CalculatorTheme, from indexPath: IndexPath) {
         cell.backgroundColor = UIColor(hex: theme.background)
@@ -109,18 +109,16 @@ class LogViewController: UITableViewController {
         cell.resultLabel.highlightedTextColor = UIColor(hex: theme.background)
         
         cell.tick.tintColor = UIColor(hex: theme.operatorTitle)
-        
-        let mathEquation = datasource[indexPath.row]
-        cell.lhsLabel.text = mathEquation.lhs.formatted()
-        cell.rhsLabel.text = mathEquation.generateStringRepresentationOfOperator() + " " + (mathEquation.rhs?.formatted() ?? "")
-        cell.resultLabel.text = "= " + (mathEquation.result?.formatted() ?? "")
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? EquationLogCell else { return }
-        let mathEquation = datasource[indexPath.row]
-        let userInfo: [AnyHashable: Any] = ["iOSBFree.com.calc.LogViewController.pasteMathEquation": mathEquation]
-        NotificationCenter.default.post(name: Notification.Name("iOSBFree.com.calc.LogViewController.pasteMathEquation"), object: nil, userInfo: userInfo)
+        guard
+            let cell = tableView.cellForRow(at: indexPath) as? EquationLogCell,
+            let mathEquation = datasource[safe: indexPath.row]
+        else { return }
+        
+        let userInfo: [AnyHashable: Any] = [LCDDisplay.pasteDictionaryKey: mathEquation]
+        NotificationCenter.default.post(name: Notification.Name(LCDDisplay.pasteEquationNotificationKey), object: nil, userInfo: userInfo)
         
         view.isUserInteractionEnabled = false
         cell.displayTick()
