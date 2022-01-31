@@ -141,8 +141,13 @@ class CalcViewController: UIViewController {
     }
     
     private func decorateOperatorButton(_ button: UIButton, theme: CalculatorTheme) {
-        button.backgroundColor = UIColor(hex: theme.operatorNormal)
-        button.tintColor = UIColor(hex: theme.operatorTitle)
+        if button.isSelected {
+            button.backgroundColor = UIColor(hex: theme.operatorSelected)
+            button.tintColor = UIColor(hex: theme.operatorTitleSelected)
+        } else {
+            button.backgroundColor = UIColor(hex: theme.operatorNormal)
+            button.tintColor = UIColor(hex: theme.operatorTitle)
+        }
         button.becomeRound()
     }
     
@@ -173,6 +178,7 @@ class CalcViewController: UIViewController {
         let selectedTheme = ThemeManager.shared.currentTheme
         button.backgroundColor = selected ? UIColor(hex: selectedTheme.operatorSelected) : UIColor(hex: selectedTheme.operatorNormal)
         button.tintColor = selected ? UIColor(hex: selectedTheme.operatorTitleSelected) : UIColor(hex: selectedTheme.operatorTitle)
+        button.isSelected = selected
         button.becomeRound()
     }
     
