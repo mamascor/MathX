@@ -52,15 +52,15 @@ struct iOSBFreeCalculatorEngine {
     // MARK: - Properties For Testing
     
     var leftHandOperand: Decimal {
-        currentMathEntry.equation.lhs
+        currentMathEntry.lhs
     }
     
     var rightHandOperand: Decimal? {
-        currentMathEntry.equation.rhs
+        currentMathEntry.rhs
     }
     
     var resultOfEquation: Decimal? {
-        currentMathEntry.equation.result
+        currentMathEntry.result
     }
     
     // MARK: - Interaction API

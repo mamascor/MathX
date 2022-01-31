@@ -48,30 +48,16 @@ struct MathInputController {
     
     // MARK: - variables
     
-    var equation: MathEquation = MathEquation()
-    var editingSide: OperationSide = .leftHandSide
-    var isEnteringDecimal: Bool = false
+    private(set) var equation = MathEquation()
+    private var editingSide: OperationSide = .leftHandSide
+    private var isEnteringDecimal = false
     
     // MARK: - Display
     
     private(set) var lcdDisplayText = ""
     
-    private var decimalToDisplayToTheUser: Decimal {
-        if let result = result {
-            return result
-        }
-        
-        switch editingSide {
-        case .leftHandSide:
-            return equation.lhs
-        case .rightHandSide:
-            return equation.rhs ?? equation.lhs
-        }
-    }
-    
     private func formatForLCDDisplay(_ decimal: Decimal?) -> String {
         return decimal?.formatted() ?? errorMessage
-//        return scientificCalcFormatter.string(from: decimalToDisplayToTheUser as NSDecimalNumber) ?? errorMessage
     }
     
     // MARK: - Initialiser
