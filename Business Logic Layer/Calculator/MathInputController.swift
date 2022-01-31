@@ -44,6 +44,7 @@ struct MathInputController {
     // MARK: - Constants
     
     private let decimalSymbol = Locale.current.decimalSeparator ?? "."
+    private let minusSymbol = "-"
     private let errorMessage = "Error"
     
     // MARK: - variables
@@ -97,9 +98,26 @@ struct MathInputController {
         
         switch editingSide {
         case .leftHandSide:
+            displayNegateSymbolOnDisplay(lhs)
             equation.negateLeftHandSide()
         case .rightHandSide:
-            equation.negateRighttHandSide()
+            displayNegateSymbolOnDisplay(rhs)
+            equation.negateRightHandSide()
+        }
+    }
+    
+    private mutating func displayNegateSymbolOnDisplay(_ decimal: Decimal?) {
+        guard let decimal = decimal else { return }
+        
+        var isNegativeValue = false
+        if decimal < 0 {
+            isNegativeValue = true
+        }
+        
+        if isNegativeValue {
+            lcdDisplayText.addPrefixIfNeeded(minusSymbol)
+        } else {
+            lcdDisplayText.removePrefixIfNeeded(minusSymbol)
         }
     }
     
@@ -251,7 +269,16 @@ struct MathInputController {
         }  
         newStringRepresentation.append(stringInput)
         
-        if let newDecimal = Decimal(string: newStringRepresentation) {
+        // → Remove formatting
+        let elements = newStringRepresentation.components(separatedBy: ",")
+        var representationWithoutFormatting = ""
+        for (_, stringElement) in elements.enumerated() {
+            representationWithoutFormatting = representationWithoutFormatting + stringElement
+        }
+        
+        // → Convert to a numeric value
+        if
+            let newDecimal = Decimal(string: representationWithoutFormatting) {
             if amendAterDecimalPoint == false {
                 newStringRepresentation = formatForLCDDisplay(newDecimal)
             }
@@ -333,5 +360,21 @@ struct MathInputController {
         equation.operation = operation
         startEditingRightHandSide()
         isEnteringDecimal = false
+    }
+}
+
+extension String {
+    /**
+      Adds a given prefix to self, if the prefix itself, or another required prefix does not yet exist in self.
+      Omit `requiredPrefix` to check for the prefix itself.
+    */
+    mutating func addPrefixIfNeeded(_ prefix: String) {
+        guard self.hasPrefix(prefix) == false else { return }
+        self = prefix + self
+    }
+    
+    mutating func removePrefixIfNeeded(_ prefix: String) {
+        guard self.hasPrefix(prefix) == false else { return }
+        self = replacingOccurrences(of: prefix, with: "", options: NSString.CompareOptions.literal, range: nil)
     }
 }

@@ -77,7 +77,7 @@ struct MathEquation: Codable {
         lhs.negate()
     }
     
-    mutating func negateRighttHandSide() {
+    mutating func negateRightHandSide() {
         rhs?.negate()
     }
     

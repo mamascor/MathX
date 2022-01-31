@@ -74,6 +74,7 @@ class NegateButtonTests: XCTestCase {
         
         calculatorEngine.negatePressed()
 
+        XCTAssertTrue(calculatorEngine.leftHandOperand.formatted() == Decimal(-123456789).formatted())
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(-123456789)))
     }
 
