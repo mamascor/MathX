@@ -551,7 +551,7 @@ class DisplayTests: XCTestCase {
         calculatorEngine.numberPressed(0)
         calculatorEngine.numberPressed(0)
         calculatorEngine.equalsPressed()
-        // TO DO start here and figure out why it is not working 
+        
         XCTAssertTrue(calculatorEngine.resultOfEquation?.formatted() == "2,000,000,000,000")
         XCTAssertTrue(calculatorEngine.lcdDisplayText == "2,000,000,000,000")
     }

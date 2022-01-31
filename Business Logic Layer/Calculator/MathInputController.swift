@@ -250,7 +250,11 @@ struct MathInputController {
             newStringRepresentation = localPreviousLCDDisplay
         }  
         newStringRepresentation.append(stringInput)
+        
         if let newDecimal = Decimal(string: newStringRepresentation) {
+            if amendAterDecimalPoint == false {
+                newStringRepresentation = formatForLCDDisplay(newDecimal)
+            }
             return (newDecimal, newStringRepresentation)
         }
         
@@ -266,7 +270,6 @@ struct MathInputController {
             case .leftHandSide: lhs = decimal
             case .rightHandSide: rhs = decimal
         }
-        lcdDisplayText = formatForLCDDisplay(decimal)
     }
     
     // MARK: - Print Description

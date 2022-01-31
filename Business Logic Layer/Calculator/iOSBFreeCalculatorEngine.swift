@@ -263,6 +263,13 @@ struct iOSBFreeCalculatorEngine {
         guard let result = mathEquation.result else {
             return
         }
-        pasteIn(result)
+        
+        var newMathInput = MathInputController()
+        newMathInput.lhs = 1
+        newMathInput.setOperation(.multiply)
+        newMathInput.rhs = result
+        newMathInput.execute()
+        
+        currentMathEntry = newMathInput
     }
 }
