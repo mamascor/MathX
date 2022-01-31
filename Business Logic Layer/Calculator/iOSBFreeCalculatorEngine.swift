@@ -119,9 +119,9 @@ struct iOSBFreeCalculatorEngine {
     mutating func equalsPressed() {
         if currentMathEntry.isCompleted {
             var newMathEntry = MathInputController() // TODO we have just bypassed the display
-            newMathEntry.setLHS(currentMathEntry.result ?? Decimal.zero)
+            newMathEntry.lhs = currentMathEntry.result ?? Decimal.zero
             newMathEntry.setOperation(currentMathEntry.operation)
-            newMathEntry.setRHS(currentMathEntry.rhs)
+            newMathEntry.rhs = currentMathEntry.rhs
             currentMathEntry = newMathEntry
         }
         
@@ -171,7 +171,7 @@ struct iOSBFreeCalculatorEngine {
     
     private mutating func populateCurrentMathEntryWithPreviousResult(_ continueEditingResult: Bool = false) {
         var newMathEntry = MathInputController()
-        newMathEntry.setLHS(currentMathEntry.result) // TODO should this logic be held on the math entry type?
+        newMathEntry.lhs = currentMathEntry.result ?? Decimal(0)
         
         if continueEditingResult == false {
             newMathEntry.startEditingRightHandSide()
@@ -209,9 +209,9 @@ struct iOSBFreeCalculatorEngine {
         }
         
         var newMathEntry = MathInputController()
-        newMathEntry.setLHS(Decimal(1))
+        newMathEntry.lhs = Decimal(1)
         newMathEntry.multiply()
-        newMathEntry.setRHS(lastExecutedResult)
+        newMathEntry.rhs = lastExecutedResult
         newMathEntry.execute()
         currentMathEntry = newMathEntry
         return true

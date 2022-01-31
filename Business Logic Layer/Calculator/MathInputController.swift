@@ -304,11 +304,27 @@ struct MathInputController {
     // MARK: - Set LHS & RHS Values
     
     var lhs: Decimal {
-        return equation.lhs
+        get {
+            return equation.lhs
+        }
+        set {
+            equation.lhs = newValue
+            lcdDisplayText = formatForLCDDisplay(newValue)
+        }
     }
     
     var rhs: Decimal? {
-        return equation.rhs
+        get {
+            return equation.rhs
+        }
+        set {
+            guard let decimal = newValue else {
+                return
+            }
+            equation.rhs = decimal
+            startEditingRightHandSide()
+            lcdDisplayText = formatForLCDDisplay(decimal)
+        }
     }
     
     var result: Decimal? {
@@ -319,33 +335,8 @@ struct MathInputController {
         return equation.operation
     }
     
-    mutating func setLHS(_ decimal: Decimal?) {
-        guard let decimal = decimal else {
-            return
-        }
-        equation.lhs = decimal
-        lcdDisplayText = formatForLCDDisplay(decimal)
-    }
-    
-    mutating func setRHS(_ decimal: Decimal?) {
-        guard let decimal = decimal else {
-            return
-        }
-        equation.rhs = decimal
-        startEditingRightHandSide()
-        lcdDisplayText = formatForLCDDisplay(decimal)
-    }
-    
     mutating func startEditingRightHandSide() {
         editingSide = .rightHandSide
-    }
-    
-    mutating func setResult(_ decimal: Decimal?) {
-        guard let decimal = decimal else {
-            return
-        }
-        equation.result = decimal
-        lcdDisplayText = formatForLCDDisplay(decimal)
     }
     
     mutating func setOperation(_ operation: MathEquation.OperationType?) {
