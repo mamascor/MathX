@@ -98,11 +98,11 @@ struct MathInputController {
         
         switch editingSide {
         case .leftHandSide:
-            displayNegateSymbolOnDisplay(lhs)
             equation.negateLeftHandSide()
+            displayNegateSymbolOnDisplay(lhs)
         case .rightHandSide:
-            displayNegateSymbolOnDisplay(rhs)
             equation.negateRightHandSide()
+            displayNegateSymbolOnDisplay(rhs)
         }
     }
     
@@ -374,7 +374,7 @@ extension String {
     }
     
     mutating func removePrefixIfNeeded(_ prefix: String) {
-        guard self.hasPrefix(prefix) == false else { return }
+        guard self.hasPrefix(prefix) == true else { return }
         self = replacingOccurrences(of: prefix, with: "", options: NSString.CompareOptions.literal, range: nil)
     }
 }
