@@ -78,8 +78,8 @@ struct MathInputController {
             return false
         }
         
-        if let _ = equation.operation,
-           let _ = equation.rhs {
+        if let _ = operation,
+           let _ = rhs {
             return true
         }
         
@@ -87,7 +87,7 @@ struct MathInputController {
     }
     
     var containsNans: Bool {
-        equation.lhs.isNaN || (equation.rhs?.isNaN ?? false) || (equation.result?.isNaN ?? false)
+        lhs.isNaN || (rhs?.isNaN ?? false) || (result?.isNaN ?? false)
     }
     
     // MARK: - Extra Functions
@@ -97,46 +97,40 @@ struct MathInputController {
         
         switch editingSide {
         case .leftHandSide:
-            equation.lhs.negate()
+            equation.negateLeftHandSide()
         case .rightHandSide:
-            equation.rhs?.negate()
+            equation.negateRighttHandSide()
         }
     }
     
     mutating func applyPercentage() {
         guard isCompleted == false else { return }
         
-        let calculatePercentageValue: (_ lhs: Decimal) -> Decimal = { $0 / 100 }
-        
         switch editingSide {
         case .leftHandSide:
-            equation.lhs = calculatePercentageValue(equation.lhs)
-            
+            equation.applyPercentageToLeftHandSide()
         case .rightHandSide:
-            guard let decimal = equation.rhs else {
-                return
-            }
-            
-            equation.rhs = calculatePercentageValue(decimal)
+            equation.applyPercentageToRightHandSide()
         }
     }
     
     mutating func applyDecimalPoint() {
         guard isCompleted == false else { return }
         isEnteringDecimal = true
-        applyDecimalToDisplayString()
-    }
-    
-    private mutating func applyDecimalToDisplayString() {
+        
         if editingSide == .rightHandSide,
-           equation.rhs == nil {
-            equation.rhs = Decimal(0)
-            lcdDisplayText = formatForLCDDisplay(equation.rhs)
+           rhs == nil {
+            rhs = Decimal(0)
         }
         
-        if lcdDisplayText.contains(decimalSymbol) == false {
-            lcdDisplayText.append(decimalSymbol)
+        lcdDisplayText = applyDecimalToString(lcdDisplayText)
+    }
+    
+    private func applyDecimalToString(_ string: String) -> String {
+        if string.contains(decimalSymbol) {
+            return string
         }
+        return string.appending(decimalSymbol)
     }
     
     // MARK: - Math Operations
@@ -183,7 +177,6 @@ struct MathInputController {
         
         // → Values entered by the user
         let decimalInput = Decimal(number)
-        let stringInput = String(number)
         
         // → Switch sides if needed
         if let _ = equation.operation,
@@ -193,21 +186,19 @@ struct MathInputController {
         
         // → No right hand value yet
         if
-            equation.rhs == nil,
+            rhs == nil,
             editingSide == .rightHandSide {
             
             guard isEnteringDecimal else {
-                equation.rhs = decimalInput
-                lcdDisplayText = stringInput
+                rhs = decimalInput
                 return
             }
             
             let initialValue = Decimal(0)
-            equation.rhs = initialValue
-            lcdDisplayText = formatForLCDDisplay(initialValue)
+            rhs = initialValue
             
             let tuple = appendNewNumber(number, toPreviousEntry: initialValue, previousLCDDisplay: lcdDisplayText, amendAterDecimalPoint: isEnteringDecimal)
-            equation.rhs = tuple.decimal
+            rhs = tuple.decimal
             lcdDisplayText = tuple.stringRepresentation
             return 
         }
@@ -217,14 +208,14 @@ struct MathInputController {
         case .leftHandSide:
             
             let tuple = appendNewNumber(number, toPreviousEntry: equation.lhs, previousLCDDisplay: lcdDisplayText, amendAterDecimalPoint: isEnteringDecimal)
-            equation.lhs = tuple.decimal
+            lhs = tuple.decimal
             lcdDisplayText = tuple.stringRepresentation
             
         case .rightHandSide:
             guard let currentDecimal = equation.rhs else { return }
             
             let tuple = appendNewNumber(number, toPreviousEntry: currentDecimal, previousLCDDisplay: lcdDisplayText, amendAterDecimalPoint: isEnteringDecimal)
-            equation.rhs = tuple.decimal
+            rhs = tuple.decimal
             lcdDisplayText = tuple.stringRepresentation
         }
     }
@@ -240,13 +231,7 @@ struct MathInputController {
             
             // Append a decimal?
             let newStringRepresentation: String = {
-                
-                var string: String = localPreviousLCDDisplay
-                if localPreviousLCDDisplay.contains(decimalSymbol) == false {
-                    string = localPreviousLCDDisplay.appending(decimalSymbol)
-                }
-                string.append(stringInput)
-                return string
+                return applyDecimalToString(localPreviousLCDDisplay).appending(stringInput)
             }()
             
             // convert to a decimal value
@@ -257,7 +242,6 @@ struct MathInputController {
             // we cannot convert the string into a decimal! NAN
             let nan = Decimal.nan
             return (nan, errorMessage)
-            
         }
         
         // → Not a decimal - An integer value
@@ -279,8 +263,8 @@ struct MathInputController {
     
     mutating func pasteIn(_ decimal: Decimal) {
         switch editingSide {
-            case .leftHandSide: equation.lhs = decimal
-            case .rightHandSide: equation.rhs = decimal
+            case .leftHandSide: lhs = decimal
+            case .rightHandSide: rhs = decimal
         }
         lcdDisplayText = formatForLCDDisplay(decimal)
     }
@@ -347,5 +331,4 @@ struct MathInputController {
         startEditingRightHandSide()
         isEnteringDecimal = false
     }
-    
 }

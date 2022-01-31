@@ -73,6 +73,27 @@ struct MathEquation: Codable {
         }
     }
     
+    mutating func negateLeftHandSide() {
+        lhs.negate()
+    }
+    
+    mutating func negateRighttHandSide() {
+        rhs?.negate()
+    }
+    
+    mutating func applyPercentageToLeftHandSide() {
+        lhs = calculatePercentageValue(lhs)
+    }
+    
+    mutating func applyPercentageToRightHandSide() {
+        rhs = calculatePercentageValue(rhs)
+    }
+
+    private func calculatePercentageValue(_ decimal: Decimal?) -> Decimal {
+        guard let decimal = decimal else { return .nan }
+        return  decimal / 100
+    }
+    
     // MARK: - Visual Representations
     
     func generatePrintout() -> String {
