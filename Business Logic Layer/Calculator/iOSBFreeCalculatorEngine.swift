@@ -36,7 +36,6 @@ struct iOSBFreeCalculatorEngine {
     
     // MARK: - Variables
     
-    private let errorMessage = "Error"
     private var historyLog: [MathEquation] = []
     private var currentMathEntry: MathInputController = MathInputController()
     
@@ -119,10 +118,10 @@ struct iOSBFreeCalculatorEngine {
     
     mutating func equalsPressed() {
         if currentMathEntry.isCompleted {
-            var newMathEntry = MathInputController()
-            newMathEntry.equation.lhs = currentMathEntry.equation.result ?? 0
-            newMathEntry.equation.operation = currentMathEntry.equation.operation
-            newMathEntry.equation.rhs = currentMathEntry.equation.rhs
+            var newMathEntry = MathInputController() // TODO we have just bypassed the display
+            newMathEntry.setLHS(currentMathEntry.result ?? Decimal.zero)
+            newMathEntry.setOperation(currentMathEntry.operation)
+            newMathEntry.setRHS(currentMathEntry.rhs)
             currentMathEntry = newMathEntry
         }
         
@@ -138,25 +137,15 @@ struct iOSBFreeCalculatorEngine {
     private mutating func executeCurrentMathEntry() {
         currentMathEntry.execute()
         historyLog.append(currentMathEntry.equation)
-        printEquationToDebugConsole(currentMathEntry.equation)
+        printEquationToDebugConsole(currentMathEntry)
         saveSession()
     }
     
     // MARK: - Print To Console
     
-    private func printEquationToDebugConsole(_ equation: MathEquation) {
-        var operatorString = ""
-        switch equation.operation {
-        case .multiply: operatorString = "*"
-        case .divide: operatorString = "/"
-        case .add: operatorString = "+"
-        case .subtract: operatorString = "-"
-        case .none:
-            break
-        }
-        
+    private func printEquationToDebugConsole(_ mathInputController: MathInputController) { // TODO does this belong in the math equation input controller?
         // → Using the print command only works in debug mode
-        print(equation.lhs.formatted() + " " + operatorString + " " + (equation.rhs?.formatted() ?? "") + " = " + (equation.result?.formatted() ?? ""))
+        print(mathInputController.equationDescription)
     }
     
     // MARK: - Number Entry
@@ -182,11 +171,10 @@ struct iOSBFreeCalculatorEngine {
     
     private mutating func populateCurrentMathEntryWithPreviousResult(_ continueEditingResult: Bool = false) {
         var newMathEntry = MathInputController()
-        newMathEntry.equation.lhs = currentMathEntry.equation.result ?? 0
-        newMathEntry.displayStringForTheUserToSee = newMathEntry.equation.lhs.formatted()
+        newMathEntry.setLHS(currentMathEntry.result) // TODO should this logic be held on the math entry type?
         
         if continueEditingResult == false {
-            newMathEntry.editingSide = .rightHandSide
+            newMathEntry.startEditingRightHandSide()
         }
         currentMathEntry = newMathEntry
     }
@@ -221,9 +209,9 @@ struct iOSBFreeCalculatorEngine {
         }
         
         var newMathEntry = MathInputController()
-        newMathEntry.equation.lhs = 1
-        newMathEntry.equation.operation = .multiply
-        newMathEntry.equation.rhs = lastExecutedResult
+        newMathEntry.setLHS(Decimal(1))
+        newMathEntry.multiply()
+        newMathEntry.setRHS(lastExecutedResult)
         newMathEntry.execute()
         currentMathEntry = newMathEntry
         return true
@@ -241,8 +229,8 @@ struct iOSBFreeCalculatorEngine {
     }
     
     private func isMathEntrySafeToBeSaved(_ mathEntry: MathInputController) -> Bool {
-        guard mathEntry.containsNans == false,  // crashes when encoding nans
-              let _ = mathEntry.equation.result,
+        guard mathEntry.containsNans == false,  // → crashes when encoding nans
+              let _ = mathEntry.result,
               mathEntry.isCompleted
         else {
             return false

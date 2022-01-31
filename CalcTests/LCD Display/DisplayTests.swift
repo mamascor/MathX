@@ -551,9 +551,9 @@ class DisplayTests: XCTestCase {
         calculatorEngine.numberPressed(0)
         calculatorEngine.numberPressed(0)
         calculatorEngine.equalsPressed()
-        
+        // TO DO start here and figure out why it is not working 
         XCTAssertTrue(calculatorEngine.resultOfEquation?.formatted() == "2,000,000,000,000")
-        XCTAssertTrue(calculatorEngine.lcdDisplayText == "2e12")
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "2,000,000,000,000")
     }
     
     func testLowerLimits_ScientificCalculator() throws {
@@ -629,6 +629,6 @@ class DisplayTests: XCTestCase {
         calculatorEngine.equalsPressed()
         
         XCTAssertTrue(calculatorEngine.resultOfEquation?.formatted() == "1,000,000,000")
-        XCTAssertTrue(calculatorEngine.lcdDisplayText == "1e9")
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "1,000,000,000")
     }
 }

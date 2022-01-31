@@ -87,16 +87,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2E9CFB7B-FB47-4D55-8644-96E1A7E04599"
+            uuid = "D71E0CA7-52FB-4681-9C95-64CCF20B4139"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Business Logic Layer/Calculator/iOSBFreeCalculatorEngine.swift"
+            filePath = "CalcTests/LCD Display/DisplayTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "equalsPressed()"
+            startingLineNumber = "603"
+            endingLineNumber = "603"
+            landmarkName = "testUpperLimits_ScientificCalculator()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "65AD58C7-BE01-4FB8-9B0C-C12157194154"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CalcTests/Pin Pad Tests/EnteringZeroTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "test00_LeftHandEntry()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

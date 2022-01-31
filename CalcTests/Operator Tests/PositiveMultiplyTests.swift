@@ -92,6 +92,7 @@ class PositiveMultiplyTests: XCTestCase {
         
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
         XCTAssertTrue(firstRightHandValue.isEqual(to: Decimal(number)))
+        XCTAssertTrue(firstResult.formatted() == Decimal(number).formatted())
         XCTAssertTrue(firstResult.isEqual(to: Decimal(number)))
         
         // → Loop through more tests
