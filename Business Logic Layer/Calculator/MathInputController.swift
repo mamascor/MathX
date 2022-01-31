@@ -57,6 +57,7 @@ struct MathInputController {
     private(set) var lcdDisplayText = ""
     
     private func formatForLCDDisplay(_ decimal: Decimal?) -> String {
+        guard decimal?.isNaN == false else { return errorMessage }
         return decimal?.formatted() ?? errorMessage
     }
     
@@ -231,7 +232,7 @@ struct MathInputController {
     private func appendNewNumber(_ number: Int, toPreviousEntry previousEntry: Decimal, previousLCDDisplay: String?, amendAterDecimalPoint: Bool) -> (decimal: Decimal, stringRepresentation: String) {
         let stringInput = String(number)
         guard let localPreviousLCDDisplay = previousLCDDisplay else {
-            return (Decimal.nan, "NaN")
+            return (Decimal.nan, errorMessage)
         }
         
         // → User is entering a decimal value
