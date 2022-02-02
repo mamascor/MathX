@@ -1,5 +1,5 @@
 //
-//  PositiveAdditionTests.swift
+//  AdditionTests.swift
 //  CalcTests
 //
 //  Created by iOSB Free on 25/01/2022.
@@ -33,7 +33,7 @@
 import XCTest
 @testable import Calc
 
-class PositiveAdditionTests: XCTestCase {
+class AdditionTests: XCTestCase {
 
     func testAddition() throws {
         //Input 1 + 1 =

@@ -1,0 +1,167 @@
+//
+//  SubtractionTests.swift
+//  CalcTests
+//
+//  Created by iOSB Free on 25/01/2022.
+//
+//
+//  iOSB Free Ltd                   → All rights reserved
+//  Website                         → https://www.iosbfree.com
+//
+//  👉🏻 Free Courses                 → https://www.udemy.com/user/iosbfree
+//
+//  YouTube                         → https://www.youtube.com/channel/UCWBUOVRbtKNml4jN_4bRkCQ
+//  Linked In                       → http://www.linkedin.com/in/mattharding-iosbfree
+//
+//  Tell us what
+//  you want to learn
+//
+//  💜 iOSB Free
+//  community@iosbfree.com
+//  🧕🏻👨🏿‍💼👩🏼‍💼👩🏻‍💻👨🏼‍💼🧛🏻‍♀️👩🏼‍💻💁🏽‍♂️🕵🏻‍♂️🧝🏼‍♀️🦹🏼‍♀🧕🏾🧟‍♂️
+// *******************************************************************************************
+//
+// → What's This File?
+//   It's our testing team! They are testing pressing the minus button.
+//   Architecural Layer: Testing Layer
+//
+//   💡 Career Tip 👉🏻 Writing unit tests prevents your work being rejected by the testing
+//   department, which means we can become a dependable member of our team.
+// *******************************************************************************************
+
+
+import XCTest
+@testable import Calc
+
+class SubtractionTests: XCTestCase {
+
+    // MARK: - Basic
+    
+    func testSubtraction() throws {
+        //Input 1 - 1 =
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.minusPressed()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.equalsPressed()
+        
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(1)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(0)) ?? false)
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "0")
+    }
+    
+    // MARK: - New Equations
+    
+    func testPinpad() throws {
+        // → 10 options on the pin pad
+        startNewEquations(using: 1)
+        startNewEquations(using: 2)
+        startNewEquations(using: 3)
+        startNewEquations(using: 4)
+        startNewEquations(using: 5)
+        startNewEquations(using: 6)
+        startNewEquations(using: 7)
+        startNewEquations(using: 8)
+        startNewEquations(using: 9)
+        startNewEquations(using: 0)
+    }
+    
+    private func startNewEquations(using number: Int) {
+        //Input number - 1 = number - 1..10 =
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        
+        for iteration in 1...10 {
+            calculatorEngine.numberPressed(number)
+            calculatorEngine.minusPressed()
+            calculatorEngine.numberPressed(iteration)
+            calculatorEngine.equalsPressed()
+            
+            XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
+            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration)) ?? false)
+            XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number - iteration)) ?? false)
+        }
+    }
+    
+    // MARK: - Continuously Subtract From Result
+    
+    func testPinpad_ContinuouslySubtracting() throws {
+        
+        // → 10 options on the pin pad
+        continuouslySubtract(using: 1)
+        continuouslySubtract(using: 2)
+        continuouslySubtract(using: 3)
+        continuouslySubtract(using: 4)
+        continuouslySubtract(using: 5)
+        continuouslySubtract(using: 6)
+        continuouslySubtract(using: 7)
+        continuouslySubtract(using: 8)
+        continuouslySubtract(using: 9)
+        continuouslySubtract(using: 0)
+    }
+    
+    private func continuouslySubtract(using number: Int) {
+        //Input number - 1 = - 1..10 =
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(number)
+        
+        var currentResult = Decimal(number)
+        for iteration in 1...10 {
+            calculatorEngine.minusPressed()
+            calculatorEngine.numberPressed(iteration)
+            calculatorEngine.equalsPressed()
+            
+            guard let result = calculatorEngine.resultOfEquation else {
+                XCTAssert(true, "Did not have result after equation was expected to have completed")
+                return
+            }
+            
+            XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: currentResult))
+            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration)) ?? false)
+            XCTAssertTrue(result.isEqual(to: currentResult - Decimal(iteration)))
+            
+            currentResult = result
+        }
+    }
+
+    // MARK: - Random Equation
+    
+    func testRandomEquation() throws {
+        //Input 7 - 127 = - 34 = - 6 = - 5 = - 4 = - 3 = - 2 =
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(7)
+        calculatorEngine.minusPressed()
+        calculatorEngine.numberPressed(127)
+        calculatorEngine.equalsPressed()
+        
+        calculatorEngine.minusPressed()
+        calculatorEngine.numberPressed(34)
+        calculatorEngine.equalsPressed()
+        
+        calculatorEngine.minusPressed()
+        calculatorEngine.numberPressed(6)
+        calculatorEngine.equalsPressed()
+        
+        calculatorEngine.minusPressed()
+        calculatorEngine.numberPressed(5)
+        calculatorEngine.equalsPressed()
+        
+        calculatorEngine.minusPressed()
+        calculatorEngine.numberPressed(4)
+        calculatorEngine.equalsPressed()
+        
+        calculatorEngine.minusPressed()
+        calculatorEngine.numberPressed(3)
+        calculatorEngine.equalsPressed()
+        
+        calculatorEngine.minusPressed()
+        calculatorEngine.numberPressed(2)
+        calculatorEngine.equalsPressed()
+        
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(-172)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(2)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(-174)) ?? false)
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "-174")
+        
+    }
+}
