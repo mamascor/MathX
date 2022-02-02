@@ -45,6 +45,7 @@ class PercentageButtonTests: XCTestCase {
         calculatorEngine.percentagePressed()
 
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(0.01)))
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "0.01")
     }
     
     func testLargeLeftHandEntry() throws {
@@ -57,6 +58,7 @@ class PercentageButtonTests: XCTestCase {
         calculatorEngine.percentagePressed()
 
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "1")
     }
     
     func testLargeLeftHandEntry2() throws {
@@ -69,6 +71,7 @@ class PercentageButtonTests: XCTestCase {
         calculatorEngine.percentagePressed()
 
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(2)))
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "2")
     }
 
     func testLeftHandEntryTwice() throws {
@@ -80,6 +83,7 @@ class PercentageButtonTests: XCTestCase {
         calculatorEngine.percentagePressed()
 
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(0.0001)))
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "0.0001")
     }
     
     func testLeftHandEntryThrice() throws {
@@ -92,6 +96,7 @@ class PercentageButtonTests: XCTestCase {
         calculatorEngine.percentagePressed()
 
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(0.000001)))
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "0.000001")
     }
     
     // MARK: - operands - Right
@@ -106,6 +111,7 @@ class PercentageButtonTests: XCTestCase {
         calculatorEngine.percentagePressed()
 
         XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(0.01)) ?? false)
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "0.01")
     }
     
     func testLargeRightHandEntry() throws {
@@ -120,6 +126,7 @@ class PercentageButtonTests: XCTestCase {
         calculatorEngine.percentagePressed()
 
         XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(1)) ?? false)
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "1")
     }
     
     func testLargeRightHandEntry2() throws {
@@ -134,6 +141,7 @@ class PercentageButtonTests: XCTestCase {
         calculatorEngine.percentagePressed()
 
         XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(2)) ?? false)
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "2")
     }
 
     func testRightHandEntryTwice() throws {
@@ -147,6 +155,7 @@ class PercentageButtonTests: XCTestCase {
         calculatorEngine.percentagePressed()
 
         XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(0.0001)) ?? false)
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "0.0001")
     }
     
     func testRightHandEntryThrice() throws {
@@ -161,6 +170,7 @@ class PercentageButtonTests: XCTestCase {
         calculatorEngine.percentagePressed()
 
         XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(0.000001)) ?? false)
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "0.000001")
     }
     
     // MARK: - Result
@@ -190,10 +200,11 @@ class PercentageButtonTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(300)))
         XCTAssertTrue(rhd1.isEqual(to: Decimal(300)))
         XCTAssertTrue(result1.isEqual(to: Decimal(600)))
-        
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "600")
         calculatorEngine.percentagePressed()
         
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: 6))
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "6")
         XCTAssertTrue(calculatorEngine.rightHandOperand == nil)
         XCTAssertTrue(calculatorEngine.resultOfEquation  == nil)
     }
@@ -214,6 +225,7 @@ class PercentageButtonTests: XCTestCase {
         calculatorEngine.percentagePressed()
         
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: 0.06))
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "0.06")
         XCTAssertTrue(calculatorEngine.rightHandOperand == nil)
         XCTAssertTrue(calculatorEngine.resultOfEquation  == nil)
     }
@@ -235,6 +247,7 @@ class PercentageButtonTests: XCTestCase {
         calculatorEngine.percentagePressed()
         
         XCTAssertTrue(calculatorEngine.leftHandOperand.formatted() == Decimal(0.0006).formatted())
+        XCTAssertTrue(calculatorEngine.lcdDisplayText == "0.0006")
         XCTAssertTrue(calculatorEngine.rightHandOperand == nil)
         XCTAssertTrue(calculatorEngine.resultOfEquation  == nil)
     }
