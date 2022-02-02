@@ -127,11 +127,14 @@ struct MathInputController {
         switch editingSide {
         case .leftHandSide:
             equation.applyPercentageToLeftHandSide()
+            lcdDisplayText = formatForLCDDisplay(lhs)
         case .rightHandSide:
+            guard let _ = rhs else { return }
             equation.applyPercentageToRightHandSide()
+            lcdDisplayText = formatForLCDDisplay(rhs)
         }
     }
-    
+
     mutating func applyDecimalPoint() {
         guard isCompleted == false else { return }
         isEnteringDecimal = true
