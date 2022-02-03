@@ -187,19 +187,9 @@ class PercentageButtonTests: XCTestCase {
         calculatorEngine.numberPressed(0)
         calculatorEngine.equalsPressed()
         
-        guard let result1 = calculatorEngine.resultOfEquation else {
-            XCTAssert(true, "Did not have result after equation was expected to have completed")
-            return
-        }
-        
-        guard let rhd1 = calculatorEngine.rightHandOperand else {
-            XCTAssert(true, "Did not have right hand value")
-            return
-        }
-        
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(300)))
-        XCTAssertTrue(rhd1.isEqual(to: Decimal(300)))
-        XCTAssertTrue(result1.isEqual(to: Decimal(600)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(300)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(600)) ?? false)
         XCTAssertTrue(calculatorEngine.lcdDisplayText == "600")
         calculatorEngine.percentagePressed()
         

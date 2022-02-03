@@ -216,23 +216,13 @@ class NegateButtonTests: XCTestCase {
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
-        guard let result1 = calculatorEngine.resultOfEquation else {
-            XCTAssert(true, "Did not have result after equation was expected to have completed")
-            return
-        }
-        
-        guard let rhd1 = calculatorEngine.rightHandOperand else {
-            XCTAssert(true, "Did not have right hand value")
-            return
-        }
-        
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
-        XCTAssertTrue(rhd1.isEqual(to: Decimal(1)))
-        XCTAssertTrue(result1.isEqual(to: Decimal(2)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(1)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(2)) ?? false)
         
         calculatorEngine.negatePressed()
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: result1 * -1))
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: -2))
         XCTAssertTrue(calculatorEngine.rightHandOperand == nil)
         XCTAssertTrue(calculatorEngine.resultOfEquation  == nil)
     }
@@ -245,24 +235,14 @@ class NegateButtonTests: XCTestCase {
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
-        guard let result1 = calculatorEngine.resultOfEquation else {
-            XCTAssert(true, "Did not have result after equation was expected to have completed")
-            return
-        }
-        
-        guard let rhd1 = calculatorEngine.rightHandOperand else {
-            XCTAssert(true, "Did not have right hand value")
-            return
-        }
-        
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
-        XCTAssertTrue(rhd1.isEqual(to: Decimal(1)))
-        XCTAssertTrue(result1.isEqual(to: Decimal(2)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(1)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(2)) ?? false)
         
         calculatorEngine.negatePressed()
         calculatorEngine.negatePressed()
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: result1))
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: 2))
         XCTAssertTrue(calculatorEngine.rightHandOperand == nil)
         XCTAssertTrue(calculatorEngine.resultOfEquation  == nil)
     }
