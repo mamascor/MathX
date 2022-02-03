@@ -187,10 +187,6 @@ class PercentageButtonTests: XCTestCase {
         calculatorEngine.numberPressed(0)
         calculatorEngine.equalsPressed()
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(300)))
-        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(300)) ?? false)
-        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(600)) ?? false)
-        XCTAssertTrue(calculatorEngine.lcdDisplayText == "600")
         calculatorEngine.percentagePressed()
         
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: 6))

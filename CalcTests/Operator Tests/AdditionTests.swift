@@ -69,25 +69,16 @@ class AdditionTests: XCTestCase {
     private func continuouslyStartNewEquations(using number: Int) {
         //Input 1 + number = number + number(2..11) =
         var calculatorEngine = iOSBFreeCalculatorEngine()
-        calculatorEngine.numberPressed(1)
-        calculatorEngine.addPressed()
-        calculatorEngine.numberPressed(number)
-        calculatorEngine.equalsPressed()
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
-        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(number)) ?? false)
-        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number + 1)) ?? false)
-        
-        // → Loop through more tests
         for iteration in 1...10 {
             calculatorEngine.numberPressed(number)
             calculatorEngine.addPressed()
-            calculatorEngine.numberPressed(iteration + 1)
+            calculatorEngine.numberPressed(iteration)
             calculatorEngine.equalsPressed()
             
             XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
-            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration + 1)) ?? false)
-            XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number + (iteration + 1))) ?? false)
+            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration)) ?? false)
+            XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number + iteration)) ?? false)
         }
         
     }
@@ -112,16 +103,8 @@ class AdditionTests: XCTestCase {
         //Input number + number = + 1..10 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(number)
-        calculatorEngine.addPressed()
-        calculatorEngine.numberPressed(number)
-        calculatorEngine.equalsPressed()
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
-        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(number)) ?? false)
-        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number * 2)) ?? false)
-        
-        // → Loop through more tests
-        var currentResult: Decimal = Decimal(number + number)
+        var currentResult = Decimal(number)
         for iteration in 1...10 {
             calculatorEngine.addPressed()
             calculatorEngine.numberPressed(number)
@@ -134,7 +117,7 @@ class AdditionTests: XCTestCase {
             
             XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: currentResult))
             XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(number)) ?? false)
-            XCTAssertTrue(result.isEqual(to: Decimal(number * (iteration + 2))))
+            XCTAssertTrue(result.isEqual(to: Decimal(number * (iteration + 1))))
             
             currentResult = result
         }
@@ -150,40 +133,26 @@ class AdditionTests: XCTestCase {
         calculatorEngine.numberPressed(127)
         calculatorEngine.equalsPressed()
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(7)))
-        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(127)) ?? false)
-        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(134)) ?? false)
-        
-        // add another value to the result
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(34)
         calculatorEngine.equalsPressed()
 
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(134)))
-        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(34)) ?? false)
-        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(168)) ?? false)
-        
-        // add another value to the result
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(6)
         calculatorEngine.equalsPressed()
         
-        // add another value to the result
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(5)
         calculatorEngine.equalsPressed()
         
-        // add another value to the result
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(4)
         calculatorEngine.equalsPressed()
         
-        // add another value to the result
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(3)
         calculatorEngine.equalsPressed()
         
-        // add another value to the result
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(2)
         calculatorEngine.equalsPressed()

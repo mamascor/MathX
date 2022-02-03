@@ -216,10 +216,6 @@ class NegateButtonTests: XCTestCase {
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
-        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(1)) ?? false)
-        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(2)) ?? false)
-        
         calculatorEngine.negatePressed()
         
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: -2))
@@ -234,10 +230,6 @@ class NegateButtonTests: XCTestCase {
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
-        
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
-        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(1)) ?? false)
-        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(2)) ?? false)
         
         calculatorEngine.negatePressed()
         calculatorEngine.negatePressed()

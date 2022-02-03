@@ -69,27 +69,17 @@ class DivideTests: XCTestCase {
     private func continuouslyStartNewEquations(using number: Int) {
         //Input: number / 1 = number / 2 = number / 3 = number / 4 = number / 5 = number / 6 = number / 7 = number / 8 = number / 9 =  number / 10 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
-        calculatorEngine.numberPressed(number)
-        calculatorEngine.dividePressed()
-        calculatorEngine.numberPressed(1)
-        calculatorEngine.equalsPressed()
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
-        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(1)) ?? false)
-        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number)) ?? false)
-        
-        // → Loop through more tests
-        for iteration in 0...9 {
+        for iteration in 1...10 {
             calculatorEngine.numberPressed(number)
             calculatorEngine.dividePressed()
-            calculatorEngine.numberPressed(iteration + 1)
+            calculatorEngine.numberPressed(iteration)
             calculatorEngine.equalsPressed()
             
-            let doubleValue: Double = Double(number) / Double(iteration + 1)
             XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
-            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration + 1)) ?? false)
-            // Note: comparing floating point numbers causes our tests to fail. They are not accurate enough to compare.
-            XCTAssertTrue(calculatorEngine.resultOfEquation?.formatted() == Decimal(doubleValue).formatted())
+            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration)) ?? false)
+            XCTAssertTrue(calculatorEngine.resultOfEquation?.formatted() == (Decimal(number) / Decimal(iteration)).formatted())
+            // 💡 Why compare strings? 👉🏻 Comparing floating point numbers causes our tests to fail. They are not accurate enough to compare.
         }
         
     }
@@ -113,23 +103,13 @@ class DivideTests: XCTestCase {
     
     private func continuouslyDivide(using number: Int) {
         //Input: number / 1 = / 2 = / 3 = / 4 = / 5 = / 6 = / 7 = / 8 = / 9 =  / 10 =
-        
-        // setup
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(number)
-        calculatorEngine.dividePressed()
-        calculatorEngine.numberPressed(1)
-        calculatorEngine.equalsPressed()
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
-        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(1)) ?? false)
-        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number)) ?? false)
-        
-        // → Loop through more tests
         var currentResult: Decimal = Decimal(number)
-        for iteration in 0...9 {
+        for iteration in 1...10 {
             calculatorEngine.dividePressed()
-            calculatorEngine.numberPressed(iteration + 1)
+            calculatorEngine.numberPressed(iteration)
             calculatorEngine.equalsPressed()
             
             guard let result = calculatorEngine.resultOfEquation else {
@@ -138,8 +118,8 @@ class DivideTests: XCTestCase {
             }
             
             XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: currentResult))
-            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration + 1)) ?? false)
-            XCTAssertTrue(result.isEqual(to: currentResult / Decimal(iteration + 1)))
+            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration)) ?? false)
+            XCTAssertTrue(result.isEqual(to: currentResult / Decimal(iteration)))
             
             currentResult = result
         }

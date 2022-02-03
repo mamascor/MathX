@@ -61,10 +61,6 @@ class EqualsButtonTests: XCTestCase {
         calculatorEngine.numberPressed(4)
         calculatorEngine.equalsPressed()
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(4)))
-        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(4)) ?? false)
-        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(8)) ?? false)
-        
         calculatorEngine.equalsPressed()
         calculatorEngine.equalsPressed()
         
@@ -82,10 +78,6 @@ class EqualsButtonTests: XCTestCase {
         calculatorEngine.numberPressed(4)
         calculatorEngine.equalsPressed()
 
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(4)))
-        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(4)) ?? false)
-        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(0)) ?? false)
-        
         calculatorEngine.equalsPressed()
         calculatorEngine.equalsPressed()
         
@@ -103,10 +95,6 @@ class EqualsButtonTests: XCTestCase {
         calculatorEngine.numberPressed(4)
         calculatorEngine.equalsPressed()
 
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(4)))
-        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(4)) ?? false)
-        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(16)) ?? false)
-        
         calculatorEngine.equalsPressed()
         calculatorEngine.equalsPressed()
  
@@ -123,10 +111,6 @@ class EqualsButtonTests: XCTestCase {
         calculatorEngine.dividePressed()
         calculatorEngine.numberPressed(4)
         calculatorEngine.equalsPressed()
-        
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(4)))
-        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(4)) ?? false)
-        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(1)) ?? false)
         
         calculatorEngine.equalsPressed()
         calculatorEngine.equalsPressed()

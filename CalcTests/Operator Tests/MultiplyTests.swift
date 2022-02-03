@@ -68,25 +68,16 @@ class MultiplyTests: XCTestCase {
     private func continuouslyStartNewEquations(using number: Int) {
         //Input: 1 * number = 1..10 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
-        calculatorEngine.numberPressed(1)
-        calculatorEngine.multiplyPressed()
-        calculatorEngine.numberPressed(number)
-        calculatorEngine.equalsPressed()
-        
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
-        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(number)) ?? false)
-        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number)) ?? false)
-        
-        // → Loop through more tests
-        for iteration in 0...9 {
+
+        for iteration in 1...10 {
             calculatorEngine.numberPressed(number)
             calculatorEngine.multiplyPressed()
-            calculatorEngine.numberPressed(iteration + 1)
+            calculatorEngine.numberPressed(iteration)
             calculatorEngine.equalsPressed()
             
             XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
-            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration + 1)) ?? false)
-            XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number * (iteration + 1))) ?? false)
+            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration)) ?? false)
+            XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number * iteration)) ?? false)
         }
     }
     
@@ -109,20 +100,12 @@ class MultiplyTests: XCTestCase {
     private func continuouslyMultiply(using number: Int) {
         //Input: 1 * number = * 1..10 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
-        calculatorEngine.numberPressed(1)
-        calculatorEngine.multiplyPressed()
         calculatorEngine.numberPressed(number)
-        calculatorEngine.equalsPressed()
         
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
-        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(number)) ?? false)
-        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number)) ?? false)
-        
-        // → Loop through more tests
         var currentResult: Decimal = Decimal(number)
         for iteration in 1...10 {
             calculatorEngine.multiplyPressed()
-            calculatorEngine.numberPressed(iteration + 1)
+            calculatorEngine.numberPressed(iteration)
             calculatorEngine.equalsPressed()
             
             guard let result = calculatorEngine.resultOfEquation else {
@@ -131,8 +114,8 @@ class MultiplyTests: XCTestCase {
             }
             
             XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: currentResult))
-            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration + 1)) ?? false)
-            XCTAssertTrue(result.isEqual(to: currentResult * Decimal(iteration + 1)))
+            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration)) ?? false)
+            XCTAssertTrue(result.isEqual(to: currentResult * Decimal(iteration)))
             
             currentResult = result
         }
