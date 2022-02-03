@@ -37,7 +37,6 @@ class MultiplyTests: XCTestCase {
     // MARK: - Basic
     
     func testBasicMath() throws {
-        //Input 1 * 1 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.multiplyPressed()
@@ -52,7 +51,6 @@ class MultiplyTests: XCTestCase {
     // MARK: - Continuously Start New Equations
     
     func testPinpad() throws {
-        // → 10 options on the pin pad
         continuouslyStartNewEquations(using: 1)
         continuouslyStartNewEquations(using: 2)
         continuouslyStartNewEquations(using: 3)
@@ -66,7 +64,6 @@ class MultiplyTests: XCTestCase {
     }
     
     private func continuouslyStartNewEquations(using number: Int) {
-        //Input: 1 * number = 1..10 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
 
         for iteration in 0...9 {
@@ -84,7 +81,6 @@ class MultiplyTests: XCTestCase {
     // MARK: - Continuously Multiply From Result
     
     func testPinpad_ContinuouslyMultiplying() throws {
-        // → 10 options on the pin pad
         continuouslyMultiply(using: 1)
         continuouslyMultiply(using: 2)
         continuouslyMultiply(using: 3)
@@ -98,7 +94,6 @@ class MultiplyTests: XCTestCase {
     }
     
     private func continuouslyMultiply(using number: Int) {
-        //Input: 1 * number = * 1..10 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(number)
         

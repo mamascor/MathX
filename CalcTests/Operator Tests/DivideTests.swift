@@ -38,7 +38,6 @@ class DivideTests: XCTestCase {
     // MARK: - Basic
     
     func testBasicMath() throws {
-        //Input 1 / 1 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.dividePressed()
@@ -53,7 +52,6 @@ class DivideTests: XCTestCase {
     // MARK: - Continuously Start New Equations
     
     func testPinpad() throws {
-        // → 10 options on the pin pad
         continuouslyStartNewEquations(using: 1)
         continuouslyStartNewEquations(using: 2)
         continuouslyStartNewEquations(using: 3)
@@ -67,7 +65,6 @@ class DivideTests: XCTestCase {
     }
     
     private func continuouslyStartNewEquations(using number: Int) {
-        //Input number / 1 = number / 2 = number / 3 = number / 4 = number / 5 = number / 6 = number / 7 = number / 8 = number / 9 =  number / 10 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         
         for iteration in 0...9 {
@@ -87,8 +84,6 @@ class DivideTests: XCTestCase {
     // MARK: - Continuously Subtract From Result
     
     func testPinpad_ContinuouslyDividing() throws {
-        
-        // → 10 options on the pin pad
         continuouslyDivide(using: 1)
         continuouslyDivide(using: 2)
         continuouslyDivide(using: 3)
@@ -102,7 +97,6 @@ class DivideTests: XCTestCase {
     }
     
     private func continuouslyDivide(using number: Int) {
-        //Input number / 1 = / 2 = / 3 = / 4 = / 5 = / 6 = / 7 = / 8 = / 9 =  / 10 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(number)
         

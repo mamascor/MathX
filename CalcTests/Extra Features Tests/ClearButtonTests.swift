@@ -39,7 +39,6 @@ class ClearButtonTests: XCTestCase {
     // MARK: - Result
     
     func testClear() throws {
-        //Input 3 3 3 + 3 3 3 = clear
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(3)
         calculatorEngine.numberPressed(3)
@@ -58,7 +57,6 @@ class ClearButtonTests: XCTestCase {
     }
     
     func testClearAfterPercentage() throws {
-        //Input 3 3 3 + 3 3 3 = % clear
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(3)
         calculatorEngine.numberPressed(3)
@@ -79,7 +77,6 @@ class ClearButtonTests: XCTestCase {
     }
     
     func testClearAfterNegate() throws {
-        //Input 3 3 3 + 3 3 3 = negate clear
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(3)
         calculatorEngine.numberPressed(3)
@@ -100,7 +97,6 @@ class ClearButtonTests: XCTestCase {
     }
     
     func testMultipleClear() throws {
-        //Input 3 3 3 + 3 3 3 = clear clear clear clear clear
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(3)
         calculatorEngine.numberPressed(3)

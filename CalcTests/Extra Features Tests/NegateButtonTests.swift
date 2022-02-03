@@ -38,7 +38,6 @@ class NegateButtonTests: XCTestCase {
     // MARK: - Operands - Left
     
     func testSmall_LeftHandEntry() throws {
-        //Input 1 negate
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         
@@ -48,7 +47,6 @@ class NegateButtonTests: XCTestCase {
     }
     
     func testMedium_LeftHandEntry() throws {
-        //Input 1 2 3 negate
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.numberPressed(2)
@@ -60,7 +58,6 @@ class NegateButtonTests: XCTestCase {
     }
     
     func testLarge_LeftHandEntry() throws {
-        //Input 1 2 3 4 5 6 7 8 9 negate
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.numberPressed(2)
@@ -81,7 +78,6 @@ class NegateButtonTests: XCTestCase {
     // MARK: - Continuously Pressing Equals Negate
     
     func testLeftHandEntryTwice() throws {
-        //Input 1 negate negate
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         
@@ -92,7 +88,6 @@ class NegateButtonTests: XCTestCase {
     }
     
     func testLargeLeftHandEntryTwice() throws {
-        //Input 100 negate negate
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.numberPressed(0)
@@ -105,7 +100,6 @@ class NegateButtonTests: XCTestCase {
     }
     
     func testLeftHandEntryThrice() throws {
-        //Input 1 negate negate negate
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         
@@ -119,7 +113,6 @@ class NegateButtonTests: XCTestCase {
     // MARK: - operands - Right
     
     func testSmall_RightHandEntry() throws {
-        //Input 1 + 1 negate
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
@@ -131,7 +124,6 @@ class NegateButtonTests: XCTestCase {
     }
     
     func testMedium_RightHandEntry() throws {
-        //Input 1 - 3 2 1 negate
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.minusPressed()
@@ -145,7 +137,6 @@ class NegateButtonTests: XCTestCase {
     }
     
     func testLarge_RightHandEntry() throws {
-        //Input 1 / 1 2 3 4 5 6 7 8  9 negate
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.dividePressed()
@@ -167,7 +158,6 @@ class NegateButtonTests: XCTestCase {
     // MARK: - Pressing Button Multiple Times - Right
     
     func testRightHandEntryTwice() throws {
-        //Input 1 + 1 negate negate
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
@@ -180,7 +170,6 @@ class NegateButtonTests: XCTestCase {
     }
     
     func testLargeRightHandEntryTwice() throws {
-        //Input 1 + 1 0 0 negate negate
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
@@ -195,7 +184,6 @@ class NegateButtonTests: XCTestCase {
     }
     
     func testRightHandEntryThrice() throws {
-        //Input 1 + 1 negate negate negate
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
@@ -211,7 +199,6 @@ class NegateButtonTests: XCTestCase {
     // MARK: - Result
     
     func testNegatingAResult() throws {
-        //Input 1 + 1 = negate
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
@@ -226,7 +213,6 @@ class NegateButtonTests: XCTestCase {
     }
     
     func testNegatingAResultTwice() throws {
-        //Input 1 + 1 = negate negate negate negate
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.addPressed()
@@ -244,7 +230,6 @@ class NegateButtonTests: XCTestCase {
     //MARK: - Negate Decimals - Left
     
     func testDecimals_LeftHandEntry() throws {
-        //Input 0 . 1 2 3 4 5 6 7 8 9 negate
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.decimalPressed()
@@ -266,7 +251,6 @@ class NegateButtonTests: XCTestCase {
     //MARK: - Negate Decimals - Right
     
     func testDecimals_RightHandEntry() throws {
-        //Input 0 + 0 . 1 2 3 4 5 6 7 8 9 negate
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()

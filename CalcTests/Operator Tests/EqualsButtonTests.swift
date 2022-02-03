@@ -38,7 +38,6 @@ class EqualsButtonTests: XCTestCase {
     // MARK: - Basic
     
     func testBasicMath() throws {
-        //Input 1 - 1 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.minusPressed()
@@ -53,8 +52,6 @@ class EqualsButtonTests: XCTestCase {
     // MARK: - Continuously Pressing Equals From Result
     
     func testEquals_UsingAddition() throws {
-        // Input 4 + 4 = = =
-        // Expected Result: (4 + 4), becomes (8 + 4), becomes (12 + 4)
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(4)
         calculatorEngine.addPressed()
@@ -70,8 +67,6 @@ class EqualsButtonTests: XCTestCase {
     }
     
     func testEquals_UsingSubtraction() throws {
-        // Input 4 + 4 = = =
-        // Expected Result: (4 + 4), becomes (8 + 4), becomes (12 + 4)
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(4)
         calculatorEngine.minusPressed()
@@ -87,8 +82,6 @@ class EqualsButtonTests: XCTestCase {
     }
     
     func testEquals_UsingMultiplication() throws {
-        // Input 4 + 4 = = =
-        // Expected Result: (4 + 4), becomes (8 + 4), becomes (12 + 4)
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(4)
         calculatorEngine.multiplyPressed()
@@ -104,8 +97,6 @@ class EqualsButtonTests: XCTestCase {
     }
     
     func testEquals_UsingDivision() throws {
-        // Input 4 + 4 = = =
-        // Expected Result: (4 + 4), becomes (8 + 4), becomes (12 + 4)
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(4)
         calculatorEngine.dividePressed()

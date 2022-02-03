@@ -39,7 +39,6 @@ class SubtractionTests: XCTestCase {
     // MARK: - Basic
     
     func testBasicMath() throws {
-        //Input 1 - 1 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
         calculatorEngine.minusPressed()
@@ -55,7 +54,6 @@ class SubtractionTests: XCTestCase {
     // MARK: - Continuously Start New Equations
     
     func testPinpad() throws {
-        // → 10 options on the pin pad
         continuouslyStartNewEquations(using: 1)
         continuouslyStartNewEquations(using: 2)
         continuouslyStartNewEquations(using: 3)
@@ -69,7 +67,6 @@ class SubtractionTests: XCTestCase {
     }
     
     private func continuouslyStartNewEquations(using number: Int) {
-        //Input number - 0..9 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         
         for iteration in 0...9 {
@@ -87,7 +84,6 @@ class SubtractionTests: XCTestCase {
     // MARK: - Continuously Subtract From Result
     
     func testPinpad_ContinuouslySubtracting() throws {
-        // → 10 options on the pin pad
         continuouslySubtract(using: 1)
         continuouslySubtract(using: 2)
         continuouslySubtract(using: 3)
@@ -101,7 +97,6 @@ class SubtractionTests: XCTestCase {
     }
     
     private func continuouslySubtract(using number: Int) {
-        //Input number - 1 = - 0..9 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(number)
         
@@ -127,7 +122,6 @@ class SubtractionTests: XCTestCase {
     // MARK: - Random Equation
     
     func testRandomEquation() throws {
-        //Input 7 - 127 = - 34 = - 6 = - 5 = - 4 = - 3 = - 2 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(7)
         calculatorEngine.minusPressed()

@@ -106,8 +106,8 @@
             filePath = "CalcTests/Extra Features Tests/NegateButtonTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "testLarge_LeftHandEntry()"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,8 +122,8 @@
             filePath = "CalcTests/Extra Features Tests/NegateButtonTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "testLarge_LeftHandEntry()"
             landmarkType = "7">
          </BreakpointContent>

@@ -38,7 +38,6 @@ class ZeroTests: XCTestCase {
     // MARK: - Operands - Left
     
     func test0_LeftHandEntry() throws {
-        //Input 0
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         
@@ -47,7 +46,6 @@ class ZeroTests: XCTestCase {
     }
     
     func test00_LeftHandEntry() throws {
-        //Input 0 0
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.numberPressed(0)
@@ -57,7 +55,6 @@ class ZeroTests: XCTestCase {
     }
     
     func test000_LeftHandEntry() throws {
-        //Input 0 0 0
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.numberPressed(0)
@@ -70,7 +67,6 @@ class ZeroTests: XCTestCase {
     // MARK: - Operands - Right
     
     func test0_RightHandEntry() throws {
-        //Input 0 + 0
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -81,7 +77,6 @@ class ZeroTests: XCTestCase {
     }
     
     func test00_RightHandEntry() throws {
-        //Input 0 + 0 0
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -93,7 +88,6 @@ class ZeroTests: XCTestCase {
     }
     
     func test000_RightHandEntry() throws {
-        //Input 0 + 0 0 0
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -106,7 +100,6 @@ class ZeroTests: XCTestCase {
     }
     
     func test000Addition_RightHandEntry() throws {
-        //Input 0 + 0 0 0 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.addPressed()
@@ -122,7 +115,6 @@ class ZeroTests: XCTestCase {
     }
     
     func test000Subtraction_RightHandEntry() throws {
-        //Input 0 - 0 0 0 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.minusPressed()
@@ -138,7 +130,6 @@ class ZeroTests: XCTestCase {
     }
     
     func test000Divide_RightHandEntry() throws {
-        //Input 0 0 / 0 0 0 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.dividePressed()
@@ -154,7 +145,6 @@ class ZeroTests: XCTestCase {
     }
     
     func test000Multiply_RightHandEntry() throws {
-        //Input 0 * 0 0 0 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(0)
         calculatorEngine.multiplyPressed()
