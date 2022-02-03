@@ -126,15 +126,18 @@ class AdditionTests: XCTestCase {
     // MARK: - Random Equation
     
     func testRandomEquation() throws {
-        
+        // Input 7 + 127 = + 34 = + 6 = + 5 = + 4 = + 3 = + 2 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(7)
         calculatorEngine.addPressed()
-        calculatorEngine.numberPressed(127)
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.numberPressed(2)
+        calculatorEngine.numberPressed(7)
         calculatorEngine.equalsPressed()
         
         calculatorEngine.addPressed()
-        calculatorEngine.numberPressed(34)
+        calculatorEngine.numberPressed(3)
+        calculatorEngine.numberPressed(4)
         calculatorEngine.equalsPressed()
 
         calculatorEngine.addPressed()

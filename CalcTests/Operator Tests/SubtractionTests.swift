@@ -87,7 +87,6 @@ class SubtractionTests: XCTestCase {
     // MARK: - Continuously Subtract From Result
     
     func testPinpad_ContinuouslySubtracting() throws {
-        
         // → 10 options on the pin pad
         continuouslySubtract(using: 1)
         continuouslySubtract(using: 2)
@@ -132,11 +131,14 @@ class SubtractionTests: XCTestCase {
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(7)
         calculatorEngine.minusPressed()
-        calculatorEngine.numberPressed(127)
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.numberPressed(2)
+        calculatorEngine.numberPressed(7)
         calculatorEngine.equalsPressed()
         
         calculatorEngine.minusPressed()
-        calculatorEngine.numberPressed(34)
+        calculatorEngine.numberPressed(3)
+        calculatorEngine.numberPressed(4)
         calculatorEngine.equalsPressed()
         
         calculatorEngine.minusPressed()

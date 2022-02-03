@@ -67,7 +67,7 @@ class DivideTests: XCTestCase {
     }
     
     private func continuouslyStartNewEquations(using number: Int) {
-        //Input: number / 1 = number / 2 = number / 3 = number / 4 = number / 5 = number / 6 = number / 7 = number / 8 = number / 9 =  number / 10 =
+        //Input number / 1 = number / 2 = number / 3 = number / 4 = number / 5 = number / 6 = number / 7 = number / 8 = number / 9 =  number / 10 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         
         for iteration in 1...10 {
@@ -102,7 +102,7 @@ class DivideTests: XCTestCase {
     }
     
     private func continuouslyDivide(using number: Int) {
-        //Input: number / 1 = / 2 = / 3 = / 4 = / 5 = / 6 = / 7 = / 8 = / 9 =  / 10 =
+        //Input number / 1 = / 2 = / 3 = / 4 = / 5 = / 6 = / 7 = / 8 = / 9 =  / 10 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(number)
         
