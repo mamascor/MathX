@@ -34,9 +34,10 @@ import XCTest
 @testable import Calc
 
 class EqualsButtonTests: XCTestCase {
-
-    // MARK: - Basic Equals
-    func testBasicEquals() throws {
+    
+    // MARK: - Basic
+    
+    func testBasicMath() throws {
         //Input 1 - 1 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
@@ -44,19 +45,9 @@ class EqualsButtonTests: XCTestCase {
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
-        guard let result = calculatorEngine.resultOfEquation else {
-            XCTAssert(true, "Did not have result after equation was expected to have completed")
-            return
-        }
-        
-        guard let rhd = calculatorEngine.rightHandOperand else {
-            XCTAssert(true, "Did not have right hand value")
-            return
-        }
-        
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
-        XCTAssertTrue(rhd.isEqual(to: Decimal(1)))
-        XCTAssertTrue(result.isEqual(to: Decimal(0)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(1)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(0)) ?? false)
     }
     
     // MARK: - Pressing Equals Again and Again
@@ -70,37 +61,16 @@ class EqualsButtonTests: XCTestCase {
         calculatorEngine.numberPressed(4)
         calculatorEngine.equalsPressed()
         
-        guard let result = calculatorEngine.resultOfEquation else {
-            XCTAssert(true, "Did not have result after equation was expected to have completed")
-            return
-        }
-        
-        guard let rhd = calculatorEngine.rightHandOperand else {
-            XCTAssert(true, "Did not have right hand value")
-            return
-        }
-        
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(4)))
-        XCTAssertTrue(rhd.isEqual(to: Decimal(4)))
-        XCTAssertTrue(result.isEqual(to: Decimal(8)))
-        
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(4)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(8)) ?? false)
         
         calculatorEngine.equalsPressed()
         calculatorEngine.equalsPressed()
-        
-        guard let result = calculatorEngine.resultOfEquation else {
-            XCTAssert(true, "Did not have result after equation was expected to have completed")
-            return
-        }
-        
-        guard let rhd = calculatorEngine.rightHandOperand else {
-            XCTAssert(true, "Did not have right hand value")
-            return
-        }
         
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(12)))
-        XCTAssertTrue(rhd.isEqual(to: Decimal(4)))
-        XCTAssertTrue(result.isEqual(to: Decimal(16)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(4)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(16)) ?? false)
     }
     
     func testRepeatativeEquals_UsingSubtraction() throws {
@@ -111,38 +81,17 @@ class EqualsButtonTests: XCTestCase {
         calculatorEngine.minusPressed()
         calculatorEngine.numberPressed(4)
         calculatorEngine.equalsPressed()
-        
-        guard let result = calculatorEngine.resultOfEquation else {
-            XCTAssert(true, "Did not have result after equation was expected to have completed")
-            return
-        }
-        
-        guard let rhd = calculatorEngine.rightHandOperand else {
-            XCTAssert(true, "Did not have right hand value")
-            return
-        }
-        
+
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(4)))
-        XCTAssertTrue(rhd.isEqual(to: Decimal(4)))
-        XCTAssertTrue(result.isEqual(to: Decimal(0)))
-        
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(4)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(0)) ?? false)
         
         calculatorEngine.equalsPressed()
         calculatorEngine.equalsPressed()
-        
-        guard let result = calculatorEngine.resultOfEquation else {
-            XCTAssert(true, "Did not have result after equation was expected to have completed")
-            return
-        }
-        
-        guard let rhd = calculatorEngine.rightHandOperand else {
-            XCTAssert(true, "Did not have right hand value")
-            return
-        }
         
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(-4)))
-        XCTAssertTrue(rhd.isEqual(to: Decimal(4)))
-        XCTAssertTrue(result.isEqual(to: Decimal(-8)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(4)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(-8)) ?? false)
     }
     
     func testRepeatativeEquals_UsingMultiplication() throws {
@@ -153,38 +102,17 @@ class EqualsButtonTests: XCTestCase {
         calculatorEngine.multiplyPressed()
         calculatorEngine.numberPressed(4)
         calculatorEngine.equalsPressed()
-        
-        guard let result = calculatorEngine.resultOfEquation else {
-            XCTAssert(true, "Did not have result after equation was expected to have completed")
-            return
-        }
-        
-        guard let rhd = calculatorEngine.rightHandOperand else {
-            XCTAssert(true, "Did not have right hand value")
-            return
-        }
-        
+
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(4)))
-        XCTAssertTrue(rhd.isEqual(to: Decimal(4)))
-        XCTAssertTrue(result.isEqual(to: Decimal(16)))
-        
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(4)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(16)) ?? false)
         
         calculatorEngine.equalsPressed()
         calculatorEngine.equalsPressed()
-        
-        guard let result = calculatorEngine.resultOfEquation else {
-            XCTAssert(true, "Did not have result after equation was expected to have completed")
-            return
-        }
-        
-        guard let rhd = calculatorEngine.rightHandOperand else {
-            XCTAssert(true, "Did not have right hand value")
-            return
-        }
-        
+ 
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(64)))
-        XCTAssertTrue(rhd.isEqual(to: Decimal(4)))
-        XCTAssertTrue(result.isEqual(to: Decimal(256)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(4)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(256)) ?? false)
     }
     
     func testRepeatativeEquals_UsingDivision() throws {
@@ -196,36 +124,15 @@ class EqualsButtonTests: XCTestCase {
         calculatorEngine.numberPressed(4)
         calculatorEngine.equalsPressed()
         
-        guard let result = calculatorEngine.resultOfEquation else {
-            XCTAssert(true, "Did not have result after equation was expected to have completed")
-            return
-        }
-        
-        guard let rhd = calculatorEngine.rightHandOperand else {
-            XCTAssert(true, "Did not have right hand value")
-            return
-        }
-        
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(4)))
-        XCTAssertTrue(rhd.isEqual(to: Decimal(4)))
-        XCTAssertTrue(result.isEqual(to: Decimal(1)))
-        
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(4)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(1)) ?? false)
         
         calculatorEngine.equalsPressed()
         calculatorEngine.equalsPressed()
-        
-        guard let result = calculatorEngine.resultOfEquation else {
-            XCTAssert(true, "Did not have result after equation was expected to have completed")
-            return
-        }
-        
-        guard let rhd = calculatorEngine.rightHandOperand else {
-            XCTAssert(true, "Did not have right hand value")
-            return
-        }
         
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(0.25)))
-        XCTAssertTrue(rhd.isEqual(to: Decimal(4)))
-        XCTAssertTrue(result.formatted() ==  Decimal(0.0625).formatted())
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(4)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.formatted() ==  Decimal(0.0625).formatted())
     }
 }

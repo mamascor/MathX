@@ -35,7 +35,9 @@ import XCTest
 
 class DivideTests: XCTestCase {
 
-    func testDivision() throws {
+    // MARK: - Basic
+    
+    func testBasicMath() throws {
         //Input 1 / 1 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
@@ -43,19 +45,9 @@ class DivideTests: XCTestCase {
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
-        guard let result = calculatorEngine.resultOfEquation else {
-            XCTAssert(true, "Did not have result after equation was expected to have completed")
-            return
-        }
-        
-        guard let rhd = calculatorEngine.rightHandOperand else {
-            XCTAssert(true, "Did not have right hand value")
-            return
-        }
-        
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
-        XCTAssertTrue(rhd.isEqual(to: Decimal(1)))
-        XCTAssertTrue(result.isEqual(to: Decimal(1)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(1)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(1)) ?? false)
     }
 
     func testGrowingDivisionFromPinpad() throws {
@@ -83,22 +75,12 @@ class DivideTests: XCTestCase {
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
-        guard let firstResult = calculatorEngine.resultOfEquation else {
-            XCTAssert(true, "Did not have result after equation was expected to have completed")
-            return
-        }
-        
-        guard let firstRightHandValue = calculatorEngine.rightHandOperand else {
-            XCTAssert(true, "Did not have right hand value")
-            return
-        }
-        
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
-        XCTAssertTrue(firstRightHandValue.isEqual(to: Decimal(1)))
-        XCTAssertTrue(firstResult.isEqual(to: Decimal(number)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(1)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number)) ?? false)
         
         // → Loop through more tests
-        var currentResult: Decimal = firstResult
+        var currentResult: Decimal = Decimal(number)
         for iteration in 0...9 {
             calculatorEngine.dividePressed()
             calculatorEngine.numberPressed(iteration + 1)
@@ -109,13 +91,8 @@ class DivideTests: XCTestCase {
                 return
             }
             
-            guard let rhd = calculatorEngine.rightHandOperand else {
-                XCTAssert(true, "Did not have right hand value")
-                return
-            }
-            
             XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: currentResult))
-            XCTAssertTrue(rhd.isEqual(to: Decimal(iteration + 1)))
+            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration + 1)) ?? false)
             XCTAssertTrue(result.isEqual(to: currentResult / Decimal(iteration + 1)))
             
             currentResult = result
@@ -145,19 +122,9 @@ class DivideTests: XCTestCase {
         calculatorEngine.numberPressed(1)
         calculatorEngine.equalsPressed()
         
-        guard let firstResult = calculatorEngine.resultOfEquation else {
-            XCTAssert(true, "Did not have result after equation was expected to have completed")
-            return
-        }
-        
-        guard let firstRightHandValue = calculatorEngine.rightHandOperand else {
-            XCTAssert(true, "Did not have right hand value")
-            return
-        }
-        
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
-        XCTAssertTrue(firstRightHandValue.isEqual(to: Decimal(1)))
-        XCTAssertTrue(firstResult.isEqual(to: Decimal(number)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(1)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number)) ?? false)
         
         // → Loop through more tests
         for iteration in 0...9 {
@@ -166,21 +133,11 @@ class DivideTests: XCTestCase {
             calculatorEngine.numberPressed(iteration + 1)
             calculatorEngine.equalsPressed()
             
-            guard let result = calculatorEngine.resultOfEquation else {
-                XCTAssert(true, "Did not have result after equation was expected to have completed")
-                return
-            }
-            
-            guard let rhd = calculatorEngine.rightHandOperand else {
-                XCTAssert(true, "Did not have right hand value")
-                return
-            }
-            
             let doubleValue: Double = Double(number) / Double(iteration + 1)
             XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
-            XCTAssertTrue(rhd.isEqual(to: Decimal(iteration + 1)))
+            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration + 1)) ?? false)
             // Note: comparing floating point numbers causes our tests to fail. They are not accurate enough to compare.
-            XCTAssertTrue(result.formatted() == Decimal(doubleValue).formatted())
+            XCTAssertTrue(calculatorEngine.resultOfEquation?.formatted() == Decimal(doubleValue).formatted())
         }
         
     }

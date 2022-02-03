@@ -33,11 +33,12 @@
 import XCTest
 @testable import Calc
 
+
 class SubtractionTests: XCTestCase {
 
     // MARK: - Basic
     
-    func testSubtraction() throws {
+    func testBasicMath() throws {
         //Input 1 - 1 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
@@ -51,24 +52,24 @@ class SubtractionTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.lcdDisplayText == "0")
     }
     
-    // MARK: - New Equations
+    // MARK: - Continuously Start New Equations
     
     func testPinpad() throws {
         // → 10 options on the pin pad
-        startNewEquations(using: 1)
-        startNewEquations(using: 2)
-        startNewEquations(using: 3)
-        startNewEquations(using: 4)
-        startNewEquations(using: 5)
-        startNewEquations(using: 6)
-        startNewEquations(using: 7)
-        startNewEquations(using: 8)
-        startNewEquations(using: 9)
-        startNewEquations(using: 0)
+        continuouslyStartNewEquations(using: 1)
+        continuouslyStartNewEquations(using: 2)
+        continuouslyStartNewEquations(using: 3)
+        continuouslyStartNewEquations(using: 4)
+        continuouslyStartNewEquations(using: 5)
+        continuouslyStartNewEquations(using: 6)
+        continuouslyStartNewEquations(using: 7)
+        continuouslyStartNewEquations(using: 8)
+        continuouslyStartNewEquations(using: 9)
+        continuouslyStartNewEquations(using: 0)
     }
     
-    private func startNewEquations(using number: Int) {
-        //Input number - 1 = number - 1..10 =
+    private func continuouslyStartNewEquations(using number: Int) {
+        //Input number - 1..10 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         
         for iteration in 1...10 {
@@ -162,6 +163,5 @@ class SubtractionTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(2)) ?? false)
         XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(-174)) ?? false)
         XCTAssertTrue(calculatorEngine.lcdDisplayText == "-174")
-        
     }
 }

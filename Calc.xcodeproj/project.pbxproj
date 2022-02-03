@@ -162,10 +162,10 @@
 		0C4DA5FF27A2C7B60081EC12 /* Operator Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0C8DB36427A0B1E300A96AA0 /* SubtractionTests.swift */,
 				0CE4068527A00F3800B16A24 /* AdditionTests.swift */,
 				0CED88AE27A1879F00261494 /* DivideTests.swift */,
 				0CED88AC27A16E5800261494 /* MultiplyTests.swift */,
-				0C8DB36427A0B1E300A96AA0 /* SubtractionTests.swift */,
 				0CED88B027A192E700261494 /* EqualsButtonTests.swift */,
 			);
 			path = "Operator Tests";
