@@ -1,5 +1,5 @@
 //
-//  EnterNumberTests.swift
+//  PinPadTests.swift
 //  CalcTests
 //
 //  Created by iOSB Free on 26/01/2022.
@@ -34,7 +34,7 @@
 import XCTest
 @testable import Calc
 
-class EnterNumberTests: XCTestCase {
+class PinPadTests: XCTestCase {
 
     // MARK: - Operands - Left
     

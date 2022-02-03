@@ -35,7 +35,7 @@ import XCTest
 
 class NegateButtonTests: XCTestCase {
 
-    // MARK: - operands - Left
+    // MARK: - Operands - Left
     
     func testSmall_LeftHandEntry() throws {
         //Input 1 negate
@@ -77,8 +77,8 @@ class NegateButtonTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.leftHandOperand.formatted() == Decimal(-123456789).formatted())
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(-123456789)))
     }
-
-    // MARK: - Pressing Button Multiple Times - Left
+    
+    // MARK: - Continuously Pressing Equals Negate
     
     func testLeftHandEntryTwice() throws {
         //Input 1 negate negate

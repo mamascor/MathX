@@ -37,7 +37,7 @@ class PercentageButtonTests: XCTestCase {
 
     // MARK: - operands - Left
     
-    func testSmallLeftHandEntry() throws {
+    func testSmall_LeftHandEntry() throws {
         //Input 1 %
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
@@ -48,7 +48,7 @@ class PercentageButtonTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.lcdDisplayText == "0.01")
     }
     
-    func testLargeLeftHandEntry() throws {
+    func testLarge_LeftHandEntry() throws {
         //Input 1 0 0 %
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
@@ -61,7 +61,7 @@ class PercentageButtonTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.lcdDisplayText == "1")
     }
     
-    func testLargeLeftHandEntry2() throws {
+    func test_LargeLeftHandEntry2() throws {
         //Input 2 0 0 %
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(2)
@@ -74,7 +74,7 @@ class PercentageButtonTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.lcdDisplayText == "2")
     }
 
-    func testLeftHandEntryTwice() throws {
+    func test_LeftHandEntryTwice() throws {
         //Input 1 % %
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
@@ -86,7 +86,7 @@ class PercentageButtonTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.lcdDisplayText == "0.0001")
     }
     
-    func testLeftHandEntryThrice() throws {
+    func test_LeftHandEntryThrice() throws {
         //Input 1 % % %
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
@@ -101,7 +101,7 @@ class PercentageButtonTests: XCTestCase {
     
     // MARK: - operands - Right
     
-    func testSmallRightHandEntry() throws {
+    func testSmall_RightHandEntry() throws {
         //Input 1 + 1 %
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
@@ -114,7 +114,7 @@ class PercentageButtonTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.lcdDisplayText == "0.01")
     }
     
-    func testLargeRightHandEntry() throws {
+    func testLarge_RightHandEntry() throws {
         //Input 1 + 1 0 0 %
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
@@ -129,7 +129,7 @@ class PercentageButtonTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.lcdDisplayText == "1")
     }
     
-    func testLargeRightHandEntry2() throws {
+    func testLarge_RightHandEntry2() throws {
         //Input 1 + 2 0 0 %
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
@@ -144,7 +144,7 @@ class PercentageButtonTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.lcdDisplayText == "2")
     }
 
-    func testRightHandEntryTwice() throws {
+    func test_RightHandEntryTwice() throws {
         //Input 1 + 1 % %
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
@@ -158,7 +158,7 @@ class PercentageButtonTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.lcdDisplayText == "0.0001")
     }
     
-    func testRightHandEntryThrice() throws {
+    func test_RightHandEntryThrice() throws {
         //Input 1 + 1 % % %
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)

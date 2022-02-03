@@ -1,5 +1,5 @@
 //
-//  EnteringZeroTests.swift
+//  ZeroTests.swift
 //  CalcTests
 //
 //  Created by iOSB Free on 27/01/2022.
@@ -33,7 +33,7 @@
 import XCTest
 @testable import Calc
 
-class EnteringZeroTests: XCTestCase {
+class ZeroTests: XCTestCase {
 
     // MARK: - Operands - Left
     

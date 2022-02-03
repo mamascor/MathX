@@ -1,5 +1,5 @@
 //
-//  DecimalEntryTests.swift
+//  DecimalTests.swift
 //  CalcTests
 //
 //  Created by iOSB Free on 27/01/2022.
@@ -34,7 +34,7 @@
 import XCTest
 @testable import Calc
 
-class DecimalEntryTests: XCTestCase {
+class DecimalTests: XCTestCase {
 
     // MARK: - Operands - Left
     

@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		0C219D2727A42F8000A55AE8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C219D2627A42F8000A55AE8 /* Constants.swift */; };
 		0C4DA5FD27A2B35B0081EC12 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4DA5FC27A2B35B0081EC12 /* ThemeManager.swift */; };
-		0C4DA60327A2CF040081EC12 /* DecimalEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4DA60227A2CF040081EC12 /* DecimalEntryTests.swift */; };
-		0C4DA60527A2EFFF0081EC12 /* EnteringZeroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4DA60427A2EFFF0081EC12 /* EnteringZeroTests.swift */; };
+		0C4DA60327A2CF040081EC12 /* DecimalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4DA60227A2CF040081EC12 /* DecimalTests.swift */; };
+		0C4DA60527A2EFFF0081EC12 /* ZeroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4DA60427A2EFFF0081EC12 /* ZeroTests.swift */; };
 		0C4DA60727A2FECE0081EC12 /* DisplayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4DA60627A2FECE0081EC12 /* DisplayTests.swift */; };
 		0C4DA60E27A374F30081EC12 /* Hello Everyone.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA60D27A374F30081EC12 /* Hello Everyone.txt */; };
 		0C4DA61027A378D00081EC12 /* Our Free Courses in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA60F27A378D00081EC12 /* Our Free Courses */; };
@@ -49,7 +49,7 @@
 		0CED88B327A1969800261494 /* NegateButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88B227A1969800261494 /* NegateButtonTests.swift */; };
 		0CED88B527A1A0CB00261494 /* PercentageButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88B427A1A0CB00261494 /* PercentageButtonTests.swift */; };
 		0CED88B727A1A70700261494 /* ClearButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88B627A1A70700261494 /* ClearButtonTests.swift */; };
-		0CED88B927A1AA8D00261494 /* EnterNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88B827A1AA8D00261494 /* EnterNumberTests.swift */; };
+		0CED88B927A1AA8D00261494 /* PinPadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88B827A1AA8D00261494 /* PinPadTests.swift */; };
 		0CED88BD27A1BA2000261494 /* WashedOutTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88BC27A1BA2000261494 /* WashedOutTheme.swift */; };
 		0CED88BF27A1BC7400261494 /* VibrantTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88BE27A1BC7400261494 /* VibrantTheme.swift */; };
 		0CED88C127A1BF3500261494 /* OrangeTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED88C027A1BF3500261494 /* OrangeTheme.swift */; };
@@ -75,8 +75,8 @@
 /* Begin PBXFileReference section */
 		0C219D2627A42F8000A55AE8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0C4DA5FC27A2B35B0081EC12 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
-		0C4DA60227A2CF040081EC12 /* DecimalEntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalEntryTests.swift; sourceTree = "<group>"; };
-		0C4DA60427A2EFFF0081EC12 /* EnteringZeroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnteringZeroTests.swift; sourceTree = "<group>"; };
+		0C4DA60227A2CF040081EC12 /* DecimalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalTests.swift; sourceTree = "<group>"; };
+		0C4DA60427A2EFFF0081EC12 /* ZeroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroTests.swift; sourceTree = "<group>"; };
 		0C4DA60627A2FECE0081EC12 /* DisplayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTests.swift; sourceTree = "<group>"; };
 		0C4DA60D27A374F30081EC12 /* Hello Everyone.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Hello Everyone.txt"; sourceTree = "<group>"; };
 		0C4DA60F27A378D00081EC12 /* Our Free Courses */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Our Free Courses"; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 		0CED88B227A1969800261494 /* NegateButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegateButtonTests.swift; sourceTree = "<group>"; };
 		0CED88B427A1A0CB00261494 /* PercentageButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentageButtonTests.swift; sourceTree = "<group>"; };
 		0CED88B627A1A70700261494 /* ClearButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearButtonTests.swift; sourceTree = "<group>"; };
-		0CED88B827A1AA8D00261494 /* EnterNumberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNumberTests.swift; sourceTree = "<group>"; };
+		0CED88B827A1AA8D00261494 /* PinPadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinPadTests.swift; sourceTree = "<group>"; };
 		0CED88BC27A1BA2000261494 /* WashedOutTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WashedOutTheme.swift; sourceTree = "<group>"; };
 		0CED88BE27A1BC7400261494 /* VibrantTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrantTheme.swift; sourceTree = "<group>"; };
 		0CED88C027A1BF3500261494 /* OrangeTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeTheme.swift; sourceTree = "<group>"; };
@@ -184,9 +184,9 @@
 		0C4DA60127A2C7D20081EC12 /* Pin Pad Tests */ = {
 			isa = PBXGroup;
 			children = (
-				0CED88B827A1AA8D00261494 /* EnterNumberTests.swift */,
-				0C4DA60227A2CF040081EC12 /* DecimalEntryTests.swift */,
-				0C4DA60427A2EFFF0081EC12 /* EnteringZeroTests.swift */,
+				0CED88B827A1AA8D00261494 /* PinPadTests.swift */,
+				0C4DA60227A2CF040081EC12 /* DecimalTests.swift */,
+				0C4DA60427A2EFFF0081EC12 /* ZeroTests.swift */,
 			);
 			path = "Pin Pad Tests";
 			sourceTree = "<group>";
@@ -528,14 +528,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CED88B927A1AA8D00261494 /* EnterNumberTests.swift in Sources */,
+				0CED88B927A1AA8D00261494 /* PinPadTests.swift in Sources */,
 				0CE4068627A00F3800B16A24 /* AdditionTests.swift in Sources */,
 				0CED88B327A1969800261494 /* NegateButtonTests.swift in Sources */,
 				0CED88B527A1A0CB00261494 /* PercentageButtonTests.swift in Sources */,
-				0C4DA60527A2EFFF0081EC12 /* EnteringZeroTests.swift in Sources */,
+				0C4DA60527A2EFFF0081EC12 /* ZeroTests.swift in Sources */,
 				0CED88AD27A16E5800261494 /* MultiplyTests.swift in Sources */,
 				0C8DB36527A0B1E300A96AA0 /* SubtractionTests.swift in Sources */,
-				0C4DA60327A2CF040081EC12 /* DecimalEntryTests.swift in Sources */,
+				0C4DA60327A2CF040081EC12 /* DecimalTests.swift in Sources */,
 				0CED88AF27A1879F00261494 /* DivideTests.swift in Sources */,
 				0CED88B127A192E700261494 /* EqualsButtonTests.swift in Sources */,
 				0C4DA60727A2FECE0081EC12 /* DisplayTests.swift in Sources */,
