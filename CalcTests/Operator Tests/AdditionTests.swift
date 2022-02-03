@@ -70,7 +70,7 @@ class AdditionTests: XCTestCase {
         //Input 1 + number = number + number(2..11) =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         
-        for iteration in 1...10 {
+        for iteration in 0...9 {
             calculatorEngine.numberPressed(number)
             calculatorEngine.addPressed()
             calculatorEngine.numberPressed(iteration)
@@ -105,9 +105,9 @@ class AdditionTests: XCTestCase {
         calculatorEngine.numberPressed(number)
         
         var currentResult = Decimal(number)
-        for iteration in 1...10 {
+        for iteration in 0...9 {
             calculatorEngine.addPressed()
-            calculatorEngine.numberPressed(number)
+            calculatorEngine.numberPressed(iteration)
             calculatorEngine.equalsPressed()
             
             guard let result = calculatorEngine.resultOfEquation else {
@@ -116,8 +116,8 @@ class AdditionTests: XCTestCase {
             }
             
             XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: currentResult))
-            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(number)) ?? false)
-            XCTAssertTrue(result.isEqual(to: Decimal(number * (iteration + 1))))
+            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration)) ?? false)
+            XCTAssertTrue(result.isEqual(to: currentResult + Decimal(iteration)))
             
             currentResult = result
         }

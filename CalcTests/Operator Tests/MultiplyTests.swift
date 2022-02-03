@@ -69,7 +69,7 @@ class MultiplyTests: XCTestCase {
         //Input: 1 * number = 1..10 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
 
-        for iteration in 1...10 {
+        for iteration in 0...9 {
             calculatorEngine.numberPressed(number)
             calculatorEngine.multiplyPressed()
             calculatorEngine.numberPressed(iteration)
@@ -103,7 +103,7 @@ class MultiplyTests: XCTestCase {
         calculatorEngine.numberPressed(number)
         
         var currentResult: Decimal = Decimal(number)
-        for iteration in 1...10 {
+        for iteration in 0...9 {
             calculatorEngine.multiplyPressed()
             calculatorEngine.numberPressed(iteration)
             calculatorEngine.equalsPressed()

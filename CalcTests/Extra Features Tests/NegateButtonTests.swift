@@ -94,7 +94,9 @@ class NegateButtonTests: XCTestCase {
     func testLargeLeftHandEntryTwice() throws {
         //Input 100 negate negate
         var calculatorEngine = iOSBFreeCalculatorEngine()
-        calculatorEngine.numberPressed(100)
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.numberPressed(0)
+        calculatorEngine.numberPressed(0)
         
         calculatorEngine.negatePressed()
         calculatorEngine.negatePressed()

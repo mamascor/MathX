@@ -54,23 +54,23 @@ class DivideTests: XCTestCase {
     
     func testPinpad() throws {
         // → 10 options on the pin pad
-        continuouslyDivide(using: 1)
-        continuouslyDivide(using: 2)
-        continuouslyDivide(using: 3)
-        continuouslyDivide(using: 4)
-        continuouslyDivide(using: 5)
-        continuouslyDivide(using: 6)
-        continuouslyDivide(using: 7)
-        continuouslyDivide(using: 8)
-        continuouslyDivide(using: 9)
-        continuouslyDivide(using: 0)
+        continuouslyStartNewEquations(using: 1)
+        continuouslyStartNewEquations(using: 2)
+        continuouslyStartNewEquations(using: 3)
+        continuouslyStartNewEquations(using: 4)
+        continuouslyStartNewEquations(using: 5)
+        continuouslyStartNewEquations(using: 6)
+        continuouslyStartNewEquations(using: 7)
+        continuouslyStartNewEquations(using: 8)
+        continuouslyStartNewEquations(using: 9)
+        continuouslyStartNewEquations(using: 0)
     }
     
     private func continuouslyStartNewEquations(using number: Int) {
         //Input number / 1 = number / 2 = number / 3 = number / 4 = number / 5 = number / 6 = number / 7 = number / 8 = number / 9 =  number / 10 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         
-        for iteration in 1...10 {
+        for iteration in 0...9 {
             calculatorEngine.numberPressed(number)
             calculatorEngine.dividePressed()
             calculatorEngine.numberPressed(iteration)
@@ -89,16 +89,16 @@ class DivideTests: XCTestCase {
     func testPinpad_ContinuouslyDividing() throws {
         
         // → 10 options on the pin pad
-        continuouslyStartNewEquations(using: 1)
-        continuouslyStartNewEquations(using: 2)
-        continuouslyStartNewEquations(using: 3)
-        continuouslyStartNewEquations(using: 4)
-        continuouslyStartNewEquations(using: 5)
-        continuouslyStartNewEquations(using: 6)
-        continuouslyStartNewEquations(using: 7)
-        continuouslyStartNewEquations(using: 8)
-        continuouslyStartNewEquations(using: 9)
-        continuouslyStartNewEquations(using: 0)
+        continuouslyDivide(using: 1)
+        continuouslyDivide(using: 2)
+        continuouslyDivide(using: 3)
+        continuouslyDivide(using: 4)
+        continuouslyDivide(using: 5)
+        continuouslyDivide(using: 6)
+        continuouslyDivide(using: 7)
+        continuouslyDivide(using: 8)
+        continuouslyDivide(using: 9)
+        continuouslyDivide(using: 0)
     }
     
     private func continuouslyDivide(using number: Int) {
@@ -107,7 +107,7 @@ class DivideTests: XCTestCase {
         calculatorEngine.numberPressed(number)
         
         var currentResult: Decimal = Decimal(number)
-        for iteration in 1...10 {
+        for iteration in 0...9 {
             calculatorEngine.dividePressed()
             calculatorEngine.numberPressed(iteration)
             calculatorEngine.equalsPressed()
