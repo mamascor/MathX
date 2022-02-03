@@ -50,22 +50,68 @@ class DivideTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(1)) ?? false)
     }
 
-    func testGrowingDivisionFromPinpad() throws {
-        
+    // MARK: - Continuously Start New Equations
+    
+    func testPinpad() throws {
         // → 10 options on the pin pad
-        continuouslyGrowingDivision(using: 1)
-        continuouslyGrowingDivision(using: 2)
-        continuouslyGrowingDivision(using: 3)
-        continuouslyGrowingDivision(using: 4)
-        continuouslyGrowingDivision(using: 5)
-        continuouslyGrowingDivision(using: 6)
-        continuouslyGrowingDivision(using: 7)
-        continuouslyGrowingDivision(using: 8)
-        continuouslyGrowingDivision(using: 9)
-        continuouslyGrowingDivision(using: 0)
+        continuouslyDivide(using: 1)
+        continuouslyDivide(using: 2)
+        continuouslyDivide(using: 3)
+        continuouslyDivide(using: 4)
+        continuouslyDivide(using: 5)
+        continuouslyDivide(using: 6)
+        continuouslyDivide(using: 7)
+        continuouslyDivide(using: 8)
+        continuouslyDivide(using: 9)
+        continuouslyDivide(using: 0)
     }
     
-    private func continuouslyGrowingDivision(using number: Int) {
+    private func continuouslyStartNewEquations(using number: Int) {
+        //Input: number / 1 = number / 2 = number / 3 = number / 4 = number / 5 = number / 6 = number / 7 = number / 8 = number / 9 =  number / 10 =
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(number)
+        calculatorEngine.dividePressed()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.equalsPressed()
+        
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(1)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number)) ?? false)
+        
+        // → Loop through more tests
+        for iteration in 0...9 {
+            calculatorEngine.numberPressed(number)
+            calculatorEngine.dividePressed()
+            calculatorEngine.numberPressed(iteration + 1)
+            calculatorEngine.equalsPressed()
+            
+            let doubleValue: Double = Double(number) / Double(iteration + 1)
+            XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
+            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration + 1)) ?? false)
+            // Note: comparing floating point numbers causes our tests to fail. They are not accurate enough to compare.
+            XCTAssertTrue(calculatorEngine.resultOfEquation?.formatted() == Decimal(doubleValue).formatted())
+        }
+        
+    }
+    
+    // MARK: - Continuously Subtract From Result
+    
+    func testPinpad_ContinuouslyDividing() throws {
+        
+        // → 10 options on the pin pad
+        continuouslyStartNewEquations(using: 1)
+        continuouslyStartNewEquations(using: 2)
+        continuouslyStartNewEquations(using: 3)
+        continuouslyStartNewEquations(using: 4)
+        continuouslyStartNewEquations(using: 5)
+        continuouslyStartNewEquations(using: 6)
+        continuouslyStartNewEquations(using: 7)
+        continuouslyStartNewEquations(using: 8)
+        continuouslyStartNewEquations(using: 9)
+        continuouslyStartNewEquations(using: 0)
+    }
+    
+    private func continuouslyDivide(using number: Int) {
         //Input: number / 1 = / 2 = / 3 = / 4 = / 5 = / 6 = / 7 = / 8 = / 9 =  / 10 =
         
         // setup
@@ -97,48 +143,5 @@ class DivideTests: XCTestCase {
             
             currentResult = result
         }
-        
-    }
-    
-    func testDivisionFromPinpad() throws {
-        // → 10 options on the pin pad
-        continuouslyDivide(using: 1)
-        continuouslyDivide(using: 2)
-        continuouslyDivide(using: 3)
-        continuouslyDivide(using: 4)
-        continuouslyDivide(using: 5)
-        continuouslyDivide(using: 6)
-        continuouslyDivide(using: 7)
-        continuouslyDivide(using: 8)
-        continuouslyDivide(using: 9)
-        continuouslyDivide(using: 0)
-    }
-    
-    private func continuouslyDivide(using number: Int) {
-        //Input: number / 1 = number / 2 = number / 3 = number / 4 = number / 5 = number / 6 = number / 7 = number / 8 = number / 9 =  number / 10 =
-        var calculatorEngine = iOSBFreeCalculatorEngine()
-        calculatorEngine.numberPressed(number)
-        calculatorEngine.dividePressed()
-        calculatorEngine.numberPressed(1)
-        calculatorEngine.equalsPressed()
-        
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
-        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(1)) ?? false)
-        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number)) ?? false)
-        
-        // → Loop through more tests
-        for iteration in 0...9 {
-            calculatorEngine.numberPressed(number)
-            calculatorEngine.dividePressed()
-            calculatorEngine.numberPressed(iteration + 1)
-            calculatorEngine.equalsPressed()
-            
-            let doubleValue: Double = Double(number) / Double(iteration + 1)
-            XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
-            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration + 1)) ?? false)
-            // Note: comparing floating point numbers causes our tests to fail. They are not accurate enough to compare.
-            XCTAssertTrue(calculatorEngine.resultOfEquation?.formatted() == Decimal(doubleValue).formatted())
-        }
-        
     }
 }

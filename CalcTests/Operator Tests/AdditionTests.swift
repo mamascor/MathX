@@ -50,7 +50,51 @@ class AdditionTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(2)) ?? false)
     }
     
-    func testAdditionUsingPinpad() throws {
+    // MARK: - Continuously Start New Equations
+    
+    func testPinpad() throws {
+        // → 10 options on the pin pad
+        continuouslyStartNewEquations(using: 1)
+        continuouslyStartNewEquations(using: 2)
+        continuouslyStartNewEquations(using: 3)
+        continuouslyStartNewEquations(using: 4)
+        continuouslyStartNewEquations(using: 5)
+        continuouslyStartNewEquations(using: 6)
+        continuouslyStartNewEquations(using: 7)
+        continuouslyStartNewEquations(using: 8)
+        continuouslyStartNewEquations(using: 9)
+        continuouslyStartNewEquations(using: 0)
+    }
+    
+    private func continuouslyStartNewEquations(using number: Int) {
+        //Input 1 + number = number + number(2..11) =
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.addPressed()
+        calculatorEngine.numberPressed(number)
+        calculatorEngine.equalsPressed()
+        
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(number)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number + 1)) ?? false)
+        
+        // → Loop through more tests
+        for iteration in 1...10 {
+            calculatorEngine.numberPressed(number)
+            calculatorEngine.addPressed()
+            calculatorEngine.numberPressed(iteration + 1)
+            calculatorEngine.equalsPressed()
+            
+            XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
+            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration + 1)) ?? false)
+            XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number + (iteration + 1))) ?? false)
+        }
+        
+    }
+    
+    // MARK: - Continuously Add From Result
+    
+    func testPinpad_ContinuouslyAdding() throws {
         // → 10 options on the pin pad
         continuouslyAdd(using: 1)
         continuouslyAdd(using: 2)
@@ -95,48 +139,10 @@ class AdditionTests: XCTestCase {
             currentResult = result
         }
     }
-  
-    func testMultiplicationFromPinpad() throws {
-        // → 10 options on the pin pad
-        testEnteringNewEquationAfterViewingAResult(using: 1)
-        testEnteringNewEquationAfterViewingAResult(using: 2)
-        testEnteringNewEquationAfterViewingAResult(using: 3)
-        testEnteringNewEquationAfterViewingAResult(using: 4)
-        testEnteringNewEquationAfterViewingAResult(using: 5)
-        testEnteringNewEquationAfterViewingAResult(using: 6)
-        testEnteringNewEquationAfterViewingAResult(using: 7)
-        testEnteringNewEquationAfterViewingAResult(using: 8)
-        testEnteringNewEquationAfterViewingAResult(using: 9)
-        testEnteringNewEquationAfterViewingAResult(using: 0)
-    }
     
-    private func testEnteringNewEquationAfterViewingAResult (using number: Int) {
-        //Input 1 + number = number + number(2..11) =
-        var calculatorEngine = iOSBFreeCalculatorEngine()
-        calculatorEngine.numberPressed(1)
-        calculatorEngine.addPressed()
-        calculatorEngine.numberPressed(number)
-        calculatorEngine.equalsPressed()
-        
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
-        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(number)) ?? false)
-        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number + 1)) ?? false)
-        
-        // → Loop through more tests
-        for iteration in 1...10 {
-            calculatorEngine.numberPressed(number)
-            calculatorEngine.addPressed()
-            calculatorEngine.numberPressed(iteration + 1)
-            calculatorEngine.equalsPressed()
-            
-            XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
-            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration + 1)) ?? false)
-            XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number + (iteration + 1))) ?? false)
-        }
-        
-    }
+    // MARK: - Random Equation
     
-    func testContinuedAddition__RandomNumbers() throws {
+    func testRandomEquation() throws {
         
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(7)
@@ -144,38 +150,18 @@ class AdditionTests: XCTestCase {
         calculatorEngine.numberPressed(127)
         calculatorEngine.equalsPressed()
         
-        guard let result = calculatorEngine.resultOfEquation else {
-            XCTAssert(true, "Did not have result after equation was expected to have completed")
-            return
-        }
-        
-        guard let rhd = calculatorEngine.rightHandOperand else {
-            XCTAssert(true, "Did not have right hand value")
-            return
-        }
-        
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(7)))
-        XCTAssertTrue(rhd.isEqual(to: Decimal(127)))
-        XCTAssertTrue(result.isEqual(to: Decimal(134)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(127)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(134)) ?? false)
         
         // add another value to the result
         calculatorEngine.addPressed()
         calculatorEngine.numberPressed(34)
         calculatorEngine.equalsPressed()
-        
-        guard let result2 = calculatorEngine.resultOfEquation else {
-            XCTAssert(true, "Did not have result after equation was expected to have completed")
-            return
-        }
-
-        guard let rhd2 = calculatorEngine.rightHandOperand else {
-            XCTAssert(true, "Did not have right hand value")
-            return
-        }
 
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(134)))
-        XCTAssertTrue(rhd2.isEqual(to: Decimal(34)))
-        XCTAssertTrue(result2.isEqual(to: Decimal(168)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(34)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(168)) ?? false)
         
         // add another value to the result
         calculatorEngine.addPressed()
@@ -202,18 +188,8 @@ class AdditionTests: XCTestCase {
         calculatorEngine.numberPressed(2)
         calculatorEngine.equalsPressed()
         
-        guard let resultFinal = calculatorEngine.resultOfEquation else {
-            XCTAssert(true, "Did not have result after equation was expected to have completed")
-            return
-        }
-        
-        guard let rhdFinal = calculatorEngine.rightHandOperand else {
-            XCTAssert(true, "Did not have right hand value")
-            return
-        }
-        
         XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(186)))
-        XCTAssertTrue(rhdFinal.isEqual(to: Decimal(2)))
-        XCTAssertTrue(resultFinal.isEqual(to: Decimal(188)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(2)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(188)) ?? false)
     }
 }

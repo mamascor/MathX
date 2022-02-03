@@ -50,9 +50,9 @@ class EqualsButtonTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(0)) ?? false)
     }
     
-    // MARK: - Pressing Equals Again and Again
+    // MARK: - Continuously Pressing Equals From Result
     
-    func testRepeatativeEquals_UsingAddition() throws {
+    func testEquals_UsingAddition() throws {
         // Input 4 + 4 = = =
         // Expected Result: (4 + 4), becomes (8 + 4), becomes (12 + 4)
         var calculatorEngine = iOSBFreeCalculatorEngine()
@@ -73,7 +73,7 @@ class EqualsButtonTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(16)) ?? false)
     }
     
-    func testRepeatativeEquals_UsingSubtraction() throws {
+    func testEquals_UsingSubtraction() throws {
         // Input 4 + 4 = = =
         // Expected Result: (4 + 4), becomes (8 + 4), becomes (12 + 4)
         var calculatorEngine = iOSBFreeCalculatorEngine()
@@ -94,7 +94,7 @@ class EqualsButtonTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(-8)) ?? false)
     }
     
-    func testRepeatativeEquals_UsingMultiplication() throws {
+    func testEquals_UsingMultiplication() throws {
         // Input 4 + 4 = = =
         // Expected Result: (4 + 4), becomes (8 + 4), becomes (12 + 4)
         var calculatorEngine = iOSBFreeCalculatorEngine()
@@ -115,7 +115,7 @@ class EqualsButtonTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(256)) ?? false)
     }
     
-    func testRepeatativeEquals_UsingDivision() throws {
+    func testEquals_UsingDivision() throws {
         // Input 4 + 4 = = =
         // Expected Result: (4 + 4), becomes (8 + 4), becomes (12 + 4)
         var calculatorEngine = iOSBFreeCalculatorEngine()

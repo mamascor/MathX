@@ -49,22 +49,64 @@ class MultiplyTests: XCTestCase {
         XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(1)) ?? false)
     }
     
-    func testGrowingMultiplicationUsingPinpad() throws {
-        
+    // MARK: - Continuously Start New Equations
+    
+    func testPinpad() throws {
         // → 10 options on the pin pad
-        continuouslyGrowingMultiply(using: 1)
-        continuouslyGrowingMultiply(using: 2)
-        continuouslyGrowingMultiply(using: 3)
-        continuouslyGrowingMultiply(using: 4)
-        continuouslyGrowingMultiply(using: 5)
-        continuouslyGrowingMultiply(using: 6)
-        continuouslyGrowingMultiply(using: 7)
-        continuouslyGrowingMultiply(using: 8)
-        continuouslyGrowingMultiply(using: 9)
-        continuouslyGrowingMultiply(using: 0)
+        continuouslyStartNewEquations(using: 1)
+        continuouslyStartNewEquations(using: 2)
+        continuouslyStartNewEquations(using: 3)
+        continuouslyStartNewEquations(using: 4)
+        continuouslyStartNewEquations(using: 5)
+        continuouslyStartNewEquations(using: 6)
+        continuouslyStartNewEquations(using: 7)
+        continuouslyStartNewEquations(using: 8)
+        continuouslyStartNewEquations(using: 9)
+        continuouslyStartNewEquations(using: 0)
     }
     
-    private func continuouslyGrowingMultiply(using number: Int) {
+    private func continuouslyStartNewEquations(using number: Int) {
+        //Input: 1 * number = 1..10 =
+        var calculatorEngine = iOSBFreeCalculatorEngine()
+        calculatorEngine.numberPressed(1)
+        calculatorEngine.multiplyPressed()
+        calculatorEngine.numberPressed(number)
+        calculatorEngine.equalsPressed()
+        
+        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
+        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(number)) ?? false)
+        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number)) ?? false)
+        
+        // → Loop through more tests
+        for iteration in 0...9 {
+            calculatorEngine.numberPressed(number)
+            calculatorEngine.multiplyPressed()
+            calculatorEngine.numberPressed(iteration + 1)
+            calculatorEngine.equalsPressed()
+            
+            XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
+            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration + 1)) ?? false)
+            XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number * (iteration + 1))) ?? false)
+        }
+    }
+    
+    // MARK: - Continuously Multiply From Result
+    
+    func testPinpad_ContinuouslyMultiplying() throws {
+        // → 10 options on the pin pad
+        continuouslyMultiply(using: 1)
+        continuouslyMultiply(using: 2)
+        continuouslyMultiply(using: 3)
+        continuouslyMultiply(using: 4)
+        continuouslyMultiply(using: 5)
+        continuouslyMultiply(using: 6)
+        continuouslyMultiply(using: 7)
+        continuouslyMultiply(using: 8)
+        continuouslyMultiply(using: 9)
+        continuouslyMultiply(using: 0)
+    }
+    
+    private func continuouslyMultiply(using number: Int) {
         //Input: 1 * number = * 1..10 =
         var calculatorEngine = iOSBFreeCalculatorEngine()
         calculatorEngine.numberPressed(1)
@@ -93,46 +135,6 @@ class MultiplyTests: XCTestCase {
             XCTAssertTrue(result.isEqual(to: currentResult * Decimal(iteration + 1)))
             
             currentResult = result
-        }
-        
-    }
-    
-    func testMultiplicationFromPinpad() throws {
-        // → 10 options on the pin pad
-        continuouslyMultiply(using: 1)
-        continuouslyMultiply(using: 2)
-        continuouslyMultiply(using: 3)
-        continuouslyMultiply(using: 4)
-        continuouslyMultiply(using: 5)
-        continuouslyMultiply(using: 6)
-        continuouslyMultiply(using: 7)
-        continuouslyMultiply(using: 8)
-        continuouslyMultiply(using: 9)
-        continuouslyMultiply(using: 0)
-    }
-    
-    private func continuouslyMultiply(using number: Int) {
-        //Input: 1 * number = 1..10 =
-        var calculatorEngine = iOSBFreeCalculatorEngine()
-        calculatorEngine.numberPressed(1)
-        calculatorEngine.multiplyPressed()
-        calculatorEngine.numberPressed(number)
-        calculatorEngine.equalsPressed()
-        
-        XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(1)))
-        XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(number)) ?? false)
-        XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number)) ?? false)
-        
-        // → Loop through more tests
-        for iteration in 0...9 {
-            calculatorEngine.numberPressed(number)
-            calculatorEngine.multiplyPressed()
-            calculatorEngine.numberPressed(iteration + 1)
-            calculatorEngine.equalsPressed()
-            
-            XCTAssertTrue(calculatorEngine.leftHandOperand.isEqual(to: Decimal(number)))
-            XCTAssertTrue(calculatorEngine.rightHandOperand?.isEqual(to: Decimal(iteration + 1)) ?? false)
-            XCTAssertTrue(calculatorEngine.resultOfEquation?.isEqual(to: Decimal(number * (iteration + 1))) ?? false)
         }
     }
 }
