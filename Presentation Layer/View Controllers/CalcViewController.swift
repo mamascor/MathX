@@ -77,10 +77,6 @@ class CalcViewController: UIViewController {
         addThemeGestureRecogniser()
         lcdDisplay.alpha = 0
         registerForNotifications()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
         decorateView(withTheme: ThemeManager.shared.currentTheme)
     }
     
@@ -105,7 +101,7 @@ class CalcViewController: UIViewController {
         lcdDisplay.backgroundColor = .clear
         lcdDisplay.label.textColor = UIColor(hex: theme.display)
         
-        decoratePinPadButton(pinPadButton0)
+        decoratePinPadButton(pinPadButton0, true)
         decoratePinPadButton(pinPadButton1)
         decoratePinPadButton(pinPadButton2)
         decoratePinPadButton(pinPadButton3)
@@ -128,36 +124,30 @@ class CalcViewController: UIViewController {
         decorateExtraFunctionsButton(percentageButton)
     }
     
-    private func decoratePinPadButton(_ button: UIButton) {
+    private func decoratePinPadButton(_ button: UIButton, _ usingSlicedImage: Bool = false) {
         let selectedTheme = ThemeManager.shared.currentTheme
-        button.backgroundColor = UIColor(hex: selectedTheme.pinPad)
-        button.tintColor = UIColor(hex: selectedTheme.pinPadTitle)
-        button.becomeRound()
+        button.backgroundColor = .clear
+        let imageName = usingSlicedImage ? "Circle-Sliced" : "Circle"
+        button.setBackgroundImage(UIImage(named: imageName), for: .normal)
+        button.tintColor = UIColor(hex: selectedTheme.pinPad)
+        button.setTitleColor(UIColor(hex: selectedTheme.pinPadTitle), for: .normal)
     }
     
     private func decorateOperatorButton(_ button: UIButton, theme: CalculatorTheme) {
-        if button.isSelected {
-            button.backgroundColor = UIColor(hex: theme.operatorSelected)
-            button.tintColor = UIColor(hex: theme.operatorTitleSelected)
-        } else {
-            button.backgroundColor = UIColor(hex: theme.operatorNormal)
-            button.tintColor = UIColor(hex: theme.operatorTitle)
-        }
-        button.becomeRound()
-    }
-    
-    private func decorateOperatorButtonsWithTheme(_ theme: CalculatorTheme) {
-        decorateOperatorButton(divideButton, theme: theme)
-        decorateOperatorButton(multiplyButton, theme: theme)
-        decorateOperatorButton(minusButton, theme: theme)
-        decorateOperatorButton(addButton, theme: theme)
+        button.backgroundColor = .clear
+        button.setBackgroundImage(UIImage(named: "Circle"), for: .normal)
+        button.tintColor = UIColor(hex: theme.operatorNormal)
+        button.setTitleColor(UIColor(hex: theme.operatorTitle), for: .normal)
+        button.setTitleColor(UIColor(hex: theme.operatorTitleSelected), for: .selected)
+        button.setTitleColor(UIColor(hex: theme.operatorTitleSelected), for: .highlighted)
     }
     
     private func decorateExtraFunctionsButton(_ button: UIButton) {
         let selectedTheme = ThemeManager.shared.currentTheme
-        button.backgroundColor = UIColor(hex: selectedTheme.extraFunctions)
-        button.tintColor = UIColor(hex: selectedTheme.extraFunctionsTitle)
-        button.becomeRound()
+        button.backgroundColor = .clear
+        button.setBackgroundImage(UIImage(named: "Circle"), for: .normal)
+        button.tintColor = UIColor(hex: selectedTheme.extraFunctions)
+        button.setTitleColor(UIColor(hex: selectedTheme.extraFunctionsTitle), for: .normal)
     }
     
     // MARK: - Select Operator Buttons
@@ -171,10 +161,8 @@ class CalcViewController: UIViewController {
     
     private func selectOperatorButton(_ button: UIButton, _ selected: Bool = false) {
         let selectedTheme = ThemeManager.shared.currentTheme
-        button.backgroundColor = selected ? UIColor(hex: selectedTheme.operatorSelected) : UIColor(hex: selectedTheme.operatorNormal)
-        button.tintColor = selected ? UIColor(hex: selectedTheme.operatorTitleSelected) : UIColor(hex: selectedTheme.operatorTitle)
+        button.tintColor = selected ? UIColor(hex: selectedTheme.operatorSelected) : UIColor(hex: selectedTheme.operatorNormal)
         button.isSelected = selected
-        button.becomeRound()
     }
     
     // MARK: - Gesture Recognisers
