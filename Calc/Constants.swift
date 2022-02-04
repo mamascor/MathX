@@ -24,7 +24,6 @@
 // → What's This File?
 //   It's a centralised area to store values. Here we can store a list of constant values
 //   that we don't want to repeat or duplicate throughout our codebase.
-//   Architecural Layer: None.
 //
 // *******************************************************************************************
 

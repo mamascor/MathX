@@ -25,7 +25,6 @@
 //   It's an extension for Swift Arrays. We added a nice safety feature for accessing values.
 //   This method of accessing values within an array is regularly used in the iOS industry!
 //   We would highly recommend that you start using it too.
-//   Architecural Layer: Programming Language Tools.
 //
 // *******************************************************************************************
 

@@ -77,7 +77,7 @@ class LogViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MathEquationTableViewCell", for: indexPath) as? EquationLogCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MathEquationTableViewCell", for: indexPath) as? EquationCell else {
             return UITableViewCell()
         }
         
@@ -92,13 +92,13 @@ class LogViewController: UITableViewController {
         return cell
     }
     
-    private func populateTableViewCellFromEquation(_ mathEquation: MathEquation, cell: EquationLogCell) {
+    private func populateTableViewCellFromEquation(_ mathEquation: MathEquation, cell: EquationCell) {
         cell.lhsLabel.text = mathEquation.lhs.formatted()
         cell.rhsLabel.text = mathEquation.generateStringRepresentationOfOperator() + " " + (mathEquation.rhs?.formatted() ?? "")
         cell.resultLabel.text = "= " + (mathEquation.result?.formatted() ?? "")
     }
     
-    private func decorateTableViewCell(_ cell: EquationLogCell, withTheme theme: CalculatorTheme, from indexPath: IndexPath) {
+    private func decorateTableViewCell(_ cell: EquationCell, withTheme theme: CalculatorTheme, from indexPath: IndexPath) {
         cell.backgroundColor = UIColor(hex: theme.background)
         cell.selectedBackgroundView?.backgroundColor = UIColor(hex: theme.operatorNormal )
         cell.lhsLabel.textColor = UIColor(hex: theme.display)
@@ -113,7 +113,7 @@ class LogViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard
-            let cell = tableView.cellForRow(at: indexPath) as? EquationLogCell,
+            let cell = tableView.cellForRow(at: indexPath) as? EquationCell,
             let mathEquation = datasource[safe: indexPath.row]
         else { return }
         

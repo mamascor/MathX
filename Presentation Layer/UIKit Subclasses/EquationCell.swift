@@ -1,5 +1,5 @@
 //
-//  EquationLogCell.swift
+//  EquationCell.swift
 //  Calc
 //
 //  Created by iOSB Free on 26/01/2022.
@@ -30,11 +30,11 @@
 
 import UIKit
 
-class EquationLogCell: UITableViewCell {
+class EquationCell: UITableViewCell {
     
     // MARK: - IBOutlets
     
-    @IBOutlet var lhsLabel: UILabel!    // → 💡 Question: Why are we using an ! here? (explicitly unwrapping optionals)
+    @IBOutlet var lhsLabel: UILabel!    // → 💡 Question: Why are we using an ! here?
     @IBOutlet var rhsLabel: UILabel!
     @IBOutlet var resultLabel: UILabel!
     @IBOutlet var tick: UIImageView!
