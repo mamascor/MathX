@@ -300,18 +300,8 @@ struct MathInputController {
     
     // MARK: - Print Description
     
-    var equationDescription: String {
-        var operatorString = ""
-        switch equation.operation {
-        case .multiply: operatorString = "*"
-        case .divide: operatorString = "/"
-        case .add: operatorString = "+"
-        case .subtract: operatorString = "-"
-        case .none:
-            break
-        }
-        
-        return formatForLCDDisplay(equation.lhs) + " " + operatorString + " " + formatForLCDDisplay(equation.rhs) + " = " + formatForLCDDisplay(equation.result)
+    var generatePrintout: String {
+        return equation.generatePrintout()
     }
     
     // MARK: - Set LHS & RHS Values

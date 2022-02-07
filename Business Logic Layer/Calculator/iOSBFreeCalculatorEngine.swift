@@ -145,7 +145,7 @@ struct iOSBFreeCalculatorEngine {
     
     private func printEquationToDebugConsole(_ mathInputController: MathInputController) { // TODO does this belong in the math equation input controller?
         // → Using the print command only works in debug mode
-        print(mathInputController.equationDescription)
+        print(mathInputController.generatePrintout)
     }
     
     // MARK: - Number Entry
