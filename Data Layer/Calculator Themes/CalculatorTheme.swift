@@ -36,7 +36,7 @@ enum StatusBarStyle: String, Codable {
     case dark = "dark"
 }
 
-struct CalculatorTheme: Decodable, Encodable {
+struct CalculatorTheme: Codable {
     var id: String
     var background: String
     var display: String
