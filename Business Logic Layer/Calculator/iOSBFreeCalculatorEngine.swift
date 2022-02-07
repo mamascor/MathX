@@ -151,7 +151,6 @@ struct iOSBFreeCalculatorEngine {
     // MARK: - Number Entry
     
     mutating func numberPressed(_ number: Int) {
-        
         // → Only accept values from the numeric keypad -9..9
         guard number <= 9,
         number >= -9 else { return }
