@@ -316,7 +316,7 @@ class CalcViewController: UIViewController {
         let storyboard = UIStoryboard(name: UIStoryboard.keys.mainStoryboard, bundle: nil)
         guard let logViewController: LogViewController = storyboard.instantiateViewController(withIdentifier: UIStoryboard.keys.logViewController) as? LogViewController else { return }
         
-        logViewController.setDataSource(calculator.copyOfEquationLog)
+        logViewController.datasource = calculator.copyOfEquationLog
         
         let navigationController = UINavigationController(rootViewController: logViewController)
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)

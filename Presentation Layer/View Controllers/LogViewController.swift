@@ -36,17 +36,10 @@ class LogViewController: UITableViewController {
     
     //MARK: - Datasource
     
-    private var datasource: [MathEquation] = []
-    
-    func setDataSource(_ newDatasource: [MathEquation]) {
-        datasource = newDatasource
-        tableView.reloadData()
-    }
-    
-    private func decorateViewWithTheme(_ theme: CalculatorTheme) {
-        tableView.backgroundColor = UIColor(hex: theme.background)
-        tableView.separatorColor = UIColor(hex: theme.operatorNormal)
-        navigationItem.rightBarButtonItem?.tintColor = UIColor(hex: theme.operatorNormal)
+    var datasource: [MathEquation] = [] {
+        didSet {
+            tableView.reloadData()
+        }
     }
     
     //MARK: - Lifecycle
@@ -59,14 +52,14 @@ class LogViewController: UITableViewController {
     //MARK: - Navigation Bar
     
     private func setupNavigationBar() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneButtoonPressed))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.doneButtonPressed))
     }
 
-    @objc private func doneButtoonPressed() {
+    @objc private func doneButtonPressed() {
         dismiss(animated: true, completion: nil)
     }
     
-    // MARK: - TableView Data Source
+    // MARK: - TableView
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -98,19 +91,6 @@ class LogViewController: UITableViewController {
         cell.resultLabel.text = "= " + (mathEquation.result?.formatted() ?? "")
     }
     
-    private func decorateTableViewCell(_ cell: EquationCell, withTheme theme: CalculatorTheme, from indexPath: IndexPath) {
-        cell.backgroundColor = UIColor(hex: theme.background)
-        cell.selectedBackgroundView?.backgroundColor = UIColor(hex: theme.operatorNormal )
-        cell.lhsLabel.textColor = UIColor(hex: theme.display)
-        cell.lhsLabel.highlightedTextColor = UIColor(hex: theme.background)
-        cell.rhsLabel.textColor = UIColor(hex: theme.display)
-        cell.rhsLabel.highlightedTextColor = UIColor(hex: theme.background)
-        cell.resultLabel.textColor = UIColor(hex: theme.display)
-        cell.resultLabel.highlightedTextColor = UIColor(hex: theme.background)
-        
-        cell.tick.tintColor = UIColor(hex: theme.operatorTitle)
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard
             let cell = tableView.cellForRow(at: indexPath) as? EquationCell,
@@ -129,5 +109,26 @@ class LogViewController: UITableViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
             self?.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    //MARK: - Decorate
+    
+    private func decorateViewWithTheme(_ theme: CalculatorTheme) {
+        tableView.backgroundColor = UIColor(hex: theme.background)
+        tableView.separatorColor = UIColor(hex: theme.operatorNormal)
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(hex: theme.operatorNormal)
+    }
+    
+    private func decorateTableViewCell(_ cell: EquationCell, withTheme theme: CalculatorTheme, from indexPath: IndexPath) {
+        cell.backgroundColor = UIColor(hex: theme.background)
+        cell.selectedBackgroundView?.backgroundColor = UIColor(hex: theme.operatorNormal )
+        cell.lhsLabel.textColor = UIColor(hex: theme.display)
+        cell.lhsLabel.highlightedTextColor = UIColor(hex: theme.background)
+        cell.rhsLabel.textColor = UIColor(hex: theme.display)
+        cell.rhsLabel.highlightedTextColor = UIColor(hex: theme.background)
+        cell.resultLabel.textColor = UIColor(hex: theme.display)
+        cell.resultLabel.highlightedTextColor = UIColor(hex: theme.background)
+        
+        cell.tick.tintColor = UIColor(hex: theme.operatorTitle)
     }
 }
