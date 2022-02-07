@@ -1,5 +1,5 @@
 //
-//  UIView+Animation.swift
+//  UIButton+Animation.swift
 //  Calc
 //
 //  Created by iOSB Free on 25/01/2022.
@@ -22,7 +22,7 @@
 // *******************************************************************************************
 //
 // → What's This File?
-//   It's an extension. It adds more features to UIView, such as animation.
+//   It's an extension. It adds more features to UIButton, such as animation.
 //   Architecural Layer: Presentation Layer
 //
 //   💡 Tip 👉🏻 Animations provide personality. They emotionally connect the product to the
@@ -32,7 +32,7 @@
 
 import UIKit
 
-extension UIView {
+extension UIButton {
     
     func bounce() {
         UIView.animate(withDuration: 0.1,
