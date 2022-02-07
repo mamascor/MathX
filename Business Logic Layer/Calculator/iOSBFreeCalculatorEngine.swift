@@ -254,7 +254,7 @@ struct iOSBFreeCalculatorEngine {
     
     // MARK: - Copy & Paste
     
-    // → 💡 Just a thought: Adding system features provides a nicer experience for the user.
+    // → 💡 Just a thought: Adding system features like copy & paste provides a nicer experience for the user.
     
     mutating func pasteIn(_ decimal: Decimal) {
         if currentMathEntry.isCompleted {
