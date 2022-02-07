@@ -41,7 +41,7 @@ extension UIView {
         self?.alpha = 1
         },
         completion: {  [weak self] _ in
-            UIView.animate(withDuration: 0.05) {
+            UIView.animate(withDuration: 0.05) {  [weak self] in
                 self?.transform = CGAffineTransform.identity
             }
         })
