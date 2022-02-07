@@ -269,6 +269,7 @@ struct iOSBFreeCalculatorEngine {
             return
         }
         
+        // TODO should we allow this type of manipulation outside the controller type?
         var newMathInput = MathInputController()
         newMathInput.lhs = 1
         newMathInput.setOperation(.multiply)
