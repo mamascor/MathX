@@ -37,7 +37,7 @@ class CalcViewController: UIViewController {
 
     // MARK: - IBOutlets
     
-    @IBOutlet weak var calculatorView: UIView!
+    @IBOutlet weak var calculatorView: UIView!  // → 💡 Unwrapping Optionals: If this label is not connected then the app will crash!
     @IBOutlet weak var lcdDisplay: LCDDisplay!
     
     @IBOutlet weak var pinPadButton0: UIButton!

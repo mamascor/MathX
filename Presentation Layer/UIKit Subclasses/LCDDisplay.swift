@@ -33,7 +33,7 @@ class LCDDisplay: UIView {
     
     //MARK: - IBOutlets
     
-    @IBOutlet var label: UILabel!
+    @IBOutlet var label: UILabel!   // → 💡 Unwrapping Optionals: If this label is not connected then the app will crash!
     
     //MARK: - Properties
     
