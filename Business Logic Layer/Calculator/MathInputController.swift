@@ -159,22 +159,22 @@ struct MathInputController {
     
     mutating func divide() {
         guard isCompleted == false else { return }
-        setOperation(.divide)
+        operation = .divide
     }
     
     mutating func add() {
         guard isCompleted == false else { return }
-        setOperation(.add)
+        operation = .add
     }
     
     mutating func subtract() {
         guard isCompleted == false else { return }
-        setOperation(.subtract)
+        operation = .subtract
     }
     
     mutating func multiply() {
         guard isCompleted == false else { return }
-        setOperation(.multiply)
+        operation = .multiply
     }
     
     mutating func execute() {
@@ -345,19 +345,20 @@ struct MathInputController {
     }
     
     var operation: MathEquation.OperationType? {
-        return equation.operation
+        get {
+            return equation.operation
+        }
+        set {
+            guard let operation = newValue else {
+                return
+            }
+            equation.operation = operation
+            startEditingRightHandSide()
+            isEnteringDecimal = false
+        }
     }
     
     mutating func startEditingRightHandSide() {
         editingSide = .rightHandSide
-    }
-    
-    mutating func setOperation(_ operation: MathEquation.OperationType?) {
-        guard let operation = operation else {
-            return
-        }
-        equation.operation = operation
-        startEditingRightHandSide()
-        isEnteringDecimal = false
     }
 }

@@ -120,7 +120,7 @@ struct iOSBFreeCalculatorEngine {
         if currentMathEntry.isCompleted {
             var newMathEntry = MathInputController() // TODO we have just bypassed the display
             newMathEntry.lhs = currentMathEntry.result ?? Decimal.zero
-            newMathEntry.setOperation(currentMathEntry.operation)
+            newMathEntry.operation = currentMathEntry.operation
             newMathEntry.rhs = currentMathEntry.rhs
             currentMathEntry = newMathEntry
         }
@@ -271,7 +271,7 @@ struct iOSBFreeCalculatorEngine {
         // TODO should we allow this type of manipulation outside the controller type?
         var newMathInput = MathInputController()
         newMathInput.lhs = 1
-        newMathInput.setOperation(.multiply)
+        newMathInput.operation = .multiply
         newMathInput.rhs = result
         newMathInput.execute()
         
