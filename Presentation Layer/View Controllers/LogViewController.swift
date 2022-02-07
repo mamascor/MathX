@@ -117,8 +117,8 @@ class LogViewController: UITableViewController {
             let mathEquation = datasource[safe: indexPath.row]
         else { return }
         
-        let userInfo: [AnyHashable: Any] = [LCDDisplay.pasteDictionaryKey: mathEquation]
-        NotificationCenter.default.post(name: Notification.Name(LCDDisplay.pasteEquationNotificationKey), object: nil, userInfo: userInfo)
+        let userInfo: [AnyHashable: Any] = [LCDDisplay.keys.userInfo: mathEquation]
+        NotificationCenter.default.post(name: Notification.Name(LCDDisplay.keys.pasteEquationNotification), object: nil, userInfo: userInfo)
         
         view.isUserInteractionEnabled = false
         cell.displayTick()

@@ -165,13 +165,13 @@ class LCDDisplay: UIView {
         
         hideMenu()
         
-        let userInfo: [AnyHashable: Any] = [LCDDisplay.pasteDictionaryKey: decimal]
-        NotificationCenter.default.post(name: Notification.Name(LCDDisplay.pasteNumberNotificationKey), object: nil, userInfo: userInfo)
+        let userInfo: [AnyHashable: Any] = [LCDDisplay.keys.userInfo: decimal]
+        NotificationCenter.default.post(name: Notification.Name(LCDDisplay.keys.pasteNumberNotification), object: nil, userInfo: userInfo)
     }
     
     @objc private func displayMathEquationHistory(_ sender: Any?) {
         hideMenu()
-        NotificationCenter.default.post(name: Notification.Name(LCDDisplay.historyLogNotificationKey), object: nil)
+        NotificationCenter.default.post(name: Notification.Name(LCDDisplay.keys.historyLogNotification), object: nil)
     }
     
     override var canBecomeFirstResponder: Bool {

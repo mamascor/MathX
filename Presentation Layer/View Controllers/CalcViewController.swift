@@ -127,7 +127,7 @@ class CalcViewController: UIViewController {
     private func decoratePinPadButton(_ button: UIButton, _ usingSlicedImage: Bool = false) {
         let selectedTheme = ThemeManager.shared.currentTheme
         button.backgroundColor = .clear
-        let imageName = usingSlicedImage ? "Circle-Sliced" : "Circle"
+        let imageName = usingSlicedImage ? UIImage.keys.circleSliced : UIImage.keys.circle
         button.setBackgroundImage(UIImage(named: imageName), for: .normal)
         button.tintColor = UIColor(hex: selectedTheme.pinPad)
         button.setTitleColor(UIColor(hex: selectedTheme.pinPadTitle), for: .normal)
@@ -135,7 +135,7 @@ class CalcViewController: UIViewController {
     
     private func decorateOperatorButton(_ button: UIButton, theme: CalculatorTheme) {
         button.backgroundColor = .clear
-        button.setBackgroundImage(UIImage(named: "Circle"), for: .normal)
+        button.setBackgroundImage(UIImage(named: UIImage.keys.circle), for: .normal)
         button.tintColor = UIColor(hex: theme.operatorNormal)
         button.setTitleColor(UIColor(hex: theme.operatorTitle), for: .normal)
         button.setTitleColor(UIColor(hex: theme.operatorTitleSelected), for: .selected)
@@ -145,7 +145,7 @@ class CalcViewController: UIViewController {
     private func decorateExtraFunctionsButton(_ button: UIButton) {
         let selectedTheme = ThemeManager.shared.currentTheme
         button.backgroundColor = .clear
-        button.setBackgroundImage(UIImage(named: "Circle"), for: .normal)
+        button.setBackgroundImage(UIImage(named: UIImage.keys.circle), for: .normal)
         button.tintColor = UIColor(hex: selectedTheme.extraFunctions)
         button.setTitleColor(UIColor(hex: selectedTheme.extraFunctionsTitle), for: .normal)
     }
@@ -326,11 +326,11 @@ class CalcViewController: UIViewController {
     // MARK: - Notifications
     
     private func registerForNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceivePasteNotification(notification:)), name: Notification.Name(LCDDisplay.pasteNumberNotificationKey), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceivePasteNotification(notification:)), name: Notification.Name(LCDDisplay.keys.pasteNumberNotification), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveHistoryNotification(notification:)), name: Notification.Name(LCDDisplay.historyLogNotificationKey), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveHistoryNotification(notification:)), name: Notification.Name(LCDDisplay.keys.historyLogNotification), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceivePasteMathEquationNotification(notification:)), name: Notification.Name(LCDDisplay.pasteEquationNotificationKey), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceivePasteMathEquationNotification(notification:)), name: Notification.Name(LCDDisplay.keys.pasteEquationNotification), object: nil)
     }
     
     @objc private func didReceiveHistoryNotification(notification: Notification) {
@@ -338,12 +338,12 @@ class CalcViewController: UIViewController {
     }
     
     @objc private func didReceivePasteNotification(notification: Notification) {
-        guard let decimalValue = notification.userInfo?[LCDDisplay.pasteDictionaryKey] as? Double else { return }
+        guard let decimalValue = notification.userInfo?[LCDDisplay.keys.userInfo] as? Double else { return }
         pasteNewValueIntoCalculator(Decimal(decimalValue))
     }
     
     @objc private func didReceivePasteMathEquationNotification(notification: Notification) {
-        guard let mathEquation = notification.userInfo?[LCDDisplay.pasteDictionaryKey] as? MathEquation else { return }
+        guard let mathEquation = notification.userInfo?[LCDDisplay.keys.userInfo] as? MathEquation else { return }
         pasteResultIntoCalculator(from: mathEquation)
     }
     

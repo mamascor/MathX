@@ -34,7 +34,7 @@ class EquationCell: UITableViewCell {
     
     // MARK: - IBOutlets
     
-    @IBOutlet var lhsLabel: UILabel!    // → 💡 Question: Why are we using an ! here?
+    @IBOutlet var lhsLabel: UILabel!    // → 💡 Unwrapping Optionals: If this label is not connected then the app will crash!
     @IBOutlet var rhsLabel: UILabel!
     @IBOutlet var resultLabel: UILabel!
     @IBOutlet var tick: UIImageView!

@@ -30,17 +30,31 @@
 import Foundation
 import UIKit
 
+// MARK: - LCDDisplay
+
 extension LCDDisplay {
-    static let pasteNumberNotificationKey = "iOSBFree.com.calc.CopyableLabel.pasteNumber"
-    static let pasteEquationNotificationKey = "iOSBFree.com.calc.CopyableLabel.pasteMathEquation"
-    static let pasteDictionaryKey = "PasteKey"
-    static let historyLogNotificationKey = "iOSBFree.com.calc.CopyableLabel.displayHistory"
-    
+    struct keys {
+        static let pasteNumberNotification = "iOSBFree.com.calc.LCDDisplay.pasteNumber"
+        static let pasteEquationNotification = "iOSBFree.com.calc.LCDDisplay.pasteMathEquation"
+        static let userInfo = "valueToPaste"
+        static let historyLogNotification = "iOSBFree.com.calc.LCDDisplay.displayHistory"
+    }
 }
+
+// MARK: - UIStoryboard
 
 extension UIStoryboard {
     struct keys {
         static let mainStoryboard = "Main"
         static let logViewController = "LogViewController"
+    }
+}
+
+// MARK: - UIImage
+
+extension UIImage {
+    struct keys {
+        static let circle = "Circle"
+        static let circleSliced = "Circle-Sliced"
     }
 }
