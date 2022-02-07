@@ -45,7 +45,7 @@ class LCDDisplay: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.sharedInit()
+        sharedInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -59,7 +59,6 @@ class LCDDisplay: UIView {
         setupBackgroundColorInOrderToAnimate()
         addMenuGestureRecogniser()
     }
-    
     
     private func setupBackgroundColorInOrderToAnimate() {
         backgroundColor = .clear
@@ -111,42 +110,6 @@ class LCDDisplay: UIView {
         highlightScreen()
     }
     
-    private func highlightScreen() {
-        let theme = ThemeManager.shared.currentTheme
-        
-        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut) { [weak self] in
-            self?.layer.backgroundColor = UIColor(hex:theme.operatorNormal)?.cgColor
-            self?.label.textColor = UIColor(hex:theme.operatorTitle)
-        } completion: { _ in
-            
-        }
-    }
-    
-    func prepareForThemeUpdate() {
-        unhighlightScreen(false)
-        hideMenu()
-    }
-    
-    private func unhighlightScreen(_ animated: Bool) {
-        let theme = ThemeManager.shared.currentTheme
-        
-        let actionToPerform: (() -> Void) = { [weak self] in
-            self?.layer.backgroundColor = UIColor.clear.cgColor
-            self?.label.textColor = UIColor(hex:theme.display)
-        }
-        
-        guard animated else {
-            actionToPerform()
-            return
-        }
-        
-        UIView.animate(withDuration: 0.15, delay: 0, options: .curveEaseInOut) {
-            actionToPerform()
-        } completion: { _ in
-            
-        }
-    }
-    
     private func hideMenu() {
         UIMenuController.shared.hideMenu()
         resignFirstResponder()
@@ -184,5 +147,46 @@ class LCDDisplay: UIView {
     
     @objc private func willHideEditMenu(_ notification: Notification) {
         unhighlightScreen(true)
+    }
+    
+    
+    // MARK: - Animation
+    
+    private func highlightScreen() {
+        let theme = ThemeManager.shared.currentTheme
+        
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut) { [weak self] in
+            self?.layer.backgroundColor = UIColor(hex:theme.operatorNormal)?.cgColor
+            self?.label.textColor = UIColor(hex:theme.operatorTitle)
+        } completion: { _ in
+            
+        }
+    }
+    
+    private func unhighlightScreen(_ animated: Bool) {
+        let theme = ThemeManager.shared.currentTheme
+        
+        let actionToPerform: (() -> Void) = { [weak self] in
+            self?.layer.backgroundColor = UIColor.clear.cgColor
+            self?.label.textColor = UIColor(hex:theme.display)
+        }
+        
+        guard animated else {
+            actionToPerform()
+            return
+        }
+        
+        UIView.animate(withDuration: 0.15, delay: 0, options: .curveEaseInOut) {
+            actionToPerform()
+        } completion: { _ in
+            
+        }
+    }
+    
+    // MARK: - Themes
+    
+    func prepareForThemeUpdate() {
+        unhighlightScreen(false)
+        hideMenu()
     }
 }

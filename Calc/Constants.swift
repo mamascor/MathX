@@ -58,3 +58,19 @@ extension UIImage {
         static let circleSliced = "Circle-Sliced"
     }
 }
+
+// MARK: - ThemeManager
+
+extension ThemeManager {
+    struct keys {
+        static let dataStore = "iOSBFree.com.calc.ThemeManager.theme"
+    }
+}
+
+// MARK: - iOSBFreeCalculatorEngine
+
+extension iOSBFreeCalculatorEngine {
+    struct keys {
+        static let dataStore = "iOSBFree.com.calc.CalculatorEngine.total"
+    }
+}

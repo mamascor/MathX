@@ -54,6 +54,8 @@ class EquationCell: UITableViewCell {
 
     }
     
+    // MARK: - Animation
+    
     func displayTick() {
         bounce(tick)
     }

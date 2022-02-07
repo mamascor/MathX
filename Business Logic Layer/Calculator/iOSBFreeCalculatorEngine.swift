@@ -41,7 +41,7 @@ struct iOSBFreeCalculatorEngine {
     
     // MARK: - Managers
     
-    private let dataStore = DataStoreManager(key: "iOSBFree.com.calc.CalculatorEngine.total")
+    private let dataStore = DataStoreManager(key: iOSBFreeCalculatorEngine.keys.dataStore)
     
     // MARK: - Display
     

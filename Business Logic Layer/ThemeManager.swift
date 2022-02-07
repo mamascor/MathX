@@ -34,11 +34,11 @@ class ThemeManager {
     
     // MARK: - Properties
     
-    private let dataStore = DataStoreManager(key: "iOSBFree.com.calc.ThemeManager.theme")
+    private let dataStore = DataStoreManager(key: ThemeManager.keys.dataStore)
     
     // MARK: - 👇🏽 The Singleton Design Pattern
     
-    static let shared = ThemeManager() // → 💡 Question: Does a struct singleton produce the same behaviour as a class singleton?
+    static let shared = ThemeManager() // → 💡 Singletons: We use the singleton design pattern here because we want only 1 ThemeManager to exist
     
     // MARK: - Theme Options
     
