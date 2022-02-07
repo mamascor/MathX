@@ -36,7 +36,7 @@ struct MathInputController {
     
     // MARK: - Operation Side Enum
     
-    enum OperationSide {
+    enum OperandSide {
         case leftHandSide
         case rightHandSide
     }
@@ -50,7 +50,7 @@ struct MathInputController {
     // MARK: - variables
     
     private(set) var equation = MathEquation()
-    private var editingSide: OperationSide = .leftHandSide
+    private var editingSide: OperandSide = .leftHandSide
     private var isEnteringDecimal = false
     
     // MARK: - Display
