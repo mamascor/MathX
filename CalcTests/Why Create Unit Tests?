@@ -20,17 +20,17 @@
 //
 // → Why Create Unit Tests?
 //
-//   It's simple really. It proves that our code really does work by checking it!
+//   It's simple really. It proves that our code really does work, by checking it!
 //
-//   It's horrible when users complain about bugs with features we created oursekves.
-//   It almost feels shameful sometimes. But let's fear not.. unit tests can save us.
+//   It's horrible when users complain about bugs with features we created.
+//   It almost feels shameful sometimes. But fear not.. unit tests can save us.
 //
-//   Unit tests are lilke having an entire testing team just for yourself. Except their
-//   results are almost instantaneous, delivering immediate reassurance that the app
-//   behaves as it was designed to.
+//   Unit tests are like having an entire testing team just for ourselves. Except we can test
+//   much faster! Our testing results are almost instantaneous, delivering immediate reassurance
+//   that the app behaves as it was designed to.
 //
 //   Unit tests exist for us, the developers. They are our tools. What amazing tools
-//   they are too. Our unit tests save us so much time revealing and killing bugs.
+//   they are too. Our unit tests save us so much time exposing our bugs!
 //
 //   They are just great.
 //   We recommend writing some. 👍
