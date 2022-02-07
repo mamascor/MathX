@@ -95,7 +95,7 @@ class ThemeManager {
         return try? decoder.decode(CalculatorTheme.self, from: savedTheme)
     }
     
-    // MARK: - Theme Options
+    // MARK: - Changing Themes
     
     func moveToNextTheme() {
         let themeID = currentTheme.id
