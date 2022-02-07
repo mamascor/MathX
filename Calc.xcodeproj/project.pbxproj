@@ -15,7 +15,7 @@
 		0C4DA60E27A374F30081EC12 /* 🙋🏾 Hello Everyone.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA60D27A374F30081EC12 /* 🙋🏾 Hello Everyone.txt */; };
 		0C4DA61027A378D00081EC12 /* 🤑 Our Free Courses in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA60F27A378D00081EC12 /* 🤑 Our Free Courses */; };
 		0C4DA61227A37B410081EC12 /* 🧡 Thank You in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA61127A37B410081EC12 /* 🧡 Thank You */; };
-		0C4DA61427A37E500081EC12 /* Why Create Unit Tests in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA61327A37E500081EC12 /* Why Create Unit Tests */; };
+		0C4DA61427A37E500081EC12 /* Why Create Unit Tests? in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA61327A37E500081EC12 /* Why Create Unit Tests? */; };
 		0C874BD627A69C9B008905C6 /* Array+SafeAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C874BD527A69C9B008905C6 /* Array+SafeAccess.swift */; };
 		0C8DB36527A0B1E300A96AA0 /* SubtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36427A0B1E300A96AA0 /* SubtractionTests.swift */; };
 		0C8DB36927A0C77900A96AA0 /* MathEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36827A0C77900A96AA0 /* MathEquation.swift */; };
@@ -81,7 +81,7 @@
 		0C4DA60D27A374F30081EC12 /* 🙋🏾 Hello Everyone.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "🙋🏾 Hello Everyone.txt"; sourceTree = "<group>"; };
 		0C4DA60F27A378D00081EC12 /* 🤑 Our Free Courses */ = {isa = PBXFileReference; lastKnownFileType = text; path = "🤑 Our Free Courses"; sourceTree = "<group>"; };
 		0C4DA61127A37B410081EC12 /* 🧡 Thank You */ = {isa = PBXFileReference; lastKnownFileType = text; path = "🧡 Thank You"; sourceTree = "<group>"; };
-		0C4DA61327A37E500081EC12 /* Why Create Unit Tests */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Why Create Unit Tests"; sourceTree = "<group>"; };
+		0C4DA61327A37E500081EC12 /* Why Create Unit Tests? */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Why Create Unit Tests?"; sourceTree = "<group>"; };
 		0C874BD527A69C9B008905C6 /* Array+SafeAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SafeAccess.swift"; sourceTree = "<group>"; };
 		0C8DB36427A0B1E300A96AA0 /* SubtractionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtractionTests.swift; sourceTree = "<group>"; };
 		0C8DB36827A0C77900A96AA0 /* MathEquation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathEquation.swift; sourceTree = "<group>"; };
@@ -282,7 +282,7 @@
 		0CE4063A279E9BBA00B16A24 /* CalcTests */ = {
 			isa = PBXGroup;
 			children = (
-				0C4DA61327A37E500081EC12 /* Why Create Unit Tests */,
+				0C4DA61327A37E500081EC12 /* Why Create Unit Tests? */,
 				0C4DA60827A305900081EC12 /* LCD Display */,
 				0C4DA5FF27A2C7B60081EC12 /* Operator Tests */,
 				0C4DA60027A2C7C30081EC12 /* Extra Features Tests */,
@@ -484,7 +484,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C4DA61427A37E500081EC12 /* Why Create Unit Tests in Resources */,
+				0C4DA61427A37E500081EC12 /* Why Create Unit Tests? in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
