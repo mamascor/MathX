@@ -23,6 +23,7 @@
 		0C8DB36D27A0CE3400A96AA0 /* LCDDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36C27A0CE3400A96AA0 /* LCDDisplay.swift */; };
 		0C8DB37227A0E4F400A96AA0 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB37127A0E4F400A96AA0 /* LogViewController.swift */; };
 		0C8DB37427A0EBB100A96AA0 /* EquationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB37327A0EBB100A96AA0 /* EquationCell.swift */; };
+		0CCBD9D727B15D6E00D0E121 /* String+Prefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCBD9D627B15D6E00D0E121 /* String+Prefix.swift */; };
 		0CE40625279E9BB800B16A24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40624279E9BB800B16A24 /* AppDelegate.swift */; };
 		0CE40627279E9BB800B16A24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40626279E9BB800B16A24 /* SceneDelegate.swift */; };
 		0CE40629279E9BB800B16A24 /* CalcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE40628279E9BB800B16A24 /* CalcViewController.swift */; };
@@ -88,6 +89,7 @@
 		0C8DB36C27A0CE3400A96AA0 /* LCDDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCDDisplay.swift; sourceTree = "<group>"; };
 		0C8DB37127A0E4F400A96AA0 /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		0C8DB37327A0EBB100A96AA0 /* EquationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationCell.swift; sourceTree = "<group>"; };
+		0CCBD9D627B15D6E00D0E121 /* String+Prefix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Prefix.swift"; sourceTree = "<group>"; };
 		0CE40621279E9BB800B16A24 /* Calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CE40624279E9BB800B16A24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0CE40626279E9BB800B16A24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				0C874BD527A69C9B008905C6 /* Array+SafeAccess.swift */,
+				0CCBD9D627B15D6E00D0E121 /* String+Prefix.swift */,
 			);
 			path = "Swift Extensions";
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				0CE4068427A00EF000B16A24 /* iOSBFreeCalculatorEngine.swift in Sources */,
 				0CE40675279EEA5100B16A24 /* ElectroTheme.swift in Sources */,
 				0CE4067D279F5E1800B16A24 /* DarkBlueTheme.swift in Sources */,
+				0CCBD9D727B15D6E00D0E121 /* String+Prefix.swift in Sources */,
 				0C8DB36B27A0C7A900A96AA0 /* MathInputController.swift in Sources */,
 				0CED88C127A1BF3500261494 /* OrangeTheme.swift in Sources */,
 				0CE40682279F89E000B16A24 /* UIButton+Animation.swift in Sources */,

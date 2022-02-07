@@ -44,6 +44,7 @@ struct MathInputController {
     // MARK: - Constants
     
     private let decimalSymbol = Locale.current.decimalSeparator ?? "."
+    private let groupingSymbol = Locale.current.groupingSeparator ?? ","
     private let minusSymbol = "-"
     private let errorMessage = "Error"
     
@@ -184,19 +185,6 @@ struct MathInputController {
     
     mutating func enterNumber(_ number: Int) {
         guard isCompleted == false else { return }
-        
-        /* Hello 🤵🏽🧑🏼‍🔧👷‍♂️:
-         We must record the entered string in order to compute the values
-         i.e. what if the user wanted to enter 0.001
-         
-         we cannot represent this data in a numeric value
-         i.e. the user needs to first type 0.00
-         which will be stored as 0.0 using a Decimal type.
-         
-         Therefore, we must also record the string value entered.
-         */
-        
-        // → Values entered by the user
         let decimalInput = Decimal(number)
         
         // → Switch sides if needed
@@ -227,7 +215,6 @@ struct MathInputController {
         // → We have an existing value - append new value.
         switch editingSide {
         case .leftHandSide:
-            
             let tuple = appendNewNumber(number, toPreviousEntry: equation.lhs, previousLCDDisplay: lcdDisplayText, amendAterDecimalPoint: isEnteringDecimal)
             lhs = tuple.decimal
             lcdDisplayText = tuple.stringRepresentation
@@ -242,6 +229,15 @@ struct MathInputController {
     }
     
     private func appendNewNumber(_ number: Int, toPreviousEntry previousEntry: Decimal, previousLCDDisplay: String?, amendAterDecimalPoint: Bool) -> (decimal: Decimal, stringRepresentation: String) {
+        /* Hello 🤵🏽🧑🏼‍🔧👷‍♂️:
+         We must record the entered string in order to compute the values
+         i.e. what if the user wanted to enter 0.001
+         The user would need to first enter 0.00,
+         which would numerically be 0.0
+         and not presevre the desired input of 0.00
+         
+         Therefore.. we must also record the input as a string.
+         */
         let stringInput = String(number)
         guard let localPreviousLCDDisplay = previousLCDDisplay else {
             return (Decimal.nan, errorMessage)
@@ -273,7 +269,7 @@ struct MathInputController {
         newStringRepresentation.append(stringInput)
         
         // → Remove formatting
-        let elements = newStringRepresentation.components(separatedBy: ",")
+        let elements = newStringRepresentation.components(separatedBy: groupingSymbol)
         var representationWithoutFormatting = ""
         for (_, stringElement) in elements.enumerated() {
             representationWithoutFormatting = representationWithoutFormatting + stringElement
@@ -363,21 +359,5 @@ struct MathInputController {
         equation.operation = operation
         startEditingRightHandSide()
         isEnteringDecimal = false
-    }
-}
-
-extension String {
-    /**
-      Adds a given prefix to self, if the prefix itself, or another required prefix does not yet exist in self.
-      Omit `requiredPrefix` to check for the prefix itself.
-    */
-    mutating func addPrefixIfNeeded(_ prefix: String) {
-        guard self.hasPrefix(prefix) == false else { return }
-        self = prefix + self
-    }
-    
-    mutating func removePrefixIfNeeded(_ prefix: String) {
-        guard self.hasPrefix(prefix) == true else { return }
-        self = replacingOccurrences(of: prefix, with: "", options: NSString.CompareOptions.literal, range: nil)
     }
 }

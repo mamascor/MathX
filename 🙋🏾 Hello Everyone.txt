@@ -44,6 +44,7 @@
 //   ⦿ storing custom types to disk (using JSON)
 //   ⦿ avoiding over engineering
 //   ⦿ communicating using notifications
+//   ⦿ returning more than 1 value from a function
 //
 //   Join us on Udemy for more information on iOS, Swift and SwiftUI!
 // → https://www.udemy.com/user/iosbfree
