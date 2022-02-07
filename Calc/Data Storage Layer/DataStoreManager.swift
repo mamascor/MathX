@@ -23,8 +23,8 @@
 // *******************************************************************************************
 //
 // → What's This File?
-//   It's a data access manager, a simple wrapper for User Defaults.
-//   Architecural Layer: Business Logic Layer
+//   It's a datastore manager, a simple wrapper for User Defaults.
+//   Architecural Layer: Data Storage Layer
 //
 //   💡 Architecture Tip 👉🏻 We disconnect where the data is stored by creating this wrapper.
 // *******************************************************************************************

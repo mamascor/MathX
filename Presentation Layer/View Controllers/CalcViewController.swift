@@ -313,8 +313,8 @@ class CalcViewController: UIViewController {
     // MARK: - Navigation
     
     private func presentLogScreen() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let logViewController: LogViewController = storyboard.instantiateViewController(withIdentifier: "LogViewController") as? LogViewController else { return }
+        let storyboard = UIStoryboard(name: UIStoryboard.keys.mainStoryboard, bundle: nil)
+        guard let logViewController: LogViewController = storyboard.instantiateViewController(withIdentifier: UIStoryboard.keys.logViewController) as? LogViewController else { return }
         
         logViewController.setDataSource(calculator.copyOfEquationLog)
         

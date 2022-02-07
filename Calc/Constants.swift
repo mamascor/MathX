@@ -28,6 +28,7 @@
 // *******************************************************************************************
 
 import Foundation
+import UIKit
 
 extension LCDDisplay {
     static let pasteNumberNotificationKey = "iOSBFree.com.calc.CopyableLabel.pasteNumber"
@@ -35,4 +36,11 @@ extension LCDDisplay {
     static let pasteDictionaryKey = "PasteKey"
     static let historyLogNotificationKey = "iOSBFree.com.calc.CopyableLabel.displayHistory"
     
+}
+
+extension UIStoryboard {
+    struct keys {
+        static let mainStoryboard = "Main"
+        static let logViewController = "LogViewController"
+    }
 }

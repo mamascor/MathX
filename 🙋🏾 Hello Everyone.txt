@@ -1,0 +1,50 @@
+//
+//  Hello Everyone.swift
+//
+//  Thank you for enroling on this course.
+//  We have more courses for you too!
+//
+//  👉🏼 Free Courses                 → https://www.udemy.com/user/iosbfree
+//
+//  YouTube                         → https://www.youtube.com/channel/UCWBUOVRbtKNml4jN_4bRkCQ
+//  Please connect on Linked In     → http://www.linkedin.com/in/mattharding-iosbfree
+//
+//  Also..
+//  Tell us what
+//  you want to learn
+//
+//  🧡 iOSB Free
+//  community@iosbfree.com
+//  🧕🏻👨🏿‍💼👩🏼‍💼👩🏻‍💻👨🏼‍💼🧛🏻‍♀️👩🏼‍💻💁🏽‍♂️🕵🏻‍♂️🧝🏼‍♀️🦹🏼‍♀🧕🏾🧟‍♂️
+// *******************************************************************************************
+//
+// → What's This Project?
+//   It's an AppStore-quality project to build a calculator app.
+//
+//   This project demonstrates:
+//   ⦿ commerical-quality architecture
+//   ⦿ layered architecture
+//   ⦿ keeping our files small
+//   ⦿ seperating each responsibility into different types (class or struct)
+//   ⦿ writing readable code
+//   ⦿ testing our work (your own private testing team!)
+//   ⦿ safely accessing values in an array
+//   ⦿ using animations
+//   ⦿ creating a color theme manager
+//   ⦿ using extensions
+//   ⦿ using pdf vector-based images
+//   ⦿ storing basic data to disk (user preferences)
+//   ⦿ copy & paste menu
+//   ⦿ listening for user gestures
+//   ⦿ create colors from hex values (e.g. #FFFFFF)
+//   ⦿ using storyboards
+//   ⦿ centralising values in a constants file
+//   ⦿ using guard statements
+//   ⦿ correct use of unwrapping optionals
+//   ⦿ storing custom types to disk (using JSON)
+//   ⦿ avoiding over engineering
+//
+//   Join us on Udemy for more information on iOS, Swift and SwiftUI!
+// → https://www.udemy.com/user/iosbfree
+//
+// *******************************************************************************************
