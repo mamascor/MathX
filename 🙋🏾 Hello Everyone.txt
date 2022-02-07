@@ -43,6 +43,7 @@
 //   ⦿ correct use of unwrapping optionals
 //   ⦿ storing custom types to disk (using JSON)
 //   ⦿ avoiding over engineering
+//   ⦿ communicating using notifications
 //
 //   Join us on Udemy for more information on iOS, Swift and SwiftUI!
 // → https://www.udemy.com/user/iosbfree
