@@ -37,7 +37,7 @@ struct iOSBFreeCalculatorEngine {
     // MARK: - Variables
     
     private var historyLog: [MathEquation] = []
-    private var currentMathEntry: MathInputController = MathInputController()
+    private var currentMathEntry = MathInputController()
     
     // MARK: - Managers
     
@@ -46,7 +46,9 @@ struct iOSBFreeCalculatorEngine {
     // MARK: - Display
     
     var lcdDisplayText: String {
-        currentMathEntry.lcdDisplayText
+        get {
+            currentMathEntry.lcdDisplayText
+        }
     }
     
     // MARK: - Properties For Testing
