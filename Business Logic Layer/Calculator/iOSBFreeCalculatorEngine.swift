@@ -46,9 +46,7 @@ struct iOSBFreeCalculatorEngine {
     // MARK: - Display
     
     var lcdDisplayText: String {
-        get {
-            currentMathEntry.lcdDisplayText
-        }
+        currentMathEntry.lcdDisplayText
     }
     
     // MARK: - Properties For Testing
@@ -68,7 +66,7 @@ struct iOSBFreeCalculatorEngine {
     // MARK: - Interaction API
     
     var copyOfEquationLog: [MathEquation] {
-        return historyLog
+        historyLog
     }
     
     mutating func clearHistory() {
