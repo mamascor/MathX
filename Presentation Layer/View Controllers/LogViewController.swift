@@ -118,6 +118,13 @@ class LogViewController: UITableViewController {
     private func decorateViewWithTheme(_ theme: CalculatorTheme) {
         tableView.backgroundColor = UIColor(hex: theme.background)
         tableView.separatorColor = UIColor(hex: theme.display)
+        tableView.tintColor = UIColor(hex: theme.display)
+        switch theme.statusBarStyle {
+        case .light:
+            tableView.indicatorStyle = .white
+        case .dark:
+            tableView.indicatorStyle = .black
+        }
     }
     
     private func decorateTableViewCell(_ cell: EquationCell, withTheme theme: CalculatorTheme, from indexPath: IndexPath) {
