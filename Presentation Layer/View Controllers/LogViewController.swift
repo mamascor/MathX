@@ -47,7 +47,9 @@ class LogViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        decorateViewWithTheme(ThemeManager.shared.currentTheme)
     }
+
     
     //MARK: - Navigation Bar
     
@@ -115,8 +117,7 @@ class LogViewController: UITableViewController {
     
     private func decorateViewWithTheme(_ theme: CalculatorTheme) {
         tableView.backgroundColor = UIColor(hex: theme.background)
-        tableView.separatorColor = UIColor(hex: theme.operatorNormal)
-        navigationItem.rightBarButtonItem?.tintColor = UIColor(hex: theme.operatorNormal)
+        tableView.separatorColor = UIColor(hex: theme.display)
     }
     
     private func decorateTableViewCell(_ cell: EquationCell, withTheme theme: CalculatorTheme, from indexPath: IndexPath) {
