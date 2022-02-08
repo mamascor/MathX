@@ -118,7 +118,7 @@ struct iOSBFreeCalculatorEngine {
     
     mutating func equalsPressed() {
         if currentMathEntry.isCompleted {
-            var newMathEntry = MathInputController() // TODO we have just bypassed the display
+            var newMathEntry = MathInputController()
             newMathEntry.lhs = currentMathEntry.result ?? Decimal.zero
             newMathEntry.operation = currentMathEntry.operation
             newMathEntry.rhs = currentMathEntry.rhs
@@ -143,7 +143,7 @@ struct iOSBFreeCalculatorEngine {
     
     // MARK: - Print To Console
     
-    private func printEquationToDebugConsole(_ mathInputController: MathInputController) { // TODO does this belong in the math equation input controller?
+    private func printEquationToDebugConsole(_ mathInputController: MathInputController) {
         // → Using the print command only works in debug mode
         print(mathInputController.generatePrintout)
     }
@@ -268,7 +268,6 @@ struct iOSBFreeCalculatorEngine {
             return
         }
         
-        // TODO should we allow this type of manipulation outside the controller type?
         var newMathInput = MathInputController()
         newMathInput.lhs = 1
         newMathInput.operation = .multiply
