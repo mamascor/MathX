@@ -27,7 +27,7 @@
 //   ⦿ keeping our files small
 //   ⦿ seperating each responsibility into different types (class or struct)
 //   ⦿ writing readable code
-//   ⦿ testing our work (your own private testing team!)
+//   ⦿ testing our work (our own private testing team!)
 //   ⦿ safely accessing values in an array
 //   ⦿ using animations
 //   ⦿ creating a color theme manager
