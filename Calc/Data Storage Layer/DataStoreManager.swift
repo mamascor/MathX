@@ -47,4 +47,10 @@ struct DataStoreManager {
     func getValue() -> Any? {
         UserDefaults.standard.object(forKey: key)
     }
+    
+    // MARK: - Deleting Data
+    
+    func deleteValue() {
+        UserDefaults.standard.removeObject(forKey: key)
+    }
 }

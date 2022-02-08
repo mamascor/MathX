@@ -75,6 +75,7 @@ struct iOSBFreeCalculatorEngine {
     
     mutating func clearPressed() {
         currentMathEntry = MathInputController()
+        deleteSavedSession()
     }
     
     mutating func negatePressed() {
@@ -230,6 +231,10 @@ struct iOSBFreeCalculatorEngine {
         if let encoded = try? encoder.encode(currentMathEntry.equation) {
             dataStore.set(encoded)
         }
+    }
+    
+    private func deleteSavedSession() {
+        dataStore.deleteValue()
     }
     
     private func isMathEntrySafeToBeSaved(_ mathEntry: MathInputController) -> Bool {
