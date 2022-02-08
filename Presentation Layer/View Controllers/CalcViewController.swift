@@ -320,6 +320,8 @@ class CalcViewController: UIViewController {
         
         let navigationController = UINavigationController(rootViewController: logViewController)
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController.navigationBar.backgroundColor = UIColor(hex: ThemeManager.shared.currentTheme.background)
+        navigationController.navigationBar.tintColor = UIColor(hex: ThemeManager.shared.currentTheme.display)
         present(navigationController, animated: true, completion: nil)
     }
     
