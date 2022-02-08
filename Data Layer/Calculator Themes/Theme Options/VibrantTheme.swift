@@ -33,7 +33,7 @@ import Foundation
 
 extension ThemeManager {
     
-    var vibrantTheme: CalculatorTheme {
+    var bloodOrangeTheme: CalculatorTheme {
         CalculatorTheme(id:"9",
         background:             "#4A1D41",
         display:                "#ffffff",

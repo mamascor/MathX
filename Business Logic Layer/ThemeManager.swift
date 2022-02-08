@@ -68,7 +68,7 @@ class ThemeManager {
     // MARK: - Populate Theme Selection
     
     private func populateSelectionOfThemes() {
-        themes = [darkTheme, electroTheme, lightTheme, lightBlueTheme, pinkTheme, darkBlueTheme, purpleTheme, washedOutTheme, vibrantTheme, orangeTheme]
+        themes = [darkTheme, purpleTheme, orangeTheme, lightTheme, pinkTheme, lightBlueTheme, electroTheme, washedOutTheme, bloodOrangeTheme, darkBlueTheme]
     }
     
     // MARK: - Save & Restore From Disk
