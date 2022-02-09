@@ -1,0 +1,107 @@
+//
+//  ✏️ Coding Principles.swift
+//
+//  👇🏾
+//  KISS
+// *******************************************************************************************
+//  Keep It Simple.. Stupid
+//  This acronym is widely used within the iOS industry and is a great topic to discuss at an
+//  interview. As we continue to increase the complexity of each engineering solution we also
+//  in turn create more opportunities for things to go wrong. We could also re-phrase this
+//  statement to read: The more moving parts the more could risk of potential issues.
+//
+//  We should always try not to over-engineer each solution instead writing less code, more
+//  readable code and easier to understand code.
+//
+//
+//  Single Responsibility
+// *******************************************************************************************
+//  Each file should include the definition of only one type.
+//  Each type (i.e. class, struct, enum etc) should also include only one purpose or
+//  responsibilty.
+//
+//  For example, this basically means that we should avoid writing a struct to store data
+//  whilst also allowing it to manage how it stores the data. In this scenario the data
+//  should remain only as data reflecting the values which it represents. A separate struct
+//  could be created to manage the actual storage and we would therefore be left with two
+//  files containing the declaration of each struct. One would handle the storage of data
+//  whilst the other would simply be the data.
+//
+//
+//  Layered Architecture
+// *******************************************************************************************
+//  As we create new class and struct types we will build a pool of files trying to
+//  communicate with each other. We could also compare this to a pile of bricks trying to be
+//  used to build a skyscraper. Even though we can place one brick upon another this will only
+//  provide strong limitations very quickly. The same can be said for the untidy mess of files
+//  all trying to communicate with each other. This messy pool or collection of files requires
+//  structure in order to be used more wisely and provide us the opportunity to add more
+//  features with much less maintenance too.
+//
+//  Every professional setting (i.e. employers) will demand that the codebase be kept tidy,
+//  easy to read, easy to understand and easily maintainable by future iOS developers.
+//
+//  It is our duty as professional iOS developers to always reduce the communication between
+//  files grouping their responsibilities and filtering communication through each layer
+//  until it reaches the intended class, struct or type.
+//
+//  E.g. If we think about how a computer chip processes information then we will realise
+//  that in fact it only processes electricity froom 0 to 5 volts. But this information
+//  isn't that usable until we add a layer on top of it. The next layer will convert the
+//  5 volts to a 1 and 0 volts to 0. Now we have a system that represents two states..
+//  on and off.
+//  And it doesn't end there. We can add another layer to group the 0 and 1s into a
+//  collection of four. We can add another layer ontop of that to represent the numbers
+//  0 - 15. This process of adding layers continues until we have converted those numbers
+//  into a high level programming language that can be used to write human readable commands
+//  and create beatifully crafted software.
+//
+//              ____________________
+//  Top Layer → |        UI        |
+//              --------------------
+//              ____________________
+//  Layer 3   → |  Business Logic  |
+//              --------------------
+//              ____________________ ____________________
+//  Layer 2   → |    Networking    | |   Data Storage   |
+//              -------------------- --------------------
+//              ____________________
+//  Layer 1   → |      Data        |
+//              --------------------
+//  Using this example above we can structure our solutions in the same way. As another basic
+//  example we already know that Apples Foundation framework sits below their UIKit framework.
+//  They are also using layered architecture to group the responsibilities of each class or
+//  struct declared. Therefore a UIButton object would never implement networking. That
+//  behaviour would be written within a different file and declared in its own type such as a
+//  class or a struct.
+//
+//  We recommend keeping our data as data, networking as networking and UI as UI. let's keep
+//  our classes pure and communicate through a structured organised system one layer at a
+//  time.
+//
+//  Separation Of Concerns
+// *******************************************************************************************
+//  Each file should separate each type of concern into a new type such as a class or struct.
+//  This would separate each concern into its own confined area resulting in less code to
+//  inspect making it is easier to maintain and understand.
+//
+//  We should always separate the desired behaviour we want into separate files.
+//
+//
+//  Unit Testing
+// *******************************************************************************************
+//  The great news about Xcode is that it comes pre-built with it's own testing team! To make
+//  this even better they always deliver their results within a few seconds leaving us
+//  reassured that our code functions as intended and designed.
+//
+//  It's great to have our very own testing team. Let's try to use it!
+//
+//
+//
+//
+//  All our love,
+//  From the team at iOSB Free Ltd
+//  🧡 iOSB Free
+//  community@iosbfree.com
+//  🧕🏻👨🏿‍💼👩🏼‍💼👩🏻‍💻👨🏼‍💼🧛🏻‍♀️👩🏼‍💻💁🏽‍♂️🕵🏻‍♂️🧝🏼‍♀️🦹🏼‍♀🧕🏾🧟‍♂️
+// *******************************************************************************************

@@ -1,0 +1,28 @@
+//
+//  ✏️ Coding Principles.swift
+//
+//  👇🏾
+//  Single Responsibility
+// *******************************************************************************************
+//  Each file should include the definition of only one type.
+//  Each type (i.e. class, struct, enum etc) should also include only one purpose or
+//  responsibilty.
+//
+//  For example, this basically means that we should avoid writing a struct to store data
+//  whilst also allowing it to manage how it stores the data. In this scenario the data
+//  should remain only as data reflecting the values which it represents. A separate struct
+//  could be created to manage the actual storage and we would therefore be left with two
+//  files containing the declaration of each struct. One would handle the storage of data
+//  whilst the other would simply be the data.
+//
+// *******************************************************************************************
+//
+//
+//
+//
+//  All our love,
+//  From the team at iOSB Free Ltd
+//  🧡 iOSB Free
+//  community@iosbfree.com
+//  🧕🏻👨🏿‍💼👩🏼‍💼👩🏻‍💻👨🏼‍💼🧛🏻‍♀️👩🏼‍💻💁🏽‍♂️🕵🏻‍♂️🧝🏼‍♀️🦹🏼‍♀🧕🏾🧟‍♂️
+// *******************************************************************************************
