@@ -11,8 +11,8 @@
 		0C22E9FA27B33AC7000DF3D7 /* 🏛 Layered Architecture in Resources */ = {isa = PBXBuildFile; fileRef = 0C22E9F927B33AC7000DF3D7 /* 🏛 Layered Architecture */; };
 		0C22E9FE27B3C158000DF3D7 /* 💋 KISS in Resources */ = {isa = PBXBuildFile; fileRef = 0C22E9FD27B3C158000DF3D7 /* 💋 KISS */; };
 		0C22EA0327B3C65A000DF3D7 /* 🧪 Unit Testing in Resources */ = {isa = PBXBuildFile; fileRef = 0C22E9FF27B3C65A000DF3D7 /* 🧪 Unit Testing */; };
-		0C22EA0427B3C65A000DF3D7 /* 💦 Wet in Resources */ = {isa = PBXBuildFile; fileRef = 0C22EA0027B3C65A000DF3D7 /* 💦 Wet */; };
-		0C22EA0527B3C65A000DF3D7 /* 🌵 Dry in Resources */ = {isa = PBXBuildFile; fileRef = 0C22EA0127B3C65A000DF3D7 /* 🌵 Dry */; };
+		0C22EA0427B3C65A000DF3D7 /* 💦 WET in Resources */ = {isa = PBXBuildFile; fileRef = 0C22EA0027B3C65A000DF3D7 /* 💦 WET */; };
+		0C22EA0527B3C65A000DF3D7 /* 🌵 DRY in Resources */ = {isa = PBXBuildFile; fileRef = 0C22EA0127B3C65A000DF3D7 /* 🌵 DRY */; };
 		0C22EA0627B3C65A000DF3D7 /* 👨‍👧‍👧 Single Responsibility in Resources */ = {isa = PBXBuildFile; fileRef = 0C22EA0227B3C65A000DF3D7 /* 👨‍👧‍👧 Single Responsibility */; };
 		0C4DA5FD27A2B35B0081EC12 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4DA5FC27A2B35B0081EC12 /* ThemeManager.swift */; };
 		0C4DA60327A2CF040081EC12 /* DecimalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4DA60227A2CF040081EC12 /* DecimalTests.swift */; };
@@ -83,8 +83,8 @@
 		0C22E9F927B33AC7000DF3D7 /* 🏛 Layered Architecture */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "🏛 Layered Architecture"; sourceTree = "<group>"; };
 		0C22E9FD27B3C158000DF3D7 /* 💋 KISS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "💋 KISS"; sourceTree = "<group>"; };
 		0C22E9FF27B3C65A000DF3D7 /* 🧪 Unit Testing */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "🧪 Unit Testing"; sourceTree = "<group>"; };
-		0C22EA0027B3C65A000DF3D7 /* 💦 Wet */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "💦 Wet"; sourceTree = "<group>"; };
-		0C22EA0127B3C65A000DF3D7 /* 🌵 Dry */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "🌵 Dry"; sourceTree = "<group>"; };
+		0C22EA0027B3C65A000DF3D7 /* 💦 WET */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "💦 WET"; sourceTree = "<group>"; };
+		0C22EA0127B3C65A000DF3D7 /* 🌵 DRY */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "🌵 DRY"; sourceTree = "<group>"; };
 		0C22EA0227B3C65A000DF3D7 /* 👨‍👧‍👧 Single Responsibility */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "👨‍👧‍👧 Single Responsibility"; sourceTree = "<group>"; };
 		0C4DA5FC27A2B35B0081EC12 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		0C4DA60227A2CF040081EC12 /* DecimalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalTests.swift; sourceTree = "<group>"; };
@@ -167,10 +167,10 @@
 			children = (
 				0C22E9F927B33AC7000DF3D7 /* 🏛 Layered Architecture */,
 				0C22E9FD27B3C158000DF3D7 /* 💋 KISS */,
-				0C22EA0127B3C65A000DF3D7 /* 🌵 Dry */,
+				0C22EA0127B3C65A000DF3D7 /* 🌵 DRY */,
+				0C22EA0027B3C65A000DF3D7 /* 💦 WET */,
 				0C22EA0227B3C65A000DF3D7 /* 👨‍👧‍👧 Single Responsibility */,
 				0C22E9FF27B3C65A000DF3D7 /* 🧪 Unit Testing */,
-				0C22EA0027B3C65A000DF3D7 /* 💦 Wet */,
 			);
 			path = "✏️ Coding Principles";
 			sourceTree = "<group>";
@@ -497,8 +497,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C22EA0527B3C65A000DF3D7 /* 🌵 Dry in Resources */,
-				0C22EA0427B3C65A000DF3D7 /* 💦 Wet in Resources */,
+				0C22EA0527B3C65A000DF3D7 /* 🌵 DRY in Resources */,
+				0C22EA0427B3C65A000DF3D7 /* 💦 WET in Resources */,
 				0C4DA61227A37B410081EC12 /* ⭐️ Leave A Review ⭐️ in Resources */,
 				0C22EA0327B3C65A000DF3D7 /* 🧪 Unit Testing in Resources */,
 				0C22EA0627B3C65A000DF3D7 /* 👨‍👧‍👧 Single Responsibility in Resources */,
