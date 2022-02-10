@@ -5,7 +5,7 @@
  =============================================================================================
    Don't Repeat Yourself
    
-   This coding principle reduces the repitition of code, which centralises the logic into one
+   This coding principle reduces the repetition of code, which centralises the logic into one
    place. This is a great idea to help support the future maintenance of the project and lower
    the risk of introducing inconsistencies that may occur if multiple areas had to be
    maintained in parallel.
@@ -17,7 +17,7 @@
    By writing our code once and centralising it into one place we avoid such inconsistencies
    and remove any possibility of having such problems.
    
-   Let's be smart and try not to generate the exact same behaviour in multiple locations.
+   Let's be smart and try not to generate the same behaviour in multiple locations.
    
    
  → To Learn More:

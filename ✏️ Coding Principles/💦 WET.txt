@@ -7,7 +7,7 @@
    
 ⚠️ Do not use this principle. ⚠️
    
-   This coding principle is the opposite to DRY. We want to always write DRY code and always
+   This coding principle is the opposite of DRY. We want to always write DRY code and always
    avoid writing WET code. We don't want to repeat ourselves and we never want to write
    everything twice.
    

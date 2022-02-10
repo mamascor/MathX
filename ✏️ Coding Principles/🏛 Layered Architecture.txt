@@ -4,9 +4,9 @@
  → Definition:
  =============================================================================================
   Constructing a system where we group files into layers. E.g. A Presentation Layer which is
-  oftern refered to as the UI (User Interface). Once grouped into layers we will then control
+  often referred to as the UI (User Interface). Once grouped into layers we will then control
   the communication between layers by passing messages from one layer to the next. E.g. A UI
-  (Presentation Layer) wouldn't communicate directly to a Networking Layer. Instead the UI
+  (Presentation Layer) wouldn't communicate directly to a Networking Layer. Instead, the UI
   would communicate through some sort of manager, which in turn communicates to a Network
   Manager constructing a 3 tier system.
 
@@ -44,7 +44,7 @@
  → Spaghetti Code
  =============================================================================================
   If our codebase didn't have this type of structure then it would be considered as what's
-  commonly refered to as spaghetti code. The term spaghetti is used here because each file,
+  commonly referred to as spaghetti code. The term spaghetti is used here because each file,
   struct or class could potentially communicate with each other and often do. This makes it
   very difficult to follow the trail of communication between them all making maintenance
   almost impossible.

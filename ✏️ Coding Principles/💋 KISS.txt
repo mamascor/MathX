@@ -3,12 +3,12 @@
 
  → Definition:
  =============================================================================================
-   Keep It Simple.. Stupid 🙈
+   Keep It Simple. Stupid 🙈
    
    This acronym is widely used within the iOS industry and is a great topic to discuss at an
    interview. As we continue to increase the complexity of each engineering solution we also
-   in turn create more opportunities for things to go wrong. We could also re-phrase this
-   statement to read: The more moving parts the more could risk of potential issues.
+   in turn create more opportunities for things to go wrong. We could also rephrase this
+   statement to read: The more moving parts the more potential issues.
 
    We should always try not to over-engineer each solution and instead write less code,
    more readable code and easier to understand code.

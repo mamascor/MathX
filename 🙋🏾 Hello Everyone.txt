@@ -12,17 +12,17 @@
    ✔️ learn how to professionally structure an Xcode project
    ✔️ learn the fundamental coding principles used within the iOS industry
    ✔️ to use these coding principles
-   ✔️ to architect a full solution thinking as an engineer
+   ✔️ to architect a full solution thinking like an engineer
 
 
   → This Project Demonstrates:
  =============================================================================================
-   ⦿ commerical-quality architecture
+   ⦿ commercial-quality architecture
    ⦿ layered architecture
    ⦿ keeping our files small
-   ⦿ seperating each responsibility into different types (class or struct)
+   ⦿ separating each responsibility into different types (class or struct)
    ⦿ writing readable code
-   ⦿ testing our work (our own private testing team!)
+   ⦿ testing our work (our private testing team!)
    ⦿ safely accessing values in an array
    ⦿ using animations
    ⦿ creating a color theme manager
@@ -37,7 +37,7 @@
    ⦿ using guard statements
    ⦿ correct use of unwrapping optionals
    ⦿ storing custom types to disk (using JSON)
-   ⦿ avoiding over engineering
+   ⦿ avoiding over-engineering
    ⦿ communicating using notifications
    ⦿ returning more than 1 value from a function
 

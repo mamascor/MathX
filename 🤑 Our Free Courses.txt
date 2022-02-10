@@ -33,7 +33,7 @@
 4️⃣ What Is SwiftUI Anyway?
    https://www.udemy.com/course/what-is-swift-ui-part-1
 
-5️⃣ Reviewing Someone Elses Code i.e. A Code Review
+5️⃣ Reviewing Someone Else's Code i.e. A Code Review
    https://www.udemy.com/course/swiftui-a-live-code-review
 
 6️⃣ Creating And Understanding Struct & Class Singletons (What's the difference?)
