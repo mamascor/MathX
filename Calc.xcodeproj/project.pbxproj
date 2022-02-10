@@ -8,19 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		0C219D2727A42F8000A55AE8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C219D2627A42F8000A55AE8 /* Constants.swift */; };
-		0C22E9FA27B33AC7000DF3D7 /* 🏛 Layered Architecture in Resources */ = {isa = PBXBuildFile; fileRef = 0C22E9F927B33AC7000DF3D7 /* 🏛 Layered Architecture */; };
-		0C22E9FE27B3C158000DF3D7 /* 💋 KISS in Resources */ = {isa = PBXBuildFile; fileRef = 0C22E9FD27B3C158000DF3D7 /* 💋 KISS */; };
-		0C22EA0327B3C65A000DF3D7 /* 🧪 Unit Testing in Resources */ = {isa = PBXBuildFile; fileRef = 0C22E9FF27B3C65A000DF3D7 /* 🧪 Unit Testing */; };
-		0C22EA0427B3C65A000DF3D7 /* 💦 WET  in Resources */ = {isa = PBXBuildFile; fileRef = 0C22EA0027B3C65A000DF3D7 /* 💦 WET  */; };
-		0C22EA0527B3C65A000DF3D7 /* 🌵 DRY in Resources */ = {isa = PBXBuildFile; fileRef = 0C22EA0127B3C65A000DF3D7 /* 🌵 DRY */; };
-		0C22EA0627B3C65A000DF3D7 /* 👨‍👧‍👧 Single Responsibility in Resources */ = {isa = PBXBuildFile; fileRef = 0C22EA0227B3C65A000DF3D7 /* 👨‍👧‍👧 Single Responsibility */; };
+		0C22E9FA27B33AC7000DF3D7 /* 🏛 Layered Architecture.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C22E9F927B33AC7000DF3D7 /* 🏛 Layered Architecture.txt */; };
+		0C22E9FE27B3C158000DF3D7 /* 💋 KISS.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C22E9FD27B3C158000DF3D7 /* 💋 KISS.txt */; };
+		0C22EA0327B3C65A000DF3D7 /* 🧪 Unit Testing.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C22E9FF27B3C65A000DF3D7 /* 🧪 Unit Testing.txt */; };
+		0C22EA0427B3C65A000DF3D7 /* 💦 WET.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C22EA0027B3C65A000DF3D7 /* 💦 WET.txt */; };
+		0C22EA0527B3C65A000DF3D7 /* 🌵 DRY.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C22EA0127B3C65A000DF3D7 /* 🌵 DRY.txt */; };
+		0C22EA0627B3C65A000DF3D7 /* 👨‍👧‍👧 Single Responsibility.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C22EA0227B3C65A000DF3D7 /* 👨‍👧‍👧 Single Responsibility.txt */; };
 		0C4DA5FD27A2B35B0081EC12 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4DA5FC27A2B35B0081EC12 /* ThemeManager.swift */; };
 		0C4DA60327A2CF040081EC12 /* DecimalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4DA60227A2CF040081EC12 /* DecimalTests.swift */; };
 		0C4DA60527A2EFFF0081EC12 /* ZeroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4DA60427A2EFFF0081EC12 /* ZeroTests.swift */; };
 		0C4DA60727A2FECE0081EC12 /* DisplayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4DA60627A2FECE0081EC12 /* DisplayTests.swift */; };
 		0C4DA60E27A374F30081EC12 /* 🙋🏾 Hello Everyone.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA60D27A374F30081EC12 /* 🙋🏾 Hello Everyone.txt */; };
-		0C4DA61027A378D00081EC12 /* 🤑 Our Free Courses in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA60F27A378D00081EC12 /* 🤑 Our Free Courses */; };
-		0C4DA61227A37B410081EC12 /* ⭐️ Leave A Review ⭐️ in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA61127A37B410081EC12 /* ⭐️ Leave A Review ⭐️ */; };
+		0C4DA61027A378D00081EC12 /* 🤑 Our Free Courses.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA60F27A378D00081EC12 /* 🤑 Our Free Courses.txt */; };
+		0C4DA61227A37B410081EC12 /* ⭐️ Leave A Review ⭐️.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA61127A37B410081EC12 /* ⭐️ Leave A Review ⭐️.txt */; };
 		0C4DA61427A37E500081EC12 /* Why Create Unit Tests? in Resources */ = {isa = PBXBuildFile; fileRef = 0C4DA61327A37E500081EC12 /* Why Create Unit Tests? */; };
 		0C874BD627A69C9B008905C6 /* Array+SafeAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C874BD527A69C9B008905C6 /* Array+SafeAccess.swift */; };
 		0C8DB36527A0B1E300A96AA0 /* SubtractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8DB36427A0B1E300A96AA0 /* SubtractionTests.swift */; };
@@ -80,19 +80,19 @@
 
 /* Begin PBXFileReference section */
 		0C219D2627A42F8000A55AE8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		0C22E9F927B33AC7000DF3D7 /* 🏛 Layered Architecture */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "🏛 Layered Architecture"; sourceTree = "<group>"; };
-		0C22E9FD27B3C158000DF3D7 /* 💋 KISS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "💋 KISS"; sourceTree = "<group>"; };
-		0C22E9FF27B3C65A000DF3D7 /* 🧪 Unit Testing */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "🧪 Unit Testing"; sourceTree = "<group>"; };
-		0C22EA0027B3C65A000DF3D7 /* 💦 WET  */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "💦 WET "; sourceTree = "<group>"; };
-		0C22EA0127B3C65A000DF3D7 /* 🌵 DRY */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "🌵 DRY"; sourceTree = "<group>"; };
-		0C22EA0227B3C65A000DF3D7 /* 👨‍👧‍👧 Single Responsibility */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "👨‍👧‍👧 Single Responsibility"; sourceTree = "<group>"; };
+		0C22E9F927B33AC7000DF3D7 /* 🏛 Layered Architecture.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "🏛 Layered Architecture.txt"; sourceTree = "<group>"; };
+		0C22E9FD27B3C158000DF3D7 /* 💋 KISS.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "💋 KISS.txt"; sourceTree = "<group>"; };
+		0C22E9FF27B3C65A000DF3D7 /* 🧪 Unit Testing.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "🧪 Unit Testing.txt"; sourceTree = "<group>"; };
+		0C22EA0027B3C65A000DF3D7 /* 💦 WET.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "💦 WET.txt"; sourceTree = "<group>"; };
+		0C22EA0127B3C65A000DF3D7 /* 🌵 DRY.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "🌵 DRY.txt"; sourceTree = "<group>"; };
+		0C22EA0227B3C65A000DF3D7 /* 👨‍👧‍👧 Single Responsibility.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "👨‍👧‍👧 Single Responsibility.txt"; sourceTree = "<group>"; };
 		0C4DA5FC27A2B35B0081EC12 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		0C4DA60227A2CF040081EC12 /* DecimalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalTests.swift; sourceTree = "<group>"; };
 		0C4DA60427A2EFFF0081EC12 /* ZeroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroTests.swift; sourceTree = "<group>"; };
 		0C4DA60627A2FECE0081EC12 /* DisplayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTests.swift; sourceTree = "<group>"; };
 		0C4DA60D27A374F30081EC12 /* 🙋🏾 Hello Everyone.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "🙋🏾 Hello Everyone.txt"; sourceTree = "<group>"; };
-		0C4DA60F27A378D00081EC12 /* 🤑 Our Free Courses */ = {isa = PBXFileReference; lastKnownFileType = text; path = "🤑 Our Free Courses"; sourceTree = "<group>"; };
-		0C4DA61127A37B410081EC12 /* ⭐️ Leave A Review ⭐️ */ = {isa = PBXFileReference; lastKnownFileType = text; path = "⭐️ Leave A Review ⭐️"; sourceTree = "<group>"; };
+		0C4DA60F27A378D00081EC12 /* 🤑 Our Free Courses.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "🤑 Our Free Courses.txt"; sourceTree = "<group>"; };
+		0C4DA61127A37B410081EC12 /* ⭐️ Leave A Review ⭐️.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "⭐️ Leave A Review ⭐️.txt"; sourceTree = "<group>"; };
 		0C4DA61327A37E500081EC12 /* Why Create Unit Tests? */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Why Create Unit Tests?"; sourceTree = "<group>"; };
 		0C874BD527A69C9B008905C6 /* Array+SafeAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+SafeAccess.swift"; sourceTree = "<group>"; };
 		0C8DB36427A0B1E300A96AA0 /* SubtractionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtractionTests.swift; sourceTree = "<group>"; };
@@ -165,12 +165,12 @@
 		0C22E9FC27B3C125000DF3D7 /* ✏️ Coding Principles */ = {
 			isa = PBXGroup;
 			children = (
-				0C22E9F927B33AC7000DF3D7 /* 🏛 Layered Architecture */,
-				0C22E9FD27B3C158000DF3D7 /* 💋 KISS */,
-				0C22EA0127B3C65A000DF3D7 /* 🌵 DRY */,
-				0C22EA0027B3C65A000DF3D7 /* 💦 WET  */,
-				0C22EA0227B3C65A000DF3D7 /* 👨‍👧‍👧 Single Responsibility */,
-				0C22E9FF27B3C65A000DF3D7 /* 🧪 Unit Testing */,
+				0C22E9F927B33AC7000DF3D7 /* 🏛 Layered Architecture.txt */,
+				0C22E9FD27B3C158000DF3D7 /* 💋 KISS.txt */,
+				0C22EA0127B3C65A000DF3D7 /* 🌵 DRY.txt */,
+				0C22EA0027B3C65A000DF3D7 /* 💦 WET.txt */,
+				0C22EA0227B3C65A000DF3D7 /* 👨‍👧‍👧 Single Responsibility.txt */,
+				0C22E9FF27B3C65A000DF3D7 /* 🧪 Unit Testing.txt */,
 			);
 			path = "✏️ Coding Principles";
 			sourceTree = "<group>";
@@ -271,8 +271,8 @@
 			isa = PBXGroup;
 			children = (
 				0C4DA60D27A374F30081EC12 /* 🙋🏾 Hello Everyone.txt */,
-				0C4DA60F27A378D00081EC12 /* 🤑 Our Free Courses */,
-				0C4DA61127A37B410081EC12 /* ⭐️ Leave A Review ⭐️ */,
+				0C4DA60F27A378D00081EC12 /* 🤑 Our Free Courses.txt */,
+				0C4DA61127A37B410081EC12 /* ⭐️ Leave A Review ⭐️.txt */,
 				0C22E9FC27B3C125000DF3D7 /* ✏️ Coding Principles */,
 				0CE40623279E9BB800B16A24 /* Calc */,
 				0CE4063A279E9BBA00B16A24 /* CalcTests */,
@@ -497,18 +497,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C22EA0527B3C65A000DF3D7 /* 🌵 DRY in Resources */,
-				0C22EA0427B3C65A000DF3D7 /* 💦 WET  in Resources */,
-				0C4DA61227A37B410081EC12 /* ⭐️ Leave A Review ⭐️ in Resources */,
-				0C22EA0327B3C65A000DF3D7 /* 🧪 Unit Testing in Resources */,
-				0C22EA0627B3C65A000DF3D7 /* 👨‍👧‍👧 Single Responsibility in Resources */,
+				0C22EA0527B3C65A000DF3D7 /* 🌵 DRY.txt in Resources */,
+				0C22EA0427B3C65A000DF3D7 /* 💦 WET.txt in Resources */,
+				0C4DA61227A37B410081EC12 /* ⭐️ Leave A Review ⭐️.txt in Resources */,
+				0C22EA0327B3C65A000DF3D7 /* 🧪 Unit Testing.txt in Resources */,
+				0C22EA0627B3C65A000DF3D7 /* 👨‍👧‍👧 Single Responsibility.txt in Resources */,
 				0CE40631279E9BBA00B16A24 /* LaunchScreen.storyboard in Resources */,
-				0C22E9FA27B33AC7000DF3D7 /* 🏛 Layered Architecture in Resources */,
+				0C22E9FA27B33AC7000DF3D7 /* 🏛 Layered Architecture.txt in Resources */,
 				0CE4062E279E9BBA00B16A24 /* Assets.xcassets in Resources */,
-				0C4DA61027A378D00081EC12 /* 🤑 Our Free Courses in Resources */,
+				0C4DA61027A378D00081EC12 /* 🤑 Our Free Courses.txt in Resources */,
 				0CE4062C279E9BB800B16A24 /* Main.storyboard in Resources */,
 				0C4DA60E27A374F30081EC12 /* 🙋🏾 Hello Everyone.txt in Resources */,
-				0C22E9FE27B3C158000DF3D7 /* 💋 KISS in Resources */,
+				0C22E9FE27B3C158000DF3D7 /* 💋 KISS.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
