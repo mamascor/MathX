@@ -1,32 +1,7 @@
 //
 //  AppDelegate.swift
-//  Calc
-//
-//  Created by iOSB Free on 24/01/2022.
-//
-//
-//  iOSB Free Ltd                   → All rights reserved
-//  Website                         → https://www.iosbfree.com
-//
-//  👉🏼 Free Courses                 → https://www.udemy.com/user/iosbfree
-//
-//  YouTube                         → https://www.youtube.com/channel/UCWBUOVRbtKNml4jN_4bRkCQ
-//  Linked In                       → http://www.linkedin.com/in/mattharding-iosbfree
-//
-//  Tell us what
-//  you want to learn
-//
-//  🧡 iOSB Free
-//  community@iosbfree.com
-//  🧕🏻👨🏿‍💼👩🏼‍💼👩🏻‍💻👨🏼‍💼🧛🏻‍♀️👩🏼‍💻💁🏽‍♂️🕵🏻‍♂️🧝🏼‍♀️🦹🏼‍♀🧕🏾🧟‍♂️
-// *******************************************************************************************
-//
-// → What's This File?
-//   It's a class created to recieve delegate methods. It manages the app itself.
-//   Architecural Layer: Presentation Layer
-//
-//   💡 Architecture Tip 👉🏻 Why not Google "KISS engineering principle"?
-// *******************************************************************************************
+//  MathX
+
 
 
 import UIKit

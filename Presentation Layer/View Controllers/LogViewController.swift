@@ -1,33 +1,6 @@
 //
 //  LogViewController.swift
-//  Calc
-//
-//  Created by iOSB Free on 26/01/2022.
-//
-//
-//  iOSB Free Ltd                   → All rights reserved
-//  Website                         → https://www.iosbfree.com
-//
-//  👉🏽 Free Courses                 → https://www.udemy.com/user/iosbfree
-//
-//  YouTube                         → https://www.youtube.com/channel/UCWBUOVRbtKNml4jN_4bRkCQ
-//  Linked In                       → http://www.linkedin.com/in/mattharding-iosbfree
-//
-//  Tell us what
-//  you want to learn
-//
-//  🧡 iOSB Free
-//  community@iosbfree.com
-//  🧕🏻👨🏿‍💼👩🏼‍💼👩🏻‍💻👨🏼‍💼🧛🏻‍♀️👩🏼‍💻💁🏽‍♂️🕵🏻‍♂️🧝🏼‍♀️🦹🏼‍♀🧕🏾🧟‍♂️
-// *******************************************************************************************
-//
-// → What's This File?
-//   It's a screen. It displays a list of all of the executed equations
-//   Architecural Layer: Presentation Layer
-//
-//   💡 Architecture Tip 👉🏻 The UI layer should ideally only contain UI. Put all other code
-//   into other files creating types such as managers and data storage.
-// *******************************************************************************************
+//  MathX
 
 
 import UIKit

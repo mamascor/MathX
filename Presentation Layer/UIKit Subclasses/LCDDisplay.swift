@@ -1,30 +1,7 @@
 ///
 //  LCDDisplay.swift
-//  Calc
-//
-//  Created by iOSB Free on 25/01/2022.
-//
-//  iOSB Free Ltd                   → All rights reserved
-//  Website                         → https://www.iosbfree.com
-//
-//  👉🏽 Free Courses                 → https://www.udemy.com/user/iosbfree
-//
-//  YouTube                         → https://www.youtube.com/channel/UCWBUOVRbtKNml4jN_4bRkCQ
-//  Linked In                       → http://www.linkedin.com/in/mattharding-iosbfree
-//
-//  Tell us what
-//  you want to learn
-//
-//  💛 iOSB Free
-//  community@iosbfree.com
-//  🧕🏻👨🏿‍💼👩🏼‍💼👩🏻‍💻👨🏼‍💼🧛🏻‍♀️👩🏼‍💻💁🏽‍♂️🕵🏻‍♂️🧝🏼‍♀️🦹🏼‍♀🧕🏾🧟‍♂️
-// *******************************************************************************************
-//
-// → What's This File?
-//   It's a subclass. This is our label to display input and the results of equations.
-//   Architecural Layer: Presentation Layer
-//
-// *******************************************************************************************
+//  MathX
+
 
 
 import UIKit
@@ -122,13 +99,11 @@ class LCDDisplay: UIView {
     }
     
     @objc override func paste(_ sender: Any?) {
-        guard
-            let proposedNumericValue = UIPasteboard.general.string,
-            let decimal = Double(proposedNumericValue) else { return }
+        guard let numberToPaste = UIPasteboard.general.string?.doubleValue else { return }
         
         hideMenu()
         
-        let userInfo: [AnyHashable: Any] = [LCDDisplay.keys.userInfo: decimal]
+        let userInfo: [AnyHashable: Any] = [LCDDisplay.keys.userInfo: numberToPaste]
         NotificationCenter.default.post(name: Notification.Name(LCDDisplay.keys.pasteNumberNotification), object: nil, userInfo: userInfo)
     }
     

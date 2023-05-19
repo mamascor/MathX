@@ -1,31 +1,7 @@
 //
 //  ThemeManager.swift
-//  Calc
-//
-//  Created by iOSB Free on 27/01/2022.
-//
-//
-//  iOSB Free Ltd                   → All rights reserved
-//  Website                         → https://www.iosbfree.com
-//
-//  👉 Free Courses                 → https://www.udemy.com/user/iosbfree
-//
-//  YouTube                         → https://www.youtube.com/channel/UCWBUOVRbtKNml4jN_4bRkCQ
-//  Linked In                       → http://www.linkedin.com/in/mattharding-iosbfree//
-//  Tell us what
-//  you want to learn
-//
-//  🖤 iOSB Free
-//  community@iosbfree.com
-//  🧕🏻👨🏿‍💼👩🏼‍💼👩🏻‍💻👨🏼‍💼🧛🏻‍♀️👩🏼‍💻💁🏽‍♂️🕵🏻‍♂️🧝🏼‍♀️🦹🏼‍♀🧕🏾🧟‍♂️
-// *******************************************************************************************
-//
-// → What's This File?
-//   It's a color theme manager, it stores all of our color themes.
-//   Architecural Layer: Business Logic Layer
-//
-//   💡 Architecture Tip 👉🏻 We only want 1 instance of this class so we used a singleton.
-// *******************************************************************************************
+//  MathX
+
 
 
 import Foundation

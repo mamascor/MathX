@@ -1,33 +1,7 @@
 //
 //  CalcViewController.swift
-//  Calc
-//
-//  Created by iOSB Free on 24/01/2022.
-//
-//
-//  iOSB Free Ltd                   → All rights reserved
-//  Website                         → https://www.iosbfree.com
-//
-//  👉🏾 Free Courses                 → https://www.udemy.com/user/iosbfree
-//
-//  YouTube                         → https://www.youtube.com/channel/UCWBUOVRbtKNml4jN_4bRkCQ
-//  Linked In                       → http://www.linkedin.com/in/mattharding-iosbfree
-//
-//  Tell us what
-//  you want to learn
-//
-//  🤎 iOSB Free
-//  community@iosbfree.com
-//  🧕🏻👨🏿‍💼👩🏼‍💼👩🏻‍💻👨🏼‍💼🧛🏻‍♀️👩🏼‍💻💁🏽‍♂️🕵🏻‍♂️🧝🏼‍♀️🦹🏼‍♀🧕🏾🧟‍♂️
-// *******************************************************************************************
-//
-// → What's This File?
-//   It's a screen. It displays the calculator itself.
-//   Architecural Layer: Presentation Layer
-//
-//   💡 Architecture Tip 👉🏻 The UI layer should ideally only contain UI. Place all other code
-//   into other files creating types such as managers and data storage.
-// *******************************************************************************************
+//  MathX
+
 
 
 import UIKit
@@ -68,7 +42,7 @@ class CalcViewController: UIViewController {
     
     // MARK: - Calculator Engine
     
-    private var calculator = iOSBFreeCalculatorEngine()
+    private var calculatorEngine = iOSBFreeCalculatorEngine()
     
     // MARK: - Life Cycle
     
@@ -82,13 +56,13 @@ class CalcViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if calculator.restoreFromLastSession() {
+        if calculatorEngine.restoreFromLastSession() {
             moveInLCDDisplay()
         } else {
             fadeInLCDDisplay()
         }
         
-        lcdDisplay.label.text = calculator.lcdDisplayText
+        refreshLCDDisplay()
     }
     
     // MARK: - Decorate
@@ -199,6 +173,12 @@ class CalcViewController: UIViewController {
         setNeedsStatusBarAppearanceUpdate()
     }
     
+    // MARK: - Refresh Display
+    
+    private func refreshLCDDisplay() {
+        lcdDisplay.label.text = calculatorEngine.lcdDisplayText
+    }
+    
     // MARK: - IBActions
     
     @IBAction func clearButtonPressed(_ sender: UIButton) {
@@ -207,21 +187,21 @@ class CalcViewController: UIViewController {
         
         lcdDisplay.alpha = 0
         
-        calculator.clearPressed()
-        lcdDisplay.label.text = calculator.lcdDisplayText
+        calculatorEngine.clearPressed()
+        refreshLCDDisplay()
         fadeInLCDDisplay()
     }
     
     @IBAction func negateButtonPressed(_ sender: UIButton) {
         sender.bounce()
-        calculator.negatePressed()
-        lcdDisplay.label.text = calculator.lcdDisplayText
+        calculatorEngine.negatePressed()
+        refreshLCDDisplay()
     }
     
     @IBAction func percentageButtonPressed(_ sender: UIButton) {
         sender.bounce()
-        calculator.percentagePressed()
-        lcdDisplay.label.text = calculator.lcdDisplayText
+        calculatorEngine.percentagePressed()
+        refreshLCDDisplay()
     }
     
     @IBAction func divideButtonPressed(_ sender: UIButton) {
@@ -230,8 +210,8 @@ class CalcViewController: UIViewController {
         
         sender.bounce()
         
-        calculator.dividePressed()
-        lcdDisplay.label.text = calculator.lcdDisplayText
+        calculatorEngine.dividePressed()
+        refreshLCDDisplay()
     }
     
     @IBAction func multiplyButtonPressed(_ sender: UIButton) {
@@ -240,8 +220,8 @@ class CalcViewController: UIViewController {
         
         sender.bounce()
         
-        calculator.multiplyPressed()
-        lcdDisplay.label.text = calculator.lcdDisplayText
+        calculatorEngine.multiplyPressed()
+        refreshLCDDisplay()
     }
     
     @IBAction func minusButtonPressed(_ sender: UIButton) {
@@ -250,8 +230,8 @@ class CalcViewController: UIViewController {
         
         sender.bounce()
         
-        calculator.minusPressed()
-        lcdDisplay.label.text = calculator.lcdDisplayText
+        calculatorEngine.minusPressed()
+        refreshLCDDisplay()
     }
     
     @IBAction func addButtonPressed(_ sender: UIButton) {
@@ -260,24 +240,24 @@ class CalcViewController: UIViewController {
         
         sender.bounce()
         
-        calculator.addPressed()
-        lcdDisplay.label.text = calculator.lcdDisplayText
+        calculatorEngine.addPressed()
+        refreshLCDDisplay()
     }
     
     @IBAction func equalButtonPressed(_ sender: UIButton) {
         deselectOperatorButtons()
         sender.bounce()
         
-        calculator.equalsPressed()
-        lcdDisplay.label.text = calculator.lcdDisplayText
+        calculatorEngine.equalsPressed()
+        refreshLCDDisplay()
     }
     
     @IBAction func decimalButtonPressed(_ sender: UIButton) {
         deselectOperatorButtons()
         sender.bounce()
         
-        calculator.decimalPressed()
-        lcdDisplay.label.text = calculator.lcdDisplayText
+        calculatorEngine.decimalPressed()
+        refreshLCDDisplay()
     }
     
     @IBAction func numberButtonPressed(_ sender: UIButton) {
@@ -285,8 +265,8 @@ class CalcViewController: UIViewController {
         sender.bounce()
         let number = sender.tag
         
-        calculator.numberPressed(number)
-        lcdDisplay.label.text = calculator.lcdDisplayText
+        calculatorEngine.numberPressed(number)
+        refreshLCDDisplay()
     }
     
     // MARK: - Animate
@@ -316,7 +296,7 @@ class CalcViewController: UIViewController {
         let storyboard = UIStoryboard(name: UIStoryboard.keys.mainStoryboard, bundle: nil)
         guard let logViewController: LogViewController = storyboard.instantiateViewController(withIdentifier: UIStoryboard.keys.logViewController) as? LogViewController else { return }
         
-        logViewController.datasource = calculator.copyOfEquationLog
+        logViewController.datasource = calculatorEngine.copyOfEquationLog
         
         let navigationController = UINavigationController(rootViewController: logViewController)
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -341,21 +321,24 @@ class CalcViewController: UIViewController {
     
     @objc private func didReceivePasteNotification(notification: Notification) {
         guard let decimalValue = notification.userInfo?[LCDDisplay.keys.userInfo] as? Double else { return }
-        pasteNewValueIntoCalculator(Decimal(decimalValue))
+        pasteNumberIntoCalculator(from: Decimal(decimalValue))
     }
     
     @objc private func didReceivePasteMathEquationNotification(notification: Notification) {
         guard let mathEquation = notification.userInfo?[LCDDisplay.keys.userInfo] as? MathEquation else { return }
-        pasteResultIntoCalculator(from: mathEquation)
+        pasteNumberIntoCalculator(from: mathEquation)
     }
     
-    private func pasteNewValueIntoCalculator(_ decimal: Decimal) {
-        calculator.pasteIn(decimal)
-        lcdDisplay.label.text = calculator.lcdDisplayText
+    // MARK: - Copy & Paste
+    
+    private func pasteNumberIntoCalculator(from decimal: Decimal) {
+        calculatorEngine.pasteInNumber(from: decimal)
+        refreshLCDDisplay()
     }
     
-    private func pasteResultIntoCalculator(from mathEquation: MathEquation) {
-        calculator.pasteInResult(from: mathEquation)
-        lcdDisplay.label.text = calculator.lcdDisplayText
+    private func pasteNumberIntoCalculator(from mathEquation: MathEquation) {
+        calculatorEngine.pasteInNumber(from: mathEquation)
+        refreshLCDDisplay()
     }
 }
+

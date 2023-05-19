@@ -1,32 +1,6 @@
 //
 //  UIColor+HexValue.swift
-//  Calc
-//
-//  Created by iOSB Free on 24/01/2022.
-//
-//
-//  iOSB Free Ltd                   → All rights reserved
-//  Website                         → https://www.iosbfree.com
-//
-//  👉🏿 Free Courses                 → https://www.udemy.com/user/iosbfree
-//
-//  YouTube                         → https://www.youtube.com/channel/UCWBUOVRbtKNml4jN_4bRkCQ
-//  Linked In                       → http://www.linkedin.com/in/mattharding-iosbfree
-//
-//  Tell us what
-//  you want to learn
-//
-//  ❤️ iOSB Free
-//  community@iosbfree.com
-//  🧕🏻👨🏿‍💼👩🏼‍💼👩🏻‍💻👨🏼‍💼🧛🏻‍♀️👩🏼‍💻💁🏽‍♂️🕵🏻‍♂️🧝🏼‍♀️🦹🏼‍♀🧕🏾🧟‍♂️
-// *******************************************************************************************
-//
-// → What's This File?
-//   It's an extension. It adds more features to UIColor, such as loading from a hex value.
-//   Architecural Layer: Presentation Layer
-//
-//   💡 Tip 👉🏻 Extensions allow us to add features to someone elses files.
-// *******************************************************************************************
+//  MathX
 
 
 import UIKit

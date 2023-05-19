@@ -1,33 +1,7 @@
 //
 //  iOSBFreeCalculatorEngine.swift
-//  Calc
-//
-//  Created by iOSB Free on 25/01/2022.
-//
-//
-//  iOSB Free Ltd                   → All rights reserved
-//  Website                         → https://www.iosbfree.com
-//
-//  👉 Free Courses                 → https://www.udemy.com/user/iosbfree
-//
-//  YouTube                         → https://www.youtube.com/channel/UCWBUOVRbtKNml4jN_4bRkCQ
-//  Linked In                       → http://www.linkedin.com/in/mattharding-iosbfree
-//
-//  Tell us what
-//  you want to learn
-//
-//  💜 iOSB Free
-//  community@iosbfree.com
-//  🧕🏻👨🏿‍💼👩🏼‍💼👩🏻‍💻👨🏼‍💼🧛🏻‍♀️👩🏼‍💻💁🏽‍♂️🕵🏻‍♂️🧝🏼‍♀️🦹🏼‍♀🧕🏾🧟‍♂️
-// *******************************************************************************************
-//
-// → What's This File?
-//   It's the core of the calculator. The brain. It generates all of our behaviour.
-//   Architecural Layer: Business Logic Layer
-//
-//   💡 Testing Tip 👉🏻 By testing the API of iOSBFreeCalculatorEngine we save countless
-//   hours worried about a live issue, which could have been prevented by writing unit tests.
-// *******************************************************************************************
+//  MathX
+
 
 
 import Foundation
@@ -260,7 +234,7 @@ struct iOSBFreeCalculatorEngine {
     
     // → 💡 Just a thought: Adding system features like copy & paste provides a nicer experience for the user.
     
-    mutating func pasteIn(_ decimal: Decimal) {
+    mutating func pasteInNumber(from decimal: Decimal) {
         if currentMathEntry.isCompleted {
             currentMathEntry = MathInputController()
         }
@@ -268,17 +242,12 @@ struct iOSBFreeCalculatorEngine {
         currentMathEntry.pasteIn(decimal)
     }
     
-    mutating func pasteInResult(from mathEquation: MathEquation) {
+    mutating func pasteInNumber(from mathEquation: MathEquation) {
         guard let result = mathEquation.result else {
             return
         }
         
-        var newMathInput = MathInputController()
-        newMathInput.lhs = 1
-        newMathInput.operation = .multiply
-        newMathInput.rhs = result
-        newMathInput.execute()
-        
-        currentMathEntry = newMathInput
+        currentMathEntry = MathInputController()
+        pasteInNumber(from: result)
     }
 }

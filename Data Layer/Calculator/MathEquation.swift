@@ -1,33 +1,7 @@
 //
 //  MathEquation.swift
-//  Calc
-//
-//  Created by iOSB Free on 26/01/2022.
-//
-//
-//  iOSB Free Ltd                   → All rights reserved
-//  Website                         → https://www.iosbfree.com
-//
-//  👉🏻 Free Courses                 → https://www.udemy.com/user/iosbfree
-//
-//  YouTube                         → https://www.youtube.com/channel/UCWBUOVRbtKNml4jN_4bRkCQ
-//  Linked In                       → http://www.linkedin.com/in/mattharding-iosbfree
-//
-//  Tell us what
-//  you want to learn
-//
-//  💛 iOSB Free
-//  community@iosbfree.com
-//  🧕🏻👨🏿‍💼👩🏼‍💼👩🏻‍💻👨🏼‍💼🧛🏻‍♀️👩🏼‍💻💁🏽‍♂️🕵🏻‍♂️🧝🏼‍♀️🦹🏼‍♀🧕🏾🧟‍♂️
-// *******************************************************************************************
-//
-// → What's This File?
-//   It's data that represents one equation. It also performs a little math too.
-//   Architecural Layer: Data Layer
-//
-//   💡 Architecture Tip 👉🏿  "S.O.L.I.D" is an acronym for some solid engineering principles
-//   that every developer should memorise and commit to memory. 👍🏼 
-// *******************************************************************************************
+//  MathX
+
 
 
 import Foundation

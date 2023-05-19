@@ -1,33 +1,8 @@
 //
 //  MathInputController.swift
-//  Calc
-//
-//  Created by iOSB Free on 26/01/2022.
-//
-//
-//  iOSB Free Ltd                   → All rights reserved
-//  Website                         → https://www.iosbfree.com
-//
-//  👉🏼 Free Courses                 → https://www.udemy.com/user/iosbfree
-//
-//  YouTube                         → https://www.youtube.com/channel/UCWBUOVRbtKNml4jN_4bRkCQ
-//  Linked In                       → http://www.linkedin.com/in/mattharding-iosbfree
-//
-//  Tell us what
-//  you want to learn
-//
-//  💚 iOSB Free
-//  community@iosbfree.com
-//  🧕🏻👨🏿‍💼👩🏼‍💼👩🏻‍💻👨🏼‍💼🧛🏻‍♀️👩🏼‍💻💁🏽‍♂️🕵🏻‍♂️🧝🏼‍♀️🦹🏼‍♀🧕🏾🧟‍♂️
-// *******************************************************************************************
-//
-// → What's This File?
-//   It's a manager for one equation. In charge of input and what is displayed to the user.
-//   Architecural Layer: Business Logic Layer
-//
-//   💡 Architecture Tip 👉🏻 Try to restrict each file to one single purpose, which is known
-//   as having a single responsibility. Why not google "single responsibility software"
-// *******************************************************************************************
+//  MathX
+
+
 
 
 import Foundation
